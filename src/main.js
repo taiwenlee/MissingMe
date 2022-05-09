@@ -4,6 +4,10 @@ let config = {
    height: 480,
    physics: {
       default: 'arcade',
+      arcade: {
+         gravity: { y: 100 },
+         debug: true
+      }
    },
    scale: {
       mode: Phaser.Scale.FIT,
@@ -14,3 +18,6 @@ let config = {
 
 // Phaser game object
 let game = new Phaser.Game(config);
+
+// controls
+let keyA, keyD, keyW, keyS, keySpace;
