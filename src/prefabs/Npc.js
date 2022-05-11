@@ -43,18 +43,20 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
       }
    }
 
-   // checks if key is pressed down then released
+   // returns true once per key press
    keyTap(key) {
+      // added a holding var to key for tap logic
       if(key.holding == null) {
          key.holding = false;
       }
-      if(key.isUp) {
+      
+      if(key.isUp) { // if key is up reset holding
          key.holding = false;
          return false;
-      } else if(key.isDown && !key.holding) {
+      } else if(key.isDown && !key.holding) {   // register first down press
          key.holding = true;
          return true;
-      } else {
+      } else { // while key continues to stay down, dont register the press 
          return false;
       }
    }
