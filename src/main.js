@@ -1,11 +1,11 @@
 let config = {
    type: Phaser.AUTO,
-   width: 825,
-   height: 480,
+   width: 912,
+   height: 608,
    physics: {
       default: 'arcade',
       arcade: {
-         gravity: { y: 100 },
+         gravity: { y: 200 },
          debug: true
       }
    },
@@ -20,4 +20,4 @@ let config = {
 let game = new Phaser.Game(config);
 
 // controls
-let keyA, keyD, keyW, keyS, keySpace;
+let keyA, keyD, keyW, keyS, keyF, keySpace;
