@@ -15,6 +15,10 @@ class Play extends Phaser.Scene {
       keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
       keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
+      // add texts
+      var cache = this.cache.json;
+      this.text = cache.get("text");  
+
       // add player
       this.player = new Player(this, game.config.width/2, game.config.height/2, 'player', 'run0.png');
 
@@ -30,7 +34,8 @@ class Play extends Phaser.Scene {
          classType: NPC,
          runChildUpdate: true
       });
-      this.npc0 = new NPC(this, game.config.width/2, game.config.height - 50, 'npc0', 0);
+      this.npcsText = this.text["npcs"];
+      this.npc0 = new NPC(this, game.config.width/2, game.config.height - 50, 'npc0', 0, this.npcsText["npc0"]);
       this.npcs.add(this.npc0);
 
 

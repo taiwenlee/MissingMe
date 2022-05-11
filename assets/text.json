@@ -1,0 +1,17 @@
+{
+   "npcs" : {
+      "npc0" : {
+         "name" : "NPC0",
+         "interaction" : [
+            {
+               "text" : "Hello, I'm a NPC",
+               "type" : "text"
+            },
+            {
+               "text" : "I'm a NPC",
+               "type" : "text"
+            }
+         ]
+      }
+   }
+}

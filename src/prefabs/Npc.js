@@ -1,5 +1,5 @@
 class NPC extends Phaser.Physics.Arcade.Sprite {
-   constructor(scene, x, y, texture, frame) {
+   constructor(scene, x, y, texture, frame, text) {
       super(scene, x, y, texture, frame);
 
       scene.add.existing(this);
@@ -8,10 +8,16 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
 
       // set NPC properties
       this.interactDistance = 100;  // distance for interaction
+      this.interactText = text["interaction"];  // text for interaction
 
       // state variables
       this.Interacting = false;
+      this.index = 0;            // index for text
 
+      //text object
+      this.text = scene.add.text(x, y - this.height * this.scale, this.interactText[this.index]["text"]).setOrigin(0.5);
+      this.text.visible = false;
+      
    }
 
    update() {
@@ -19,15 +25,21 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
       let intKey = this.keyTap(keyF);
       if(Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance
          && intKey && !this.Interacting) {
+         // initiate interaction
          this.Interacting = true;
          this.scene.player.Interacting = true;
-         console.log("interact");
+         this.text.visible = true;
+         this.text.setText(this.interactText[this.index++]["text"]);
       } else if(this.Interacting && intKey) {
-         console.log("stop interact");
-         this.scene.player.Interacting = false;
-         this.Interacting = false;
+         // cycles down each interaction text
+         if(this.index >= this.interactText.length) {
+            this.scene.player.Interacting = false;
+            this.Interacting = false;
+            this.index = 0;
+            this.text.visible = false;
+         }
+         this.text.setText(this.interactText[this.index++]["text"]);
       }
-
    }
 
    // checks if key is pressed down then released
