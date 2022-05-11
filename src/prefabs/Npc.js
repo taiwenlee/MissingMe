@@ -35,10 +35,11 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
          if(this.index >= this.interactText.length) {
             this.scene.player.Interacting = false;
             this.Interacting = false;
-            this.index = 0;
             this.text.visible = false;
+            this.index = 0;
+         } else {
+            this.text.setText(this.interactText[this.index++]["text"]);
          }
-         this.text.setText(this.interactText[this.index++]["text"]);
       }
    }
 
