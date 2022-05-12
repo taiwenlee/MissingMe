@@ -25,7 +25,6 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
       this.textbox.setOrigin(0.5, 1);
       this.textbox.visible = false;
 
-      console.log(this);
    }
 
    update() {
