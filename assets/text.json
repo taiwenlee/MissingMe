@@ -12,6 +12,31 @@
                "type" : "text"
             }
          ]
+      },
+      "npc1" : {
+         "name" : "NPC1",
+         "interaction" : [
+            {
+               "text" : "1",
+               "type" : "text"
+            },
+            {
+               "text" : "22",
+               "type" : "text"
+            },
+            {
+               "text" : "333",
+               "type" : "text"
+            },
+            {
+               "text" : "4444",
+               "type" : "text"
+            },
+            {
+               "text" : "55555",
+               "type" : "text"
+            }
+         ]
       }
    }
 }

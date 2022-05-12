@@ -7,6 +7,9 @@ class Play extends Phaser.Scene {
       // temp scene indicator text
       const tempText = this.add.text(10, 10, "playScene");
 
+      // temp fps counter
+      this.tempFPS = this.add.text(10, 30, "FPS: " + this.game.loop.actualFps);
+
       // controls 
       keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
       keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
@@ -35,6 +38,9 @@ class Play extends Phaser.Scene {
          runChildUpdate: true
       });
       this.npcsText = this.text["npcs"];
+      console.log(this.npcsText);
+      this.npc1 = new NPC(this, game.config.width/2 + 400, game.config.height - 50, 'npc1', 0, this.npcsText["npc1"]);
+      this.npcs.add(this.npc1);
       this.npc0 = new NPC(this, game.config.width/2, game.config.height - 50, 'npc0', 0, this.npcsText["npc0"]);
       this.npcs.add(this.npc0);
 
@@ -46,7 +52,8 @@ class Play extends Phaser.Scene {
       // update player
       this.player.update(this.time, this.delta);
 
-
+      // update fps counter
+      this.tempFPS.setText("FPS: " + this.game.loop.actualFps);
    }
 
    createFloor() {

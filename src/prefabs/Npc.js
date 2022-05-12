@@ -15,32 +15,46 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
       this.index = 0;            // index for text
 
       //text object
-      this.text = scene.add.text(x, y - this.height * this.scale, this.interactText[this.index]["text"]).setOrigin(0.5);
-      this.text.visible = false;
-      
+      let firstText = this.interactText[this.index]["text"];
+      this.textbox = new Textbox(scene, x, y - this.height * this.scale, firstText, {
+         fontFamily: 'Arial',
+         fontSize: '32px',
+         color: '#ffffff',
+         align: 'center',
+      });
+      this.textbox.setOrigin(0.5, 1);
+      this.textbox.visible = false;
+
+      console.log(this);
    }
 
    update() {
       // basic interact with player (very likely to have major changes)
-      let intKey = this.keyTap(keyF);
-      if(Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance
-         && intKey && !this.Interacting) {
-         // initiate interaction
-         this.Interacting = true;
-         this.scene.player.Interacting = true;
-         this.text.visible = true;
-         this.text.setText(this.interactText[this.index++]["text"]);
-      } else if(this.Interacting && intKey) {
-         // cycles down each interaction text
-         if(this.index >= this.interactText.length) {
-            this.scene.player.Interacting = false;
-            this.Interacting = false;
-            this.text.visible = false;
-            this.index = 0;
-         } else {
-            this.text.setText(this.interactText[this.index++]["text"]);
+      if(Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
+         let intKey = this.keyTap(keyF);
+         if(intKey && !this.Interacting) {
+            console.log("Interacting");
+            // initiate interaction
+            this.Interacting = true;
+            this.scene.player.Interacting = true;
+            this.textbox.visible = true;
+            this.textbox.setText(this.interactText[this.index++]["text"]);
+         } else if(this.Interacting && intKey) {
+            // cycles down each interaction text
+            if(this.index >= this.interactText.length) {
+               this.scene.player.Interacting = false;
+               this.Interacting = false;
+               this.textbox.visible = false;
+               this.index = 0;
+            } else {
+               this.textbox.setText(this.interactText[this.index++]["text"]);
+            }
          }
       }
+
+
+      // update textbox
+      this.textbox.update();
    }
 
    // returns true once per key press
@@ -50,14 +64,14 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
          key.holding = false;
       }
       
-      if(key.isUp) { // if key is up reset holding
+      if(key.isUp && key.holding) { // if key is up reset holding
          key.holding = false;
          return false;
       } else if(key.isDown && !key.holding) {   // register first down press
          key.holding = true;
          return true;
-      } else { // while key continues to stay down, dont register the press 
+      } else{ // if holding or already reset
          return false;
-      }
+      } 
    }
 }
