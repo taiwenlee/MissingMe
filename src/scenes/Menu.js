@@ -3,11 +3,6 @@ class Menu extends Phaser.Scene {
       super("menuScene");
    }
 
-   preload() {
-      // audio assets
-      this.load.audio('backgroundmusic', 'assets/sounds/MissingMeTheme.mp3');
-   }
-
    create() {
       // background music
       if(!music) {
