@@ -72,18 +72,18 @@ class Textbox{
         // Border Box
         this.box.fillStyle(this.borderColor, 1);
         this.box.fillRoundedRect(this.text.x - this.text.width * this.OriginX - this.padding - this.border,
-        this.text.y - this.text.height * this.OriginY - this.padding - this.border, 
-        this.text.width + this.padding * 2 + this.border * 2,
-        this.text.height + this.padding * 2 + this.border * 2,
-        this.rounding);
+                                this.text.y - this.text.height * this.OriginY - this.padding - this.border, 
+                                this.text.width + this.padding * 2 + this.border * 2,
+                                this.text.height + this.padding * 2 + this.border * 2,
+                                this.rounding);
 
         // Background Box
         this.box.fillStyle(this.backgroundColor, 1);
         this.box.fillRoundedRect(this.text.x - this.text.width * this.OriginX - this.padding,
-        this.text.y - this.text.height * this.OriginY - this.padding, 
-        this.text.width + this.padding * 2,
-        this.text.height + this.padding * 2,
-        this.rounding);
+                                this.text.y - this.text.height * this.OriginY - this.padding, 
+                                this.text.width + this.padding * 2,
+                                this.text.height + this.padding * 2,
+                                this.rounding);
 
     }
 

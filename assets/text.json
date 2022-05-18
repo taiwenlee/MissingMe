@@ -1,42 +1,60 @@
 {
    "npcs" : {
       "npc0" : {
-         "name" : "NPC0",
-         "interaction" : [
-            {
-               "text" : "Hello, I'm a NPC",
-               "type" : "text"
-            },
-            {
-               "text" : "I'm a NPC",
-               "type" : "text"
-            }
-         ]
+         "name" : "npc0",
+         "crop" : "crop0",
+         "item" : "item0",
+         "item_count" : 1,
+         "narratives" :  {
+            "prequest":  [
+               "prequest",
+               "1"
+            ],
+            "quest" : [
+               "quest",
+               "2"
+            ],
+            "repeatquest" : [
+               "repeatquest",
+               "3"
+            ],
+            "completequest" : [
+               "completequest",
+               "4"
+            ],
+            "postquest" : [
+               "postquest",
+               "5"
+            ]
+         }
       },
       "npc1" : {
-         "name" : "NPC1",
-         "interaction" : [
-            {
-               "text" : "1",
-               "type" : "text"
-            },
-            {
-               "text" : "22",
-               "type" : "text"
-            },
-            {
-               "text" : "333",
-               "type" : "text"
-            },
-            {
-               "text" : "4444",
-               "type" : "text"
-            },
-            {
-               "text" : "55555",
-               "type" : "text"
-            }
-         ]
+         "name" : "npc1",
+         "crop" : "crop1",
+         "item" : "item1",
+         "item_count" : 2,
+         "narratives" :  {
+            "prequest":  [
+               "prequest",
+               "11"
+            ],
+            "quest" : [
+               "quest",
+               "22"
+            ],
+            "repeatquest" : [
+               "repeatquest",
+               "33"
+            ],
+            "completequest" : [
+               "completequest",
+               "44"
+            ],
+            "postquest" : [
+               "postquest",
+               "55"
+            ]
+         }
       }
    }
 }
