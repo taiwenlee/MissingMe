@@ -18,7 +18,7 @@ class Load extends Phaser.Scene {
       this.load.json("text", "./assets/text.json");
 
       // audio assets
-      this.load.audio('backgroundmusic', 'assets/sounds/MissingMeTheme.mp3');
+      this.load.audio('backgroundmusic', 'assets/sounds/MissingMeTheme3.wav');
    }
 
    create() {

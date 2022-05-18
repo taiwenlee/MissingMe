@@ -16,7 +16,8 @@ class Menu extends Phaser.Scene {
 
       // add play hover image
       const playHover = this.add.image(game.config.width/2,  game.config.height/2, 'playHover').setOrigin(0.5);
-      playHover.scale = 0.15; // scaling for the button
+      playHover.alpha = 0;
+      //playHover.scale = 0.15; // scaling for the button
 
       // play button
       const playButton = this.add.image(game.config.width/2, game.config.height/2, 'play').setOrigin(0.5);
@@ -28,12 +29,14 @@ class Menu extends Phaser.Scene {
       });
       playButton.on('pointerover', () => { // reveal hover image
          playButton.alpha = 0;
+         playHover.alpha = 1;
       });
       playButton.on('pointerout', () => {  // return og image
          playButton.alpha = 1;
+         playHover.alpha = 0;
       });
       playButton.input.alwaysEnabled = true; // prevents flickering between two images
-      playButton.scale = 0.15; // scaling for the button
+      //playButton.scale = 0.15; // scaling for the button
    }
 
    update() {
