@@ -17,7 +17,7 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
       //text object
       let firstText = this.interactText[this.index]["text"];
       this.textbox = new Textbox(scene, x, y - this.height * this.scale, firstText, {
-         fontFamily: 'Arial',
+         fontFamily: 'VT323',
          fontSize: '32px',
          color: '#ffffff',
          align: 'center',
