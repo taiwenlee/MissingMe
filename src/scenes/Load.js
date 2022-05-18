@@ -5,9 +5,13 @@ class Load extends Phaser.Scene {
 
    preload() {
       // UI assets
+      this.load.image("select", "./assets/images/select.png");
       this.load.image("play", "./assets/images/play.png");
       this.load.image("playHover", "./assets/images/playHover.png");
-      this.load.image("select", "./assets/images/select.png");
+      this.load.image("settings", "./assets/images/settings.png");
+      this.load.image("settingsHover", "./assets/images/settingsHover.png");
+      this.load.image("credits", "./assets/images/credits.png");
+      this.load.image("creditsHover", "./assets/images/creditsHover.png");
       
       // object assets
       this.load.atlas("player", "./assets/images/player.png", "./assets/images/player.json");
