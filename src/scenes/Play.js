@@ -33,9 +33,10 @@ class Play extends Phaser.Scene {
       this.cameras.main.startFollow(this.player);
 
       // add inventory
-      this.inventory = new Inventory(this, 40, 40);
+      this.inventory = new Inventory(this, 10, 10);
 
       this.inventory.addItem("item0", 1);
+      this.inventory.setOrigin(0);
  
       // add floor
       this.createFloor();

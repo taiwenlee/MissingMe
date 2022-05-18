@@ -4,8 +4,7 @@ class Inventory {
         this.scene = scene;
 
         // inventory properties
-        this.padding = 10;
-        this.border = 5;
+        this.border = 3;
         this.rounding = 5;
         this.depth = 8;
         this.borderColor = 0xffffff;
@@ -15,8 +14,8 @@ class Inventory {
         this.y = y;
         this.OriginX = 0;
         this.OriginY = 0;
-        this.width = 32;
-        this.height = 32;
+        this.width = 64;
+        this.height = 64;
         this.style = { fontFamily: 'Arial', fontSize: '14px', color: '#ffffff', align: 'center' };
 
         // item properties
@@ -54,18 +53,18 @@ class Inventory {
 
         // Border Box
         this.box.fillStyle(this.borderColor);
-        this.box.fillRoundedRect(this.x - this.width * this.OriginX - this.padding - this.border,
-                                this.y - this.height * this.OriginY - this.padding - this.border, 
-                                this.width + this.padding * 2 + this.border * 2, 
-                                this.height + this.padding * 2 + this.border * 2, 
+        this.box.fillRoundedRect(this.x - this.width * this.OriginX - this.border,
+                                this.y - this.height * this.OriginY - this.border, 
+                                this.width + this.border * 2, 
+                                this.height + this.border * 2, 
                                 this.rounding);
 
         // Background Box
         this.box.fillStyle(this.backgroundColor);
-        this.box.fillRoundedRect(this.x - this.width * this.OriginX - this.padding,
-                                this.y - this.height * this.OriginY - this.padding,
-                                this.width + this.padding * 2,
-                                this.height + this.padding * 2,
+        this.box.fillRoundedRect(this.x - this.width * this.OriginX,
+                                this.y - this.height * this.OriginY,
+                                this.width,
+                                this.height,
                                 this.rounding);
 
         // item image
@@ -78,22 +77,20 @@ class Inventory {
         // item count
         if(this.itemCount >= 1) {
             this.itemCountText.setOrigin(0.5);
-            this.itemCountText.x = this.x + this.width * (1 - this.OriginX);
-            this.itemCountText.y = this.y + this.height * (1 - this.OriginY);
+            this.itemCountText.x = this.x + this.width * (0.9 - this.OriginX);
+            this.itemCountText.y = this.y + this.height * (0.9 - this.OriginY);
         }
     }
 
     setOrigin() {
         if(arguments.length == 1) {
-            this.text.setOrigin(arguments[0], arguments[0]);
             this.OriginX = arguments[0];
             this.OriginY = arguments[0];
-            this.drawBox();
+            this.drawInventory();
         } else if(arguments.length == 2) {
-            this.text.setOrigin(arguments[0], arguments[1]);
             this.OriginX = arguments[0];
             this.OriginY = arguments[1];
-            this.drawBox();
+            this.drawInventory();
         } else {
             console.log("Error: setOrigin requires 1 or 2 arguments");
         }
@@ -104,7 +101,7 @@ class Inventory {
             this.itemName = name;
             this.itemImage = this.scene.add.image(this.x, this.y, name);
             this.itemImage.setScrollFactor(0);
-            this.itemImage.setScale(0.12);
+            this.itemImage.setScale(0.1);
             this.itemImage.depth = this.depth + 1;
             this.itemCountText.visible = true;
 
