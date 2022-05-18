@@ -28,7 +28,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
          this.body.setVelocityX(0);
       }
 
-      // basic jump
+      /*// basic jump
       if(keySpace.isDown && !this.Jumping && !this.Interacting) {
          this.Jumping = true;
          this.body.setVelocityY(-this.jumpSpeed);
@@ -36,7 +36,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
          this.Jumping = false;
       } else {
          this.Jumping = true;
-      }
+      }*/
 
 
       // flip animation based on direction

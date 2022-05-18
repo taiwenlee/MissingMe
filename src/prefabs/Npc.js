@@ -42,7 +42,7 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
       if(Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
          // show indicator if nearby
          this.indicator.visible = true;
-         let intKey = this.keyTap(keyF);
+         let intKey = this.keyTap(keySpace);
          if(intKey && !this.Interacting && this.interactable) {
             console.log("Interacting");
             // initiate interaction

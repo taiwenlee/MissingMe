@@ -4,11 +4,14 @@ class Play extends Phaser.Scene {
    }
 
    create() {
+
       // temp scene indicator text
       const tempText = this.add.text(10, 10, "playScene");
+      tempText.setScrollFactor(0);
 
       // temp fps counter
       this.tempFPS = this.add.text(10, 30, "FPS: " + this.game.loop.actualFps);
+      this.tempFPS.setScrollFactor(0);
 
       // controls 
       keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
@@ -23,11 +26,16 @@ class Play extends Phaser.Scene {
       this.text = cache.get("text");  
 
       // add player
-      this.player = new Player(this, game.config.width/2, game.config.height/2, 'player', 'run0.png');
+      this.player = new Player(this, game.config.width/2, game.config.height - 60, 'player', 'run0.png');
 
       // add camera
       this.cameras.main.setBounds(0, 0, game.config.width * 10, game.config.height);
       this.cameras.main.startFollow(this.player);
+
+      // add inventory
+      this.inventory = new Inventory(this, 40, 40);
+
+      this.inventory.addItem("item0", 1);
  
       // add floor
       this.createFloor();
@@ -38,7 +46,6 @@ class Play extends Phaser.Scene {
          runChildUpdate: true
       });
       this.npcsText = this.text["npcs"];
-      console.log(this.npcsText);
       this.npc1 = new NPC(this, game.config.width/2 + 400, game.config.height - 50, 'npc1', 0, this.npcsText["npc1"]);
       this.npcs.add(this.npc1);
       this.npc0 = new NPC(this, game.config.width/2, game.config.height - 50, 'npc0', 0, this.npcsText["npc0"]);
