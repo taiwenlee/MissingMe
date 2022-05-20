@@ -8,9 +8,4 @@ class Credits extends Phaser.Scene {
         const tempText = this.add.text(10, 10, "creditsScene");
 
     }
-    
-    update() {
-
-    }
-    
 }

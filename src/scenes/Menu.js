@@ -107,8 +107,4 @@ class Menu extends Phaser.Scene {
       creditsButton.input.alwaysEnabled = true; // prevents flickering between two images
 
    }
-
-   update() {
-
-   }
 }

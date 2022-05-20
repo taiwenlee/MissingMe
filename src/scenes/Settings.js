@@ -7,9 +7,4 @@ class Settings extends Phaser.Scene {
         // temp scene indicator text
         const tempText = this.add.text(10, 10, "settingsScene");
     }
-    
-    update() {
-
-    }
-
 }
