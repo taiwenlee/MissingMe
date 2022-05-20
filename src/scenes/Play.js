@@ -8,6 +8,9 @@ class Play extends Phaser.Scene {
       // game state
       this.inQuest = false;
 
+      // set world size
+      this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
+
       // add background
       this.background = this.add.image(game.config.width/2, game.config.height, 'background').setOrigin(0.5,1);
       this.background.setScrollFactor(0);
@@ -36,7 +39,7 @@ class Play extends Phaser.Scene {
       this.player = new Player(this, game.config.width/2, game.config.height - 60, 'player', 'run0.png');
 
       // add camera
-      this.cameras.main.setBounds(0, 0, game.config.width * 10, game.config.height);
+      this.cameras.main.setBounds(0, 0, game.config.width * 5, game.config.height);
       this.cameras.main.startFollow(this.player);
 
       // add inventory
