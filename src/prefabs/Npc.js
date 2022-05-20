@@ -6,12 +6,16 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
 
       this.setScale(0.1);
 
+      // crop object
+      this.crop = new Crop(scene, 80, y, texture, 0, this, json["crop"]);
+
       // set NPC properties
       this.name = json["name"];  // name of NPC
       this.interactDistance = 100;  // distance for interaction
       this.narratives = json["narratives"];  // text for interaction
       this.interactable = true;
       this.item = json["item"];  // item to give to player
+      this.itemCount = json["item_count"];  // item count to give to player
       
       // state variables
       this.Interacting = false;
@@ -19,9 +23,8 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
       this.queststate = "prequest";  // quest state
 
       //text object
-      this.narrative = this.narratives[this.queststate];
-      let firstText = this.narrative[this.index];
-      this.textbox = new Textbox(scene, x, y - this.height * this.scale, firstText, {
+      let firstText = this.narratives[this.queststate][this.index];
+      this.textbox = new Textbox(scene, x, y - this.height * this.scale * 2, firstText, {
          fontFamily: 'VT323',
          fontSize: '32px',
          color: '#ffffff',
@@ -31,9 +34,8 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
       this.textbox.visible = false;
 
       // interact indicator
-      this.indicator = scene.add.image(x, y - this.height * this.scale, "indicator").setOrigin(0.5);
+      this.indicator = scene.add.image(x, y - this.height * this.scale / 2 - 10, "indicator").setOrigin(0.5, 1);
       this.indicator.visible = false;
-      this.indicator.setScale(0.5);
 
    }
 
@@ -48,18 +50,29 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
             // initiate interaction
             this.Interacting = true;
             this.scene.player.Interacting = true;
+            if(this.getQuestState() == 3
+               && this.scene.inventory.itemName == this.item 
+               && this.scene.inventory.itemCount == this.itemCount) {
+               // complete quest if player has item
+               this.scene.inventory.clear();
+               this.scene.inQuest = false;
+               this.setQuestState(4);
+            }
+            this.textbox.setText(this.narratives[this.queststate][this.index++]);
             this.textbox.visible = true;
-            this.textbox.setText(this.narrative[this.index++]);
          } else if(this.Interacting && intKey) {
             // cycles down each interaction text
-            if(this.index >= this.narrative.length) {
+            if(this.index >= this.narratives[this.queststate].length) {
                // if at end of text, end interaction
                this.scene.player.Interacting = false;
                this.Interacting = false;
                this.textbox.visible = false;
                this.index = 0;
+               if(this.getQuestState() == 2 || this.getQuestState() == 4) {
+                  this.setQuestState(this.getQuestState() + 1);
+               }
             } else {
-               this.textbox.setText(this.narrative[this.index++]);
+               this.textbox.setText(this.narratives[this.queststate][this.index++]);
             }
          }
       } else if(this.indicator.visible) {
@@ -67,10 +80,13 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
       }
       // update textbox
       this.textbox.update();
+
+      // update crop
+      this.crop.update();
    }
 
    // update quest state
-   updateQuestState(state) {
+   setQuestState(state) {
       switch(state) {
          case 1:
             this.queststate = "prequest";
@@ -87,6 +103,24 @@ class NPC extends Phaser.Physics.Arcade.Sprite {
          case 5:
             this.queststate = "postquest";
             break;
+         default:
+            console.log("Error: invalid quest state");
+      }
+   }
+
+   // return quest state as int
+   getQuestState() {
+      switch(this.queststate) {
+         case "prequest":
+            return 1;
+         case "quest":
+            return 2;
+         case "repeatquest":
+            return 3;
+         case "completequest":
+            return 4;
+         case "postquest":
+            return 5;
          default:
             console.log("Error: invalid quest state");
       }

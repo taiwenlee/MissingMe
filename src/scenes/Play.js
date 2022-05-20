@@ -5,6 +5,13 @@ class Play extends Phaser.Scene {
 
    create() {
 
+      // game state
+      this.inQuest = false;
+
+      // add background
+      this.background = this.add.image(game.config.width/2, game.config.height, 'background').setOrigin(0.5,1);
+      this.background.setScrollFactor(0);
+
       // temp scene indicator text
       const tempText = this.add.text(10, 10, "playScene");
       tempText.setScrollFactor(0);
@@ -21,7 +28,7 @@ class Play extends Phaser.Scene {
       keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
       keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-      // add texts
+      // add json
       var cache = this.cache.json;
       this.text = cache.get("text");  
 
@@ -33,8 +40,7 @@ class Play extends Phaser.Scene {
       this.cameras.main.startFollow(this.player);
 
       // add inventory
-      this.inventory = new Inventory(this, 10, 10);
-
+      this.inventory = new Inventory(this, 800, 10);
       this.inventory.addItem("item0", 1);
       this.inventory.setOrigin(0);
  
@@ -47,10 +53,10 @@ class Play extends Phaser.Scene {
          runChildUpdate: true
       });
       this.npcsText = this.text["npcs"];
-      this.npc1 = new NPC(this, game.config.width/2 + 400, game.config.height - 50, 'npc1', 0, this.npcsText["npc1"]);
-      this.npcs.add(this.npc1);
       this.npc0 = new NPC(this, game.config.width/2, game.config.height - 50, 'npc0', 0, this.npcsText["npc0"]);
       this.npcs.add(this.npc0);
+      /*this.npc1 = new NPC(this, game.config.width/2 + 400, game.config.height - 50, 'npc1', 0, this.npcsText["npc1"]);
+      this.npcs.add(this.npc1);  */
 
 
    }

@@ -2,7 +2,16 @@
    "npcs" : {
       "npc0" : {
          "name" : "npc0",
-         "crop" : "crop0",
+         "crop" : {
+            "name" : "crop0",
+            "x" : 0,
+            "y" : 0,
+            "narrative" : [
+               "Crop0 narrative",
+               "help npc0",
+               "test"
+            ]
+         },
          "item" : "item0",
          "item_count" : 1,
          "narratives" :  {
