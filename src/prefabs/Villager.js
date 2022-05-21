@@ -1,4 +1,4 @@
-class Crop extends Phaser.Physics.Arcade.Sprite {
+class Villager extends Phaser.Physics.Arcade.Sprite {
    constructor(scene, x, y, texture, frame, json) {
       super(scene, x, y, texture, frame);
 
@@ -6,21 +6,24 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
 
       this.setScale(0.1);
 
-      // set crop properties
-      this.name = json["name"];  // name of crop
+      // set Villager properties
+      this.name = json["name"];  // name of Villager
+      this.crop = json["crop"];  // crop that Villager is tied to
       this.interactDistance = 100;  // distance for interaction
       this.narratives = json["narratives"];  // text for interaction
       this.interactable = true;
-      this.villager = json["villager"];
-      this.questType = json["quest_type"];
+      this.item = json["item"];  // item to give to player
+      this.itemCount = json["item_count"];  // item count to give to player
+      this.questType = json["quest_type"];  // quest type
 
       // state variables
       this.Interacting = false;
       this.index = 0;            // index for text
-      this.queststate = "quest";  // quest state
+      this.queststate = "prequest";  // quest state
 
       //text object
-      this.textbox = new Textbox(scene, x, y - this.height * this.scale * 2, this.narratives[this.queststate][this.index], {
+      let firstText = this.narratives[this.queststate][this.index];
+      this.textbox = new Textbox(scene, x, y - this.height * this.scale * 2, firstText, {
          fontFamily: 'VT323',
          fontSize: '32px',
          color: '#ffffff',
@@ -32,11 +35,12 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       // interact indicator
       this.indicator = scene.add.image(x, y - this.height * this.scale / 2 - 10, "indicator").setOrigin(0.5, 1);
       this.indicator.visible = false;
+
    }
 
    update() {
-
-      if (this.interactable && Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
+      // basic interact with player (very likely to have major changes)
+      if (Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
          // show indicator if nearby
          this.indicator.visible = true;
          let intKey = this.keyTap(keySpace);
@@ -45,8 +49,8 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
             // initiate interaction
             this.Interacting = true;
             this.scene.player.Interacting = true;
-            this.textbox.visible = true;
             this.updateText(this.narratives[this.queststate][this.index++]);
+            this.textbox.visible = true;
          } else if (this.Interacting && intKey) {
             // cycles down each interaction text
             if (this.index >= this.narratives[this.queststate].length) {
@@ -55,24 +59,14 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
                this.Interacting = false;
                this.textbox.visible = false;
                this.index = 0;
-               // state transition
-               if (this.scene.children.getByName(this.villager).queststate == "prequest") {
-                  console.log("quest started");
-                  this.scene.inQuest = true;
-                  this.scene.children.getByName(this.villager).queststate = "quest";
+               // depending on quest type, do something
+               if (this.queststate == "quest" && this.questType == "get") {
+                  // give player item
+                  this.scene.inventory.addItem(this.item, this.itemCount);
                   this.queststate = "repeatquest";
-               } else if (this.queststate == "completequest") {
-                  this.scene.inQuest = false;
-                  this.scene.children.getByName(this.villager).queststate = "postquest";
-                  this.interactable = false;
-                  // depending on quest type, do something
-                  if (this.questType == "get") {
-                     this.scene.inventory.clear();
-                     console.log("get complete");
-                  }
+                  this.scene.children.getByName(this.crop).queststate = "completequest";
                }
             } else {
-               console.log(this.narratives[this.queststate][this.index]);
                this.updateText(this.narratives[this.queststate][this.index++]);
             }
          }

@@ -12,7 +12,7 @@ class Play extends Phaser.Scene {
       this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
 
       // add background
-      this.background = this.add.image(game.config.width/2, game.config.height, 'background').setOrigin(0.5,1);
+      this.background = this.add.image(game.config.width / 2, game.config.height, 'background').setOrigin(0.5, 1);
       this.background.setScrollFactor(0);
 
       // temp scene indicator text
@@ -31,12 +31,12 @@ class Play extends Phaser.Scene {
       keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
       keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-      // add json
+      // add npc data
       var cache = this.cache.json;
-      this.text = cache.get("text");  
+      this.data = cache.get("data");
 
       // add player
-      this.player = new Player(this, game.config.width/2, game.config.height - 60, 'player', 'run0.png');
+      this.player = new Player(this, game.config.width / 2, game.config.height - 60, 'player', 'run0.png');
 
       // add camera
       this.cameras.main.setBounds(0, 0, game.config.width * 5, game.config.height);
@@ -44,20 +44,24 @@ class Play extends Phaser.Scene {
 
       // add inventory
       this.inventory = new Inventory(this, 800, 10);
-      this.inventory.addItem("item0", 1);
       this.inventory.setOrigin(0);
- 
+
       // add floor
       this.createFloor();
 
       // add NPCs
       this.npcs = this.add.group({
-         classType: NPC,
          runChildUpdate: true
       });
-      this.npcsText = this.text["npcs"];
-      this.npc0 = new NPC(this, game.config.width/2, game.config.height - 50, 'npc0', 0, this.npcsText["npc0"]);
-      this.npcs.add(this.npc0);
+      this.vData = this.data["npcs"]["villagers"];
+      this.cData = this.data["npcs"]["crops"];
+      this.villager0 = new Villager(this, game.config.width / 2, game.config.height - 50, 'villager0', 0, this.vData["villager0"]);
+      this.npcs.add(this.villager0);
+      this.crop0 = new Crop(this, game.config.width / 2 - 200, game.config.height - 50, 'crop0', 0, this.cData["crop0"]);
+      this.npcs.add(this.crop0);
+
+      console.log(this.children.getByName("villager0"));
+
       /*this.npc1 = new NPC(this, game.config.width/2 + 400, game.config.height - 50, 'npc1', 0, this.npcsText["npc1"]);
       this.npcs.add(this.npc1);  */
 

@@ -15,15 +15,16 @@ class Load extends Phaser.Scene {
       this.load.image("item0", "./assets/images/npc0.png");
       this.load.image("indicator", "./assets/images/dialogueArrowTHICK.png");
       this.load.image("background", "./assets/images/background.png");
-      
+
       // object assets
       this.load.atlas("player", "./assets/images/player.png", "./assets/images/player.json");
       this.load.image("floor", "./assets/images/floor.png");
-      this.load.image("npc0", "./assets/images/npc0.png");  // TODO: change to texture atlas
-      this.load.image("npc1", "./assets/images/npc1.png");  // TODO: change to texture atlas
+      this.load.image("villager0", "./assets/images/npc0.png");  // TODO: change to texture atlas
+      this.load.image("crop0", "./assets/images/npc0.png");      // TODO: change to texture atlas
+
 
       // text assets
-      this.load.json("text", "./assets/text.json");
+      this.load.json("data", "./assets/data.json");
 
       // audio assets
       this.load.audio('backgroundmusic', 'assets/sounds/MissingMeTheme3.wav');
@@ -35,7 +36,7 @@ class Load extends Phaser.Scene {
       // animations
       this.anims.create({
          key: "run",
-         frames: this.anims.generateFrameNames("player", {prefix: 'run', suffix: '.png', end: 7}),
+         frames: this.anims.generateFrameNames("player", { prefix: 'run', suffix: '.png', end: 7 }),
          frameRate: 10,
          repeat: -1
       });
