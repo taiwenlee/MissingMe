@@ -62,9 +62,11 @@ class Villager extends Phaser.Physics.Arcade.Sprite {
                // depending on quest type, do something
                if (this.queststate == "quest" && this.questType == "get") {
                   // give player item
-                  this.scene.inventory.addItem(this.item, this.itemCount);
+                  if (this.itemCount > 0) this.scene.inventory.addItem(this.item, this.itemCount);
                   this.queststate = "repeatquest";
                   this.scene.children.getByName(this.crop).queststate = "completequest";
+               } else if (this.queststate == "quest" && this.questType == "fetch") {
+                  // for carrot quest
                }
             } else {
                this.updateText(this.narratives[this.queststate][this.index++]);

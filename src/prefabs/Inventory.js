@@ -39,7 +39,7 @@ class Inventory {
     }
 
     update() {
-        if(this.visible) {
+        if (this.visible) {
             this.box.visible = true;
         } else {
             this.box.visible = false;
@@ -54,40 +54,42 @@ class Inventory {
         // Border Box
         this.box.fillStyle(this.borderColor);
         this.box.fillRoundedRect(this.x - this.width * this.OriginX - this.border,
-                                this.y - this.height * this.OriginY - this.border, 
-                                this.width + this.border * 2, 
-                                this.height + this.border * 2, 
-                                this.rounding);
+            this.y - this.height * this.OriginY - this.border,
+            this.width + this.border * 2,
+            this.height + this.border * 2,
+            this.rounding);
 
         // Background Box
         this.box.fillStyle(this.backgroundColor);
         this.box.fillRoundedRect(this.x - this.width * this.OriginX,
-                                this.y - this.height * this.OriginY,
-                                this.width,
-                                this.height,
-                                this.rounding);
+            this.y - this.height * this.OriginY,
+            this.width,
+            this.height,
+            this.rounding);
 
         // item image
-        if(this.itemName != "") {
+        if (this.itemName != "" && this.itemCount > 0) {
             this.itemImage.setOrigin(0.5);
             this.itemImage.x = this.x + this.width * (0.5 - this.OriginX);
             this.itemImage.y = this.y + this.height * (0.5 - this.OriginY);
         }
 
         // item count
-        if(this.itemCount >= 1) {
+        if (this.itemCount > 0) {
             this.itemCountText.setOrigin(0.5);
             this.itemCountText.x = this.x + this.width * (0.9 - this.OriginX);
             this.itemCountText.y = this.y + this.height * (0.9 - this.OriginY);
+        } else {
+            this.itemCountText.visible = false;
         }
     }
 
     setOrigin() {
-        if(arguments.length == 1) {
+        if (arguments.length == 1) {
             this.OriginX = arguments[0];
             this.OriginY = arguments[0];
             this.drawInventory();
-        } else if(arguments.length == 2) {
+        } else if (arguments.length == 2) {
             this.OriginX = arguments[0];
             this.OriginY = arguments[1];
             this.drawInventory();
@@ -97,7 +99,7 @@ class Inventory {
     }
 
     addItem(name, count) {
-        if(this.itemName == "") {
+        if (this.itemName == "" && this.itemCount == 0) {
             this.itemName = name;
             this.itemImage = this.scene.add.image(this.x, this.y, name);
             this.itemImage.setScrollFactor(0);
@@ -105,7 +107,7 @@ class Inventory {
             this.itemImage.depth = this.depth + 1;
             this.itemCountText.visible = true;
 
-        } else if(this.itemName != name) {
+        } else if (this.itemName != name) {
             console.log("Error: item already exists");
             return;
         }
@@ -117,7 +119,7 @@ class Inventory {
     clear() {
         this.itemName = "";
         this.itemCount = 0;
-        this.itemImage.destroy();
+        if (this.itemImage) this.itemImage.destroy();
         this.itemImage = null;
         this.itemCountText.setText(this.itemCount);
         this.itemCountText.visible = false;
