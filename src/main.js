@@ -29,3 +29,7 @@ let keyA, keyD, keyW, keyS, keyF, keySpace;
 
 // background music var
 let music;
+
+// set volume
+let musicVol = 0.5;
+let sfxVol = 0.5;

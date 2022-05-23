@@ -28,6 +28,13 @@ class Load extends Phaser.Scene {
 
       // audio assets
       this.load.audio('backgroundmusic', 'assets/sounds/MissingMeTheme3.wav');
+      this.load.audio('back', 'assets/sounds/back.mp3');
+      this.load.audio('play', 'assets/sounds/clickPlay.mp3');
+      this.load.audio('confirm', 'assets/sounds/confirm.mp3');
+      this.load.audio('hover', 'assets/sounds/hover.mp3');
+      this.load.audio('obtainItem', 'assets/sounds/obtainItem.mp3');
+      this.load.audio('questCompleted', 'assets/sounds/questCompleted.mp3');
+      this.load.audio('startQuest', 'assets/sounds/startQuest.mp3');
    }
 
    create() {
