@@ -4,7 +4,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
 
       scene.add.existing(this);
 
-      this.setScale(0.1);
+      //this.setScale(0.1);
 
       // set crop properties
       this.name = json["name"];  // name of crop

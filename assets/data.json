@@ -98,6 +98,59 @@
                   }
                ]
             }
+         },
+         "villager2": {
+            "name": "villager2",
+            "crop": "crop2",
+            "item": "item0",
+            "item_count": 1,
+            "quest_type": "get",
+            "narratives": {
+               "prequest": [
+                  {
+                     "text": "Yo!",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Are you hungry?",
+                     "type": "self"
+                  },
+                  {
+                     "text": "A little",
+                     "type": "player"
+                  }
+               ],
+               "quest": [
+                  {
+                     "text": "Hello!",
+                     "type": "self"
+                  },
+                  {
+                     "text": "I heard you were hungry!",
+                     "type": "self"
+                  },
+                  {
+                     "text": "I am!",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Have a carrot!",
+                     "type": "self"
+                  }
+               ],
+               "repeatquest": [
+                  {
+                     "text": "Were they yummy?",
+                     "type": "self"
+                  }
+               ],
+               "postquest": [
+                  {
+                     "text": "Post quest text",
+                     "type": "self"
+                  }
+               ]
+            }
          }
       },
       "crops": {
@@ -194,6 +247,55 @@
                   },
                   {
                      "text": "Ok",
+                     "type": "player"
+                  }
+               ]
+            }
+         },
+         "crop2": {
+            "name": "crop2",
+            "villager": "villager2",
+            "quest_type": "get",
+            "narratives": {
+               "quest": [
+                  {
+                     "text": "start quest",
+                     "type": "self"
+                  },
+                  {
+                     "text": "go to villager2",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Ok",
+                     "type": "player"
+                  }
+               ],
+               "repeatquest": [
+                  {
+                     "text": "repeat quest",
+                     "type": "self"
+                  },
+                  {
+                     "text": "go to villager2",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Ok",
+                     "type": "player"
+                  }
+               ],
+               "completequest": [
+                  {
+                     "text": "Complete quest",
+                     "type": "self"
+                  },
+                  {
+                     "text": "thank you",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Welcome",
                      "type": "player"
                   }
                ]
