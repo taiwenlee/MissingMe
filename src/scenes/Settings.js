@@ -89,6 +89,7 @@ class Settings extends Phaser.Scene {
         const musicVolumeUpButton = this.add.image(700, 245, 'settings').setOrigin(0.5);
         musicVolumeUpButton.setInteractive();
         musicVolumeUpButton.on('pointerdown', () => {
+            this.hoverSound.stop();
             this.selectSound.play({volume: sfxVol});
             if(musicVol <= 1) {
                 musicVol += 0.1;
@@ -123,6 +124,7 @@ class Settings extends Phaser.Scene {
         const musicVolumeDownButton = this.add.image(500, 245, 'settings').setOrigin(0.5);
         musicVolumeDownButton.setInteractive();
         musicVolumeDownButton.on('pointerdown', () => {
+            this.hoverSound.stop();
             this.backSound.play({volume: sfxVol});
             if(musicVol >= 0) {
                 musicVol -= 0.1;
@@ -166,6 +168,7 @@ class Settings extends Phaser.Scene {
         const sfxVolumeUpButton = this.add.image(700, 360, 'settings').setOrigin(0.5);
         sfxVolumeUpButton.setInteractive();
         sfxVolumeUpButton.on('pointerdown', () => {
+            this.hoverSound.stop();
             this.selectSound.play({volume: sfxVol});
             if(sfxVol <= 1) {
                 sfxVol += 0.1;
@@ -199,6 +202,7 @@ class Settings extends Phaser.Scene {
         const sfxVolumeDownButton = this.add.image(500, 360, 'settings').setOrigin(0.5);
         sfxVolumeDownButton.setInteractive();
         sfxVolumeDownButton.on('pointerdown', () => {
+            this.hoverSound.stop();
             this.backSound.play({volume: sfxVol});
             if(sfxVol >= 0) {
                 sfxVol -= 0.1;

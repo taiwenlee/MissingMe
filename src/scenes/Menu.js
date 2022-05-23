@@ -14,6 +14,12 @@ class Menu extends Phaser.Scene {
       // hover sound
       this.hoverSound = this.sound.add('hover', {volume: sfxVol});
 
+      // play sound
+      this.playSound = this.sound.add('play', {volume: sfxVol});
+
+      // select sound
+      this.selectSound = this.sound.add('confirm', {volume: sfxVol});
+
       // temp scene indicator text
       const tempText = this.add.text(10, 10, "menuScene");
 
@@ -31,6 +37,8 @@ class Menu extends Phaser.Scene {
       const playButton = this.add.image(game.config.width/2, game.config.height/2, 'play').setOrigin(0.5);
       playButton.setInteractive();
       playButton.on('pointerdown', () => {
+         this.hoverSound.stop();
+         this.playSound.play({volume: sfxVol});
          this.time.delayedCall(100, () => {
             this.scene.start("playScene");
          });
@@ -64,6 +72,8 @@ class Menu extends Phaser.Scene {
       const settingsButton = this.add.image(game.config.width/2 - 200, game.config.height/2, 'settings').setOrigin(0.5);
       settingsButton.setInteractive();
       settingsButton.on('pointerdown', () => {
+         this.hoverSound.stop();
+         this.selectSound.play({volume: sfxVol});
          this.scene.pause().launch("settingsScene");
       });
       settingsButton.on('pointerover', () => { // reveal hover image
@@ -95,6 +105,8 @@ class Menu extends Phaser.Scene {
       const creditsButton = this.add.image(game.config.width/2 + 200, game.config.height/2, 'credits').setOrigin(0.5);
       creditsButton.setInteractive();
       creditsButton.on('pointerdown', () => {
+         this.hoverSound.stop();
+         this.selectSound.play({volume: sfxVol});
          //this.scene.pause().launch("creditsScene");
       });
       creditsButton.on('pointerover', () => { // reveal hover image
