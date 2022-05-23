@@ -35,7 +35,7 @@ class Settings extends Phaser.Scene {
         const settingsTitle = this.add.image(game.config.width/2,  100, 'settingsHover').setOrigin(0.5);
         settingsTitle.depth = 1;
 
-        // add settings text
+        // add exit text
         const exitText = this.add.text(game.config.width/2,  500 + 12, 'BACK', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
         exitText.depth = 2;
 
@@ -49,6 +49,7 @@ class Settings extends Phaser.Scene {
         exitButton.setInteractive();
         exitButton.on('pointerdown', () => {
             //pause = false;
+            this.hoverSound.stop();
             this.backSound.play({volume: sfxVol});
             this.scene.stop();
             this.scene.resume("menuScene");

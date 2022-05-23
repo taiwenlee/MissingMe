@@ -107,7 +107,7 @@ class Menu extends Phaser.Scene {
       creditsButton.on('pointerdown', () => {
          this.hoverSound.stop();
          this.selectSound.play({volume: sfxVol});
-         //this.scene.pause().launch("creditsScene");
+         this.scene.pause().launch("creditsScene");
       });
       creditsButton.on('pointerover', () => { // reveal hover image
          this.hoverSound.play({volume: sfxVol});
