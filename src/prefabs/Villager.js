@@ -42,11 +42,12 @@ class Villager extends Phaser.Physics.Arcade.Sprite {
       // basic interact with player (very likely to have major changes)
       if (Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
          // show indicator if nearby
-         this.indicator.visible = true;
+         if (!this.Interacting) this.indicator.visible = true;
          let intKey = this.keyTap(keySpace);
          if (intKey && !this.Interacting && this.interactable) {
             console.log("Interacting");
             // initiate interaction
+            this.indicator.visible = false;
             this.Interacting = true;
             this.scene.player.Interacting = true;
             this.updateText(this.narratives[this.queststate][this.index++]);
