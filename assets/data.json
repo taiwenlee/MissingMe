@@ -104,7 +104,25 @@
             "crop": "crop2",
             "item": "item0",
             "item_count": 1,
-            "quest_type": "get",
+            "quest_type": "fetch",
+            "quest_data": {
+               "item_type": "crop",
+               "item_count": 3,
+               "locations": [
+                  {
+                     "x": 1100,
+                     "y": 550
+                  },
+                  {
+                     "x": 1150,
+                     "y": 550
+                  },
+                  {
+                     "x": 1200,
+                     "y": 550
+                  }
+               ]
+            },
             "narratives": {
                "prequest": [
                   {
@@ -126,21 +144,23 @@
                      "type": "self"
                   },
                   {
-                     "text": "I heard you were hungry!",
+                     "text": "I need 3 carrots!",
                      "type": "self"
                   },
                   {
-                     "text": "I am!",
+                     "text": "I'll go get them",
                      "type": "player"
-                  },
-                  {
-                     "text": "Have a carrot!",
-                     "type": "self"
                   }
                ],
                "repeatquest": [
                   {
-                     "text": "Were they yummy?",
+                     "text": "Have you gotten them?",
+                     "type": "self"
+                  }
+               ],
+               "completequest": [
+                  {
+                     "text": "These carrots are actually for you!",
                      "type": "self"
                   }
                ],

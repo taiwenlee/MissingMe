@@ -1,4 +1,4 @@
-class Textbox{
+class Textbox {
     constructor(scene, x, y, text, style) {
 
         // text box properties
@@ -29,7 +29,7 @@ class Textbox{
     }
 
     update() {
-        if(this.visible) {
+        if (this.visible) {
             this.text.visible = true;
             this.box.visible = true;
         } else {
@@ -49,12 +49,12 @@ class Textbox{
     }
 
     setOrigin() {
-        if(arguments.length == 1) {
+        if (arguments.length == 1) {
             this.text.setOrigin(arguments[0], arguments[0]);
             this.OriginX = arguments[0];
             this.OriginY = arguments[0];
             this.drawBox();
-        } else if(arguments.length == 2) {
+        } else if (arguments.length == 2) {
             this.text.setOrigin(arguments[0], arguments[1]);
             this.OriginX = arguments[0];
             this.OriginY = arguments[1];
@@ -72,18 +72,23 @@ class Textbox{
         // Border Box
         this.box.fillStyle(this.borderColor, 1);
         this.box.fillRoundedRect(this.text.x - this.text.width * this.OriginX - this.padding - this.border,
-                                this.text.y - this.text.height * this.OriginY - this.padding - this.border, 
-                                this.text.width + this.padding * 2 + this.border * 2,
-                                this.text.height + this.padding * 2 + this.border * 2,
-                                this.rounding);
+            this.text.y - this.text.height * this.OriginY - this.padding - this.border,
+            this.text.width + this.padding * 2 + this.border * 2,
+            this.text.height + this.padding * 2 + this.border * 2,
+            this.rounding);
 
         // Background Box
         this.box.fillStyle(this.backgroundColor, 1);
         this.box.fillRoundedRect(this.text.x - this.text.width * this.OriginX - this.padding,
-                                this.text.y - this.text.height * this.OriginY - this.padding, 
-                                this.text.width + this.padding * 2,
-                                this.text.height + this.padding * 2,
-                                this.rounding);
+            this.text.y - this.text.height * this.OriginY - this.padding,
+            this.text.width + this.padding * 2,
+            this.text.height + this.padding * 2,
+            this.rounding);
 
+    }
+
+    destroy() {
+        this.text.destroy();
+        this.box.destroy();
     }
 }

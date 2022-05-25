@@ -61,19 +61,17 @@ class Play extends Phaser.Scene {
       this.npcs.add(this.villager1);
       this.villager2 = new Villager(this, 300, game.config.height - 95, 'villager2', 0, this.vData["villager2"]); // walter
       this.npcs.add(this.villager2);
-      this.crop0 = new Crop(this, 500, game.config.height - 115, 'crop0', 0, this.cData["crop0"]); 
+      this.crop0 = new Crop(this, 500, game.config.height - 115, 'crop0', 0, this.cData["crop0"]);
       this.npcs.add(this.crop0);
       this.crop1 = new Crop(this, 600, game.config.height - 87, 'crop1', 0, this.cData["crop1"]);
       this.npcs.add(this.crop1);
-      this.crop2 = new Crop(this, 700, game.config.height - 95, 'crop2', 0, this.cData["crop2"]); 
+      this.crop2 = new Crop(this, 700, game.config.height - 95, 'crop2', 0, this.cData["crop2"]);
       this.npcs.add(this.crop2);
 
-      console.log(this.children.getByName("villager0"));
-
-      /*this.npc1 = new NPC(this, game.config.width/2 + 400, game.config.height - 50, 'npc1', 0, this.npcsText["npc1"]);
-      this.npcs.add(this.npc1);  */
-
-
+      this.items = this.add.group({
+         classType: Item,
+         runChildUpdate: true
+      });
    }
 
    update() {

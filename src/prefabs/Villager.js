@@ -1,10 +1,12 @@
-class Villager extends Phaser.Physics.Arcade.Sprite {
+class Villager extends Phaser.GameObjects.Sprite {
    constructor(scene, x, y, texture, frame, json) {
       super(scene, x, y, texture, frame);
 
       scene.add.existing(this);
 
       //this.setScale(0.1);
+
+      this.json = json;
 
       // set Villager properties
       this.name = json["name"];  // name of Villager
@@ -40,13 +42,22 @@ class Villager extends Phaser.Physics.Arcade.Sprite {
 
    update() {
       // basic interact with player (very likely to have major changes)
-      if (Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
+      if (Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance
+         && this.interactable && this.visible) {
          // show indicator if nearby
          if (!this.Interacting) this.indicator.visible = true;
          let intKey = this.keyTap(keySpace);
          if (intKey && !this.Interacting && this.interactable) {
             console.log("Interacting");
             // initiate interaction
+            // complete fetch quest if player obtains items
+            if (this.questType == "fetch" && this.queststate == "repeatquest"
+               && this.scene.inventory.itemName == this.json["quest_data"]["item_type"]
+               && this.scene.inventory.itemCount >= this.json["quest_data"]["item_count"]) {
+               this.queststate = "completequest";
+               console.log(this.queststate);
+            }
+
             this.indicator.visible = false;
             this.Interacting = true;
             this.scene.player.Interacting = true;
@@ -60,15 +71,30 @@ class Villager extends Phaser.Physics.Arcade.Sprite {
                this.Interacting = false;
                this.textbox.visible = false;
                this.index = 0;
-               // depending on quest type, do something
+
+               // quest transitions by quest type
                if (this.queststate == "quest" && this.questType == "get") {
                   // give player item
                   if (this.itemCount > 0) this.scene.inventory.addItem(this.item, this.itemCount);
                   this.queststate = "repeatquest";
                   this.scene.children.getByName(this.crop).queststate = "completequest";
                } else if (this.queststate == "quest" && this.questType == "fetch") {
-                  // for carrot quest
+                  // tells player to go fetch items
+                  this.queststate = "repeatquest";
+                  this.scene.children.getByName(this.crop).visible = false;
+                  for (let i = 0; i < this.json["quest_data"]["locations"].length; i++) {
+                     let location = this.json["quest_data"]["locations"][i];
+                     let item = new Item(this.scene, location["x"], location["y"],
+                        this.json["quest_data"]["item_type"], 0, this.json["quest_data"]["item_type"]);
+                     console.log(item);
+                     this.scene.items.add(item);
+                  }
+               } else if (this.queststate == "completequest") {
+                  this.queststate = "postquest";
+                  this.scene.inventory.clear();
+                  this.scene.inQuest = false;
                }
+
             } else {
                this.updateText(this.narratives[this.queststate][this.index++]);
             }
