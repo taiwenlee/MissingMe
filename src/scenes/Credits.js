@@ -4,8 +4,9 @@ class Credits extends Phaser.Scene {
     }
 
     create() {
-        // temp bg
-        const background = this.add.image(game.config.width/2, game.config.height/2, 'background').setOrigin(0.5);
+        // bg
+        this.background = this.add.image(0, -3570, 'background').setOrigin(0, 0);
+        this.background.scale = 1.5;
         
         // temp scene indicator text
         const tempText = this.add.text(10, 10, "creditsScene");
@@ -20,12 +21,22 @@ class Credits extends Phaser.Scene {
         this.hoverSound = this.sound.add('hover', {volume: sfxVol});
 
         // add credits text
-        const creditsText = this.add.text(game.config.width/2,  100 + 12, 'CREDITS', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+        const creditsText = this.add.text(600,  100 + 12, 'CREDITS', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
         creditsText.depth = 2;
       
         // add credits image
-        const creditsTitle = this.add.image(game.config.width/2,  100, 'creditsHover').setOrigin(0.5);
+        const creditsTitle = this.add.image(600,  100, 'creditsHover').setOrigin(0.5);
         creditsTitle.depth = 1;
+
+        this.tweens.add({
+            targets: [creditsText, creditsTitle],
+            x: 300,
+            //scaleX: 1.1,
+            duration: 3500,
+            ease: 'Sine.easeInOut',
+            yoyo: true,
+            repeat: -1,
+         });
 
         // add exit text
         const exitText = this.add.text(game.config.width/2,  500 + 12, 'BACK', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
