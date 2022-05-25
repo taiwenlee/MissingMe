@@ -74,7 +74,35 @@ class Play extends Phaser.Scene {
       /*this.npc1 = new NPC(this, game.config.width/2 + 400, game.config.height - 50, 'npc1', 0, this.npcsText["npc1"]);
       this.npcs.add(this.npc1);  */
 
+      // villager0 and crop0 tween
+      this.tweens.add({
+         targets: [this.villager0, this.crop0],
+         scaleY: 1.1,
+         duration: 1200,
+         ease: 'Sine.easeInOut',
+         yoyo: true,
+         repeat: -1,
+      });
 
+      // villager1 and crop1 tween
+      this.tweens.add({
+         targets: [this.villager1, this.crop1],
+         scaleY: 1.1,
+         duration: 1500,
+         ease: 'Sine.easeInOut',
+         yoyo: true,
+         repeat: -1,
+      });
+
+      // villager2 and crop2 tween
+      this.tweens.add({
+         targets: [this.villager2, this.crop2],
+         scaleY: 1.1,
+         duration: 2000,
+         ease: 'Sine.easeInOut',
+         yoyo: true,
+         repeat: -1,
+      });
    }
 
    update() {
