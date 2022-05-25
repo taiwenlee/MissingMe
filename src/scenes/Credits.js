@@ -42,6 +42,11 @@ class Credits extends Phaser.Scene {
             repeat: -1,
          });
 
+        this.jake = this.add.text(game.config.width/2,  225, 'JAKE INDGIN', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+        this.taiwen = this.add.text(game.config.width/2,  275, 'TAI WEN LEE', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);        
+        this.lily = this.add.text(game.config.width/2,  325, 'LILY PHAM', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+        this.rachel = this.add.text(game.config.width/2,  375, 'RACHEL TRIEU', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+
         // add exit text
         const exitText = this.add.text(game.config.width/2,  500 + 12, 'BACK', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
         exitText.depth = 2;
