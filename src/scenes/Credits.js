@@ -45,10 +45,10 @@ class Credits extends Phaser.Scene {
         
         this.creditsBG = this.add.image(game.config.width/2,  305, 'creditsBG').setOrigin(0.5);
 
-        this.jake = this.add.text(game.config.width/2,  270 - 3, 'JAKE INDGIN', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
-        this.taiwen = this.add.text(game.config.width/2,  310 - 3, 'TAI WEN LEE', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);        
-        this.lily = this.add.text(game.config.width/2,  350 - 3, 'LILY PHAM', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
-        this.rachel = this.add.text(game.config.width/2,  390 - 3, 'RACHEL TRIEU', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+        this.jake = this.add.text(game.config.width/2,  270 - 3, 'JAKE INDGIN', {fill: '#fff571', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+        this.taiwen = this.add.text(game.config.width/2,  310 - 3, 'TAI WEN LEE', {fill: '#fff571', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);        
+        this.lily = this.add.text(game.config.width/2,  350 - 3, 'LILY PHAM', {fill: '#fff571', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+        this.rachel = this.add.text(game.config.width/2,  390 - 3, 'RACHEL TRIEU', {fill: '#fff571', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
 
         // add exit text
         const exitText = this.add.text(game.config.width/2,  500 + 12, 'BACK', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
