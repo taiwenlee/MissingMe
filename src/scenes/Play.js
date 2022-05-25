@@ -126,8 +126,7 @@ class Play extends Phaser.Scene {
    createFloor() {
       // add floor
       this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 10, 132, 'floor').setOrigin(0, 0);
-      this.floor.tileScaleX = .5;
-      this.floor.tileScaleY = .5;
+
       // add to physics
       this.physics.add.existing(this.floor, true);
       this.floor.body.immovable = true;
