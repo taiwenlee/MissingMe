@@ -8,10 +8,10 @@ class Inventory {
         this.rounding = 5;
         this.depth = 8;
         this.borderColor = 0xffffff;
-        this.backgroundColor = 0x006338;
+        this.backgroundColor = 0x000000;
         this.visible = true;
-        this.x = x;
-        this.y = y;
+        this.x = x+30;
+        this.y = y+5;
         this.OriginX = 0;
         this.OriginY = 0;
         this.width = 64;
