@@ -4,8 +4,9 @@ class Settings extends Phaser.Scene {
     }
 
     create() {
-        // temp bg
-        const background = this.add.image(game.config.width/2, game.config.height/2, 'background').setOrigin(0.5);
+        // bg
+        this.background = this.add.image(0, -3570, 'background').setOrigin(0, 0);
+        this.background.scale = 1.5;
         
         // temp scene indicator text
         const tempText = this.add.text(10, 10, "settingsScene");
@@ -28,12 +29,22 @@ class Settings extends Phaser.Scene {
         this.sfxVolText.depth = 2;
 
         // add settings text
-        const settingsText = this.add.text(game.config.width/2,  100 + 12, 'SETTINGS', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+        const settingsText = this.add.text(300,  100 + 12, 'SETTINGS', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
         settingsText.depth = 2;
       
         // add settings image
-        const settingsTitle = this.add.image(game.config.width/2,  100, 'settingsHover').setOrigin(0.5);
+        const settingsTitle = this.add.image(300,  100, 'settingsHover').setOrigin(0.5);
         settingsTitle.depth = 1;
+
+        this.tweens.add({
+            targets: [settingsText, settingsTitle],
+            x: 600,
+            //scaleX: 1.1,
+            duration: 3500,
+            ease: 'Sine.easeInOut',
+            yoyo: true,
+            repeat: -1,
+         });
 
         // add exit text
         const exitText = this.add.text(game.config.width/2,  500 + 12, 'BACK', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
@@ -103,11 +114,12 @@ class Settings extends Phaser.Scene {
             this.hoverSound.play({volume: sfxVol});
             musicVolumeUpButton.alpha = 0;
             musicUpHover.alpha = 1;
+            musicUpText.setFill('#fff571');
         });
         musicVolumeUpButton.on('pointerout', () => {  // return og image
-            this.hoverSound.play({volume: sfxVol});
             musicVolumeUpButton.alpha = 1;
             musicUpHover.alpha = 0;
+            musicUpText.setFill('#b480ef');
         });
         musicVolumeUpButton.input.alwaysEnabled = true; // prevents flickering between two images
         musicVolumeUpButton.depth = 1;
@@ -138,11 +150,12 @@ class Settings extends Phaser.Scene {
             this.hoverSound.play({volume: sfxVol});
             musicVolumeDownButton.alpha = 0;
             musicDownHover.alpha = 1;
+            musicDownText.setFill('#fff571');
         });
         musicVolumeDownButton.on('pointerout', () => { // return og image
-            this.hoverSound.play({volume: sfxVol});
             musicVolumeDownButton.alpha = 1;
             musicDownHover.alpha = 0;
+            musicDownText.setFill('#b480ef');
         });
         musicVolumeDownButton.input.alwaysEnabled = true; // prevents flickering between two images
         musicVolumeDownButton.depth = 1;
@@ -181,11 +194,12 @@ class Settings extends Phaser.Scene {
             this.hoverSound.play({volume: sfxVol});
             sfxVolumeUpButton.alpha = 0;
             sfxUpHover.alpha = 1;
+            sfxUpText.setFill('#fff571');
         });
         sfxVolumeUpButton.on('pointerout', () => {  // return og image
-            this.hoverSound.play({volume: sfxVol});
             sfxVolumeUpButton.alpha = 1;
             sfxUpHover.alpha = 0;
+            sfxUpText.setFill('#b480ef');
         });
         sfxVolumeUpButton.input.alwaysEnabled = true; // prevents flickering between two images
         sfxVolumeUpButton.depth = 1;
@@ -215,11 +229,12 @@ class Settings extends Phaser.Scene {
             this.hoverSound.play({volume: sfxVol});
             sfxVolumeDownButton.alpha = 0;
             sfxDownHover.alpha = 1;
+            sfxDownText.setFill('#fff571');
         });
         sfxVolumeDownButton.on('pointerout', () => { // return og image
-            this.hoverSound.play({volume: sfxVol});
             sfxVolumeDownButton.alpha = 1;
             sfxDownHover.alpha = 0;
+            sfxDownText.setFill('#b480ef');
         });
         sfxVolumeDownButton.input.alwaysEnabled = true; // prevents flickering between two images
         sfxVolumeDownButton.depth = 1;
