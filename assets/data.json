@@ -9,7 +9,7 @@
             "quest_type": "get",
             "textbox": {
                "border_color": "0xffffff",
-               "background_color": "0xb480ef"
+               "background_color": "0x9b51ef"
             },
             "narratives": {
                "prequest": [
@@ -66,7 +66,7 @@
             "quest_type": "get",
             "textbox": {
                "border_color": "0xffffff",
-               "background_color": "0x6187ff"
+               "background_color": "0xf76a8a"
             },
             "narratives": {
                "prequest": [
@@ -133,7 +133,7 @@
             },
             "textbox": {
                "border_color": "0xffffff",
-               "background_color": "0xf76a8a"
+               "background_color": "0x1049ff"
             },
             "narratives": {
                "prequest": [
@@ -191,7 +191,7 @@
             "villager": "villager0",
             "quest_type": "get",
             "textbox": {
-               "border_color": "0xffffff",
+               "border_color": "0x9b51ef",
                "background_color": "0xb480ef"
             },
             "narratives": {

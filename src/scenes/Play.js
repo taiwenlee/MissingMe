@@ -16,6 +16,10 @@ class Play extends Phaser.Scene {
       this.background.scale = 1.5;
       this.background.setScrollFactor(0);
 
+      // parallax clouds
+      this.clouds1 = this.add.tileSprite(0, 0, 912, 608, 'clouds1').setOrigin(0, 0);
+      this.clouds2 = this.add.tileSprite(0, 0, 912, 608, 'clouds2').setOrigin(0, 0);
+
       // temp scene indicator text
       const tempText = this.add.text(10, 10, "playScene");
       tempText.setScrollFactor(0);
@@ -112,6 +116,11 @@ class Play extends Phaser.Scene {
 
       // update fps counter
       this.tempFPS.setText("FPS: " + this.game.loop.actualFps);
+
+
+      // move clouds
+      this.clouds1.tilePositionX -= 1;
+      this.clouds2.tilePositionX -= 0.5;
    }
 
    createFloor() {

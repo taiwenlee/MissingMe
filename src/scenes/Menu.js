@@ -15,6 +15,10 @@ class Menu extends Phaser.Scene {
       this.background = this.add.image(0, -3570, 'background').setOrigin(0, 0);
       this.background.scale = 1.5;
 
+      // parallax clouds
+      this.clouds1 = this.add.tileSprite(0, 0, 912, 608, 'clouds1').setOrigin(0, 0);
+      this.clouds2 = this.add.tileSprite(0, 0, 912, 608, 'clouds2').setOrigin(0, 0);
+
       // add title
       this.title = this.add.image(game.config.width/2, 260, 'title').setOrigin(0.5, 0.5);
 
@@ -144,6 +148,8 @@ class Menu extends Phaser.Scene {
    }
 
    update() {
-
+      // move clouds
+      this.clouds1.tilePositionX -= 1;
+      this.clouds2.tilePositionX -= 0.5;
    }
 }

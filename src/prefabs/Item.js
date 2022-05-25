@@ -14,8 +14,8 @@ class Item extends Phaser.GameObjects.Sprite {
       // text object
       this.textbox = new Textbox(scene, x, y - this.height * this.scale * 2, "You obtained item!", {
          fontFamily: 'VT323',
-         fontSize: '32px',
-         color: '#ffffff',
+         fontSize: '40px',
+         color: '#00884d',
          align: 'center',
       });
       this.textbox.setOrigin(0.5, 1);

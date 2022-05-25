@@ -4,11 +4,11 @@ class Inventory {
         this.scene = scene;
 
         // inventory properties
-        this.border = 3;
+        this.border = 5;
         this.rounding = 5;
         this.depth = 8;
         this.borderColor = 0xffffff;
-        this.backgroundColor = 0x000000;
+        this.backgroundColor = 0x006338;
         this.visible = true;
         this.x = x;
         this.y = y;
@@ -16,7 +16,7 @@ class Inventory {
         this.OriginY = 0;
         this.width = 64;
         this.height = 64;
-        this.style = { fontFamily: 'Arial', fontSize: '14px', color: '#ffffff', align: 'center' };
+        this.style = { fontFamily: 'VT323', fontSize: '20px', color: '#ffffff', align: 'center' };
 
         // item properties
         this.itemName = "";

@@ -8,6 +8,10 @@ class Credits extends Phaser.Scene {
         this.background = this.add.image(0, -3570, 'background').setOrigin(0, 0);
         this.background.scale = 1.5;
         
+        // parallax clouds
+        this.clouds1 = this.add.tileSprite(0, 0, 912, 608, 'clouds1').setOrigin(0, 0);
+        this.clouds2 = this.add.tileSprite(0, 0, 912, 608, 'clouds2').setOrigin(0, 0);
+
         // temp scene indicator text
         const tempText = this.add.text(10, 10, "creditsScene");
 
@@ -72,4 +76,10 @@ class Credits extends Phaser.Scene {
         exitButton.depth = 1;
 
     }
+
+    update() {
+        // move clouds
+        this.clouds1.tilePositionX += 1;
+        this.clouds2.tilePositionX += 0.5;
+     }
 }
