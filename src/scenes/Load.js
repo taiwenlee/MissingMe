@@ -33,6 +33,7 @@ class Load extends Phaser.Scene {
       this.load.image("crop1", "./assets/images/walter.PNG");      // TODO: change to texture atlas
       this.load.image("villager2", "./assets/images/teddy.PNG");      // TODO: change to texture atlas
       this.load.image("crop2", "./assets/images/teddy.PNG");      // TODO: change to texture atlas
+      this.load.image("sun", "./assets/images/sun.png");
 
 
       // text assets

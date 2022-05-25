@@ -17,8 +17,8 @@ class Play extends Phaser.Scene {
       this.background.setScrollFactor(0);
 
       // parallax clouds
-      this.clouds1 = this.add.tileSprite(0, 0, 912, 608, 'clouds1').setOrigin(0, 0);
-      this.clouds2 = this.add.tileSprite(0, 0, 912, 608, 'clouds2').setOrigin(0, 0);
+      this.clouds1 = this.add.tileSprite(0, 0, game.config.width * 10, 608, 'clouds1').setOrigin(0, 0);
+      this.clouds2 = this.add.tileSprite(0, 0, game.config.width * 10, 608, 'clouds2').setOrigin(0, 0);
 
       // temp scene indicator text
       const tempText = this.add.text(10, 10, "playScene");
@@ -60,24 +60,24 @@ class Play extends Phaser.Scene {
       });
       this.vData = this.data["npcs"]["villagers"];
       this.cData = this.data["npcs"]["crops"];
-      this.villager0 = new Villager(this, 50, 477, 'villager0', 0, this.vData["villager0"]).setOrigin(1); // corrine
+      this.villager0 = new Villager(this, 50, 477, 'villager0', 0, this.vData["villager0"]).setOrigin(0.5, 1); // corrine
       this.npcs.add(this.villager0);
-      this.villager1 = new Villager(this, 200, 477, 'villager1', 0, this.vData["villager1"]).setOrigin(1); // teddy
+      this.villager1 = new Villager(this, 200, 477, 'villager1', 0, this.vData["villager1"]).setOrigin(0.5, 1); // teddy
       this.npcs.add(this.villager1);
-      this.villager2 = new Villager(this, 350, 477, 'villager2', 0, this.vData["villager2"]).setOrigin(1); // walter
+      this.villager2 = new Villager(this, 350, 477, 'villager2', 0, this.vData["villager2"]).setOrigin(0.5, 1); // walter
       this.npcs.add(this.villager2);
-      this.crop0 = new Crop(this, 500, 477, 'crop0', 0, this.cData["crop0"]).setOrigin(1);
+      this.crop0 = new Crop(this, 500, 477, 'crop0', 0, this.cData["crop0"]).setOrigin(0.5, 1);
       this.npcs.add(this.crop0);
-      this.crop1 = new Crop(this, 660, 477, 'crop1', 0, this.cData["crop1"]).setOrigin(1);
+      this.crop1 = new Crop(this, 660, 477, 'crop1', 0, this.cData["crop1"]).setOrigin(0.5, 1);
       this.npcs.add(this.crop1);
-      this.crop2 = new Crop(this, 800, 477, 'crop2', 0, this.cData["crop2"]).setOrigin(1);
+      this.crop2 = new Crop(this, 800, 477, 'crop2', 0, this.cData["crop2"]).setOrigin(0.5, 1);
       this.npcs.add(this.crop2);
 
       // villager0 and crop0 tween
       this.tweens.add({
          targets: [this.villager0, this.crop0],
-         scaleY: 1.1,
-         duration: 1200,
+         scaleY: 1.02,
+         duration: 300,
          ease: 'Sine.easeInOut',
          yoyo: true,
          repeat: -1,
@@ -86,8 +86,8 @@ class Play extends Phaser.Scene {
       // villager1 and crop1 tween
       this.tweens.add({
          targets: [this.villager1, this.crop1],
-         scaleY: 1.1,
-         duration: 1500,
+         scaleY: 1.03,
+         duration: 400,
          ease: 'Sine.easeInOut',
          yoyo: true,
          repeat: -1,
@@ -96,8 +96,8 @@ class Play extends Phaser.Scene {
       // villager2 and crop2 tween
       this.tweens.add({
          targets: [this.villager2, this.crop2],
-         scaleY: 1.1,
-         duration: 2000,
+         scaleY: 1.05,
+         duration: 1000,
          ease: 'Sine.easeInOut',
          yoyo: true,
          repeat: -1,
@@ -107,6 +107,19 @@ class Play extends Phaser.Scene {
          classType: Item,
          runChildUpdate: true
       });
+
+      // add sun
+      this.sun = this.add.image(game.config.width/2, 100, 'sun').setOrigin(0.5, 0.5);
+
+      // sun tween
+      this.tweens.add({
+         targets: this.sun,
+         duration: 20000,
+         repeat: -1,
+         angle : 360,
+      });
+
+
    }
 
    update() {
@@ -117,6 +130,8 @@ class Play extends Phaser.Scene {
       // update fps counter
       this.tempFPS.setText("FPS: " + this.game.loop.actualFps);
 
+      // update sun
+      this.sun.x = this.player.x;
 
       // move clouds
       this.clouds1.tilePositionX -= 1;
