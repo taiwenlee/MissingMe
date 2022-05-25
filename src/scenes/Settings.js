@@ -25,11 +25,11 @@ class Settings extends Phaser.Scene {
         this.hoverSound = this.sound.add('hover', {volume: sfxVol});
 
         // music vol text
-        this.musicVolText = this.add.text(270, 245 + 12, (musicVol * 100).toFixed(0), { fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'right'}).setOrigin(1, 0.5);
+        this.musicVolText = this.add.text(270 + 75, 245 + 12, (musicVol * 100).toFixed(0), { fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'right'}).setOrigin(1, 0.5);
         this.musicVolText.depth = 2;
 
         // sfx vol text
-        this.sfxVolText = this.add.text(270, 360 + 12, (sfxVol * 100).toFixed(0), { fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'right'}).setOrigin(1, 0.5);
+        this.sfxVolText = this.add.text(270 + 75, 360 + 12, (sfxVol * 100).toFixed(0), { fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'right'}).setOrigin(1, 0.5);
         this.sfxVolText.depth = 2;
 
         // add settings text
@@ -84,25 +84,25 @@ class Settings extends Phaser.Scene {
         exitButton.depth = 1;
 
         // music title image
-        const musicTitle= this.add.image(200, 245, 'settingsHover').setOrigin(0.5);
+        const musicTitle= this.add.image(275, 245, 'settingsHover').setOrigin(0.5);
         musicTitle.flipX = true;
         musicTitle.depth = 1;
         
         // add music text
-        const musicText = this.add.text(173, 245 + 12, 'MUSIC:', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+        const musicText = this.add.text(173 + 75, 245 + 12, 'MUSIC:', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
         musicText.depth = 2;
 
         // add music up text
-        const musicUpText = this.add.text(740, 245 + 12, '+', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+        const musicUpText = this.add.text(680, 245 + 12, '+', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
         musicUpText.depth = 2;
 
         // add music vol up hover
-        const musicUpHover = this.add.image(740, 245, 'vol1Hover').setOrigin(0.5);
+        const musicUpHover = this.add.image(680, 245, 'vol1Hover').setOrigin(0.5);
         musicUpHover.alpha = 0;
         musicUpHover.depth = 1;
 
         // music volume up button
-        const musicVolumeUpButton = this.add.image(740, 245, 'vol1').setOrigin(0.5);
+        const musicVolumeUpButton = this.add.image(680, 245, 'vol1').setOrigin(0.5);
         musicVolumeUpButton.setInteractive();
         musicVolumeUpButton.on('pointerdown', () => {
             this.hoverSound.stop();
@@ -129,16 +129,16 @@ class Settings extends Phaser.Scene {
         musicVolumeUpButton.depth = 1;
 
         // add music down text
-        const musicDownText = this.add.text(350, 245 + 12, '-', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+        const musicDownText = this.add.text(600, 245 + 12, '-', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
         musicDownText.depth = 2;
 
         // add music vol down hover
-        const musicDownHover = this.add.image(350, 245, 'vol2Hover').setOrigin(0.5);
+        const musicDownHover = this.add.image(600, 245, 'vol2Hover').setOrigin(0.5);
         musicDownHover.depth = 1;
         musicDownHover.alpha = 0;
 
         // music volume down button
-        const musicVolumeDownButton = this.add.image(350, 245, 'vol2').setOrigin(0.5);
+        const musicVolumeDownButton = this.add.image(600, 245, 'vol2').setOrigin(0.5);
         musicVolumeDownButton.setInteractive();
         musicVolumeDownButton.on('pointerdown', () => {
             this.hoverSound.stop();
@@ -165,25 +165,25 @@ class Settings extends Phaser.Scene {
         musicVolumeDownButton.depth = 1;
 
         // sfx title image
-        const sfxTitle= this.add.image(200, 360, 'settingsHover').setOrigin(0.5);
+        const sfxTitle= this.add.image(275, 360, 'settingsHover').setOrigin(0.5);
         sfxTitle.flipX = true;
         sfxTitle.depth = 1;
         
         // add sfx text
-        const sfxText = this.add.text(160, 360 + 12, 'SFX:', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+        const sfxText = this.add.text(160 + 75, 360 + 12, 'SFX:', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
         sfxText.depth = 2;
 
         // add sfx up text
-        const sfxUpText = this.add.text(740, 360 + 12, '+', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+        const sfxUpText = this.add.text(680, 360 + 12, '+', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
         sfxUpText.depth = 2;
 
         // add sfx vol up hover
-        const sfxUpHover = this.add.image(740, 360, 'vol1Hover').setOrigin(0.5);
+        const sfxUpHover = this.add.image(680, 360, 'vol1Hover').setOrigin(0.5);
         sfxUpHover.alpha = 0;
         sfxUpHover.depth = 1;
 
         // sfx volume up button
-        const sfxVolumeUpButton = this.add.image(740, 360, 'vol1').setOrigin(0.5);
+        const sfxVolumeUpButton = this.add.image(680, 360, 'vol1').setOrigin(0.5);
         sfxVolumeUpButton.setInteractive();
         sfxVolumeUpButton.on('pointerdown', () => {
             this.hoverSound.stop();
@@ -209,16 +209,16 @@ class Settings extends Phaser.Scene {
         sfxVolumeUpButton.depth = 1;
 
         // add sfx down text
-        const sfxDownText = this.add.text(350, 360 + 12, '-', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+        const sfxDownText = this.add.text(600, 360 + 12, '-', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
         sfxDownText.depth = 2;
 
         // add sfx vol down hover
-        const sfxDownHover = this.add.image(350, 360, 'vol2Hover').setOrigin(0.5);
+        const sfxDownHover = this.add.image(600, 360, 'vol2Hover').setOrigin(0.5);
         sfxDownHover.depth = 1;
         sfxDownHover.alpha = 0;
 
         // sfx volume down button
-        const sfxVolumeDownButton = this.add.image(350, 360, 'vol2').setOrigin(0.5);
+        const sfxVolumeDownButton = this.add.image(600, 360, 'vol2').setOrigin(0.5);
         sfxVolumeDownButton.setInteractive();
         sfxVolumeDownButton.on('pointerdown', () => {
             this.hoverSound.stop();

@@ -41,7 +41,7 @@ class Play extends Phaser.Scene {
       this.data = cache.get("data");
 
       // add player
-      this.player = new Player(this, game.config.width / 2, game.config.height - 60, 'player', 'run0.png');
+      this.player = new Player(this, game.config.width / 2, game.config.height - 160, 'player', 'run0.png');
 
       // add camera
       this.cameras.main.setBounds(0, 0, game.config.width * 5, game.config.height);
@@ -60,17 +60,17 @@ class Play extends Phaser.Scene {
       });
       this.vData = this.data["npcs"]["villagers"];
       this.cData = this.data["npcs"]["crops"];
-      this.villager0 = new Villager(this, 30, 577, 'villager0', 0, this.vData["villager0"]).setOrigin(1); // corrine
+      this.villager0 = new Villager(this, 50, 477, 'villager0', 0, this.vData["villager0"]).setOrigin(1); // corrine
       this.npcs.add(this.villager0);
-      this.villager1 = new Villager(this, 200, 577, 'villager1', 0, this.vData["villager1"]).setOrigin(1); // teddy
+      this.villager1 = new Villager(this, 200, 477, 'villager1', 0, this.vData["villager1"]).setOrigin(1); // teddy
       this.npcs.add(this.villager1);
-      this.villager2 = new Villager(this, 300, 577, 'villager2', 0, this.vData["villager2"]).setOrigin(1); // walter
+      this.villager2 = new Villager(this, 350, 477, 'villager2', 0, this.vData["villager2"]).setOrigin(1); // walter
       this.npcs.add(this.villager2);
-      this.crop0 = new Crop(this, 500, 577, 'crop0', 0, this.cData["crop0"]).setOrigin(1);
+      this.crop0 = new Crop(this, 500, 477, 'crop0', 0, this.cData["crop0"]).setOrigin(1);
       this.npcs.add(this.crop0);
-      this.crop1 = new Crop(this, 600, 577, 'crop1', 0, this.cData["crop1"]).setOrigin(1);
+      this.crop1 = new Crop(this, 660, 477, 'crop1', 0, this.cData["crop1"]).setOrigin(1);
       this.npcs.add(this.crop1);
-      this.crop2 = new Crop(this, 700, 577, 'crop2', 0, this.cData["crop2"]).setOrigin(1);
+      this.crop2 = new Crop(this, 800, 477, 'crop2', 0, this.cData["crop2"]).setOrigin(1);
       this.npcs.add(this.crop2);
 
       // villager0 and crop0 tween
@@ -125,7 +125,7 @@ class Play extends Phaser.Scene {
 
    createFloor() {
       // add floor
-      this.floor = this.add.tileSprite(0, game.config.height - 32, game.config.width * 10, 32, 'floor').setOrigin(0, 0);
+      this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 10, 132, 'floor').setOrigin(0, 0);
       this.floor.tileScaleX = .5;
       this.floor.tileScaleY = .5;
       // add to physics
