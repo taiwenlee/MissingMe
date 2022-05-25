@@ -6,8 +6,8 @@ class Textbox {
         this.border = 5;
         this.rounding = 5;
         this.depth = 8;
-        this.borderColor = 0xffffff;
-        this.backgroundColor = 0x000000;
+        this.borderColor = "0xffffff";
+        this.backgroundColor = "0x000000";
         this.visible = true;
         this.x = x;
         this.y = y;

@@ -7,6 +7,10 @@
             "item": "item0",
             "item_count": 1,
             "quest_type": "get",
+            "textbox": {
+               "border_color": "0xffffff",
+               "background_color": "0xb480ef"
+            },
             "narratives": {
                "prequest": [
                   {
@@ -60,6 +64,10 @@
             "item": "item1",
             "item_count": 0,
             "quest_type": "get",
+            "textbox": {
+               "border_color": "0xffffff",
+               "background_color": "0x6187ff"
+            },
             "narratives": {
                "prequest": [
                   {
@@ -123,6 +131,10 @@
                   }
                ]
             },
+            "textbox": {
+               "border_color": "0xffffff",
+               "background_color": "0xf76a8a"
+            },
             "narratives": {
                "prequest": [
                   {
@@ -178,6 +190,10 @@
             "name": "crop0",
             "villager": "villager0",
             "quest_type": "get",
+            "textbox": {
+               "border_color": "0xffffff",
+               "background_color": "0xb480ef"
+            },
             "narratives": {
                "quest": [
                   {
@@ -227,6 +243,10 @@
             "name": "crop1",
             "villager": "villager1",
             "quest_type": "get",
+            "textbox": {
+               "border_color": "0xffffff",
+               "background_color": "0x6187ff"
+            },
             "narratives": {
                "quest": [
                   {
@@ -276,6 +296,10 @@
             "name": "crop2",
             "villager": "villager2",
             "quest_type": "get",
+            "textbox": {
+               "border_color": "0xffffff",
+               "background_color": "0xf76a8a"
+            },
             "narratives": {
                "quest": [
                   {

@@ -4,7 +4,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
 
       scene.add.existing(this);
 
-      //this.setScale(0.1);
+      this.json = json;
 
       // set crop properties
       this.name = json["name"];  // name of crop
@@ -28,6 +28,8 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       });
       this.textbox.setOrigin(0.5, 1);
       this.textbox.visible = false;
+      this.textbox.backgroundColor = this.json["textbox"]["background_color"];
+      this.textbox.borderColor = this.json["textbox"]["border_color"];
 
       // interact indicator
       this.indicator = scene.add.image(x, y - this.height * this.scale / 2 - 10, "indicator").setOrigin(0.5, 1);
@@ -89,9 +91,13 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
    updateText(json) {
       this.textbox.setText(json["text"]);
       if (json["type"] == "self") {
+         this.textbox.backgroundColor = this.json["textbox"]["background_color"];
+         this.textbox.borderColor = this.json["textbox"]["border_color"];
          this.textbox.x = this.x;
          this.textbox.y = this.y - this.height * this.scale;
       } else if (json["type"] == "player") {
+         this.textbox.backgroundColor = 0x000000;
+         this.textbox.borderColor = 0xffffff;
          this.textbox.x = this.scene.player.x;
          this.textbox.y = this.scene.player.y - this.scene.player.height * this.scene.player.scale;
       }
