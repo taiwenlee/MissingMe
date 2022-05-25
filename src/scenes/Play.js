@@ -56,17 +56,17 @@ class Play extends Phaser.Scene {
       });
       this.vData = this.data["npcs"]["villagers"];
       this.cData = this.data["npcs"]["crops"];
-      this.villager0 = new Villager(this, 30, game.config.height - 115, 'villager0', 0, this.vData["villager0"]); // corrine
+      this.villager0 = new Villager(this, 30, 577, 'villager0', 0, this.vData["villager0"]).setOrigin(1); // corrine
       this.npcs.add(this.villager0);
-      this.villager1 = new Villager(this, 200, game.config.height - 87, 'villager1', 0, this.vData["villager1"]); // teddy
+      this.villager1 = new Villager(this, 200, 577, 'villager1', 0, this.vData["villager1"]).setOrigin(1); // teddy
       this.npcs.add(this.villager1);
-      this.villager2 = new Villager(this, 300, game.config.height - 95, 'villager2', 0, this.vData["villager2"]); // walter
+      this.villager2 = new Villager(this, 300, 577, 'villager2', 0, this.vData["villager2"]).setOrigin(1); // walter
       this.npcs.add(this.villager2);
-      this.crop0 = new Crop(this, 500, game.config.height - 115, 'crop0', 0, this.cData["crop0"]); 
+      this.crop0 = new Crop(this, 500, 577, 'crop0', 0, this.cData["crop0"]).setOrigin(1); 
       this.npcs.add(this.crop0);
-      this.crop1 = new Crop(this, 600, game.config.height - 87, 'crop1', 0, this.cData["crop1"]);
+      this.crop1 = new Crop(this, 600, 577, 'crop1', 0, this.cData["crop1"]).setOrigin(1);
       this.npcs.add(this.crop1);
-      this.crop2 = new Crop(this, 700, game.config.height - 95, 'crop2', 0, this.cData["crop2"]); 
+      this.crop2 = new Crop(this, 700, 577, 'crop2', 0, this.cData["crop2"]).setOrigin(1); 
       this.npcs.add(this.crop2);
 
       console.log(this.children.getByName("villager0"));
