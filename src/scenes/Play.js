@@ -12,7 +12,8 @@ class Play extends Phaser.Scene {
       this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
 
       // add background
-      this.background = this.add.image(game.config.width / 2, game.config.height, 'background').setOrigin(0.5, 1);
+      this.background = this.add.image(0, -3570, 'background').setOrigin(0, 0);
+      this.background.scale = 1.5;
       this.background.setScrollFactor(0);
 
       // temp scene indicator text

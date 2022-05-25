@@ -11,6 +11,23 @@ class Menu extends Phaser.Scene {
          music.play();
       }
 
+      // add background
+      this.background = this.add.image(0, -3570, 'background').setOrigin(0, 0);
+      this.background.scale = 1.5;
+
+      // add title
+      this.title = this.add.image(game.config.width/2, 260, 'title').setOrigin(0.5, 0.5);
+
+      this.tweens.add({
+         targets:this.title,
+         y: 160,
+         //scaleX: 1.1,
+         duration: 4000,
+         ease: 'Sine.easeInOut',
+         yoyo: true,
+         repeat: -1,
+      });
+
       // hover sound
       this.hoverSound = this.sound.add('hover', {volume: sfxVol});
 
@@ -24,17 +41,17 @@ class Menu extends Phaser.Scene {
       const tempText = this.add.text(10, 10, "menuScene");
 
       // add play text
-      const playText = this.add.text(game.config.width/2,  game.config.height/2 + 12, 'PLAY', {fill: '#f76a8a', fontFamily: 'VT323', fontSize: 40, align: 'center'}).setOrigin(0.5);
+      const playText = this.add.text(game.config.width/2, 500 + 12, 'PLAY', {fill: '#f76a8a', fontFamily: 'VT323', fontSize: 40, align: 'center'}).setOrigin(0.5);
       playText.depth = 1;
       
       // add play hover image and watering can
-      const playHover = this.add.image(game.config.width/2,  game.config.height/2, 'playHover').setOrigin(0.5);
+      const playHover = this.add.image(game.config.width/2,  500, 'playHover').setOrigin(0.5);
       playHover.alpha = 0;
-      const selectPlay = this.add.image(game.config.width/2 - 35,  game.config.height/2 - 70, 'select').setOrigin(0.5);
+      const selectPlay = this.add.image(game.config.width/2 - 35,  500 - 70, 'select').setOrigin(0.5);
       selectPlay.alpha = 0;
 
       // play button
-      const playButton = this.add.image(game.config.width/2, game.config.height/2, 'play').setOrigin(0.5);
+      const playButton = this.add.image(game.config.width/2, 500, 'play').setOrigin(0.5);
       playButton.setInteractive();
       playButton.on('pointerdown', () => {
          this.hoverSound.stop();
@@ -59,17 +76,17 @@ class Menu extends Phaser.Scene {
       playButton.input.alwaysEnabled = true; // prevents flickering between two images
 
       // add settings text
-      const settingsText = this.add.text(game.config.width/2 - 200,  game.config.height/2 + 12, 'SETTINGS', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+      const settingsText = this.add.text(game.config.width/2 - 200,  500 + 12, 'SETTINGS', {fill: '#b480ef', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
       settingsText.depth = 1;
       
       // add settings hover image and watering can
-      const settingsHover = this.add.image(game.config.width/2 - 200,  game.config.height/2, 'settingsHover').setOrigin(0.5);
+      const settingsHover = this.add.image(game.config.width/2 - 200,  500, 'settingsHover').setOrigin(0.5);
       settingsHover.alpha = 0;
-      const selectSettings = this.add.image(game.config.width/2 - 200 - 35,  game.config.height/2 - 70, 'select').setOrigin(0.5);
+      const selectSettings = this.add.image(game.config.width/2 - 200 - 35,  500 - 70, 'select').setOrigin(0.5);
       selectSettings.alpha = 0;
 
       // settings button
-      const settingsButton = this.add.image(game.config.width/2 - 200, game.config.height/2, 'settings').setOrigin(0.5);
+      const settingsButton = this.add.image(game.config.width/2 - 200, 500, 'settings').setOrigin(0.5);
       settingsButton.setInteractive();
       settingsButton.on('pointerdown', () => {
          this.hoverSound.stop();
@@ -92,17 +109,17 @@ class Menu extends Phaser.Scene {
       settingsButton.input.alwaysEnabled = true; // prevents flickering between two images
 
       // add credits text
-      const creditsText = this.add.text(game.config.width/2 + 200,  game.config.height/2 + 12, 'CREDITS', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
+      const creditsText = this.add.text(game.config.width/2 + 200,  500 + 12, 'CREDITS', {fill: '#6187ff', fontFamily: 'VT323', fontSize: 35, align: 'center'}).setOrigin(0.5);
       creditsText.depth = 1;
       
       // add credits hover image and watering can
-      const creditsHover = this.add.image(game.config.width/2 + 200,  game.config.height/2, 'creditsHover').setOrigin(0.5);
+      const creditsHover = this.add.image(game.config.width/2 + 200,  500, 'creditsHover').setOrigin(0.5);
       creditsHover.alpha = 0;
-      const selectCredits = this.add.image(game.config.width/2 + 200 - 35,  game.config.height/2 - 70, 'select').setOrigin(0.5);
+      const selectCredits = this.add.image(game.config.width/2 + 200 - 35,  500 - 70, 'select').setOrigin(0.5);
       selectCredits.alpha = 0;
 
       // credits button
-      const creditsButton = this.add.image(game.config.width/2 + 200, game.config.height/2, 'credits').setOrigin(0.5);
+      const creditsButton = this.add.image(game.config.width/2 + 200, 500, 'credits').setOrigin(0.5);
       creditsButton.setInteractive();
       creditsButton.on('pointerdown', () => {
          this.hoverSound.stop();
@@ -123,6 +140,10 @@ class Menu extends Phaser.Scene {
          creditsText.setFill('#6187ff');
       });
       creditsButton.input.alwaysEnabled = true; // prevents flickering between two images
+
+   }
+
+   update() {
 
    }
 }
