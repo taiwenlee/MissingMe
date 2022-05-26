@@ -85,8 +85,6 @@ class Textbox {
         // positions text
         this.text.x = this.x + this.border + this.padding - (this.text.width + this.padding * 2 + this.border * 2) * this.OriginX;
         this.text.y = this.y + this.border + this.padding - (this.text.height + this.padding * 2 + this.border * 2) * this.OriginY;
-
-
     }
 
     destroy() {

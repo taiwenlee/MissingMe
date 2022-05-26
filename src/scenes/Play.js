@@ -7,6 +7,7 @@ class Play extends Phaser.Scene {
 
       // game state
       this.inQuest = false;
+      this.questCount = 0;
 
       // set world size
       this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
@@ -134,6 +135,8 @@ class Play extends Phaser.Scene {
       // move clouds
       this.clouds1.tilePositionX -= 1;
       this.clouds2.tilePositionX -= 0.5;
+
+      console.log(this.questCount);
    }
 
    createFloor() {

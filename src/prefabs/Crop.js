@@ -82,6 +82,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
                      this.scene.inventory.clear();
                      console.log("get complete");
                   }
+                  this.scene.questCount++;
                }
             } else {
                console.log(this.narratives[this.queststate][this.index]);

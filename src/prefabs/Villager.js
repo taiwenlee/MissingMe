@@ -103,6 +103,7 @@ class Villager extends Phaser.GameObjects.Sprite {
                   this.queststate = "postquest";
                   this.scene.inventory.clear();
                   this.scene.inQuest = false;
+                  this.scene.questCount++;
                }
 
             } else {
