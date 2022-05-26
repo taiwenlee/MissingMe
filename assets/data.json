@@ -14,45 +14,105 @@
             "narratives": {
                "prequest": [
                   {
-                     "text": "Hello!",
+                     "text": "*Bruhuhurm*",
                      "type": "self"
                   },
                   {
-                     "text": "How are you?",
+                     "text": "'Scuse me, pal! Working inside all day gets all muh holes stopped up.",
                      "type": "self"
                   },
                   {
-                     "text": "Good",
+                     "text": "It’s good to make getting outside part of your routine.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Hey, Teddy. Yeah, routine… I don’t really have one of those.",
                      "type": "player"
+                  },
+                  {
+                     "text": "Well, you should git one.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Just looking at this tree every day reminds me that there’s more to life than stoopin’ an’ sewin’.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Mm. Thanks.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "No problem. See you around.",
+                     "type": "self"
                   }
                ],
                "quest": [
                   {
-                     "text": "Hello!",
+                     "text": "Hey there, pal. I was just about to get back to work. How can I help you?",
                      "type": "self"
                   },
                   {
-                     "text": "Do you need anything?",
-                     "type": "self"
-                  },
-                  {
-                     "text": "I need this item!",
+                     "text": "Well, I was hoping I could commission some overalls from you.",
                      "type": "player"
                   },
                   {
-                     "text": "Here you go!",
+                     "text": "Specifically a h-human-sized pair.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Heh, yours do look a little worse for wear!",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Lucky for you, I’ve been anticipatin’ this day and I have a pair on me right now!",
+                     "type": "self"
+                  },
+                  {
+                     "text": "They should fit you perfectly. I tend to make ‘em extra stretchy on account o' muh rotundness.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Here, take ‘em for a spin!",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Oh, they’re… not for me.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Aw, well… they make a good gift. Will ya take a little advice?",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Sure. Thanks for asking.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "These things take time, but a little patch here, a little wash there, and you start to see yourself in a different light.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Even if it’s just one minute out of your day, a good routine you can stick to really makes a difference.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Thank you, Teddy.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Of course. Have a nice day, pal.",
                      "type": "self"
                   }
                ],
                "repeatquest": [
                   {
-                     "text": "Hope they are to your liking!",
+                     "text": "Have a nice day, pal.",
                      "type": "self"
                   }
                ],
                "postquest": [
                   {
-                     "text": "Post quest text",
+                     "text": "Lookin' good, pal! So good it brings a tear to muh eye.",
                      "type": "self"
                   }
                ]
@@ -71,37 +131,169 @@
             "narratives": {
                "prequest": [
                   {
-                     "text": "What do you want?",
+                     "text": "I’d rather not talk to you right now.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Please, either go in to buy something or leave.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "That’s fair. I’ll leave.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Thank you.",
                      "type": "self"
                   }
                ],
                "quest": [
                   {
-                     "text": "Hello",
-                     "type": "player"
-                  },
-                  {
-                     "text": "What do you want?",
+                     "text": "Please leave.",
                      "type": "self"
                   },
                   {
-                     "text": "I need this item!",
+                     "text": "Wait, please, I just need something from you-",
                      "type": "player"
                   },
                   {
-                     "text": "f*** off",
+                     "text": "You need something? You?!",
+                     "type": "self"
+                  },
+                  {
+                     "text": "The last time we spoke, you wouldn’t listen to anything I had to say and stormed off with that frame for your watermelons, screaming slander at the top of your lungs.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "*I* need something. I need compensation. I need respect.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "We’re a small community. You of all people know that, but you pretend like you’re above us all.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "And now you keep coming in here just to buy frozen food and leave, shooting me dirty looks the whole time?",
+                     "type": "self"
+                  },
+                  {
+                     "text": "I… really don’t mean to. Will you just hear me out?",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Since they died, I can’t-",
+                     "type": "player"
+                  },
+                  {
+                     "text": "You can’t what? Stand to look at yourself in the mirror?",
+                     "type": "self"
+                  },
+                  {
+                     "text": "I wouldn’t be able to, either, if I spoke so low of a friend who was only trying to help.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Please, Walt, you’re going to make me-",
+                     "type": "player"
+                  },
+                  {
+                     "text": "I’m going to make you cry?",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Take a minute to think about how many times you’ve made me cry, first.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Years ago, you had this need to be in control.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "You were always trying to make me into something I’m not.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "I was a shoulder to cry on, a wingman, or a scapegoat for your own mistakes.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "And you were always an angel.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "I realize that now.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "It was hard for me to come to terms with what I’d done, but that will never happen again as long as I live.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "I swear. I was a manipulator. I was cruel. I’m sorry for doing that to you.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "That’s really all I ever wanted to hear.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Huh?",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Ever since they died, you've been apologizing for yourself, but never in the right way.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "“I’m sorry, I can’t handle this right now.” “I’m sorry, I just can’t do it.”",
+                     "type": "self"
+                  },
+                  {
+                     "text": "You never apologized to the people you hurt in those moments, but now I can see a little bit of your old self shining through that pitiful shell.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "You manipulated me and now you’re doing it to yourself.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Inside, you still have a passion for gardening—for helping people—but there’s something keeping you from being yourself.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "This isn’t you. It’s time to take off your frame.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "I… I’ll try, but I don’t think I can go back to being your friend.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Your words and actions aren’t consequence-free, either.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "A little effort on your part is all I ask. I’m alright with us parting ways.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Ok. Speaking of frames, though, I’d like to buy a bigger one from you.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "No.",
                      "type": "self"
                   }
                ],
                "repeatquest": [
                   {
-                     "text": "Go away",
+                     "text": "Go home.",
                      "type": "self"
                   }
                ],
                "postquest": [
                   {
-                     "text": "Post quest text",
+                     "text": "Welcome to Walter's. The cashier inside will help you.",
                      "type": "self"
                   }
                ]
@@ -138,47 +330,219 @@
             "narratives": {
                "prequest": [
                   {
-                     "text": "Yo!",
+                     "text": "Hi there. I’m sorry, I can’t talk right now. I’m getting my kids ready for school.",
                      "type": "self"
                   },
                   {
-                     "text": "Are you hungry?",
-                     "type": "self"
-                  },
-                  {
-                     "text": "A little",
+                     "text": "Then what are you doing waiting outside?",
                      "type": "player"
+                  },
+                  {
+                     "text": "Oh, they practically get themselves ready.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Really, I’m studying this strange phenomenon for a couple of minutes.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Something’s wrong with the sun.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Well, yeah. It’s noon and the sun’s GONE.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Hm, what? No, it’s right up there. Just a weird color.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Maybe something to do with the way light bends in the atmosphere?",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Oh, well. This is why I’m a people doctor and not an Earth doctor.",
+                     "type": "self"
                   }
                ],
                "quest": [
                   {
-                     "text": "Hello!",
+                     "text": "Hey, there! Just got my kids to school. What can I do for you?",
                      "type": "self"
                   },
                   {
-                     "text": "I need 3 carrots!",
+                     "text": "Hey, Doctor-",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Please, call me Corrine. We’ve known each other too long for formalities.",
                      "type": "self"
                   },
                   {
-                     "text": "I'll go get them",
+                     "text": "Heh, ok then. I actually need to pick up a prescription for a friend.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "A rather small pair of glasses?",
+                     "type": "player"
+                  },
+                  {
+                     "text": "I don’t do optometry, but forget that!",
+                     "type": "self"
+                  },
+                  {
+                     "text": "You should be taking better care of yourself.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "That came out of nowhere. What do you mean?",
+                     "type": "player"
+                  },
+                  {
+                     "text": "You look like you haven’t gotten out in a while.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "When was the last time you took a walk?",
+                     "type": "self"
+                  },
+                  {
+                     "text": "And when was the last time you ate a vegetable?",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Well, I haven’t gotten out in a bit, but you could have asked with a bit more tact.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "There are some veggies in my tv dinners… I think.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Look, I didn’t come here for a physical.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "*Sigh* You’re right, I’m sorry.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "I’ll help you out with your optometry issue if you can find me three carrots.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "I know they usually aren’t ready for harvest until Summer, but I can’t wait that long.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "They’re my favorite food.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Seriously? Whose favorite food is carrots?",
+                     "type": "player"
+                  },
+                  {
+                     "text": "They’re quite good with ranch or hummus.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Fine, I’ll find you some.",
                      "type": "player"
                   }
                ],
                "repeatquest": [
                   {
-                     "text": "Have you gotten them?",
+                     "text": "Have you found me all 3 carrots?",
                      "type": "self"
                   }
                ],
                "completequest": [
                   {
-                     "text": "These carrots are actually for you!",
+                     "text": "Here are your carrots.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "And here’s some ranch and hummus. Try one!",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Now, another!",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Last one?",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Awesome, thanks.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Hm, not bad, but what was the point of that?",
+                     "type": "player"
+                  },
+                  {
+                     "text": "I’m a mom. It’s my job to know about healthy snacks for when the kids come back after school hungry, and you’re just about the hungriest looking kid I’ve ever seen.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "I’m not a kid.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Maybe not, but don’t you feel like one?",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Veggies are so refreshing that they make me feel like I could leap a tall building in a single bound.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Sure. I could go for more, but I don’t always want to eat like this.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Your body does. Sometimes, you may get these intrusive feelings that make you feel like a bad person. You may feel like you don’t deserve fuel.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "You don’t always have to push these feelings away. Some of them are good, like “please eat!”",
+                     "type": "self"
+                  },
+                  {
+                     "text": "If you were ever a bad person, now is the time for your redemption arc.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Life is a series of Yins and Yangs, positives and negatives. It can snowball both ways.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "You can eat a tv dinner today and not have the energy to make anything tomorrow, or you can have three carrots today and have the energy to wash a few more tomorrow.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "You’re right, but can I please have those glasses, now?",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Again, not an optometrist.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "It’s nice that you’re doing a favor for your friend, but I think you’ve been had.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Now, do yourself a favor and get some good eats.",
                      "type": "self"
                   }
                ],
                "postquest": [
                   {
-                     "text": "Post quest text",
+                     "text": "Don't forget to look out for yourself.",
                      "type": "self"
                   }
                ]
@@ -197,44 +561,116 @@
             "narratives": {
                "quest": [
                   {
-                     "text": "start quest",
+                     "text": "Mornin’, pal. Glad to see you up and around, but I’m not doin’ so hot muhself.",
                      "type": "self"
                   },
                   {
-                     "text": "go to villager0",
-                     "type": "self"
-                  },
-                  {
-                     "text": "Ok",
+                     "text": "I’m sorry to hear that. How can I help?",
                      "type": "player"
+                  },
+                  {
+                     "text": "Will you please do me a small favor? I need a new pair of overalls from the tailor in town.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "It’s very important that they be human-sized.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Are you implying that you’re naked right now? Overalls will really help you?",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Hey, now. A tomato can have different uses for overalls than clothing, pal!",
+                     "type": "self"
+                  },
+                  {
+                     "text": "If you say so. It’s the least I can do after slaughtering so many of your brethren in the name of the sauce lords.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Father Marinara is a cruel, but tasty man. I don’t blame you.",
+                     "type": "self"
                   }
                ],
                "repeatquest": [
                   {
-                     "text": "repeat quest",
+                     "text": "Back with the overalls already?",
                      "type": "self"
                   },
                   {
-                     "text": "go to villager0",
-                     "type": "self"
-                  },
-                  {
-                     "text": "Ok",
+                     "text": "No, sorry.",
                      "type": "player"
                   }
                ],
                "completequest": [
                   {
-                     "text": "Complete quest",
+                     "text": "Oh, wow! They’re perfect!",
                      "type": "self"
                   },
                   {
-                     "text": "thank you",
-                     "type": "self"
-                  },
-                  {
-                     "text": "Welcome",
+                     "text": "Glad you like them. Here you go.",
                      "type": "player"
+                  },
+                  {
+                     "text": "Psh, these things aren’t for me, they’re for you!",
+                     "type": "self"
+                  },
+                  {
+                     "text": "W- no, I can’t take these. They’re-",
+                     "type": "player"
+                  },
+                  {
+                     "text": "What am *I* gonna do with them? They’re tailored to *you*.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "You gaslit me!",
+                     "type": "player"
+                  },
+                  {
+                     "text": "If you don’t keep ‘em, they’re just gonna sit here on the ground and get eaten by worms.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "You’d waste a brand new pair of overalls just like that?",
+                     "type": "self"
+                  },
+                  {
+                     "text": "No, I’d hate to, but I don’t really have the closet space, either.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "So put ‘em on!",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Alright, alright.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "There! Doesn’t that feel a lot better?",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Hm, yeah. They smell good, too. Like being wreathed in oak and cinnamon.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Keep good care of ‘em and they’ll do you good, too.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "These things take time, but immersing yourself in a positive environment will change your life.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Thank you.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Don't mention it.",
+                     "type": "self"
                   }
                ]
             }
@@ -250,43 +686,79 @@
             "narratives": {
                "quest": [
                   {
-                     "text": "start quest",
+                     "text": "Morning, mate. I hope you’re well today.",
                      "type": "self"
                   },
                   {
-                     "text": "go to villager1",
+                     "text": "I could be better.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Me too, honestly. Will you please do me a small favor?",
                      "type": "self"
                   },
                   {
-                     "text": "Ok",
+                     "text": "I need you to get me a new shaping frame from the general store in town.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "I’m outgrowing my current one and it’s giving me quite the squeeze!",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Wow, I must be doing a good job, then.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "But… that makes no sense. I don’t think I’ve watered you in weeks… Have I?",
+                     "type": "player"
+                  },
+                  {
+                     "text": "I’m 92% water, mate. Don’t you worry about it one second.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Well, I don’t want you to be in any pain. I’ll get you a new frame as soon as I can.",
                      "type": "player"
                   }
                ],
                "repeatquest": [
                   {
-                     "text": "repeat quest",
+                     "text": "Please, can you get me a new shaping frame?",
                      "type": "self"
-                  },
-                  {
-                     "text": "go to villager1",
-                     "type": "self"
-                  },
-                  {
-                     "text": "Ok",
-                     "type": "player"
                   }
                ],
                "completequest": [
                   {
-                     "text": "Complete quest",
+                     "text": "I’m so sorry. I couldn’t get you the frame.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Walter and I had a falling-out.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "That’s alright. Sometimes, you just have to let go of relationships that aren’t healthy anymore.",
                      "type": "self"
                   },
                   {
-                     "text": "Its ok you didn't get the item",
+                     "text": "It’s just another part of life.",
                      "type": "self"
                   },
                   {
-                     "text": "Ok",
+                     "text": "You’re… not upset?",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Nah, these things happen.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "If you help me out of this old frame, I’ll consider us *square*, heheh.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Hah, alright then.",
                      "type": "player"
                   }
                ]
@@ -303,30 +775,54 @@
             "narratives": {
                "quest": [
                   {
-                     "text": "start quest",
+                     "text": "Good morning. Or, rather, I think it’s morning.",
                      "type": "self"
                   },
                   {
-                     "text": "go to villager2",
+                     "text": "Sometimes the days just blend together and you lose track of time.",
                      "type": "self"
                   },
                   {
-                     "text": "Ok",
+                     "text": "I know that feeling. Especially when there’s no sun in the sky.",
                      "type": "player"
+                  },
+                  {
+                     "text": "Will you please do me a small favor?",
+                     "type": "self"
+                  },
+                  {
+                     "text": "I need you to fulfill my optometry prescription from the doctor in town.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "You know, that’s weird because you don’t ever have ears to support glasses, but stranger things have happened today, so I’ll do it.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Seems easy enough. Even I can’t screw this up.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "That’s the spirit…! Nearly.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "Huh?",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Nothing, please hurry! I need to read my baby carrots a bedtime story tonight.",
+                     "type": "self"
                   }
                ],
                "repeatquest": [
                   {
-                     "text": "repeat quest",
+                     "text": "Have you gotten my glasses yet?",
                      "type": "self"
                   },
                   {
-                     "text": "go to villager2",
+                     "text": "I'd get them myself, but I have babies to take care of.",
                      "type": "self"
-                  },
-                  {
-                     "text": "Ok",
-                     "type": "player"
                   }
                ],
                "completequest": [
