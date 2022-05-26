@@ -25,7 +25,7 @@ class Villager extends Phaser.GameObjects.Sprite {
 
       //text object
       let firstText = this.narratives[this.queststate][this.index];
-      this.textbox = new Textbox(scene, x, y - this.height * this.scale * 2, firstText, {
+      this.textbox = new Textbox(scene, x, y - this.height * this.scale - 10, firstText, {
          fontFamily: 'VT323',
          fontSize: '32px',
          color: '#ffffff',
@@ -37,7 +37,15 @@ class Villager extends Phaser.GameObjects.Sprite {
       this.textbox.borderColor = this.json["textbox"]["border_color"];
 
       // interact indicator
-      this.indicator = scene.add.image(x, y - this.height * this.scale / 2 - 10, "indicator").setOrigin(0.5, 1);
+      this.indicator = new Textbox(scene, x, y - this.height * this.scale - 10, "space", {
+         fontFamily: 'VT323',
+         fontSize: '32px',
+         color: '#ffffff',
+         align: 'center',
+      });
+      this.indicator.setOrigin(0.5, 1);
+      this.indicator.backgroundColor = this.json["textbox"]["background_color"];
+      this.indicator.borderColor = this.json["textbox"]["border_color"]
       this.indicator.visible = false;
 
    }
@@ -106,6 +114,9 @@ class Villager extends Phaser.GameObjects.Sprite {
       }
       // update textbox
       this.textbox.update();
+
+      // update indicator
+      this.indicator.update();
    }
 
    // updates textbox

@@ -109,14 +109,15 @@ class Play extends Phaser.Scene {
       });
 
       // add sun
-      this.sun = this.add.image(game.config.width/2, 100, 'sun').setOrigin(0.5, 0.5);
+      this.sun = this.add.image(game.config.width / 2, 100, 'sun').setOrigin(0.5, 0.5);
+      this.sun.setScrollFactor(0);
 
       // sun tween
       this.tweens.add({
          targets: this.sun,
          duration: 20000,
          repeat: -1,
-         angle : 360,
+         angle: 360,
       });
 
 
@@ -129,9 +130,6 @@ class Play extends Phaser.Scene {
 
       // update fps counter
       this.tempFPS.setText("FPS: " + this.game.loop.actualFps);
-
-      // update sun
-      this.sun.x = this.player.x;
 
       // move clouds
       this.clouds1.tilePositionX -= 1;

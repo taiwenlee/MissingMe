@@ -17,7 +17,6 @@ class Textbox {
 
         // add text
         this.text = scene.add.text(this.x, this.y, text, style);
-        this.text.setOrigin(this.OriginX, this.OriginY);
         this.text.depth = this.depth + 1;
 
         // add text box
@@ -50,12 +49,10 @@ class Textbox {
 
     setOrigin() {
         if (arguments.length == 1) {
-            this.text.setOrigin(arguments[0], arguments[0]);
             this.OriginX = arguments[0];
             this.OriginY = arguments[0];
             this.drawBox();
         } else if (arguments.length == 2) {
-            this.text.setOrigin(arguments[0], arguments[1]);
             this.OriginX = arguments[0];
             this.OriginY = arguments[1];
             this.drawBox();
@@ -71,19 +68,24 @@ class Textbox {
 
         // Border Box
         this.box.fillStyle(this.borderColor, 1);
-        this.box.fillRoundedRect(this.text.x - this.text.width * this.OriginX - this.padding - this.border,
-            this.text.y - this.text.height * this.OriginY - this.padding - this.border,
+        this.box.fillRoundedRect(this.x - (this.text.width + this.padding * 2 + this.border * 2) * this.OriginX,
+            this.y - (this.text.height + this.padding * 2 + this.border * 2) * this.OriginY,
             this.text.width + this.padding * 2 + this.border * 2,
             this.text.height + this.padding * 2 + this.border * 2,
             this.rounding);
 
         // Background Box
         this.box.fillStyle(this.backgroundColor, 1);
-        this.box.fillRoundedRect(this.text.x - this.text.width * this.OriginX - this.padding,
-            this.text.y - this.text.height * this.OriginY - this.padding,
+        this.box.fillRoundedRect(this.x + this.border - (this.text.width + this.padding * 2 + this.border * 2) * this.OriginX,
+            this.y + this.border - (this.text.height + this.padding * 2 + this.border * 2) * this.OriginY,
             this.text.width + this.padding * 2,
             this.text.height + this.padding * 2,
             this.rounding);
+
+        // positions text
+        this.text.x = this.x + this.border + this.padding - (this.text.width + this.padding * 2 + this.border * 2) * this.OriginX;
+        this.text.y = this.y + this.border + this.padding - (this.text.height + this.padding * 2 + this.border * 2) * this.OriginY;
+
 
     }
 

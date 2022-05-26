@@ -4,9 +4,9 @@ let config = {
    height: 608,
    pixelArt: true,
    fps: {
-      target: 30,
+      target: 60,
       forceSetTimeOut: true
-    },
+   },
    physics: {
       default: 'arcade',
       arcade: {
