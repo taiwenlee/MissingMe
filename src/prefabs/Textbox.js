@@ -18,7 +18,7 @@ class Textbox {
         // add text
         this.text = scene.add.text(this.x, this.y, text, style);
         this.text.style.wordWrapWidth = this.wrapWidth;
-        this.text.style.wordWrapUseAdvanced = true;
+        this.text
         this.text.depth = this.depth + 1;
 
         // add text box
@@ -26,10 +26,29 @@ class Textbox {
         this.box.depth = this.depth;
         scene.add.existing(this.box);
 
+        // text animation stuff
+        this.speed = 0.5; // letter per update
+        this.animation = true; // if true, letter and letter will play
+        this.index = 0; // current letter
+        this.fullText = text; // full text
+        this.textLength = text.length; // total length of text
+
+        // finds complete text width and height
+        this.text.setText(text);
+        this.width = this.text.width;
+        this.height = this.text.height;
+
+        if (this.animation) {
+            this.text.setText(this.fullText.substring(0, this.index));
+        } else {
+            this.index = this.textLength;
+        }
+
         this.drawBox();
     }
 
     update() {
+        // check visible and update visibility
         if (this.visible) {
             this.text.visible = true;
             this.box.visible = true;
@@ -38,8 +57,23 @@ class Textbox {
             this.box.visible = false;
         }
 
+        // update text animation
+        if (this.animation && this.index < this.textLength) {
+            this.index += this.speed;
+            this.text.setText(this.fullText.substring(0, this.index));
+            // basic prevent of overflow on textbox
+            if (this.text.width > this.width) {
+                let lastIndex = this.fullText.substring(0, this.index).lastIndexOf(" ");
+                this.text.setText(this.fullText.substring(0, lastIndex)
+                    + "\n" + this.fullText.substring(lastIndex, this.index));
+            }
+        } else {
+            this.index = this.textLength;
+            this.text.setText(this.fullText);
+        }
+
+        // update text locations and wrap
         this.text.style.wordWrapWidth = this.wrapWidth;
-        this.text.style.wordWrapUseAdvanced = true;
         this.text.x = this.x;
         this.text.y = this.y;
         this.drawBox();
@@ -47,7 +81,18 @@ class Textbox {
     }
 
     setText(text) {
+        this.index = 0; // reset index
+        this.fullText = text; // full text
+        this.textLength = text.length; // total length of text
         this.text.setText(text);
+        this.width = this.text.width;
+        this.height = this.text.height;
+        if (this.animation) {
+            this.text.setText(this.fullText.substring(0, this.index));
+        } else {
+            this.index = this.textLength;
+            this.text.setText(text);
+        }
         this.drawBox();
     }
 
@@ -63,6 +108,10 @@ class Textbox {
         } else {
             console.log("Error: setOrigin requires 1 or 2 arguments");
         }
+    }
+
+    // skips letter by letter animation
+    skip() {
 
     }
 
@@ -72,23 +121,23 @@ class Textbox {
 
         // Border Box
         this.box.fillStyle(this.borderColor, 1);
-        this.box.fillRoundedRect(this.x - (this.text.width + this.padding * 2 + this.border * 2) * this.OriginX,
-            this.y - (this.text.height + this.padding * 2 + this.border * 2) * this.OriginY,
-            this.text.width + this.padding * 2 + this.border * 2,
-            this.text.height + this.padding * 2 + this.border * 2,
+        this.box.fillRoundedRect(this.x - (this.width + this.padding * 2 + this.border * 2) * this.OriginX,
+            this.y - (this.height + this.padding * 2 + this.border * 2) * this.OriginY,
+            this.width + this.padding * 2 + this.border * 2,
+            this.height + this.padding * 2 + this.border * 2,
             this.rounding);
 
         // Background Box
         this.box.fillStyle(this.backgroundColor, 1);
-        this.box.fillRoundedRect(this.x + this.border - (this.text.width + this.padding * 2 + this.border * 2) * this.OriginX,
-            this.y + this.border - (this.text.height + this.padding * 2 + this.border * 2) * this.OriginY,
-            this.text.width + this.padding * 2,
-            this.text.height + this.padding * 2,
+        this.box.fillRoundedRect(this.x + this.border - (this.width + this.padding * 2 + this.border * 2) * this.OriginX,
+            this.y + this.border - (this.height + this.padding * 2 + this.border * 2) * this.OriginY,
+            this.width + this.padding * 2,
+            this.height + this.padding * 2,
             this.rounding);
 
         // positions text
-        this.text.x = this.x + this.border + this.padding - (this.text.width + this.padding * 2 + this.border * 2) * this.OriginX;
-        this.text.y = this.y + this.border + this.padding - (this.text.height + this.padding * 2 + this.border * 2) * this.OriginY;
+        this.text.x = this.x + this.border + this.padding - (this.width + this.padding * 2 + this.border * 2) * this.OriginX;
+        this.text.y = this.y + this.border + this.padding - (this.height + this.padding * 2 + this.border * 2) * this.OriginY;
     }
 
     destroy() {

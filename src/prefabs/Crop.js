@@ -21,7 +21,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       this.queststate = "quest";  // quest state
 
       //text object
-      this.textbox = new Textbox(scene, x, y - this.height * this.scale - 10, this.narratives[this.queststate][this.index], {
+      this.textbox = new Textbox(scene, x, y - this.height * this.scale - 10, "", {
          fontFamily: 'VT323',
          fontSize: '32px',
          color: '#ffffff',
@@ -43,6 +43,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       this.indicator.backgroundColor = '#ffffff';
       this.indicator.borderColor = this.json["textbox"]["border_color"];
       this.indicator.visible = false;
+      this.indicator.animation = false;
 
       // sounds
       this.sound1 = scene.sound.add(json["sound"]["start"]);
