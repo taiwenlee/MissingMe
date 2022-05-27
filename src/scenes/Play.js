@@ -12,14 +12,24 @@ class Play extends Phaser.Scene {
       // set world size
       this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
 
-      // add background
-      this.background = this.add.image(0, -3570, 'background').setOrigin(0, 0);
-      this.background.scale = 1.5;
-      this.background.setScrollFactor(0);
+      // add skies
+      this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xe3d48a).setOrigin(0, 0);
+      this.yellowBackground.setScrollFactor(0); 
+      this.pinkBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xa95bb0).setOrigin(0, 0);
+      this.pinkBackground.setScrollFactor(0);      
+      this.purpleBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3c0791).setOrigin(0, 0);
+      this.purpleBackground.setScrollFactor(0);
+      this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x102b94).setOrigin(0, 0);
+      this.blueBackground.setScrollFactor(0);
 
       // parallax clouds
       this.clouds1 = this.add.tileSprite(0, 0, game.config.width * 10, 608, 'clouds1').setOrigin(0, 0);
       this.clouds2 = this.add.tileSprite(0, 0, game.config.width * 10, 608, 'clouds2').setOrigin(0, 0);
+
+      this.saturation = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x000000).setOrigin(0, 0);
+      this.saturation.alpha = 0.39;
+      this.saturation.depth = 1.5;
+      this.saturation.setScrollFactor(0);
 
       // temp scene indicator text
       const tempText = this.add.text(10, 10, "playScene");
@@ -61,32 +71,32 @@ class Play extends Phaser.Scene {
       });
       this.vData = this.data["npcs"]["villagers"];
       this.cData = this.data["npcs"]["crops"];
-      this.villager0 = new Villager(this, 50, 477, 'villager0', 0, this.vData["villager0"]).setOrigin(0.5, 1); // corrine
-      this.npcs.add(this.villager0);
-      this.villager1 = new Villager(this, 200, 477, 'villager1', 0, this.vData["villager1"]).setOrigin(0.5, 1); // teddy
-      this.npcs.add(this.villager1);
-      this.villager2 = new Villager(this, 350, 477, 'villager2', 0, this.vData["villager2"]).setOrigin(0.5, 1); // walter
-      this.npcs.add(this.villager2);
-      this.crop0 = new Crop(this, 500, 477, 'crop0', 0, this.cData["crop0"]).setOrigin(0.5, 1);
-      this.npcs.add(this.crop0);
-      this.crop1 = new Crop(this, 660, 477, 'crop1', 0, this.cData["crop1"]).setOrigin(0.5, 1);
-      this.npcs.add(this.crop1);
-      this.crop2 = new Crop(this, 800, 477, 'crop2', 0, this.cData["crop2"]).setOrigin(0.5, 1);
-      this.npcs.add(this.crop2);
+      this.teddy = new Villager(this, 50, 477, 'teddy', 0, this.vData["teddy"]).setOrigin(0.5, 1); // teddy
+      this.npcs.add(this.teddy);
+      this.walter = new Villager(this, 200, 477, 'walter', 0, this.vData["walter"]).setOrigin(0.5, 1); // walter
+      this.npcs.add(this.walter);
+      this.corinne = new Villager(this, 350, 477, 'corinne', 0, this.vData["corinne"]).setOrigin(0.5, 1); // corinne
+      this.npcs.add(this.corinne);
+      this.tomato = new Crop(this, 500, 477, 'tomato', 0, this.cData["tomato"]).setOrigin(0.5, 1);
+      this.npcs.add(this.tomato);
+      this.watermelon = new Crop(this, 660, 477, 'watermelon', 0, this.cData["watermelon"]).setOrigin(0.5, 1);
+      this.npcs.add(this.watermelon);
+      this.carrot = new Crop(this, 800, 477, 'carrot', 0, this.cData["carrot"]).setOrigin(0.5, 1);
+      this.npcs.add(this.carrot);
 
-      // villager0 and crop0 tween
+      // teddy and tomato tween
       this.tweens.add({
-         targets: [this.villager0, this.crop0],
-         scaleY: 1.02,
-         duration: 300,
+         targets: [this.teddy, this.tomato],
+         scaleY: 1.05,
+         duration: 1000,
          ease: 'Sine.easeInOut',
          yoyo: true,
          repeat: -1,
       });
 
-      // villager1 and crop1 tween
+      // walter and watermelon tween
       this.tweens.add({
-         targets: [this.villager1, this.crop1],
+         targets: [this.walter, this.watermelon],
          scaleY: 1.03,
          duration: 400,
          ease: 'Sine.easeInOut',
@@ -94,11 +104,11 @@ class Play extends Phaser.Scene {
          repeat: -1,
       });
 
-      // villager2 and crop2 tween
+      // corinne and carrot tween
       this.tweens.add({
-         targets: [this.villager2, this.crop2],
-         scaleY: 1.05,
-         duration: 1000,
+         targets: [this.corinne, this.carrot],
+         scaleY: 1.02,
+         duration: 300,
          ease: 'Sine.easeInOut',
          yoyo: true,
          repeat: -1,
@@ -110,7 +120,8 @@ class Play extends Phaser.Scene {
       });
 
       // add sun
-      this.sun = this.add.image(game.config.width / 2, 100, 'sun').setOrigin(0.5, 0.5);
+      this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'sun').setOrigin(0.5, 0.5);
+      this.sun.depth = 1.5;
       this.sun.setScrollFactor(0);
 
       // sun tween
@@ -137,6 +148,73 @@ class Play extends Phaser.Scene {
       this.clouds2.tilePositionX -= 0.5;
 
       console.log(this.questCount);
+
+      if (this.questCount == 1) {
+         // brighten scene
+         this.tweens.add({
+            targets: this.saturation,
+            alpha: { value: 0.34, duration: 100, },
+         });
+
+         // fade blue
+         this.tweens.add({
+            targets: this.blueBackground,
+            alpha: { value: 0, duration: 300, },
+         });
+
+         // move sun up
+         this.tweens.add({
+            targets: this.sun,
+            x: game.config.width - 300,
+            y: game.config.height - 350,
+            duration: 500,
+         });   
+      }
+
+      if (this.questCount == 2) {
+         // brighten scene
+         this.tweens.add({
+            targets: this.saturation,
+            alpha: { value: 0.17, duration: 100, },
+         });
+
+         // fade purple
+         this.tweens.add({
+            targets: this.purpleBackground,
+            alpha: { value: 0, duration: 300, },
+         });
+
+         // move sun up
+         this.tweens.add({
+            targets: this.sun,
+            x: game.config.width - 500,
+            y: game.config.height - 400,
+            duration: 500,
+         });  
+      }
+
+      if (this.questCount == 3) {
+         // brighten scene
+         this.tweens.add({
+            targets: this.saturation,
+            alpha: { value: 0, duration: 100, },
+         });
+
+         // fade pink
+         this.tweens.add({
+            targets: this.pinkBackground,
+            alpha: { value: 0, duration: 300, },
+         });
+
+         // move sun up
+         this.tweens.add({
+            targets: this.sun,
+            x: game.config.width - 750,
+            y: game.config.height - 500,
+            duration: 500,
+         });  
+         
+      }
    }
 
    createFloor() {

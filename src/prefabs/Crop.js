@@ -13,6 +13,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       this.interactable = true;
       this.villager = json["villager"];
       this.questType = json["quest_type"];
+      this.sound = json["sound"]; // sfx
 
       // state variables
       this.Interacting = false;
@@ -32,14 +33,14 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       this.textbox.borderColor = this.json["textbox"]["border_color"];
 
       // interact indicator
-      this.indicator = new Textbox(scene, x, y - this.height * this.scale - 10, "space", {
+      this.indicator = new Textbox(scene, x, y - this.height * this.scale - 25, "SPACE", {
          fontFamily: 'VT323',
          fontSize: '32px',
          color: '#ffffff',
          align: 'center',
       });
       this.indicator.setOrigin(0.5, 1);
-      this.indicator.backgroundColor = this.json["textbox"]["background_color"];
+      this.indicator.backgroundColor = '#ffffff';
       this.indicator.borderColor = this.json["textbox"]["border_color"];
       this.indicator.visible = false;
    }

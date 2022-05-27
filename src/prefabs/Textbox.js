@@ -2,7 +2,7 @@ class Textbox {
     constructor(scene, x, y, text, style) {
 
         // text box properties
-        this.padding = 10;
+        this.padding = 5;
         this.border = 5;
         this.rounding = 5;
         this.depth = 8;

@@ -1,15 +1,19 @@
 {
    "npcs": {
       "villagers": {
-         "villager0": {
-            "name": "villager0",
-            "crop": "crop0",
+         "teddy": {
+            "name": "teddy",
+            "crop": "tomato",
             "item": "item0",
             "item_count": 1,
             "quest_type": "get",
             "textbox": {
                "border_color": "0xffffff",
-               "background_color": "0x9b51ef"
+               "background_color": "0x1049ff"
+            },
+            "sound":{
+               "start": "teddy1",
+               "rest": "teddy2"
             },
             "narratives": {
                "prequest": [
@@ -118,15 +122,19 @@
                ]
             }
          },
-         "villager1": {
-            "name": "villager1",
-            "crop": "crop1",
+         "walter": {
+            "name": "walter",
+            "crop": "watermelon",
             "item": "item1",
             "item_count": 0,
             "quest_type": "get",
             "textbox": {
                "border_color": "0xffffff",
                "background_color": "0xf76a8a"
+            },
+            "sound":{
+               "start": "walter1",
+               "rest": "walter2"
             },
             "narratives": {
                "prequest": [
@@ -299,9 +307,9 @@
                ]
             }
          },
-         "villager2": {
-            "name": "villager2",
-            "crop": "crop2",
+         "corinne": {
+            "name": "corinne",
+            "crop": "carrot",
             "item": "item0",
             "item_count": 1,
             "quest_type": "fetch",
@@ -325,7 +333,11 @@
             },
             "textbox": {
                "border_color": "0xffffff",
-               "background_color": "0x1049ff"
+               "background_color": "0x9b51ef"
+            },
+            "sound":{
+               "start": "corinne1",
+               "rest": "corinne2"
             },
             "narratives": {
                "prequest": [
@@ -550,13 +562,17 @@
          }
       },
       "crops": {
-         "crop0": {
-            "name": "crop0",
-            "villager": "villager0",
+         "tomato": {
+            "name": "tomato",
+            "villager": "teddy",
             "quest_type": "get",
             "textbox": {
-               "border_color": "0x9b51ef",
-               "background_color": "0xb480ef"
+               "border_color": "0xffffff",
+               "background_color": "0x1049ff"
+            },
+            "sound":{
+               "start": "teddy1",
+               "rest": "teddy2"
             },
             "narratives": {
                "quest": [
@@ -675,13 +691,17 @@
                ]
             }
          },
-         "crop1": {
-            "name": "crop1",
-            "villager": "villager1",
+         "watermelon": {
+            "name": "watermelon",
+            "villager": "walter",
             "quest_type": "get",
             "textbox": {
                "border_color": "0xffffff",
-               "background_color": "0x6187ff"
+               "background_color": "0xf76a8a"
+            },
+            "sound":{
+               "start": "walter1",
+               "rest": "walter2"
             },
             "narratives": {
                "quest": [
@@ -764,13 +784,17 @@
                ]
             }
          },
-         "crop2": {
-            "name": "crop2",
-            "villager": "villager2",
+         "carrot": {
+            "name": "carrot",
+            "villager": "corinne",
             "quest_type": "get",
             "textbox": {
                "border_color": "0xffffff",
-               "background_color": "0xf76a8a"
+               "background_color": "0x9b51ef"
+            },
+            "sound":{
+               "start": "corinne1",
+               "rest": "corinne1"
             },
             "narratives": {
                "quest": [

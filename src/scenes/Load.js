@@ -27,12 +27,12 @@ class Load extends Phaser.Scene {
       // object assets
       this.load.atlas("player", "./assets/images/player.png", "./assets/images/player.json");
       this.load.image("floor", "./assets/images/floor.png");
-      this.load.image("villager0", "./assets/images/teddy.PNG");  // TODO: change to texture atlas
-      this.load.image("crop0", "./assets/images/teddy.PNG");      // TODO: change to texture atlas 
-      this.load.image("villager1", "./assets/images/walter.PNG");      // TODO: change to texture atlas
-      this.load.image("crop1", "./assets/images/walter.PNG");      // TODO: change to texture atlas
-      this.load.image("villager2", "./assets/images/corrine.PNG");      // TODO: change to texture atlas
-      this.load.image("crop2", "./assets/images/corrine.PNG");      // TODO: change to texture atlas
+      this.load.image("teddy", "./assets/images/teddy.PNG");  // TODO: change to texture atlas
+      this.load.image("tomato", "./assets/images/tomato.PNG");      // TODO: change to texture atlas 
+      this.load.image("walter", "./assets/images/walter.PNG");      // TODO: change to texture atlas
+      this.load.image("watermelon", "./assets/images/watermelon.PNG");      // TODO: change to texture atlas
+      this.load.image("corinne", "./assets/images/corrine.PNG");      // TODO: change to texture atlas
+      this.load.image("carrot", "./assets/images/carrot.PNG");      // TODO: change to texture atlas
       this.load.image("sun", "./assets/images/sun.png");
 
 
@@ -48,6 +48,12 @@ class Load extends Phaser.Scene {
       this.load.audio('obtainItem', 'assets/sounds/obtainItem.mp3');
       this.load.audio('questCompleted', 'assets/sounds/questCompleted.mp3');
       this.load.audio('startQuest', 'assets/sounds/startQuest.mp3');
+      this.load.audio('teddy1', 'assets/sounds/teddy1.mp3');
+      this.load.audio('teddy2', 'assets/sounds/teddy2.mp3');
+      this.load.audio('walter1', 'assets/sounds/walter1.mp3');
+      this.load.audio('walter2', 'assets/sounds/walter2.mp3');
+      this.load.audio('corinne1', 'assets/sounds/corinne1.mp3');
+      this.load.audio('corinne2', 'assets/sounds/corinne2.mp3');
    }
 
    create() {

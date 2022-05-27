@@ -37,17 +37,16 @@ class Villager extends Phaser.GameObjects.Sprite {
       this.textbox.borderColor = this.json["textbox"]["border_color"];
 
       // interact indicator
-      this.indicator = new Textbox(scene, x, y - this.height * this.scale - 10, "space", {
+      this.indicator = new Textbox(scene, x, y - this.height * this.scale - 25, "SPACE", {
          fontFamily: 'VT323',
          fontSize: '32px',
          color: '#ffffff',
          align: 'center',
       });
       this.indicator.setOrigin(0.5, 1);
-      this.indicator.backgroundColor = this.json["textbox"]["background_color"];
-      this.indicator.borderColor = this.json["textbox"]["border_color"]
+      this.indicator.backgroundColor = '#ffffff';
+      this.indicator.borderColor = this.json["textbox"]["border_color"];
       this.indicator.visible = false;
-
    }
 
    update() {
