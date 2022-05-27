@@ -11,7 +11,7 @@
                "border_color": "0xffffff",
                "background_color": "0x1049ff"
             },
-            "sound":{
+            "sound": {
                "start": "teddy1",
                "rest": "teddy2"
             },
@@ -132,7 +132,7 @@
                "border_color": "0xffffff",
                "background_color": "0xf76a8a"
             },
-            "sound":{
+            "sound": {
                "start": "walter1",
                "rest": "walter2"
             },
@@ -314,7 +314,7 @@
             "item_count": 1,
             "quest_type": "fetch",
             "quest_data": {
-               "item_type": "crop",
+               "item_type": "carrot",
                "item_count": 3,
                "locations": [
                   {
@@ -335,7 +335,7 @@
                "border_color": "0xffffff",
                "background_color": "0x9b51ef"
             },
-            "sound":{
+            "sound": {
                "start": "corinne1",
                "rest": "corinne2"
             },
@@ -570,7 +570,7 @@
                "border_color": "0xffffff",
                "background_color": "0x1049ff"
             },
-            "sound":{
+            "sound": {
                "start": "teddy1",
                "rest": "teddy2"
             },
@@ -699,7 +699,7 @@
                "border_color": "0xffffff",
                "background_color": "0xf76a8a"
             },
-            "sound":{
+            "sound": {
                "start": "walter1",
                "rest": "walter2"
             },
@@ -792,7 +792,7 @@
                "border_color": "0xffffff",
                "background_color": "0x9b51ef"
             },
-            "sound":{
+            "sound": {
                "start": "corinne1",
                "rest": "corinne1"
             },

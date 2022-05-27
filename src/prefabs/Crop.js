@@ -43,6 +43,10 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       this.indicator.backgroundColor = '#ffffff';
       this.indicator.borderColor = this.json["textbox"]["border_color"];
       this.indicator.visible = false;
+
+      // sounds
+      this.sound1 = scene.sound.add(json["sound"]["start"]);
+      this.sound2 = scene.sound.add(json["sound"]["rest"]);
    }
 
    update() {
@@ -51,42 +55,49 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
          && Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
          // show indicator if nearby
          if (!this.Interacting) this.indicator.visible = true;
+
          let intKey = this.keyTap(keySpace);
          if (intKey && !this.Interacting && this.interactable) {
-            console.log("Interacting");
+
             // initiate interaction
             this.indicator.visible = false;
             this.Interacting = true;
             this.scene.player.Interacting = true;
             this.textbox.visible = true;
             this.updateText(this.narratives[this.queststate][this.index++]);
+            this.sound1.play();
+
          } else if (this.Interacting && intKey) {
-            // cycles down each interaction text
+
             if (this.index >= this.narratives[this.queststate].length) {
                // if at end of text, end interaction
                this.scene.player.Interacting = false;
                this.Interacting = false;
                this.textbox.visible = false;
                this.index = 0;
-               // state transition
+
+               // quest state transition (if there was more time, I wouldve detached this from the object)
                if (this.scene.children.getByName(this.villager).queststate == "prequest") {
+                  // start quest
                   console.log("quest started");
                   this.scene.inQuest = true;
                   this.scene.children.getByName(this.villager).queststate = "quest";
                   this.queststate = "repeatquest";
                } else if (this.queststate == "completequest") {
+                  // completes quest
                   this.scene.inQuest = false;
                   this.scene.children.getByName(this.villager).queststate = "postquest";
                   this.interactable = false;
-                  // depending on quest type, do something
+                  // if quest is a get type, clear inventory
                   if (this.questType == "get") {
                      this.scene.inventory.clear();
-                     console.log("get complete");
                   }
                   this.scene.questCount++;
                }
+
             } else {
-               console.log(this.narratives[this.queststate][this.index]);
+               // cycles down to next dialog
+               if (this.narratives[this.queststate][this.index]["type"] == "self") this.sound2.play();
                this.updateText(this.narratives[this.queststate][this.index++]);
             }
          }
