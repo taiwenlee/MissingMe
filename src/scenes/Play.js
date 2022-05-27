@@ -71,17 +71,17 @@ class Play extends Phaser.Scene {
       });
       this.vData = this.data["npcs"]["villagers"];
       this.cData = this.data["npcs"]["crops"];
-      this.teddy = new Villager(this, 50, 477, 'teddy', 0, this.vData["teddy"]).setOrigin(0.5, 1); // teddy
+      this.teddy = new Villager(this, 1200, 477, 'teddy', 0, this.vData["teddy"]).setOrigin(0.5, 1); // teddy
       this.npcs.add(this.teddy);
-      this.walter = new Villager(this, 200, 477, 'walter', 0, this.vData["walter"]).setOrigin(0.5, 1); // walter
+      this.walter = new Villager(this, 800, 477, 'walter', 0, this.vData["walter"]).setOrigin(0.5, 1); // walter
       this.npcs.add(this.walter);
-      this.corinne = new Villager(this, 350, 477, 'corinne', 0, this.vData["corinne"]).setOrigin(0.5, 1); // corinne
+      this.corinne = new Villager(this, 1000, 477, 'corinne', 0, this.vData["corinne"]).setOrigin(0.5, 1); // corinne
       this.npcs.add(this.corinne);
-      this.tomato = new Crop(this, 500, 477, 'tomato', 0, this.cData["tomato"]).setOrigin(0.5, 1);
+      this.tomato = new Crop(this, 300, 477, 'tomato', 0, this.cData["tomato"]).setOrigin(0.5, 1);
       this.npcs.add(this.tomato);
-      this.watermelon = new Crop(this, 660, 477, 'watermelon', 0, this.cData["watermelon"]).setOrigin(0.5, 1);
+      this.watermelon = new Crop(this, 100, 477, 'watermelon', 0, this.cData["watermelon"]).setOrigin(0.5, 1);
       this.npcs.add(this.watermelon);
-      this.carrot = new Crop(this, 800, 477, 'carrot', 0, this.cData["carrot"]).setOrigin(0.5, 1);
+      this.carrot = new Crop(this, 500, 477, 'carrot', 0, this.cData["carrot"]).setOrigin(0.5, 1);
       this.npcs.add(this.carrot);
 
       // teddy and tomato tween
