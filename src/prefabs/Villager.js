@@ -29,7 +29,7 @@ class Villager extends Phaser.GameObjects.Sprite {
          fontFamily: 'VT323',
          fontSize: '32px',
          color: '#ffffff',
-         align: 'center',
+         align: 'left'
       });
       this.textbox.setOrigin(0.5, 1);
       this.textbox.visible = false;

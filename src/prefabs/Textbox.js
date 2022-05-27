@@ -13,10 +13,12 @@ class Textbox {
         this.y = y;
         this.OriginX = 0;
         this.OriginY = 0;
-
+        this.wrapWidth = 400;
 
         // add text
         this.text = scene.add.text(this.x, this.y, text, style);
+        this.text.style.wordWrapWidth = this.wrapWidth;
+        this.text.style.wordWrapUseAdvanced = true;
         this.text.depth = this.depth + 1;
 
         // add text box
@@ -36,6 +38,8 @@ class Textbox {
             this.box.visible = false;
         }
 
+        this.text.style.wordWrapWidth = this.wrapWidth;
+        this.text.style.wordWrapUseAdvanced = true;
         this.text.x = this.x;
         this.text.y = this.y;
         this.drawBox();

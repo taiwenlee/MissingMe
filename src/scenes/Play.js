@@ -14,9 +14,9 @@ class Play extends Phaser.Scene {
 
       // add skies
       this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xe3d48a).setOrigin(0, 0);
-      this.yellowBackground.setScrollFactor(0); 
+      this.yellowBackground.setScrollFactor(0);
       this.pinkBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xa95bb0).setOrigin(0, 0);
-      this.pinkBackground.setScrollFactor(0);      
+      this.pinkBackground.setScrollFactor(0);
       this.purpleBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3c0791).setOrigin(0, 0);
       this.purpleBackground.setScrollFactor(0);
       this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x102b94).setOrigin(0, 0);
@@ -147,8 +147,6 @@ class Play extends Phaser.Scene {
       this.clouds1.tilePositionX -= 1;
       this.clouds2.tilePositionX -= 0.5;
 
-      console.log(this.questCount);
-
       if (this.questCount == 1) {
          // brighten scene
          this.tweens.add({
@@ -168,7 +166,7 @@ class Play extends Phaser.Scene {
             x: game.config.width - 300,
             y: game.config.height - 350,
             duration: 500,
-         });   
+         });
       }
 
       if (this.questCount == 2) {
@@ -190,7 +188,7 @@ class Play extends Phaser.Scene {
             x: game.config.width - 500,
             y: game.config.height - 400,
             duration: 500,
-         });  
+         });
       }
 
       if (this.questCount == 3) {
@@ -212,8 +210,8 @@ class Play extends Phaser.Scene {
             x: game.config.width - 750,
             y: game.config.height - 500,
             duration: 500,
-         });  
-         
+         });
+
       }
    }
 
