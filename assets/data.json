@@ -4,6 +4,10 @@
          "teddy": {
             "name": "teddy",
             "crop": "tomato",
+            "location": {
+               "x": 1200,
+               "y": 477
+            },
             "item": "item0",
             "item_count": 1,
             "quest_type": "get",
@@ -125,6 +129,10 @@
          "walter": {
             "name": "walter",
             "crop": "watermelon",
+            "location": {
+               "x": 800,
+               "y": 477
+            },
             "item": "item1",
             "item_count": 0,
             "quest_type": "get",
@@ -310,6 +318,10 @@
          "corinne": {
             "name": "corinne",
             "crop": "carrot",
+            "location": {
+               "x": 1000,
+               "y": 477
+            },
             "item": "item0",
             "item_count": 1,
             "quest_type": "fetch",
@@ -565,6 +577,10 @@
          "tomato": {
             "name": "tomato",
             "villager": "teddy",
+            "location": {
+               "x": 300,
+               "y": 477
+            },
             "quest_type": "get",
             "textbox": {
                "border_color": "0xffffff",
@@ -694,6 +710,10 @@
          "watermelon": {
             "name": "watermelon",
             "villager": "walter",
+            "location": {
+               "x": 100,
+               "y": 477
+            },
             "quest_type": "get",
             "textbox": {
                "border_color": "0xffffff",
@@ -787,6 +807,10 @@
          "carrot": {
             "name": "carrot",
             "villager": "corinne",
+            "location": {
+               "x": 500,
+               "y": 477
+            },
             "quest_type": "get",
             "textbox": {
                "border_color": "0xffffff",

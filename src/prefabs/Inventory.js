@@ -10,8 +10,8 @@ class Inventory {
         this.borderColor = 0xffffff;
         this.backgroundColor = 0x000000;
         this.visible = true;
-        this.x = x+30;
-        this.y = y+5;
+        this.x = x + 30;
+        this.y = y + 5;
         this.OriginX = 0;
         this.OriginY = 0;
         this.width = 64;
@@ -103,7 +103,6 @@ class Inventory {
             this.itemName = name;
             this.itemImage = this.scene.add.image(this.x, this.y, name);
             this.itemImage.setScrollFactor(0);
-            this.itemImage.setScale(0.1);
             this.itemImage.depth = this.depth + 1;
             this.itemCountText.visible = true;
 
