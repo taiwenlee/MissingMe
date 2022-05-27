@@ -80,7 +80,7 @@ class Play extends Phaser.Scene {
 
       // teddy and tomato tween
       this.tweens.add({
-         targets: [this.teddy, this.tomato],
+         targets: [this.children.getByName("teddy"), this.children.getByName("tomato")],
          scaleY: 1.05,
          duration: 1000,
          ease: 'Sine.easeInOut',
@@ -90,7 +90,7 @@ class Play extends Phaser.Scene {
 
       // walter and watermelon tween
       this.tweens.add({
-         targets: [this.walter, this.watermelon],
+         targets: [this.children.getByName("walter"), this.children.getByName("watermelon")],
          scaleY: 1.03,
          duration: 400,
          ease: 'Sine.easeInOut',
@@ -100,7 +100,7 @@ class Play extends Phaser.Scene {
 
       // corinne and carrot tween
       this.tweens.add({
-         targets: [this.corinne, this.carrot],
+         targets: [this.children.getByName("corinne"), this.children.getByName("carrot")],
          scaleY: 1.02,
          duration: 300,
          ease: 'Sine.easeInOut',
