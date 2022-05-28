@@ -42,9 +42,7 @@ class Play extends Phaser.Scene {
       // controls 
       keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
       keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-      keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-      keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-      keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
+      keyShift = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
       keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
       // add npc data

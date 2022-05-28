@@ -12,6 +12,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       // set player properties
       this.depth = 10;
       this.speed = 300;
+      this.runMultiplier = 1.5;
       this.jumpSpeed = 200;
 
       // state variables
@@ -22,29 +23,21 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
    update() {
       // basic move player
-      if(keyA.isDown && !this.Interacting) {
-         this.body.setVelocityX(-this.speed);
-      } else if(keyD.isDown && !this.Interacting) {
-         this.body.setVelocityX(this.speed);
+      if (keyA.isDown && !this.Interacting) {
+         this.body.setVelocityX(keyShift.isDown ? -this.runMultiplier * this.speed : -this.speed);
+         // add animation for walking
+      } else if (keyD.isDown && !this.Interacting) {
+         this.body.setVelocityX(keyShift.isDown ? this.runMultiplier * this.speed : this.speed);
+         // add animation for walking
       } else {
          this.body.setVelocityX(0);
+         // add animation for stationary
       }
 
-      /*// basic jump
-      if(keySpace.isDown && !this.Jumping && !this.Interacting) {
-         this.Jumping = true;
-         this.body.setVelocityY(-this.jumpSpeed);
-      } else if(this.body.touching.down) {
-         this.Jumping = false;
-      } else {
-         this.Jumping = true;
-      }*/
-
-
       // flip animation based on direction
-      if(this.body.velocity.x > 0) {
+      if (this.body.velocity.x > 0) {
          this.flipX = false;
-      } else if(this.body.velocity.x < 0) {
+      } else if (this.body.velocity.x < 0) {
          this.flipX = true;
       }
 

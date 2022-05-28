@@ -25,7 +25,7 @@ let config = {
 let game = new Phaser.Game(config);
 
 // controls
-let keyA, keyD, keyW, keyS, keyF, keySpace;
+let keyA, keyD, keyShift, keySpace;
 
 // background music var
 let music;
