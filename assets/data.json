@@ -5,7 +5,7 @@
             "name": "teddy",
             "crop": "tomato",
             "location": {
-               "x": 1200,
+               "x": 1600,
                "y": 477
             },
             "item": "item0",
@@ -130,7 +130,7 @@
             "name": "walter",
             "crop": "watermelon",
             "location": {
-               "x": 800,
+               "x": 1800,
                "y": 477
             },
             "item": "item1",
@@ -319,7 +319,7 @@
             "name": "corinne",
             "crop": "carrot",
             "location": {
-               "x": 1000,
+               "x": 1400,
                "y": 477
             },
             "item": "item0",
@@ -578,7 +578,7 @@
             "name": "tomato",
             "villager": "teddy",
             "location": {
-               "x": 300,
+               "x": 500,
                "y": 477
             },
             "quest_type": "get",
@@ -711,7 +711,7 @@
             "name": "watermelon",
             "villager": "walter",
             "location": {
-               "x": 100,
+               "x": 300,
                "y": 477
             },
             "quest_type": "get",
@@ -808,7 +808,7 @@
             "name": "carrot",
             "villager": "corinne",
             "location": {
-               "x": 500,
+               "x": 800,
                "y": 477
             },
             "quest_type": "get",
