@@ -116,9 +116,14 @@ class Villager extends Phaser.GameObjects.Sprite {
                   this.scene.questCount++;
                }
             } else {
-               // cycles down to next dialog
-               if (this.narratives[this.queststate][this.index]["type"] == "self") this.sound2.play();
-               this.updateText(this.narratives[this.queststate][this.index++]);
+               if (this.textbox.index == this.textbox.textLength) {
+                  // cycles down to next dialog
+                  if (this.narratives[this.queststate][this.index]["type"] == "self") this.sound2.play();
+                  this.updateText(this.narratives[this.queststate][this.index++]);
+               } else {
+                  // skip animations
+                  this.textbox.skip();
+               }
             }
          }
       } else if (this.indicator.visible) {

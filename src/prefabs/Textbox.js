@@ -112,7 +112,8 @@ class Textbox {
 
     // skips letter by letter animation
     skip() {
-
+        this.index = this.textLength;
+        this.text.setText(this.fullText);
     }
 
     drawBox() {

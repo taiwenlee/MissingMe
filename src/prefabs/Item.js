@@ -20,10 +20,12 @@ class Item extends Phaser.GameObjects.Sprite {
       });
       this.textbox.setOrigin(0.5, 1);
       this.textbox.visible = false;
+      this.textbox.animation = false;
 
       // interact indicator
       this.indicator = scene.add.image(x, y - this.height * this.scale / 2 - 10, "indicator").setOrigin(0.5, 1);
       this.indicator.visible = false;
+      this.indicator.animation = false;
 
    }
 
