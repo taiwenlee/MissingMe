@@ -27,6 +27,7 @@ class Item extends Phaser.GameObjects.Sprite {
       this.indicator.visible = false;
       this.indicator.animation = false;
 
+      this.itemSound = scene.sound.add('obtainItem', { volume: sfxVol });
    }
 
    update() {
@@ -42,6 +43,7 @@ class Item extends Phaser.GameObjects.Sprite {
             this.textbox.visible = true;
             this.textbox.setText("You obtained item!");
             this.scene.inventory.addItem(this.type, 1);
+            this.itemSound.play();
             this.visible = false;
          } else if (this.Interacting && intKey) {
             this.scene.player.Interacting = false;

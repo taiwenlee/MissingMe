@@ -9,6 +9,8 @@ class Play extends Phaser.Scene {
       this.inQuest = false;
       this.questCount = 0;
       this.introComplete = false;
+      this.tomatoUpdated = false;
+      this.watermelonUpdated = false;
 
       // set world size
       this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
@@ -90,6 +92,11 @@ class Play extends Phaser.Scene {
          runChildUpdate: true
       });
 
+      // add shops
+      this.tailorShop = this.add.image(game.config.width / 2, 477, 'tailorShop').setOrigin(0.5, 1);
+      this.tailorShop.depth = -0.01;
+      //this.tailorShop.scale = 0.15;
+
       // add sun      
       this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'sun').setOrigin(0.5, 0.5);
       this.sun.depth = -0.6;
@@ -108,7 +115,6 @@ class Play extends Phaser.Scene {
       }).setOrigin(0.5);
       this.introText.wrapWidth = 600;
       this.introText.animation = false;
-      this.introText.update();
    }
 
    update() {
@@ -117,8 +123,6 @@ class Play extends Phaser.Scene {
          // update player
          this.player.update(this.time, this.delta);
       } else {
-         // update intro text
-         this.introText.update();
          if (keyTap(keySpace)) {
             if (this.introindex < this.data["intro"].length) {
                this.introText.setText(this.data["intro"][this.introindex++]);
@@ -126,7 +130,6 @@ class Play extends Phaser.Scene {
             } else {
                console.log("intro complete");
                this.introText.visible = false;
-               this.introText.update();
                this.introComplete = true;
                this.npcs.runChildUpdate = true;
             }
@@ -142,6 +145,9 @@ class Play extends Phaser.Scene {
 
       // update sun and background tween
       this.updateSunTween();
+
+      // update crop tweens
+      this.updateCropTween();
    }
 
    createFloor() {
@@ -157,9 +163,9 @@ class Play extends Phaser.Scene {
    }
 
    addTweens() {
-      // teddy and tomato tween
+      // teddy tween
       this.tweens.add({
-         targets: [this.children.getByName("teddy"), this.children.getByName("tomato")],
+         targets: [this.children.getByName("teddy")],
          scaleY: 1.05,
          duration: 1000,
          ease: 'Sine.easeInOut',
@@ -167,9 +173,19 @@ class Play extends Phaser.Scene {
          repeat: -1,
       });
 
-      // walter and watermelon tween
+      // tomato tween
+      this.tomatoTween = this.tweens.add({
+         targets: [this.children.getByName("tomato")],
+         scaleX: 1.07,
+         duration: 1000,
+         ease: 'Sine.easeInOut',
+         yoyo: true,
+         repeat: -1,
+      });
+
+      // walter tween
       this.tweens.add({
-         targets: [this.children.getByName("walter"), this.children.getByName("watermelon")],
+         targets: this.children.getByName("walter"),
          scaleY: 1.03,
          duration: 400,
          ease: 'Sine.easeInOut',
@@ -177,11 +193,31 @@ class Play extends Phaser.Scene {
          repeat: -1,
       });
 
-      // corinne and carrot tween
+      // watermelon tween
+      this.watermelonTween = this.tweens.add({
+         targets: [this.children.getByName("watermelon")],
+         scaleX: 1.07,
+         duration: 1000,
+         ease: 'Sine.easeInOut',
+         yoyo: true,
+         repeat: -1,
+      });
+
+      // corinne tween
       this.tweens.add({
-         targets: [this.children.getByName("corinne"), this.children.getByName("carrot")],
+         targets: this.children.getByName("corinne"),
          scaleY: 1.02,
          duration: 300,
+         ease: 'Sine.easeInOut',
+         yoyo: true,
+         repeat: -1,
+      });
+
+      // carrot tween
+      this.tweens.add({
+         targets: this.children.getByName("carrot"),
+         scaleX: 1.07,
+         duration: 1000,
          ease: 'Sine.easeInOut',
          yoyo: true,
          repeat: -1,
@@ -215,7 +251,7 @@ class Play extends Phaser.Scene {
             targets: this.sun,
             x: game.config.width - 300,
             y: game.config.height - 350,
-            duration: 500,
+            duration: 900,
          });
       } else if (this.questCount == 2) {
          // brighten scene
@@ -235,7 +271,7 @@ class Play extends Phaser.Scene {
             targets: this.sun,
             x: game.config.width - 500,
             y: game.config.height - 400,
-            duration: 500,
+            duration: 900,
          });
       } else if (this.questCount == 3) {
          // brighten scene
@@ -255,8 +291,50 @@ class Play extends Phaser.Scene {
             targets: this.sun,
             x: game.config.width - 750,
             y: game.config.height - 500,
-            duration: 500,
+            duration: 900,
          });
+      }
+   }
+
+   updateCropTween() {
+      if (this.data["npcs"]["crops"]["tomato"]["quest_done"] == true && this.tomatoUpdated == false) {
+         this.tomatoTween.stop();
+         console.log("tom tween stopped");
+         this.tweens.add({
+            targets: this.children.getByName("tomato"),
+            scaleX: 1,
+            scaleY: 1,
+            duration: 100,
+         });
+         this.tweens.add({
+            targets: this.children.getByName("tomato"),
+            scaleY: 1.05,
+            duration: 1000,
+            ease: 'Sine.easeInOut',
+            yoyo: true,
+            repeat: -1,
+         });
+         this.tomatoUpdated = true;
+      }
+
+      if (this.data["npcs"]["crops"]["watermelon"]["quest_done"] == true && this.watermelonUpdated == false) {
+         this.watermelonTween.stop();
+         console.log("water tween stopped");
+         this.tweens.add({
+            targets: this.children.getByName("watermelon"),
+            scaleX: 1,
+            scaleY: 1,
+            duration: 100,
+         });
+         this.tweens.add({
+            targets: this.children.getByName("watermelon"),
+            scaleY: 1.03,
+            duration: 400,
+            ease: 'Sine.easeInOut',
+            yoyo: true,
+            repeat: -1,
+         });
+         this.watermelonUpdated = true;
       }
    }
 }

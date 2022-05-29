@@ -21,7 +21,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       this.queststate = "quest";  // quest state
 
       //text object
-      this.textbox = new Textbox(scene, x, y - this.height * this.scale - 10, "", {
+      this.textbox = new Textbox(scene, x, y - this.height * this.scale, "", {
          fontFamily: 'VT323',
          fontSize: '32px',
          color: '#ffffff',
@@ -31,6 +31,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       this.textbox.visible = false;
       this.textbox.backgroundColor = this.json["textbox"]["background_color"];
       this.textbox.borderColor = this.json["textbox"]["border_color"];
+      this.textbox.scroll = false;
       this.textbox.update();
 
       // interact indicator
@@ -94,6 +95,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
                   this.scene.inQuest = false;
                   this.scene.children.getByName(this.villager).queststate = "postquest";
                   this.interactable = false;
+                  this.json["quest_done"] = true;
                   this.scene.questCount++;
                   this.sound4.play();
                }
@@ -132,12 +134,18 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
          this.textbox.backgroundColor = this.json["textbox"]["background_color"];
          this.textbox.borderColor = this.json["textbox"]["border_color"];
          this.textbox.x = this.x;
-         this.textbox.y = this.y - this.height * this.scale;
+         this.textbox.y = this.y - this.height * this.scale - 20;
+         this.textbox.wrapWidth = 400;
+         this.textbox.setOrigin(0.5, 1);
+         this.textbox.scroll = true;
       } else if (json["type"] == "player") {
          this.textbox.backgroundColor = 0x000000;
          this.textbox.borderColor = 0xffffff;
-         this.textbox.x = this.scene.player.x;
-         this.textbox.y = this.scene.player.y - this.scene.player.height * this.scene.player.scale;
+         this.textbox.x = game.config.width / 2;
+         this.textbox.y = this.scene.player.y + this.scene.player.height * this.scene.player.scale;
+         this.textbox.wrapWidth = 800;
+         this.textbox.setOrigin(0.5, 0);
+         this.textbox.scroll = false;
       }
    }
 }
