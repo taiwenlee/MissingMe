@@ -16,16 +16,18 @@ class Textbox {
         this._wrapWidth = 400;
         this._speed = 0.5; // letter per update
         this._animation = true; // if true, letter and letter will play
+        this._scroll = true; // if true, text will scroll
 
         // add text
         this.text = scene.add.text(this.x, this.y, text, style);
         this.text.style.wordWrapWidth = this.wrapWidth;
-        this.text
+        this.text.setScrollFactor(this.scroll);
         this.text.depth = this.depth + 1;
 
         // add text box
         this.box = new Phaser.GameObjects.Graphics(scene);
         this.box.depth = this.depth;
+        this.box.setScrollFactor(this.scroll);
         scene.add.existing(this.box);
 
         // text animation stuff
@@ -118,7 +120,6 @@ class Textbox {
 
     set x(value) {
         this._x = value;
-        this.text.x = value;
         this.drawBox();
     }
 
@@ -128,7 +129,6 @@ class Textbox {
 
     set y(value) {
         this._y = value;
-        this.text.y = value;
         this.drawBox();
     }
 
@@ -186,6 +186,16 @@ class Textbox {
 
     get animation() {
         return this._animation;
+    }
+
+    set scroll(value) {
+        this._scroll = value;
+        this.text.setScrollFactor(value);
+        this.box.setScrollFactor(value);
+    }
+
+    get scroll() {
+        return this._scroll;
     }
 
     update() {
