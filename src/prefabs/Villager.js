@@ -53,6 +53,8 @@ class Villager extends Phaser.GameObjects.Sprite {
       // sounds
       this.sound1 = scene.sound.add(json["sound"]["start"]);
       this.sound2 = scene.sound.add(json["sound"]["rest"]);
+      this.sound3 = scene.sound.add(json["sound"]["beginQuest"]);
+      this.sound4 = scene.sound.add(json["sound"]["doneQuest"]);
    }
 
    update() {
@@ -116,6 +118,7 @@ class Villager extends Phaser.GameObjects.Sprite {
                   this.scene.inventory.clear();
                   this.scene.inQuest = false;
                   this.scene.questCount++;
+                  this.sound4.play();
                }
             } else {
                if (this.textbox.index == this.textbox.textLength) {

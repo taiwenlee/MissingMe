@@ -16,16 +16,22 @@ class Play extends Phaser.Scene {
       // add skies
       this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xe3d48a).setOrigin(0, 0);
       this.yellowBackground.setScrollFactor(0);
+      this.yellowBackground.depth = -4;
       this.pinkBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xa95bb0).setOrigin(0, 0);
       this.pinkBackground.setScrollFactor(0);
+      this.pinkBackground.depth = -3;
       this.purpleBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3c0791).setOrigin(0, 0);
       this.purpleBackground.setScrollFactor(0);
+      this.purpleBackground.depth = -2;
       this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x102b94).setOrigin(0, 0);
       this.blueBackground.setScrollFactor(0);
+      this.blueBackground.depth = -1;
 
       // parallax clouds
       this.clouds1 = this.add.tileSprite(0, 0, game.config.width * 10, 608, 'clouds1').setOrigin(0, 0);
+      this.clouds1.depth = -0.5;
       this.clouds2 = this.add.tileSprite(0, 0, game.config.width * 10, 608, 'clouds2').setOrigin(0, 0);
+      this.clouds2.depth = -0.5;
 
       // game tint
       this.saturation = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x000000).setOrigin(0, 0);
@@ -84,9 +90,9 @@ class Play extends Phaser.Scene {
          runChildUpdate: true
       });
 
-      // add sun
+      // add sun      
       this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'sun').setOrigin(0.5, 0.5);
-      this.sun.depth = 1.5;
+      this.sun.depth = -0.6;
       this.sun.setScrollFactor(0);
 
       // tween
