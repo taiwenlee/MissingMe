@@ -33,3 +33,21 @@ let music;
 // set volume
 let musicVol = 0.5;
 let sfxVol = 0.5;
+
+// returns true once per key press
+function keyTap(key) {
+   // added a holding var to key for tap logic
+   if (key.holding == null) {
+      key.holding = false;
+   }
+
+   if (key.isUp && key.holding) { // if key is up reset holding
+      key.holding = false;
+      return false;
+   } else if (key.isDown && !key.holding) {   // register first down press
+      key.holding = true;
+      return true;
+   } else { // if holding or already reset
+      return false;
+   }
+}

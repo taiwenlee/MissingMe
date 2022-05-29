@@ -31,6 +31,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       this.textbox.visible = false;
       this.textbox.backgroundColor = this.json["textbox"]["background_color"];
       this.textbox.borderColor = this.json["textbox"]["border_color"];
+      this.textbox.update();
 
       // interact indicator
       this.indicator = new Textbox(scene, x, y - this.height * this.scale - 25, "SPACE", {
@@ -44,6 +45,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       this.indicator.borderColor = this.json["textbox"]["border_color"];
       this.indicator.visible = false;
       this.indicator.animation = false;
+      this.indicator.update();
 
       // sounds
       this.sound1 = scene.sound.add(json["sound"]["start"]);

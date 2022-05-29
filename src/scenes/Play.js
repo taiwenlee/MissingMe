@@ -8,6 +8,7 @@ class Play extends Phaser.Scene {
       // game state
       this.inQuest = false;
       this.questCount = 0;
+      this.introComplete = false;
 
       // set world size
       this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
@@ -26,6 +27,7 @@ class Play extends Phaser.Scene {
       this.clouds1 = this.add.tileSprite(0, 0, game.config.width * 10, 608, 'clouds1').setOrigin(0, 0);
       this.clouds2 = this.add.tileSprite(0, 0, game.config.width * 10, 608, 'clouds2').setOrigin(0, 0);
 
+      // game tint
       this.saturation = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x000000).setOrigin(0, 0);
       this.saturation.alpha = 0.39;
       this.saturation.depth = 1.5;
@@ -65,7 +67,7 @@ class Play extends Phaser.Scene {
 
       // add NPCs
       this.npcs = this.add.group({
-         runChildUpdate: true
+         runChildUpdate: false
       });
       this.vData = this.data["npcs"]["villagers"];
       this.cData = this.data["npcs"]["crops"];
@@ -76,6 +78,79 @@ class Play extends Phaser.Scene {
          this.npcs.add(new Crop(this, data["location"]["x"], data["location"]["y"], key, 0, data).setOrigin(0.5, 1));
       }
 
+      // create items group for fetch items
+      this.items = this.add.group({
+         classType: Item,
+         runChildUpdate: true
+      });
+
+      // add sun
+      this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'sun').setOrigin(0.5, 0.5);
+      this.sun.depth = 1.5;
+      this.sun.setScrollFactor(0);
+
+      // tween
+      this.addTweens();
+
+      // intro text
+      this.introindex = 0;
+      this.introText = new Textbox(this, game.config.width / 2, game.config.height / 2, this.data["intro"][this.introindex++], {
+         fontFamily: 'VT323',
+         fontSize: '32px',
+         color: '#ffffff',
+         align: 'left'
+      }).setOrigin(0.5);
+      this.introText.wrapWidth = 600;
+      this.introText.animation = false;
+      this.introText.update();
+   }
+
+   update() {
+
+      if (this.introComplete) {
+         // update player
+         this.player.update(this.time, this.delta);
+      } else {
+         // update intro text
+         this.introText.update();
+         if (keyTap(keySpace)) {
+            if (this.introindex < this.data["intro"].length) {
+               this.introText.setText(this.data["intro"][this.introindex++]);
+               console.log("increment intro");
+            } else {
+               console.log("intro complete");
+               this.introText.visible = false;
+               this.introText.update();
+               this.introComplete = true;
+               this.npcs.runChildUpdate = true;
+            }
+         }
+      }
+
+      // update fps counter
+      this.tempFPS.setText("FPS: " + this.game.loop.actualFps);
+
+      // move clouds
+      this.clouds1.tilePositionX -= 1;
+      this.clouds2.tilePositionX -= 0.5;
+
+      // update sun and background tween
+      this.updateSunTween();
+   }
+
+   createFloor() {
+      // add floor
+      this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 10, 132, 'floor').setOrigin(0, 0);
+
+      // add to physics
+      this.physics.add.existing(this.floor, true);
+      this.floor.body.immovable = true;
+
+      // add collision between player and floor
+      this.physics.add.collider(this.player, this.floor);
+   }
+
+   addTweens() {
       // teddy and tomato tween
       this.tweens.add({
          targets: [this.children.getByName("teddy"), this.children.getByName("tomato")],
@@ -106,16 +181,6 @@ class Play extends Phaser.Scene {
          repeat: -1,
       });
 
-      this.items = this.add.group({
-         classType: Item,
-         runChildUpdate: true
-      });
-
-      // add sun
-      this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'sun').setOrigin(0.5, 0.5);
-      this.sun.depth = 1.5;
-      this.sun.setScrollFactor(0);
-
       // sun tween
       this.tweens.add({
          targets: this.sun,
@@ -123,21 +188,9 @@ class Play extends Phaser.Scene {
          repeat: -1,
          angle: 360,
       });
-
    }
 
-   update() {
-
-      // update player
-      this.player.update(this.time, this.delta);
-
-      // update fps counter
-      this.tempFPS.setText("FPS: " + this.game.loop.actualFps);
-
-      // move clouds
-      this.clouds1.tilePositionX -= 1;
-      this.clouds2.tilePositionX -= 0.5;
-
+   updateSunTween() {
       if (this.questCount == 1) {
          // brighten scene
          this.tweens.add({
@@ -158,9 +211,7 @@ class Play extends Phaser.Scene {
             y: game.config.height - 350,
             duration: 500,
          });
-      }
-
-      if (this.questCount == 2) {
+      } else if (this.questCount == 2) {
          // brighten scene
          this.tweens.add({
             targets: this.saturation,
@@ -180,9 +231,7 @@ class Play extends Phaser.Scene {
             y: game.config.height - 400,
             duration: 500,
          });
-      }
-
-      if (this.questCount == 3) {
+      } else if (this.questCount == 3) {
          // brighten scene
          this.tweens.add({
             targets: this.saturation,
@@ -202,19 +251,6 @@ class Play extends Phaser.Scene {
             y: game.config.height - 500,
             duration: 500,
          });
-
       }
-   }
-
-   createFloor() {
-      // add floor
-      this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 10, 132, 'floor').setOrigin(0, 0);
-
-      // add to physics
-      this.physics.add.existing(this.floor, true);
-      this.floor.body.immovable = true;
-
-      // add collision between player and floor
-      this.physics.add.collider(this.player, this.floor);
    }
 }

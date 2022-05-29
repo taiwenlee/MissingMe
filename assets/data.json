@@ -1,4 +1,10 @@
 {
+   "intro": [
+      "Welcome to the game!",
+      "this is intro temp text.",
+      "use A and D to move left and right.",
+      "shift to move faster."
+   ],
    "npcs": {
       "villagers": {
          "teddy": {
