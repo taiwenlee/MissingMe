@@ -50,6 +50,8 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       // sounds
       this.sound1 = scene.sound.add(json["sound"]["start"]);
       this.sound2 = scene.sound.add(json["sound"]["rest"]);
+      this.sound3 = scene.sound.add(json["sound"]["beginQuest"]);
+      this.sound4 = scene.sound.add(json["sound"]["doneQuest"]);
    }
 
    update() {
@@ -86,12 +88,14 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
                   this.scene.inQuest = true;
                   this.scene.children.getByName(this.villager).queststate = "quest";
                   this.queststate = "repeatquest";
+                  this.sound3.play();
                } else if (this.queststate == "completequest") {
                   // completes quest
                   this.scene.inQuest = false;
                   this.scene.children.getByName(this.villager).queststate = "postquest";
                   this.interactable = false;
                   this.scene.questCount++;
+                  this.sound4.play();
                }
 
             } else {

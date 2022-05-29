@@ -52,7 +52,9 @@ class Load extends Phaser.Scene {
       this.load.audio('walter1', 'assets/sounds/walter1.mp3');
       this.load.audio('walter2', 'assets/sounds/walter2.mp3');
       this.load.audio('corinne1', 'assets/sounds/corinne1.mp3');
-      this.load.audio('corinne2', 'assets/sounds/corinne2.mp3');
+      this.load.audio('corinne2', 'assets/sounds/corinne2.mp3');      
+      this.load.audio('step1', 'assets/sounds/step1.mp3');
+      this.load.audio('step2', 'assets/sounds/step2.mp3');
    }
 
    create() {
