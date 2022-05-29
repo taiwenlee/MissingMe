@@ -838,7 +838,7 @@
             },
             "sound": {
                "start": "corinne1",
-               "rest": "corinne1",
+               "rest": "corinne2",
                "beginQuest" : "startQuest",
                "doneQuest" : "questCompleted"
             },
