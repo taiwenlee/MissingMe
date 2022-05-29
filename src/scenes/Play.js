@@ -93,7 +93,7 @@ class Play extends Phaser.Scene {
       });
 
       // add shops
-      this.tailorShop = this.add.image(game.config.width/2, 477, 'tailorShop').setOrigin(0.5, 1);
+      this.tailorShop = this.add.image(game.config.width / 2, 477, 'tailorShop').setOrigin(0.5, 1);
       this.tailorShop.depth = -0.01;
       //this.tailorShop.scale = 0.15;
 
@@ -115,7 +115,6 @@ class Play extends Phaser.Scene {
       }).setOrigin(0.5);
       this.introText.wrapWidth = 600;
       this.introText.animation = false;
-      this.introText.update();
    }
 
    update() {
@@ -124,8 +123,6 @@ class Play extends Phaser.Scene {
          // update player
          this.player.update(this.time, this.delta);
       } else {
-         // update intro text
-         this.introText.update();
          if (keyTap(keySpace)) {
             if (this.introindex < this.data["intro"].length) {
                this.introText.setText(this.data["intro"][this.introindex++]);
@@ -133,7 +130,6 @@ class Play extends Phaser.Scene {
             } else {
                console.log("intro complete");
                this.introText.visible = false;
-               this.introText.update();
                this.introComplete = true;
                this.npcs.runChildUpdate = true;
             }
