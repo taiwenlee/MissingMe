@@ -16,16 +16,16 @@ class Play extends Phaser.Scene {
       this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
 
       // add skies
-      this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xe3d48a).setOrigin(0, 0);
+      this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xe3d8a3).setOrigin(0, 0);
       this.yellowBackground.setScrollFactor(0);
       this.yellowBackground.depth = -4;
-      this.pinkBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xa95bb0).setOrigin(0, 0);
+      this.pinkBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xaa6bb0).setOrigin(0, 0);
       this.pinkBackground.setScrollFactor(0);
       this.pinkBackground.depth = -3;
-      this.purpleBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3c0791).setOrigin(0, 0);
+      this.purpleBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x654991).setOrigin(0, 0);
       this.purpleBackground.setScrollFactor(0);
       this.purpleBackground.depth = -2;
-      this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x102b94).setOrigin(0, 0);
+      this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3a4d99).setOrigin(0, 0);
       this.blueBackground.setScrollFactor(0);
       this.blueBackground.depth = -1;
 
@@ -95,7 +95,6 @@ class Play extends Phaser.Scene {
       // add shops
       this.tailorShop = this.add.image(game.config.width / 2, 477, 'tailorShop').setOrigin(0.5, 1);
       this.tailorShop.depth = -0.01;
-      //this.tailorShop.scale = 0.15;
 
       // add sun      
       this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'object_atlas', "sun").setOrigin(0.5, 0.5);
@@ -107,7 +106,7 @@ class Play extends Phaser.Scene {
 
       // intro text
       this.introindex = 0;
-      this.introText = new Textbox(this, game.config.width / 2, game.config.height / 2, this.data["intro"][this.introindex++], {
+      this.introText = new Textbox(this, game.config.width / 2, game.config.height / 2 - 20, this.data["intro"][this.introindex++], {
          fontFamily: 'VT323',
          fontSize: '32px',
          color: '#ffffff',

@@ -12,7 +12,7 @@ class Item extends Phaser.GameObjects.Sprite {
       this.Interacting = false;
 
       // text object
-      this.textbox = new Textbox(scene, x, y - this.height * this.scale * 2, "You obtained item!", {
+      this.textbox = new Textbox(scene, x, y - this.height * this.scale * 3, "You obtained item!", {
          fontFamily: 'VT323',
          fontSize: '40px',
          color: '#FFFFFF',
@@ -23,9 +23,18 @@ class Item extends Phaser.GameObjects.Sprite {
       this.textbox.animation = false;
 
       // interact indicator
-      this.indicator = scene.add.image(x, y - this.height * this.scale / 2 - 10, "indicator").setOrigin(0.5, 1);
+      this.indicator = new Textbox(scene, x, y - this.height * this.scale - 25, "SPACE", {
+         fontFamily: 'VT323',
+         fontSize: '32px',
+         color: '#ffffff',
+         align: 'center',
+      });
+      this.indicator.setOrigin(0.5, 1);
+      this.indicator.backgroundColor = '#ffffff';
+      this.indicator.borderColor = '#ffffff';
       this.indicator.visible = false;
       this.indicator.animation = false;
+      this.indicator.update();
 
       this.itemSound = scene.sound.add('obtainItem', { volume: sfxVol });
    }
