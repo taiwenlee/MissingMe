@@ -157,6 +157,10 @@ class Textbox {
     set wrapWidth(value) {
         this._wrapWidth = value;
         this.text.style.wordWrapWidth = value;
+        this.text.setText(this.fullText);
+        this.width = this.text.width;
+        this.height = this.text.height;
+        this.text.setText(this.fullText.substring(0, this.index));
         this.drawBox();
     }
 
