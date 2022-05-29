@@ -75,7 +75,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
 
          } else if (this.Interacting && intKey) {
 
-            if (this.index >= this.narratives[this.queststate].length) {
+            if (this.index >= this.narratives[this.queststate].length && this.textbox.index == this.textbox.textLength) {
                // if at end of text, end interaction
                this.scene.player.Interacting = false;
                this.Interacting = false;

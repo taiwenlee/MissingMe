@@ -42,11 +42,19 @@ class Load extends Phaser.Scene {
 
       // animations
       this.anims.create({
-         key: "walk",
-         frames: this.anims.generateFrameNames("object_atlas", { prefix: 'player/walk/walk', suffix: '.png', end: 2 }),
+         key: "dirtywalk",
+         frames: this.anims.generateFrameNames("object_atlas", { prefix: 'player/dirtywalk/walk', end: 2 }),
          frameRate: 10,
          repeat: -1
       });
+
+      this.anims.create({
+         key: "cleanwalk",
+         frames: this.anims.generateFrameNames("object_atlas", { prefix: 'player/cleanwalk/walk', end: 2 }),
+         frameRate: 10,
+         repeat: -1
+      });
+
 
       this.scene.start("menuScene");
    }

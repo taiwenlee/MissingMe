@@ -11,6 +11,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       this.depth = 8;
       this.speed = 200;
       this.runMultiplier = 1.5;
+      this.overalls = false;
 
       // state variables
       this.Jumping = true;
@@ -41,6 +42,10 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       }
 
       // play animation
-      this.anims.play('walk', true);
+      if (this.overalls) {
+         this.anims.play("cleanwalk", true);
+      } else {
+         this.anims.play("dirtywalk", true);
+      }
    }
 }

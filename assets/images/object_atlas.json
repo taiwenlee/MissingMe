@@ -4,97 +4,55 @@
 			"image": "object_atlas.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 199,
-				"h": 471
+				"w": 241,
+				"h": 502
 			},
 			"scale": 1,
 			"frames": [
 				{
-					"filename": "carrot.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 91,
-						"h": 50
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 2,
-						"w": 88,
-						"h": 48
-					},
-					"frame": {
-						"x": 1,
-						"y": 1,
-						"w": 88,
-						"h": 48
-					}
-				},
-				{
-					"filename": "tomato.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 70,
-						"h": 59
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 2,
-						"w": 65,
-						"h": 57
-					},
-					"frame": {
-						"x": 91,
-						"y": 1,
-						"w": 65,
-						"h": 57
-					}
-				},
-				{
-					"filename": "watermelon.png",
+					"filename": "sun",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 56,
-						"h": 68
+						"w": 128,
+						"h": 128
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 56,
-						"h": 68
+						"w": 128,
+						"h": 128
 					},
 					"frame": {
 						"x": 1,
-						"y": 51,
-						"w": 56,
-						"h": 68
+						"y": 1,
+						"w": 128,
+						"h": 128
 					}
 				},
 				{
-					"filename": "walter.png",
+					"filename": "corrine",
 					"rotated": false,
-					"trimmed": true,
+					"trimmed": false,
 					"sourceSize": {
-						"w": 63,
-						"h": 110
+						"w": 53,
+						"h": 167
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 62,
-						"h": 110
+						"w": 53,
+						"h": 167
 					},
 					"frame": {
-						"x": 59,
-						"y": 60,
-						"w": 62,
-						"h": 110
+						"x": 1,
+						"y": 131,
+						"w": 53,
+						"h": 167
 					}
 				},
 				{
-					"filename": "player/walk/walk0.png",
+					"filename": "player/cleanwalk/walk0",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -108,14 +66,35 @@
 						"h": 151
 					},
 					"frame": {
-						"x": 123,
-						"y": 60,
+						"x": 56,
+						"y": 131,
 						"w": 60,
 						"h": 151
 					}
 				},
 				{
-					"filename": "player/walk/walk1.png",
+					"filename": "teddy",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 79,
+						"h": 127
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 78,
+						"h": 127
+					},
+					"frame": {
+						"x": 131,
+						"y": 1,
+						"w": 78,
+						"h": 127
+					}
+				},
+				{
+					"filename": "player/cleanwalk/walk1",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -130,13 +109,13 @@
 					},
 					"frame": {
 						"x": 1,
-						"y": 121,
+						"y": 300,
 						"w": 55,
 						"h": 151
 					}
 				},
 				{
-					"filename": "player/walk/walk2.png",
+					"filename": "player/cleanwalk/walk2",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -151,72 +130,156 @@
 					},
 					"frame": {
 						"x": 58,
-						"y": 172,
+						"y": 284,
 						"w": 60,
 						"h": 151
 					}
 				},
 				{
-					"filename": "teddy.png",
+					"filename": "player/dirtywalk/walk0",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 79,
-						"h": 127
+						"w": 104,
+						"h": 161
 					},
 					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 78,
-						"h": 127
+						"x": 22,
+						"y": 6,
+						"w": 60,
+						"h": 151
+					},
+					"frame": {
+						"x": 118,
+						"y": 131,
+						"w": 60,
+						"h": 151
+					}
+				},
+				{
+					"filename": "player/dirtywalk/walk2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 104,
+						"h": 161
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 6,
+						"w": 60,
+						"h": 151
+					},
+					"frame": {
+						"x": 180,
+						"y": 130,
+						"w": 60,
+						"h": 151
+					}
+				},
+				{
+					"filename": "player/dirtywalk/walk1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 104,
+						"h": 161
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 6,
+						"w": 55,
+						"h": 151
 					},
 					"frame": {
 						"x": 120,
-						"y": 213,
-						"w": 78,
-						"h": 127
+						"y": 284,
+						"w": 55,
+						"h": 151
 					}
 				},
 				{
-					"filename": "corrine.png",
+					"filename": "walter",
 					"rotated": false,
-					"trimmed": false,
+					"trimmed": true,
 					"sourceSize": {
-						"w": 53,
-						"h": 167
+						"w": 63,
+						"h": 110
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 53,
-						"h": 167
+						"w": 62,
+						"h": 110
+					},
+					"frame": {
+						"x": 177,
+						"y": 284,
+						"w": 62,
+						"h": 110
+					}
+				},
+				{
+					"filename": "carrot",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 91,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 2,
+						"w": 88,
+						"h": 48
 					},
 					"frame": {
 						"x": 1,
-						"y": 274,
-						"w": 53,
-						"h": 167
+						"y": 453,
+						"w": 88,
+						"h": 48
 					}
 				},
 				{
-					"filename": "sun.png",
+					"filename": "tomato",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 70,
+						"h": 59
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 2,
+						"w": 65,
+						"h": 57
+					},
+					"frame": {
+						"x": 91,
+						"y": 437,
+						"w": 65,
+						"h": 57
+					}
+				},
+				{
+					"filename": "watermelon",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 128,
-						"h": 128
+						"w": 56,
+						"h": 68
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 128,
-						"h": 128
+						"w": 56,
+						"h": 68
 					},
 					"frame": {
-						"x": 56,
-						"y": 342,
-						"w": 128,
-						"h": 128
+						"x": 177,
+						"y": 396,
+						"w": 56,
+						"h": 68
 					}
 				}
 			]
@@ -225,6 +288,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:5edf2b5d633cff9bd8abea9a8e3c148f:352315bc176d5be3506d55d88003bf9b:67087b54f7aa7c7f6411022b7ef8a190$"
+		"smartupdate": "$TexturePacker:SmartUpdate:14db56a2ea334cdb03053fa4f77e0b65:e7b57d5eac5b910cab30ae1dc1956d07:358f055dcd7752a1b7d514c352666090$"
 	}
 }

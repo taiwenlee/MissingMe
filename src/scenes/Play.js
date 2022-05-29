@@ -60,7 +60,7 @@ class Play extends Phaser.Scene {
       this.data = cache.get("data");
 
       // add player
-      this.player = new Player(this, game.config.width / 2, game.config.height - 205, 'object_atlas', 'player/walk/walk0.png');
+      this.player = new Player(this, game.config.width / 2, game.config.height - 205, 'object_atlas', 'player/dirtywalk/walk0');
 
       // add camera
       this.cameras.main.setBounds(0, 0, game.config.width * 5, game.config.height);
@@ -80,10 +80,10 @@ class Play extends Phaser.Scene {
       this.vData = this.data["npcs"]["villagers"];
       this.cData = this.data["npcs"]["crops"];
       for (const [key, data] of Object.entries(this.vData)) {
-         this.npcs.add(new Villager(this, data["location"]["x"], data["location"]["y"], "object_atlas", key + ".png", data).setOrigin(0.5, 1));
+         this.npcs.add(new Villager(this, data["location"]["x"], data["location"]["y"], "object_atlas", key, data).setOrigin(0.5, 1));
       }
       for (const [key, data] of Object.entries(this.cData)) {
-         this.npcs.add(new Crop(this, data["location"]["x"], data["location"]["y"], "object_atlas", key + ".png", data).setOrigin(0.5, 1));
+         this.npcs.add(new Crop(this, data["location"]["x"], data["location"]["y"], "object_atlas", key, data).setOrigin(0.5, 1));
       }
 
       // create items group for fetch items
@@ -98,7 +98,7 @@ class Play extends Phaser.Scene {
       //this.tailorShop.scale = 0.15;
 
       // add sun      
-      this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'object_atlas', "sun.png").setOrigin(0.5, 0.5);
+      this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'object_atlas', "sun").setOrigin(0.5, 0.5);
       this.sun.depth = -0.6;
       this.sun.setScrollFactor(0);
 
