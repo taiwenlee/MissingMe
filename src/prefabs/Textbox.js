@@ -280,6 +280,5 @@ class Textbox {
     destroy() {
         this.text.destroy();
         this.box.destroy();
-        this.destroy();
     }
 }
