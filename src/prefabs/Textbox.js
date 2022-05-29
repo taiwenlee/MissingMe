@@ -56,6 +56,10 @@ class Textbox {
             this.text.visible = false;
             this.box.visible = false;
         }
+        // update text locations and wrap
+        this.text.style.wordWrapWidth = this.wrapWidth;
+        this.text.x = this.x;
+        this.text.y = this.y;
 
         // update text animation
         if (this.animation && this.index < this.textLength) {
@@ -72,12 +76,7 @@ class Textbox {
             this.text.setText(this.fullText);
         }
 
-        // update text locations and wrap
-        this.text.style.wordWrapWidth = this.wrapWidth;
-        this.text.x = this.x;
-        this.text.y = this.y;
         this.drawBox();
-
     }
 
     setText(text) {
