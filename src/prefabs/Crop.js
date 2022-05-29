@@ -91,15 +91,17 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
                   this.scene.inQuest = false;
                   this.scene.children.getByName(this.villager).queststate = "postquest";
                   this.interactable = false;
-                  // if quest is a get type, clear inventory
-                  if (this.questType == "get") {
-                     this.scene.inventory.clear();
-                  }
                   this.scene.questCount++;
                }
 
             } else {
                if (this.textbox.index == this.textbox.textLength) {
+                  // equip item if quest is a get type (rather hard coded to work for overalls)
+                  if (this.questType == "get" && ("equip" in this.narratives[this.queststate][this.index])) {
+                     this.scene.player.overalls = true;
+                     this.scene.inventory.clear();
+                  }
+
                   // cycles down to next dialog
                   if (this.narratives[this.queststate][this.index]["type"] == "self") this.sound2.play();
                   this.updateText(this.narratives[this.queststate][this.index++]);

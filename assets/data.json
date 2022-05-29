@@ -684,7 +684,8 @@
                   },
                   {
                      "text": "Alright, alright.",
-                     "type": "player"
+                     "type": "player",
+                     "equip": "overalls"
                   },
                   {
                      "text": "There! Doesn’t that feel a lot better?",
