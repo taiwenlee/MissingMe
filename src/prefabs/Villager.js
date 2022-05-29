@@ -11,7 +11,7 @@ class Villager extends Phaser.GameObjects.Sprite {
       // set Villager properties
       this.name = json["name"];  // name of Villager
       this.crop = json["crop"];  // crop that Villager is tied to
-      this.interactDistance = 100;  // distance for interaction
+      this.interactDistance = 150;  // distance for interaction
       this.narratives = json["narratives"];  // text for interaction
       this.interactable = true;
       this.item = json["item"];  // item to give to player
@@ -56,6 +56,7 @@ class Villager extends Phaser.GameObjects.Sprite {
       this.sound2 = scene.sound.add(json["sound"]["rest"]);
       this.sound3 = scene.sound.add(json["sound"]["beginQuest"]);
       this.sound4 = scene.sound.add(json["sound"]["doneQuest"]);
+      this.itemSound = scene.sound.add('obtainItem', { volume: sfxVol });
    }
 
    update() {
@@ -101,6 +102,7 @@ class Villager extends Phaser.GameObjects.Sprite {
                   // give player item
                   if (this.itemCount > 0) this.scene.inventory.addItem(this.item, this.itemCount);
                   this.queststate = "repeatquest";
+                  this.itemSound.play();
                   this.scene.children.getByName(this.crop).queststate = "completequest";
 
                } else if (this.queststate == "quest" && this.questType == "fetch") {

@@ -4,7 +4,7 @@ class Play extends Phaser.Scene {
    }
 
    create() {
-
+      
       // game state
       this.inQuest = false;
       this.questCount = 0;
@@ -60,7 +60,7 @@ class Play extends Phaser.Scene {
       this.data = cache.get("data");
 
       // add player
-      this.player = new Player(this, game.config.width / 2, game.config.height - 205, 'object_atlas', 'player/dirtywalk/walk0');
+      this.player = new Player(this, 1175, game.config.height - 205, 'object_atlas', 'player/dirtywalk/walk0');
 
       // add camera
       this.cameras.main.setBounds(0, 0, game.config.width * 5, game.config.height);
@@ -93,8 +93,12 @@ class Play extends Phaser.Scene {
       });
 
       // add shops
-      this.tailorShop = this.add.image(game.config.width / 2, 477, 'tailorShop').setOrigin(0.5, 1);
+      this.tailorShop = this.add.image(3800, 477, 'tailorShop').setOrigin(0.5, 1);
       this.tailorShop.depth = -0.01;
+      this.generalStore = this.add.image(1800, 477, 'generalStore').setOrigin(0.5, 1);
+      this.generalStore.depth = -0.01;      
+      this.doctorsOffice = this.add.image(2800, 477, 'doctorsOffice').setOrigin(0.5, 1);
+      this.doctorsOffice.depth = -0.01;
 
       // add sun      
       this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'object_atlas', "sun").setOrigin(0.5, 0.5);
@@ -106,7 +110,7 @@ class Play extends Phaser.Scene {
 
       // intro text
       this.introindex = 0;
-      this.introText = new Textbox(this, game.config.width / 2, game.config.height / 2 - 20, this.data["intro"][this.introindex++], {
+      this.introText = new Textbox(this, 1175, game.config.height / 2 - 20, this.data["intro"][this.introindex++], {
          fontFamily: 'VT323',
          fontSize: '32px',
          color: '#ffffff',
