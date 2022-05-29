@@ -1,6 +1,6 @@
 {
    "intro": [
-      "Welcome to the game!",
+      "Welcome to the game! Press SPACE to continue.",
       "this is intro temp text.",
       "use A and D to move left and right.",
       "shift to move faster."
@@ -23,7 +23,9 @@
             },
             "sound": {
                "start": "teddy1",
-               "rest": "teddy2"
+               "rest": "teddy2",
+               "beginQuest" : "startQuest",
+               "doneQuest" : "questCompleted"
             },
             "narratives": {
                "prequest": [
@@ -148,7 +150,9 @@
             },
             "sound": {
                "start": "walter1",
-               "rest": "walter2"
+               "rest": "walter2",
+               "beginQuest" : "startQuest",
+               "doneQuest" : "questCompleted"
             },
             "narratives": {
                "prequest": [
@@ -355,7 +359,9 @@
             },
             "sound": {
                "start": "corinne1",
-               "rest": "corinne2"
+               "rest": "corinne2",
+               "beginQuest" : "startQuest",
+               "doneQuest" : "questCompleted"
             },
             "narratives": {
                "prequest": [
@@ -594,7 +600,9 @@
             },
             "sound": {
                "start": "teddy1",
-               "rest": "teddy2"
+               "rest": "teddy2",
+               "beginQuest" : "startQuest",
+               "doneQuest" : "questCompleted"
             },
             "narratives": {
                "quest": [
@@ -727,7 +735,9 @@
             },
             "sound": {
                "start": "walter1",
-               "rest": "walter2"
+               "rest": "walter2",
+               "beginQuest" : "startQuest",
+               "doneQuest" : "questCompleted"
             },
             "narratives": {
                "quest": [
@@ -824,7 +834,9 @@
             },
             "sound": {
                "start": "corinne1",
-               "rest": "corinne1"
+               "rest": "corinne1",
+               "beginQuest" : "startQuest",
+               "doneQuest" : "questCompleted"
             },
             "narratives": {
                "quest": [

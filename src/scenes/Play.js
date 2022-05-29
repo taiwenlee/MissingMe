@@ -84,9 +84,12 @@ class Play extends Phaser.Scene {
          runChildUpdate: true
       });
 
-      // add sun
+      // add sun      
+      //this.sunBlack = this.add.image(game.config.width + 120, game.config.height - 200, 'sunBlack').setOrigin(0.5, 0.5);
+      //this.sunBlack.depth = 1.6;
+      //this.sunBlack.setScrollFactor(0);
       this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'sun').setOrigin(0.5, 0.5);
-      this.sun.depth = 1.5;
+      this.sun.depth = 0.1;
       this.sun.setScrollFactor(0);
 
       // tween
