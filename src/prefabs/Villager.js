@@ -62,7 +62,7 @@ class Villager extends Phaser.GameObjects.Sprite {
          // show indicator if nearby
          if (!this.Interacting) this.indicator.visible = true;
 
-         let intKey = this.keyTap(keySpace);
+         let intKey = keyTap(keySpace);
          if (intKey && !this.Interacting && this.interactable) {
 
             // complete fetch quest if player obtains items
@@ -151,24 +151,6 @@ class Villager extends Phaser.GameObjects.Sprite {
          this.textbox.borderColor = 0xffffff;
          this.textbox.x = this.scene.player.x;
          this.textbox.y = this.scene.player.y - this.scene.player.height * this.scene.player.scale;
-      }
-   }
-
-   // returns true once per key press
-   keyTap(key) {
-      // added a holding var to key for tap logic
-      if (key.holding == null) {
-         key.holding = false;
-      }
-
-      if (key.isUp && key.holding) { // if key is up reset holding
-         key.holding = false;
-         return false;
-      } else if (key.isDown && !key.holding) {   // register first down press
-         key.holding = true;
-         return true;
-      } else { // if holding or already reset
-         return false;
       }
    }
 }
