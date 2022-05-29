@@ -54,6 +54,7 @@ class Play extends Phaser.Scene {
       keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
       keyShift = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
       keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+      keyESC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
 
       // add npc data
       var cache = this.cache.json;
@@ -65,6 +66,17 @@ class Play extends Phaser.Scene {
       // add camera
       this.cameras.main.setBounds(0, 0, game.config.width * 5, game.config.height);
       this.cameras.main.startFollow(this.player);
+      
+      // add settings text
+      const settingsText = this.add.text(40, 42 + 12, 'ESC', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5);
+      settingsText.depth = 2;
+      settingsText.setScrollFactor(0);
+
+      // add settings button
+      const settingsButton = this.add.image(40, 42, "ui_atlas", 'vol1Hover').setOrigin(0.5);
+      settingsButton.alpha = 1;
+      settingsButton.depth = 1.9;
+      settingsButton.setScrollFactor(0);
 
       // add inventory
       this.inventory = new Inventory(this, 800, 10);

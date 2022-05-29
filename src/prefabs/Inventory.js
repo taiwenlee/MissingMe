@@ -72,6 +72,7 @@ class Inventory {
             this.itemImage.setOrigin(0.5);
             this.itemImage.x = this.x + this.width * (0.5 - this.OriginX);
             this.itemImage.y = this.y + this.height * (0.5 - this.OriginY);
+            //this.itemTween();
         }
 
         // item count
@@ -123,5 +124,18 @@ class Inventory {
         this.itemCountText.setText(this.itemCount);
         this.itemCountText.visible = false;
         this.drawInventory();
+    }
+
+    itemTween() {
+        // item tween
+        this.tweens.add({
+            targets: this.itemImage,
+            scaleY: 1.1,
+            scaleX: 1.1,                
+            duration: 1000,
+            ease: 'Back.easeInOut',
+            angle: 1080,
+            yoyo: true,
+        });
     }
 }
