@@ -134,11 +134,15 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
          this.textbox.borderColor = this.json["textbox"]["border_color"];
          this.textbox.x = this.x;
          this.textbox.y = this.y - this.height * this.scale - 20;
+         this.textbox.wrapWidth = 400;
+         this.textbox.update();
       } else if (json["type"] == "player") {
          this.textbox.backgroundColor = 0x000000;
          this.textbox.borderColor = 0xffffff;
          this.textbox.x = this.scene.player.x;
          this.textbox.y = this.scene.player.y - this.scene.player.height * this.scene.player.scale + 170;
+         this.textbox.wrapWidth = 800;
+         this.textbox.update();
       }
    }
 }
