@@ -594,6 +594,7 @@
                "y": 477
             },
             "quest_type": "get",
+            "quest_done" : false,
             "textbox": {
                "border_color": "0xffffff",
                "background_color": "0x1049ff"
@@ -730,6 +731,7 @@
                "y": 477
             },
             "quest_type": "get",
+            "quest_done" : false,
             "textbox": {
                "border_color": "0xffffff",
                "background_color": "0xf76a8a"
@@ -829,6 +831,7 @@
                "y": 477
             },
             "quest_type": "get",
+            "quest_done" : false,
             "textbox": {
                "border_color": "0xffffff",
                "background_color": "0x9b51ef"

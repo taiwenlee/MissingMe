@@ -94,6 +94,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
                   this.scene.inQuest = false;
                   this.scene.children.getByName(this.villager).queststate = "postquest";
                   this.interactable = false;
+                  this.json["quest_done"] = true;
                   this.scene.questCount++;
                   this.sound4.play();
                }
