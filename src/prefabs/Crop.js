@@ -31,6 +31,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       this.textbox.visible = false;
       this.textbox.backgroundColor = this.json["textbox"]["background_color"];
       this.textbox.borderColor = this.json["textbox"]["border_color"];
+      this.textbox.update();
 
       // interact indicator
       this.indicator = new Textbox(scene, x, y - this.height * this.scale - 25, "SPACE", {
@@ -44,10 +45,13 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       this.indicator.borderColor = this.json["textbox"]["border_color"];
       this.indicator.visible = false;
       this.indicator.animation = false;
+      this.indicator.update();
 
       // sounds
       this.sound1 = scene.sound.add(json["sound"]["start"]);
       this.sound2 = scene.sound.add(json["sound"]["rest"]);
+      this.sound3 = scene.sound.add(json["sound"]["beginQuest"]);
+      this.sound4 = scene.sound.add(json["sound"]["doneQuest"]);
    }
 
    update() {
@@ -57,7 +61,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
          // show indicator if nearby
          if (!this.Interacting) this.indicator.visible = true;
 
-         let intKey = this.keyTap(keySpace);
+         let intKey = keyTap(keySpace);
          if (intKey && !this.Interacting && this.interactable) {
 
             // initiate interaction
@@ -84,20 +88,24 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
                   this.scene.inQuest = true;
                   this.scene.children.getByName(this.villager).queststate = "quest";
                   this.queststate = "repeatquest";
+                  this.sound3.play();
                } else if (this.queststate == "completequest") {
                   // completes quest
                   this.scene.inQuest = false;
                   this.scene.children.getByName(this.villager).queststate = "postquest";
                   this.interactable = false;
-                  // if quest is a get type, clear inventory
-                  if (this.questType == "get") {
-                     this.scene.inventory.clear();
-                  }
                   this.scene.questCount++;
+                  this.sound4.play();
                }
 
             } else {
                if (this.textbox.index == this.textbox.textLength) {
+                  // equip item if quest is a get type (rather hard coded to work for overalls)
+                  if (this.questType == "get" && ("equip" in this.narratives[this.queststate][this.index])) {
+                     this.scene.player.overalls = true;
+                     this.scene.inventory.clear();
+                  }
+
                   // cycles down to next dialog
                   if (this.narratives[this.queststate][this.index]["type"] == "self") this.sound2.play();
                   this.updateText(this.narratives[this.queststate][this.index++]);
@@ -130,24 +138,6 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
          this.textbox.borderColor = 0xffffff;
          this.textbox.x = this.scene.player.x;
          this.textbox.y = this.scene.player.y - this.scene.player.height * this.scene.player.scale;
-      }
-   }
-
-   // returns true once per key press
-   keyTap(key) {
-      // added a holding var to key for tap logic
-      if (key.holding == null) {
-         key.holding = false;
-      }
-
-      if (key.isUp && key.holding) { // if key is up reset holding
-         key.holding = false;
-         return false;
-      } else if (key.isDown && !key.holding) {   // register first down press
-         key.holding = true;
-         return true;
-      } else { // if holding or already reset
-         return false;
       }
    }
 }

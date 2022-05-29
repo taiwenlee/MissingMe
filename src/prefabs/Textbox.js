@@ -2,7 +2,7 @@ class Textbox {
     constructor(scene, x, y, text, style) {
 
         // text box properties
-        this.padding = 5;
+        this.padding = 7;
         this.border = 5;
         this.rounding = 5;
         this.depth = 8;
@@ -56,6 +56,10 @@ class Textbox {
             this.text.visible = false;
             this.box.visible = false;
         }
+        // update text locations and wrap
+        this.text.style.wordWrapWidth = this.wrapWidth;
+        this.text.x = this.x;
+        this.text.y = this.y;
 
         // update text animation
         if (this.animation && this.index < this.textLength) {
@@ -72,12 +76,7 @@ class Textbox {
             this.text.setText(this.fullText);
         }
 
-        // update text locations and wrap
-        this.text.style.wordWrapWidth = this.wrapWidth;
-        this.text.x = this.x;
-        this.text.y = this.y;
         this.drawBox();
-
     }
 
     setText(text) {
@@ -108,6 +107,7 @@ class Textbox {
         } else {
             console.log("Error: setOrigin requires 1 or 2 arguments");
         }
+        return this;
     }
 
     // skips letter by letter animation

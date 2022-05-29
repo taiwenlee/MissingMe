@@ -34,6 +34,7 @@ class Villager extends Phaser.GameObjects.Sprite {
       this.textbox.visible = false;
       this.textbox.backgroundColor = this.json["textbox"]["background_color"];
       this.textbox.borderColor = this.json["textbox"]["border_color"];
+      this.textbox.update();
 
       // interact indicator
       this.indicator = new Textbox(scene, x, y - this.height * this.scale - 25, "SPACE", {
@@ -47,10 +48,13 @@ class Villager extends Phaser.GameObjects.Sprite {
       this.indicator.borderColor = this.json["textbox"]["border_color"];
       this.indicator.visible = false;
       this.indicator.animation = false;
+      this.indicator.update();
 
       // sounds
       this.sound1 = scene.sound.add(json["sound"]["start"]);
       this.sound2 = scene.sound.add(json["sound"]["rest"]);
+      this.sound3 = scene.sound.add(json["sound"]["beginQuest"]);
+      this.sound4 = scene.sound.add(json["sound"]["doneQuest"]);
    }
 
    update() {
@@ -60,7 +64,7 @@ class Villager extends Phaser.GameObjects.Sprite {
          // show indicator if nearby
          if (!this.Interacting) this.indicator.visible = true;
 
-         let intKey = this.keyTap(keySpace);
+         let intKey = keyTap(keySpace);
          if (intKey && !this.Interacting && this.interactable) {
 
             // complete fetch quest if player obtains items
@@ -114,6 +118,7 @@ class Villager extends Phaser.GameObjects.Sprite {
                   this.scene.inventory.clear();
                   this.scene.inQuest = false;
                   this.scene.questCount++;
+                  this.sound4.play();
                }
             } else {
                if (this.textbox.index == this.textbox.textLength) {
@@ -149,24 +154,6 @@ class Villager extends Phaser.GameObjects.Sprite {
          this.textbox.borderColor = 0xffffff;
          this.textbox.x = this.scene.player.x;
          this.textbox.y = this.scene.player.y - this.scene.player.height * this.scene.player.scale;
-      }
-   }
-
-   // returns true once per key press
-   keyTap(key) {
-      // added a holding var to key for tap logic
-      if (key.holding == null) {
-         key.holding = false;
-      }
-
-      if (key.isUp && key.holding) { // if key is up reset holding
-         key.holding = false;
-         return false;
-      } else if (key.isDown && !key.holding) {   // register first down press
-         key.holding = true;
-         return true;
-      } else { // if holding or already reset
-         return false;
       }
    }
 }
