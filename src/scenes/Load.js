@@ -5,35 +5,14 @@ class Load extends Phaser.Scene {
 
    preload() {
       // UI assets
-      this.load.image("select", "./assets/images/select.png");
-      this.load.image("play", "./assets/images/play.png");
-      this.load.image("playHover", "./assets/images/playHover.png");
-      this.load.image("settings", "./assets/images/settings.png");
-      this.load.image("settingsHover", "./assets/images/settingsHover.png");
-      this.load.image("credits", "./assets/images/credits.png");
-      this.load.image("creditsHover", "./assets/images/creditsHover.png");
-      this.load.image("item0", "./assets/images/npc0.png");
-      this.load.image("indicator", "./assets/images/dialogueArrowTHICK.png");
+      this.load.atlas("ui_atlas", "assets/images/ui_atlas.png", "assets/images/ui_atlas.json");
       this.load.image("background", "./assets/images/skyGradient.png");
       this.load.image("clouds1", "./assets/images/clouds1.png");
       this.load.image("clouds2", "./assets/images/clouds2.png");
-      this.load.image("title", "./assets/images/title.png");      
-      this.load.image("vol1", "./assets/images/vol1.png");
-      this.load.image("vol2", "./assets/images/vol2.png");
-      this.load.image("vol1Hover", "./assets/images/vol1Hover.png");
-      this.load.image("vol2Hover", "./assets/images/vol2Hover.png");
-      this.load.image("creditsBG", "./assets/images/creditsBG.png");
 
       // object assets
-      this.load.atlas("player", "./assets/images/player.png", "./assets/images/player.json");
+      this.load.atlas("object_atlas", "./assets/images/object_atlas.png", "./assets/images/object_atlas.json");
       this.load.image("floor", "./assets/images/floor.png");
-      this.load.image("teddy", "./assets/images/teddy.PNG");  // TODO: change to texture atlas
-      this.load.image("tomato", "./assets/images/tomato.PNG");      // TODO: change to texture atlas 
-      this.load.image("walter", "./assets/images/walter.PNG");      // TODO: change to texture atlas
-      this.load.image("watermelon", "./assets/images/watermelon.PNG");      // TODO: change to texture atlas
-      this.load.image("corinne", "./assets/images/corrine.PNG");      // TODO: change to texture atlas
-      this.load.image("carrot", "./assets/images/carrot.PNG");      // TODO: change to texture atlas
-      this.load.image("sun", "./assets/images/sun.png");
       this.load.image("tailorShop", "./assets/images/tailor.png");
 
       // text assets
@@ -52,8 +31,8 @@ class Load extends Phaser.Scene {
       this.load.audio('teddy2', 'assets/sounds/teddy2.mp3');
       this.load.audio('walter1', 'assets/sounds/walter1.mp3');
       this.load.audio('walter2', 'assets/sounds/walter2.mp3');
-      this.load.audio('corinne1', 'assets/sounds/corinne1.mp3');
-      this.load.audio('corinne2', 'assets/sounds/corinne2.mp3');      
+      this.load.audio('corrine1', 'assets/sounds/corrine1.mp3');
+      this.load.audio('corrine2', 'assets/sounds/corrine2.mp3');
       this.load.audio('step1', 'assets/sounds/step1.mp3');
       this.load.audio('step2', 'assets/sounds/step2.mp3');
    }
@@ -63,8 +42,8 @@ class Load extends Phaser.Scene {
 
       // animations
       this.anims.create({
-         key: "run",
-         frames: this.anims.generateFrameNames("player", { prefix: 'run', suffix: '.png', end: 7 }),
+         key: "walk",
+         frames: this.anims.generateFrameNames("object_atlas", { prefix: 'player/walk/walk', suffix: '.png', end: 2 }),
          frameRate: 10,
          repeat: -1
       });

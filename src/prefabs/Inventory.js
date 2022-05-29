@@ -101,7 +101,7 @@ class Inventory {
     addItem(name, count) {
         if (this.itemName == "" && this.itemCount == 0) {
             this.itemName = name;
-            this.itemImage = this.scene.add.image(this.x, this.y, name);
+            this.itemImage = this.scene.add.image(this.x, this.y, "object_atlas", name);
             this.itemImage.setScrollFactor(0);
             this.itemImage.depth = this.depth + 1;
             this.itemCountText.visible = true;

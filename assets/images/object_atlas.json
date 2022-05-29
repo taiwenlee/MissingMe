@@ -1,0 +1,230 @@
+{
+	"textures": [
+		{
+			"image": "object_atlas.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 199,
+				"h": 471
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "carrot.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 91,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 2,
+						"w": 88,
+						"h": 48
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 88,
+						"h": 48
+					}
+				},
+				{
+					"filename": "tomato.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 70,
+						"h": 59
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 2,
+						"w": 65,
+						"h": 57
+					},
+					"frame": {
+						"x": 91,
+						"y": 1,
+						"w": 65,
+						"h": 57
+					}
+				},
+				{
+					"filename": "watermelon.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 56,
+						"h": 68
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 56,
+						"h": 68
+					},
+					"frame": {
+						"x": 1,
+						"y": 51,
+						"w": 56,
+						"h": 68
+					}
+				},
+				{
+					"filename": "walter.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 63,
+						"h": 110
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 62,
+						"h": 110
+					},
+					"frame": {
+						"x": 59,
+						"y": 60,
+						"w": 62,
+						"h": 110
+					}
+				},
+				{
+					"filename": "player/walk/walk0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 104,
+						"h": 161
+					},
+					"spriteSourceSize": {
+						"x": 22,
+						"y": 6,
+						"w": 60,
+						"h": 151
+					},
+					"frame": {
+						"x": 123,
+						"y": 60,
+						"w": 60,
+						"h": 151
+					}
+				},
+				{
+					"filename": "player/walk/walk1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 104,
+						"h": 161
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 6,
+						"w": 55,
+						"h": 151
+					},
+					"frame": {
+						"x": 1,
+						"y": 121,
+						"w": 55,
+						"h": 151
+					}
+				},
+				{
+					"filename": "player/walk/walk2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 104,
+						"h": 161
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 6,
+						"w": 60,
+						"h": 151
+					},
+					"frame": {
+						"x": 58,
+						"y": 172,
+						"w": 60,
+						"h": 151
+					}
+				},
+				{
+					"filename": "teddy.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 79,
+						"h": 127
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 78,
+						"h": 127
+					},
+					"frame": {
+						"x": 120,
+						"y": 213,
+						"w": 78,
+						"h": 127
+					}
+				},
+				{
+					"filename": "corrine.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 53,
+						"h": 167
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 53,
+						"h": 167
+					},
+					"frame": {
+						"x": 1,
+						"y": 274,
+						"w": 53,
+						"h": 167
+					}
+				},
+				{
+					"filename": "sun.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 128,
+						"h": 128
+					},
+					"frame": {
+						"x": 56,
+						"y": 342,
+						"w": 128,
+						"h": 128
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:5edf2b5d633cff9bd8abea9a8e3c148f:352315bc176d5be3506d55d88003bf9b:67087b54f7aa7c7f6411022b7ef8a190$"
+	}
+}

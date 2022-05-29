@@ -110,7 +110,7 @@ class Villager extends Phaser.GameObjects.Sprite {
                   for (let i = 0; i < this.json["quest_data"]["locations"].length; i++) {
                      let location = this.json["quest_data"]["locations"][i];
                      let item = new Item(this.scene, location["x"], location["y"],
-                        this.json["quest_data"]["item_type"], 0, this.json["quest_data"]["item_type"]);
+                        "object_atlas", this.json["quest_data"]["item_type"], this.json["quest_data"]["item_type"]);
                      this.scene.items.add(item);
                   }
                } else if (this.queststate == "completequest") {
@@ -155,7 +155,7 @@ class Villager extends Phaser.GameObjects.Sprite {
          this.textbox.backgroundColor = 0x000000;
          this.textbox.borderColor = 0xffffff;
          this.textbox.x = game.config.width / 2;
-         this.textbox.y = this.scene.player.y + this.scene.player.height * this.scene.player.scale;
+         this.textbox.y = this.scene.player.y + this.scene.player.height * this.scene.player.scale / 2;
          this.textbox.wrapWidth = 800;
          this.textbox.setOrigin(0.5, 0);
          this.textbox.scroll = false;

@@ -1,0 +1,293 @@
+{
+	"textures": [
+		{
+			"image": "ui_atlas.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 978,
+				"h": 321
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "creditsBG",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 237,
+						"h": 246
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 237,
+						"h": 246
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 237,
+						"h": 246
+					}
+				},
+				{
+					"filename": "credits",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 161,
+						"h": 71
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 161,
+						"h": 71
+					},
+					"frame": {
+						"x": 1,
+						"y": 249,
+						"w": 161,
+						"h": 71
+					}
+				},
+				{
+					"filename": "creditsHover",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 161,
+						"h": 71
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 161,
+						"h": 71
+					},
+					"frame": {
+						"x": 164,
+						"y": 249,
+						"w": 161,
+						"h": 71
+					}
+				},
+				{
+					"filename": "title",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 590,
+						"h": 212
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 590,
+						"h": 212
+					},
+					"frame": {
+						"x": 240,
+						"y": 1,
+						"w": 590,
+						"h": 212
+					}
+				},
+				{
+					"filename": "play",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 161,
+						"h": 71
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 161,
+						"h": 71
+					},
+					"frame": {
+						"x": 327,
+						"y": 215,
+						"w": 161,
+						"h": 71
+					}
+				},
+				{
+					"filename": "playHover",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 161,
+						"h": 71
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 161,
+						"h": 71
+					},
+					"frame": {
+						"x": 490,
+						"y": 215,
+						"w": 161,
+						"h": 71
+					}
+				},
+				{
+					"filename": "settings",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 161,
+						"h": 71
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 161,
+						"h": 71
+					},
+					"frame": {
+						"x": 653,
+						"y": 215,
+						"w": 161,
+						"h": 71
+					}
+				},
+				{
+					"filename": "settingsHover",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 161,
+						"h": 71
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 161,
+						"h": 71
+					},
+					"frame": {
+						"x": 816,
+						"y": 215,
+						"w": 161,
+						"h": 71
+					}
+				},
+				{
+					"filename": "vol1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 65,
+						"h": 71
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 65,
+						"h": 71
+					},
+					"frame": {
+						"x": 832,
+						"y": 1,
+						"w": 65,
+						"h": 71
+					}
+				},
+				{
+					"filename": "vol1Hover",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 65,
+						"h": 71
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 65,
+						"h": 71
+					},
+					"frame": {
+						"x": 899,
+						"y": 1,
+						"w": 65,
+						"h": 71
+					}
+				},
+				{
+					"filename": "vol2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 65,
+						"h": 71
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 65,
+						"h": 71
+					},
+					"frame": {
+						"x": 832,
+						"y": 74,
+						"w": 65,
+						"h": 71
+					}
+				},
+				{
+					"filename": "select",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 60,
+						"h": 62
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 60,
+						"h": 62
+					},
+					"frame": {
+						"x": 832,
+						"y": 147,
+						"w": 60,
+						"h": 62
+					}
+				},
+				{
+					"filename": "vol2Hover",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 65,
+						"h": 71
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 65,
+						"h": 71
+					},
+					"frame": {
+						"x": 899,
+						"y": 74,
+						"w": 65,
+						"h": 71
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:96f9105aacb7340c25ba266c0949d5ed:64760f2389ffc49cc724ab71450e00fd:b5d3be34114d9e44e607c8ae1c6193a6$"
+	}
+}

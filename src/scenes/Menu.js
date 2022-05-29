@@ -20,7 +20,7 @@ class Menu extends Phaser.Scene {
       this.clouds2 = this.add.tileSprite(0, 0, 912, 608, 'clouds2').setOrigin(0, 0);
 
       // add title
-      this.title = this.add.image(game.config.width / 2, 260, 'title').setOrigin(0.5, 0.5);
+      this.title = this.add.image(game.config.width / 2, 260, 'ui_atlas', "title").setOrigin(0.5, 0.5);
 
       this.tweens.add({
          targets: this.title,
@@ -49,13 +49,13 @@ class Menu extends Phaser.Scene {
       playText.depth = 1;
 
       // add play hover image and watering can
-      const playHover = this.add.image(game.config.width / 2, 500, 'playHover').setOrigin(0.5);
+      const playHover = this.add.image(game.config.width / 2, 500, "ui_atlas", 'playHover').setOrigin(0.5);
       playHover.alpha = 0;
-      const selectPlay = this.add.image(game.config.width / 2 - 35, 500 - 70, 'select').setOrigin(0.5);
+      const selectPlay = this.add.image(game.config.width / 2 - 35, 500 - 70, "ui_atlas", 'select').setOrigin(0.5);
       selectPlay.alpha = 0;
 
       // play button
-      const playButton = this.add.image(game.config.width / 2, 500, 'play').setOrigin(0.5);
+      const playButton = this.add.image(game.config.width / 2, 500, "ui_atlas", 'play').setOrigin(0.5);
       playButton.setInteractive();
       playButton.on('pointerdown', () => {
          this.hoverSound.stop();
@@ -84,13 +84,13 @@ class Menu extends Phaser.Scene {
       settingsText.depth = 1;
 
       // add settings hover image and watering can
-      const settingsHover = this.add.image(game.config.width / 2 - 200, 500, 'settingsHover').setOrigin(0.5);
+      const settingsHover = this.add.image(game.config.width / 2 - 200, 500, "ui_atlas", 'settingsHover').setOrigin(0.5);
       settingsHover.alpha = 0;
-      const selectSettings = this.add.image(game.config.width / 2 - 200 - 35, 500 - 70, 'select').setOrigin(0.5);
+      const selectSettings = this.add.image(game.config.width / 2 - 200 - 35, 500 - 70, "ui_atlas", 'select').setOrigin(0.5);
       selectSettings.alpha = 0;
 
       // settings button
-      const settingsButton = this.add.image(game.config.width / 2 - 200, 500, 'settings').setOrigin(0.5);
+      const settingsButton = this.add.image(game.config.width / 2 - 200, 500, "ui_atlas", 'settings').setOrigin(0.5);
       settingsButton.setInteractive();
       settingsButton.on('pointerdown', () => {
          this.hoverSound.stop();
@@ -117,13 +117,13 @@ class Menu extends Phaser.Scene {
       creditsText.depth = 1;
 
       // add credits hover image and watering can
-      const creditsHover = this.add.image(game.config.width / 2 + 200, 500, 'creditsHover').setOrigin(0.5);
+      const creditsHover = this.add.image(game.config.width / 2 + 200, 500, "ui_atlas", 'creditsHover').setOrigin(0.5);
       creditsHover.alpha = 0;
-      const selectCredits = this.add.image(game.config.width / 2 + 200 - 35, 500 - 70, 'select').setOrigin(0.5);
+      const selectCredits = this.add.image(game.config.width / 2 + 200 - 35, 500 - 70, "ui_atlas", 'select').setOrigin(0.5);
       selectCredits.alpha = 0;
 
       // credits button
-      const creditsButton = this.add.image(game.config.width / 2 + 200, 500, 'credits').setOrigin(0.5);
+      const creditsButton = this.add.image(game.config.width / 2 + 200, 500, "ui_atlas", 'credits').setOrigin(0.5);
       creditsButton.setInteractive();
       creditsButton.on('pointerdown', () => {
          this.hoverSound.stop();
