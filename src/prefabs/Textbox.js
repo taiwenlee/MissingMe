@@ -119,6 +119,7 @@ class Textbox {
     set x(value) {
         this._x = value;
         this.text.x = value;
+        this.drawBox();
     }
 
     get x() {
@@ -128,6 +129,7 @@ class Textbox {
     set y(value) {
         this._y = value;
         this.text.y = value;
+        this.drawBox();
     }
 
     get y() {
@@ -136,6 +138,7 @@ class Textbox {
 
     set OriginX(value) {
         this._OriginX = value;
+        this.drawBox();
     }
 
     get OriginX() {
@@ -144,6 +147,7 @@ class Textbox {
 
     set OriginY(value) {
         this._OriginY = value;
+        this.drawBox();
     }
 
     get OriginY() {
@@ -153,6 +157,7 @@ class Textbox {
     set wrapWidth(value) {
         this._wrapWidth = value;
         this.text.style.wordWrapWidth = value;
+        this.drawBox();
     }
 
     get wrapWidth() {
