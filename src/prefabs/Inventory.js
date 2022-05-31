@@ -9,7 +9,7 @@ class Inventory {
         this.depth = 8;
         this.borderColor = 0xffffff;
         this.backgroundColor = 0x000000;
-        this.visible = true;
+        this._visible = true;
         this.x = x + 30;
         this.y = y + 5;
         this.OriginX = 0;
@@ -36,30 +36,20 @@ class Inventory {
 
         // tween
         // item tween
-        this.tween = this.scene.tweens.add({
-            targets: this.itemImage,
-            scaleY: 1.3,
-            scaleX: 1.3,
-            x: 912/2 + 30,
-            y: 608/2,
-            duration: 1000,
-            ease: 'Back.easeInOut',
-            angle: 720,
-            yoyo: true,
-        });
+        this.tween = null;
 
-        console.log(this.tween);
         this.drawInventory();
 
     }
 
-    update() {
-        if (this.visible) {
-            this.box.visible = true;
-        } else {
-            this.box.visible = false;
-        }
+    set visible(value) {
+        this._visible = value;
+        this.box.visible = value;
         this.drawInventory();
+    }
+
+    get visible() {
+        return this._visible;
     }
 
     drawInventory() {
@@ -87,7 +77,7 @@ class Inventory {
             this.itemImage.setOrigin(0.5);
             this.itemImage.x = this.x + this.width * (0.5 - this.OriginX);
             this.itemImage.y = this.y + this.height * (0.5 - this.OriginY);
-            //this.itemTween();
+
         }
 
         // item count
@@ -122,6 +112,7 @@ class Inventory {
             this.itemImage.setScrollFactor(0);
             this.itemImage.depth = this.depth + 1;
             this.itemCountText.visible = true;
+            this.addTween();
         } else if (this.itemName != name) {
             console.log("Error: item already exists");
             return;
@@ -142,15 +133,16 @@ class Inventory {
         this.drawInventory();
     }
 
-    itemTween() {
-        // item tween
-        this.scene.tweens.add({
+    addTween() {
+        this.tween = this.scene.tweens.add({
             targets: this.itemImage,
-            scaleY: 1.2,
-            scaleX: 1.2,
+            scaleY: 1.3,
+            scaleX: 1.3,
+            x: game.config.width / 2 + 30,
+            y: game.config.height / 2,
             duration: 1000,
             ease: 'Back.easeInOut',
-            angle: 20,
+            angle: 720,
             yoyo: true,
         });
     }
