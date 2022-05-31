@@ -95,7 +95,6 @@ class Menu extends Phaser.Scene {
       settingsButton.on('pointerdown', () => {
          this.hoverSound.stop();
          this.selectSound.play({ volume: sfxVol });
-         titlePause = true;
          this.scene.pause().launch("settingsScene");
       });
       settingsButton.on('pointerover', () => { // reveal hover image
