@@ -17,8 +17,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       this.Jumping = true;
       this.Interacting = false;
 
-      console.log(this.anims);
-
       // foot step sounds
       this.sound1 = scene.sound.add('step1', { volume: sfxVol });
       this.sound2 = scene.sound.add('step2', { volume: sfxVol });
@@ -58,7 +56,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             this.dirtyWalk.frameRate = this.runMultiplier * this.frameRate;
             this.cleanWalk.frameRate = this.runMultiplier * this.frameRate;
             this.footstep.delay = this.delay / this.runMultiplier;
-            console.log("check");
             this.anims.pause();
          } else if (!keyShift.isDown && this.dirtyWalk.frameRate != this.frameRate) {
             this.dirtyWalk.frameRate = this.frameRate;
@@ -66,7 +63,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             this.anims.pause();
          }
          this.footstep.paused = false;
-         console.log(this.dirtyWalk);
       } else if (keyD.isDown && !this.Interacting) {
          this.body.setVelocityX(keyShift.isDown ? this.runMultiplier * this.speed : this.speed);
 
@@ -74,7 +70,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
             this.dirtyWalk.frameRate = this.runMultiplier * this.frameRate;
             this.cleanWalk.frameRate = this.runMultiplier * this.frameRate;
             this.footstep.delay = this.delay / this.runMultiplier;
-            console.log("check");
             this.anims.pause();
          } else if (!keyShift.isDown && this.dirtyWalk.frameRate != this.frameRate) {
             this.dirtyWalk.frameRate = this.frameRate;

@@ -21,7 +21,8 @@ class Inventory {
         // item properties
         this.itemName = "";
         this.itemCount = 0;
-        this.itemImage = null;
+        this.itemImage = this.scene.add.image(this.x, this.y, "object_atlas", "");
+        this.itemImage.visible = false;
         this.itemCountText = this.scene.add.text(this.x, this.y, this.itemCount, this.style);
         this.itemCountText.setScrollFactor(0);
         this.itemCountText.depth = this.depth + 2;
@@ -33,7 +34,19 @@ class Inventory {
         scene.add.existing(this.box);
         this.box.setScrollFactor(0);
 
+        // tween
+        // item tween
+        this.tween = this.scene.tweens.add({
+            targets: this.itemImage,
+            scaleY: 1.1,
+            scaleX: 1.1,
+            duration: 1000,
+            ease: 'Back.easeInOut',
+            angle: 1080,
+            yoyo: true,
+        });
 
+        console.log(this.tween);
         this.drawInventory();
 
     }
@@ -78,8 +91,8 @@ class Inventory {
         // item count
         if (this.itemCount > 0) {
             this.itemCountText.setOrigin(0.5);
-            this.itemCountText.x = this.x + this.width * (0.9 - this.OriginX);
-            this.itemCountText.y = this.y + this.height * (0.9 - this.OriginY);
+            this.itemCountText.x = this.x + this.width * (0.85 - this.OriginX);
+            this.itemCountText.y = this.y + this.height * (0.15 - this.OriginY);
         } else {
             this.itemCountText.visible = false;
         }
@@ -102,11 +115,11 @@ class Inventory {
     addItem(name, count) {
         if (this.itemName == "" && this.itemCount == 0) {
             this.itemName = name;
-            this.itemImage = this.scene.add.image(this.x, this.y, "object_atlas", name);
+            this.itemImage.setTexture("object_atlas", name);
+            this.itemImage.visible = true;
             this.itemImage.setScrollFactor(0);
             this.itemImage.depth = this.depth + 1;
             this.itemCountText.visible = true;
-
         } else if (this.itemName != name) {
             console.log("Error: item already exists");
             return;
@@ -114,6 +127,7 @@ class Inventory {
         this.itemCount += count;
         this.itemCountText.setText(this.itemCount);
         this.drawInventory();
+        this.tween.restart();
     }
 
     clear() {
@@ -128,10 +142,10 @@ class Inventory {
 
     itemTween() {
         // item tween
-        this.tweens.add({
+        this.scene.tweens.add({
             targets: this.itemImage,
             scaleY: 1.1,
-            scaleX: 1.1,                
+            scaleX: 1.1,
             duration: 1000,
             ease: 'Back.easeInOut',
             angle: 1080,
