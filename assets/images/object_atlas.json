@@ -73,6 +73,27 @@
 					}
 				},
 				{
+					"filename": "player/cleanwalk/walk2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 104,
+						"h": 161
+					},
+					"spriteSourceSize": {
+						"x": 22,
+						"y": 6,
+						"w": 60,
+						"h": 151
+					},
+					"frame": {
+						"x": 56,
+						"y": 131,
+						"w": 60,
+						"h": 151
+					}
+				},
+				{
 					"filename": "teddy",
 					"rotated": false,
 					"trimmed": true,
@@ -115,7 +136,7 @@
 					}
 				},
 				{
-					"filename": "player/cleanwalk/walk2",
+					"filename": "player/cleanwalk/walk3",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -158,6 +179,27 @@
 				},
 				{
 					"filename": "player/dirtywalk/walk2",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 104,
+						"h": 161
+					},
+					"spriteSourceSize": {
+						"x": 22,
+						"y": 6,
+						"w": 60,
+						"h": 151
+					},
+					"frame": {
+						"x": 118,
+						"y": 131,
+						"w": 60,
+						"h": 151
+					}
+				},
+				{
+					"filename": "player/dirtywalk/walk3",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -288,6 +330,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:14db56a2ea334cdb03053fa4f77e0b65:e7b57d5eac5b910cab30ae1dc1956d07:358f055dcd7752a1b7d514c352666090$"
+		"smartupdate": "$TexturePacker:SmartUpdate:386e9c28fa5a4d8103e78f7925b44f7b:34ef1cd95d39dd56c4a68bed1adc8bc8:358f055dcd7752a1b7d514c352666090$"
 	}
 }
