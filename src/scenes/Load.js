@@ -6,7 +6,6 @@ class Load extends Phaser.Scene {
    preload() {
       // UI assets
       this.load.atlas("ui_atlas", "assets/images/ui_atlas.png", "assets/images/ui_atlas.json");
-      this.load.image("background", "./assets/images/skyGradient.png");
       this.load.image("clouds1", "./assets/images/clouds1.png");
       this.load.image("clouds2", "./assets/images/clouds2.png");
 
