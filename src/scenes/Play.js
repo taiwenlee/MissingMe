@@ -106,11 +106,13 @@ class Play extends Phaser.Scene {
 
       // tutorial text
       this.controls = this.add.image(700, 479, 'controlSign').setOrigin(0.5, 1);
+      this.controls.depth = -0.01;
       this.tutText = this.add.text(680, 270, 'CONTROLS', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5, 0);
       this.tutText2 = this.add.text(710, 310, 'A/D   ... WALK\nSHIFT ... SPRINT\nSPACE ... INTERACT', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'left' }).setOrigin(0.5, 0);
 
       // add house
       this.house = this.add.image(200, 477, 'house').setOrigin(0.5, 1);
+      this.house.depth = -0.01;
 
       // add shops
       this.tailorShop = this.add.image(3800, 477, 'tailorShop').setOrigin(0.5, 1);
