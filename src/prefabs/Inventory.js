@@ -38,11 +38,11 @@ class Inventory {
         // item tween
         this.tween = this.scene.tweens.add({
             targets: this.itemImage,
-            scaleY: 1.1,
-            scaleX: 1.1,
-            duration: 1000,
+            scaleY: 1.4,
+            scaleX: 1.4,
+            duration: 500,
             ease: 'Back.easeInOut',
-            angle: 1080,
+            angle: 20,
             yoyo: true,
         });
 
@@ -144,11 +144,11 @@ class Inventory {
         // item tween
         this.scene.tweens.add({
             targets: this.itemImage,
-            scaleY: 1.1,
-            scaleX: 1.1,
+            scaleY: 1.2,
+            scaleX: 1.2,
             duration: 1000,
             ease: 'Back.easeInOut',
-            angle: 1080,
+            angle: 20,
             yoyo: true,
         });
     }
