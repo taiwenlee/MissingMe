@@ -4,7 +4,7 @@ class Play extends Phaser.Scene {
    }
 
    create() {
-      
+
       // game state
       this.inQuest = false;
       this.questCount = 0;
@@ -66,7 +66,7 @@ class Play extends Phaser.Scene {
       // add camera
       this.cameras.main.setBounds(0, 0, game.config.width * 5, game.config.height);
       this.cameras.main.startFollow(this.player);
-      
+
       // add settings text
       const settingsText = this.add.text(40, 42 + 12, 'ESC', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5);
       settingsText.depth = 2;
@@ -108,7 +108,7 @@ class Play extends Phaser.Scene {
       this.tailorShop = this.add.image(3800, 477, 'tailorShop').setOrigin(0.5, 1);
       this.tailorShop.depth = -0.01;
       this.generalStore = this.add.image(1800, 477, 'generalStore').setOrigin(0.5, 1);
-      this.generalStore.depth = -0.01;      
+      this.generalStore.depth = -0.01;
       this.doctorsOffice = this.add.image(2800, 477, 'doctorsOffice').setOrigin(0.5, 1);
       this.doctorsOffice.depth = -0.01;
 
@@ -157,6 +157,11 @@ class Play extends Phaser.Scene {
       // move clouds
       this.clouds1.tilePositionX -= 1;
       this.clouds2.tilePositionX -= 0.5;
+
+      // 
+      if (keyESC.isDown) {
+         this.scene.pause().launch("settingsScene", { scene: "playScene" });
+      }
 
       // update sun and background tween
       this.updateSunTween();

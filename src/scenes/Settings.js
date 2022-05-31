@@ -3,7 +3,7 @@ class Settings extends Phaser.Scene {
         super("settingsScene");
     }
 
-    create() {
+    create(data) {
         // bg
         this.background = this.add.image(0, -3570, 'background').setOrigin(0, 0);
         this.background.scale = 1.5;
@@ -66,8 +66,7 @@ class Settings extends Phaser.Scene {
             //pause = false;
             this.hoverSound.stop();
             this.backSound.play({ volume: sfxVol });
-            this.scene.stop();
-            this.scene.resume("menuScene");
+            this.scene.resume(data["scene"]).stop();
         });
         exitButton.on('pointerover', () => { // reveal hover image
             this.hoverSound.play({ volume: sfxVol });
