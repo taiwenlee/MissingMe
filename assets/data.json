@@ -1,9 +1,11 @@
 {
    "intro": [
-      "Welcome to the game! Press SPACE to continue.",
-      "this is intro temp text.",
-      "use A and D to move left and right.",
-      "SHIFT to move faster."
+      "Huh? It’s Spring and… almost noon! Where the heck is the sun?",
+      "Eh, what does this change? The sun can fall out of the sky for all I care.",
+      "Nothing matters without “them”.",
+      "I guess I should check on the plants. Don’t want them to die, too. Plus, they’re my livelihood.",
+      "Moving sucks, though.",
+      "I wish using A/D to move and “shift” to run weren’t the only ways to get out of here."
    ],
    "npcs": {
       "villagers": {
@@ -853,7 +855,7 @@
                      "type": "self"
                   },
                   {
-                     "text": "I know that feeling. Especially when there’s no sun in the sky.",
+                     "text": "I know that feeling all too well.",
                      "type": "player"
                   },
                   {
@@ -865,11 +867,11 @@
                      "type": "self"
                   },
                   {
-                     "text": "You know, that’s weird because you don’t ever have ears to support glasses, but stranger things have happened today, so I’ll do it.",
+                     "text": "You know, that’s weird because you don’t ever have ears to support glasses, but stranger things have happened today.",
                      "type": "player"
                   },
                   {
-                     "text": "Seems easy enough. Even I can’t screw this up.",
+                     "text": "I'll do it. Seems easy enough. Even I can’t screw this up.",
                      "type": "player"
                   },
                   {
