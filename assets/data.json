@@ -338,7 +338,7 @@
             "item_count": 1,
             "quest_type": "fetch",
             "quest_data": {
-               "item_type": "carrot",
+               "item_type": "carrot_item",
                "item_count": 3,
                "locations": [
                   {
