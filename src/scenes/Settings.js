@@ -5,8 +5,7 @@ class Settings extends Phaser.Scene {
 
     create(data) {
         // bg
-        this.background = this.add.image(0, -3570, 'background').setOrigin(0, 0);
-        this.background.scale = 1.5;
+        this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3a4d99).setOrigin(0, 0);
 
         // parallax clouds
         this.clouds1 = this.add.tileSprite(0, 0, 912, 608, 'clouds1').setOrigin(0, 0);
