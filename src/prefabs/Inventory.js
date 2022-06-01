@@ -42,7 +42,7 @@ class Inventory {
         this.tween = null;
         this.tweenImage = this.scene.add.image(this.x, this.y, "object_atlas", "");
         this.tweenImage.visible = false;
-        this.tweenImage.depth = this.depth + 1;
+        this.tweenImage.depth = this.depth + 2;
         this.tweenImage.setScrollFactor(0);
 
         this.drawInventory();
