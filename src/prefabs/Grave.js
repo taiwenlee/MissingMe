@@ -15,15 +15,18 @@ class Grave extends Phaser.GameObjects.Sprite {
       this.index = 0;            // index for text
 
       // text object
-      this.textbox = new Textbox(scene, game.config.width / 2, game.config.height / 2, this.json[this.state][0], {
+      this.textbox = new Textbox(scene, game.config.width / 2, 500, this.json[this.state][0], {
          fontFamily: 'VT323',
+         fontStyle: 'italic',
          fontSize: '40px',
          color: '#ffffff',
          align: 'center',
       });
-      this.textbox.setOrigin(0.5, 0.5);
+      this.textbox.setOrigin(0.5, 0);
       this.textbox.scroll = false;
       this.textbox.visible = false;
+      this.textbox.wrapWidth = 800;
+
 
       // interact indicator
       this.indicator = new Textbox(scene, x, y - this.height * this.scale - 25, "SPACE", {
