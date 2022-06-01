@@ -166,7 +166,7 @@ class Villager extends Phaser.GameObjects.Sprite {
          this.textbox.backgroundColor = 0x000000;
          this.textbox.borderColor = 0xffffff;
          this.textbox.x = game.config.width / 2;
-         this.textbox.y = this.scene.player.y + 10;
+         this.textbox.y = 500;
          this.textbox.wrapWidth = 800;
          this.textbox.setOrigin(0.5, 0);
          this.textbox.scroll = false;
