@@ -37,6 +37,7 @@ class Grave extends Phaser.GameObjects.Sprite {
       this.indicator.borderColor = 0xffffff;
       this.indicator.visible = false;
       this.indicator.animation = false;
+      this.indicator.depth = 6;
       this.indicator.update();
    }
 

@@ -46,6 +46,16 @@ class Player extends Phaser.Physics.Arcade.Sprite {
          repeat: -1
       });
 
+      // tween
+      this.tween = this.scene.tweens.add({
+         targets: this,
+         scaleY: 1.01,
+         duration: 500,
+         ease: 'Sine.easeInOut',
+         yoyo: true,
+         repeat: -1,
+      });
+
       this.anims.play("dirtywalk", true);
    }
 
@@ -53,12 +63,15 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       // basic move player
       if (keyA.isDown && !this.Interacting && this.controllable) {
          // move left
+         this.tween.pause();
          this.body.setVelocityX(keyShift.isDown ? -this.runMultiplier * this.speed : -this.speed);
       } else if (keyD.isDown && !this.Interacting && this.controllable) {
          // move right
+         this.tween.pause();
          this.body.setVelocityX(keyShift.isDown ? this.runMultiplier * this.speed : this.speed);
       } else {
          // stop
+         this.tween.resume();
          this.body.setVelocityX(0);
       }
 

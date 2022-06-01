@@ -49,6 +49,7 @@ class Villager extends Phaser.GameObjects.Sprite {
       this.indicator.borderColor = this.json["textbox"]["border_color"];
       this.indicator.visible = false;
       this.indicator.animation = false;
+      this.indicator.depth = 6;
       this.indicator.update();
 
       // sounds
