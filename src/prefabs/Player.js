@@ -12,6 +12,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       this.speed = 200;
       this.runMultiplier = 1.5;
       this.overalls = false;
+      this.frameRateDivider = 50;
 
       // state variables
       this.Jumping = true;
@@ -21,67 +22,49 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       this.sound1 = scene.sound.add('step1', { volume: sfxVol });
       this.sound2 = scene.sound.add('step2', { volume: sfxVol });
 
-      this.frameRate = 4;
-      this.delay = 500;
       this.footstep = this.scene.time.addEvent({
-         delay: 500,
+         delay: 0,
          callback: this.playFootstep,
          callbackScope: this,
          loop: true
       });
-      this.footstep.paused = true;
 
       // animations
+      this.currentAnim = 'dirtywalk';
       this.dirtyWalk = this.anims.create({
          key: "dirtywalk",
          frames: this.anims.generateFrameNames("object_atlas", { prefix: 'player/dirtywalk/walk', end: 3 }),
-         frameRate: this.frameRate,
+         frameRate: 0,
          repeat: -1
       });
 
       this.cleanWalk = this.anims.create({
          key: "cleanwalk",
          frames: this.anims.generateFrameNames("object_atlas", { prefix: 'player/cleanwalk/walk', end: 3 }),
-         frameRate: this.frameRate,
+         frameRate: 0,
          repeat: -1
       });
 
+      this.anims.play("dirtywalk", true);
+
+      console.log(this);
    }
 
    update() {
       // basic move player
       if (keyA.isDown && !this.Interacting) {
+         // move left
          this.body.setVelocityX(keyShift.isDown ? -this.runMultiplier * this.speed : -this.speed);
-         if (keyShift.isDown && this.dirtyWalk.frameRate != this.runMultiplier * this.frameRate) {
-            this.dirtyWalk.frameRate = this.runMultiplier * this.frameRate;
-            this.cleanWalk.frameRate = this.runMultiplier * this.frameRate;
-            this.footstep.delay = this.delay / this.runMultiplier;
-            this.anims.pause();
-         } else if (!keyShift.isDown && this.dirtyWalk.frameRate != this.frameRate) {
-            this.dirtyWalk.frameRate = this.frameRate;
-            this.footstep.delay = this.delay;
-            this.anims.pause();
-         }
-         this.footstep.paused = false;
       } else if (keyD.isDown && !this.Interacting) {
+         // move right
          this.body.setVelocityX(keyShift.isDown ? this.runMultiplier * this.speed : this.speed);
-
-         if (keyShift.isDown && this.dirtyWalk.frameRate != this.runMultiplier * this.frameRate) {
-            this.dirtyWalk.frameRate = this.runMultiplier * this.frameRate;
-            this.cleanWalk.frameRate = this.runMultiplier * this.frameRate;
-            this.footstep.delay = this.delay / this.runMultiplier;
-            this.anims.pause();
-         } else if (!keyShift.isDown && this.dirtyWalk.frameRate != this.frameRate) {
-            this.dirtyWalk.frameRate = this.frameRate;
-            this.footstep.delay = this.delay;
-            this.anims.pause();
-         }
-         this.footstep.paused = false;
       } else {
+         // stop
          this.body.setVelocityX(0);
-         this.footstep.paused = true;
-         this.anims.pause();
       }
+
+      // plays animation and sound at the right rate
+      this.playAnimsNSound();
 
       // flip animation based on direction
       if (this.body.velocity.x > 0) {
@@ -89,12 +72,24 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       } else if (this.body.velocity.x < 0) {
          this.flipX = false;
       }
+   }
 
-      if (this.overalls) {
-         this.anims.play("cleanwalk", true);
-      } else {
-         this.anims.play("dirtywalk", true);
+   // plays animation and sound at the right rate
+   playAnimsNSound() {
+      if (Math.abs(this.body.velocity.x) / this.frameRateDivider != this.dirtyWalk.frameRate) {
+         this.dirtyWalk.frameRate = Math.abs(this.body.velocity.x) / this.frameRateDivider;
+         this.cleanWalk.frameRate = Math.abs(this.body.velocity.x) / this.frameRateDivider;
+         this.footstep.delay = 1000 * 2 / (Math.abs(this.body.velocity.x) / this.frameRateDivider);
+         this.anims.pause();
+         this.anims.play(this.currentAnim, true);
       }
+   }
+
+   // change animation
+   changeAnim(anim) {
+      this.currentAnim = anim;
+      this.anims.pause();
+      this.anims.play(this.currentAnim, true);
    }
 
    playFootstep() {

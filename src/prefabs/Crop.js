@@ -104,7 +104,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
                if (this.textbox.index == this.textbox.textLength) {
                   // equip item if quest is a get type (rather hard coded to work for overalls)
                   if (this.questType == "get" && ("equip" in this.narratives[this.queststate][this.index])) {
-                     this.scene.player.overalls = true;
+                     this.scene.player.changeAnim("cleanwalk");
                      this.scene.inventory.clear();
                   }
 
