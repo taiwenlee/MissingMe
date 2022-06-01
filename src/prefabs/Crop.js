@@ -72,7 +72,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
             this.scene.player.Interacting = true;
             this.textbox.visible = true;
             this.updateText(this.narratives[this.queststate][this.index++]);
-            this.sound1.play();
+            this.sound1.play({ volume: sfxVol });
 
          } else if (this.Interacting && intKey) {
 
@@ -90,7 +90,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
                   this.scene.inQuest = true;
                   this.scene.children.getByName(this.villager).queststate = "quest";
                   this.queststate = "repeatquest";
-                  this.sound3.play();
+                  this.sound3.play({ volume: sfxVol });
                } else if (this.queststate == "completequest") {
                   // completes quest
                   this.scene.inQuest = false;
@@ -98,7 +98,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
                   this.interactable = false;
                   this.json["quest_done"] = true;
                   this.scene.questCount++;
-                  this.sound4.play();
+                  this.sound4.play({ volume: sfxVol });
                   this.changeTexture();
                }
                if (this.interactable == true) {
@@ -118,7 +118,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
                   }
 
                   // cycles down to next dialog
-                  if (this.narratives[this.queststate][this.index]["type"] == "self") this.sound2.play();
+                  if (this.narratives[this.queststate][this.index]["type"] == "self") this.sound2.play({ volume: sfxVol });
                   this.updateText(this.narratives[this.queststate][this.index++]);
                } else {
                   // skip animations

@@ -86,7 +86,7 @@ class Villager extends Phaser.GameObjects.Sprite {
             this.textbox.visible = true;
 
             // play sound
-            this.sound1.play();
+            this.sound1.play({ volume: sfxVol });
 
          } else if (this.Interacting && intKey) {
 
@@ -107,7 +107,7 @@ class Villager extends Phaser.GameObjects.Sprite {
                   // give player item
                   if (this.itemCount > 0) this.scene.inventory.addItem(this.item, this.itemCount);
                   this.queststate = "repeatquest";
-                  this.itemSound.play();
+                  this.itemSound.play({ volume: sfxVol });
                   this.scene.children.getByName(this.crop).queststate = "completequest";
 
                } else if (this.queststate == "quest" && this.questType == "fetch") {
@@ -126,7 +126,7 @@ class Villager extends Phaser.GameObjects.Sprite {
                   this.queststate = "postquest";
                   this.scene.inQuest = false;
                   this.scene.questCount++;
-                  this.sound4.play();
+                  this.sound4.play({ volume: sfxVol });
                }
             } else {
                if (this.textbox.isComplete()) {
@@ -135,7 +135,7 @@ class Villager extends Phaser.GameObjects.Sprite {
                      this.scene.inventory.removeItem(1);
                   }
                   // cycles down to next dialogue
-                  if (this.narratives[this.queststate][this.index]["type"] == "self") this.sound2.play();
+                  if (this.narratives[this.queststate][this.index]["type"] == "self") this.sound2.play({ volume: sfxVol });
                   this.updateText(this.narratives[this.queststate][this.index++]);
                } else {
                   // skip animations
