@@ -98,6 +98,13 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
                   this.json["quest_done"] = true;
                   this.scene.questCount++;
                   this.sound4.play();
+                  this.changeTexture();
+               }
+               if (this.interactable == true) {
+                  this.interactable = false;
+                  this.scene.time.delayedCall(1000, () => {
+                     this.interactable = true;
+                  }, [], this);
                }
 
             } else {
@@ -126,6 +133,11 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
 
       // update indicator
       this.indicator.update();
+   }
+
+   // changes to alternate texture
+   changeTexture() {
+      this.setTexture("object_atlas", this.json["alt_texture"]);
    }
 
    // updates textbox

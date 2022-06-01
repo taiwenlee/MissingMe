@@ -95,6 +95,10 @@ class Villager extends Phaser.GameObjects.Sprite {
                this.Interacting = false;
                this.textbox.visible = false;
                this.index = 0;
+               this.interactable = false;
+               this.scene.time.delayedCall(1000, () => {
+                  this.interactable = true;
+               }, [], this);
 
                // quest state transition (if there was more time, I wouldve detached this from the object)
                if (this.queststate == "quest" && this.questType == "get") {

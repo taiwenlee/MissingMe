@@ -619,6 +619,7 @@
                "x": 650,
                "y": 479
             },
+            "alt_texture": "tomato",
             "quest_type": "get",
             "quest_done": false,
             "textbox": {
@@ -756,6 +757,7 @@
                "x": 300,
                "y": 479
             },
+            "alt_texture": "watermelon",
             "quest_type": "get",
             "quest_done": false,
             "textbox": {
@@ -856,6 +858,7 @@
                "x": 900,
                "y": 479
             },
+            "alt_texture": "baby_carrot",
             "quest_type": "get",
             "quest_done": false,
             "textbox": {
