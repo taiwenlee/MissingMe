@@ -5,7 +5,7 @@
 			"format": "RGBA8888",
 			"size": {
 				"w": 552,
-				"h": 494
+				"h": 491
 			},
 			"scale": 1,
 			"frames": [
@@ -141,19 +141,19 @@
 					"trimmed": true,
 					"sourceSize": {
 						"w": 104,
-						"h": 161
+						"h": 156
 					},
 					"spriteSourceSize": {
 						"x": 22,
 						"y": 6,
 						"w": 60,
-						"h": 151
+						"h": 150
 					},
 					"frame": {
 						"x": 317,
 						"y": 135,
 						"w": 60,
-						"h": 151
+						"h": 150
 					}
 				},
 				{
@@ -162,19 +162,19 @@
 					"trimmed": true,
 					"sourceSize": {
 						"w": 104,
-						"h": 161
+						"h": 156
 					},
 					"spriteSourceSize": {
 						"x": 22,
 						"y": 6,
 						"w": 60,
-						"h": 151
+						"h": 150
 					},
 					"frame": {
 						"x": 317,
 						"y": 135,
 						"w": 60,
-						"h": 151
+						"h": 150
 					}
 				},
 				{
@@ -183,19 +183,19 @@
 					"trimmed": true,
 					"sourceSize": {
 						"w": 104,
-						"h": 161
+						"h": 156
 					},
 					"spriteSourceSize": {
 						"x": 20,
 						"y": 6,
 						"w": 60,
-						"h": 151
+						"h": 150
 					},
 					"frame": {
 						"x": 379,
 						"y": 135,
 						"w": 60,
-						"h": 151
+						"h": 150
 					}
 				},
 				{
@@ -225,19 +225,19 @@
 					"trimmed": true,
 					"sourceSize": {
 						"w": 104,
-						"h": 161
+						"h": 156
 					},
 					"spriteSourceSize": {
 						"x": 23,
 						"y": 6,
 						"w": 55,
-						"h": 151
+						"h": 150
 					},
 					"frame": {
 						"x": 496,
 						"y": 130,
 						"w": 55,
-						"h": 151
+						"h": 150
 					}
 				},
 				{
@@ -246,19 +246,19 @@
 					"trimmed": true,
 					"sourceSize": {
 						"w": 104,
-						"h": 161
+						"h": 156
 					},
 					"spriteSourceSize": {
 						"x": 23,
 						"y": 6,
 						"w": 55,
-						"h": 151
+						"h": 150
 					},
 					"frame": {
 						"x": 496,
-						"y": 283,
+						"y": 282,
 						"w": 55,
-						"h": 151
+						"h": 150
 					}
 				},
 				{
@@ -277,7 +277,7 @@
 					},
 					"frame": {
 						"x": 313,
-						"y": 288,
+						"y": 287,
 						"w": 88,
 						"h": 48
 					}
@@ -301,48 +301,6 @@
 						"y": 357,
 						"w": 57,
 						"h": 74
-					}
-				},
-				{
-					"filename": "baby_carrots",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 86,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 86,
-						"h": 16
-					},
-					"frame": {
-						"x": 1,
-						"y": 477,
-						"w": 86,
-						"h": 16
-					}
-				},
-				{
-					"filename": "carrot_item",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 36,
-						"h": 48
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 36,
-						"h": 48
-					},
-					"frame": {
-						"x": 403,
-						"y": 288,
-						"w": 36,
-						"h": 48
 					}
 				},
 				{
@@ -372,19 +330,19 @@
 					"trimmed": true,
 					"sourceSize": {
 						"w": 104,
-						"h": 161
+						"h": 156
 					},
 					"spriteSourceSize": {
 						"x": 22,
 						"y": 6,
 						"w": 60,
-						"h": 151
+						"h": 150
 					},
 					"frame": {
 						"x": 314,
-						"y": 338,
+						"y": 337,
 						"w": 60,
-						"h": 151
+						"h": 150
 					}
 				},
 				{
@@ -393,19 +351,19 @@
 					"trimmed": true,
 					"sourceSize": {
 						"w": 104,
-						"h": 161
+						"h": 156
 					},
 					"spriteSourceSize": {
 						"x": 22,
 						"y": 6,
 						"w": 60,
-						"h": 151
+						"h": 150
 					},
 					"frame": {
 						"x": 314,
-						"y": 338,
+						"y": 337,
 						"w": 60,
-						"h": 151
+						"h": 150
 					}
 				},
 				{
@@ -414,19 +372,19 @@
 					"trimmed": true,
 					"sourceSize": {
 						"w": 104,
-						"h": 161
+						"h": 156
 					},
 					"spriteSourceSize": {
 						"x": 20,
 						"y": 6,
 						"w": 60,
-						"h": 151
+						"h": 150
 					},
 					"frame": {
 						"x": 376,
-						"y": 338,
+						"y": 337,
 						"w": 60,
-						"h": 151
+						"h": 150
 					}
 				},
 				{
@@ -445,9 +403,51 @@
 					},
 					"frame": {
 						"x": 438,
-						"y": 338,
+						"y": 304,
 						"w": 56,
 						"h": 68
+					}
+				},
+				{
+					"filename": "carrot_item",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 48
+					},
+					"frame": {
+						"x": 438,
+						"y": 374,
+						"w": 36,
+						"h": 48
+					}
+				},
+				{
+					"filename": "baby_carrots",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 86,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 86,
+						"h": 16
+					},
+					"frame": {
+						"x": 438,
+						"y": 434,
+						"w": 86,
+						"h": 16
 					}
 				}
 			]
@@ -456,6 +456,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:24f4162b22ede6055d448469e3b583c3:714b33e96d9336ac484e787a8b8ddd02:358f055dcd7752a1b7d514c352666090$"
+		"smartupdate": "$TexturePacker:SmartUpdate:50b4930afcae644dd88157987ab03bec:c17eda501d41d5124d0034458112d8f7:358f055dcd7752a1b7d514c352666090$"
 	}
 }
