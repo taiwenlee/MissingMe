@@ -5,7 +5,7 @@
 			"format": "RGBA8888",
 			"size": {
 				"w": 552,
-				"h": 491
+				"h": 494
 			},
 			"scale": 1,
 			"frames": [
@@ -304,6 +304,48 @@
 					}
 				},
 				{
+					"filename": "baby_carrots",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 86,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 86,
+						"h": 16
+					},
+					"frame": {
+						"x": 1,
+						"y": 477,
+						"w": 86,
+						"h": 16
+					}
+				},
+				{
+					"filename": "carrot_item",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 48
+					},
+					"frame": {
+						"x": 403,
+						"y": 287,
+						"w": 36,
+						"h": 48
+					}
+				},
+				{
 					"filename": "tomato",
 					"rotated": false,
 					"trimmed": true,
@@ -403,51 +445,30 @@
 					},
 					"frame": {
 						"x": 438,
-						"y": 304,
+						"y": 337,
 						"w": 56,
 						"h": 68
 					}
 				},
 				{
-					"filename": "carrot_item",
+					"filename": "overalls",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 36,
-						"h": 48
+						"w": 41,
+						"h": 41
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 36,
-						"h": 48
+						"w": 41,
+						"h": 41
 					},
 					"frame": {
 						"x": 438,
-						"y": 374,
-						"w": 36,
-						"h": 48
-					}
-				},
-				{
-					"filename": "baby_carrots",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 86,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 86,
-						"h": 16
-					},
-					"frame": {
-						"x": 438,
-						"y": 434,
-						"w": 86,
-						"h": 16
+						"y": 407,
+						"w": 41,
+						"h": 41
 					}
 				}
 			]
@@ -456,6 +477,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:50b4930afcae644dd88157987ab03bec:c17eda501d41d5124d0034458112d8f7:358f055dcd7752a1b7d514c352666090$"
+		"smartupdate": "$TexturePacker:SmartUpdate:620c3244a422aac348e3f99595460773:b9f58f35b594a0df4597a55c8e06a5eb:358f055dcd7752a1b7d514c352666090$"
 	}
 }
