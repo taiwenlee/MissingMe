@@ -77,7 +77,7 @@ class Play extends Phaser.Scene {
       settingsButton.setScrollFactor(0);
 
       // add inventory
-      this.inventory = new Inventory(this, 852, 20);
+      this.inventory = new Inventory(this, 897, 15);
       this.inventory.setOrigin(1, 0);
 
       // add floor

@@ -10,8 +10,8 @@ class Inventory {
         this.borderColor = 0xffffff;
         this.backgroundColor = 0x000000;
         this._visible = true;
-        this.x = x + 30;
-        this.y = y + 5;
+        this.x = x;
+        this.y = y;
         this.OriginX = 0;
         this.OriginY = 0;
         this.width = 64;
@@ -23,6 +23,7 @@ class Inventory {
         this.itemCount = 0;
         this.itemImage = this.scene.add.image(this.x, this.y, "object_atlas", "");
         this.itemImage.visible = false;
+        this.itemImage.depth = this.depth + 1;
         this.itemCountText = this.scene.add.text(this.x, this.y, this.itemCount, this.style);
         this.itemCountText.setScrollFactor(0);
         this.itemCountText.depth = this.depth + 2;
@@ -58,16 +59,16 @@ class Inventory {
 
         // Border Box
         this.box.fillStyle(this.borderColor);
-        this.box.fillRoundedRect(this.x - this.width * this.OriginX - this.border,
-            this.y - this.height * this.OriginY - this.border,
+        this.box.fillRoundedRect(this.x - (this.width + this.border * 2) * this.OriginX,
+            this.y - (this.height + this.border * 2) * this.OriginY,
             this.width + this.border * 2,
             this.height + this.border * 2,
             this.rounding);
 
         // Background Box
         this.box.fillStyle(this.backgroundColor);
-        this.box.fillRoundedRect(this.x - this.width * this.OriginX,
-            this.y - this.height * this.OriginY,
+        this.box.fillRoundedRect(this.x + this.border - (this.width + this.border * 2) * this.OriginX,
+            this.y + this.border - (this.width + this.border * 2) * this.OriginY,
             this.width,
             this.height,
             this.rounding);
@@ -75,16 +76,16 @@ class Inventory {
         // item image
         if (this.itemName != "" && this.itemCount > 0) {
             this.itemImage.setOrigin(0.5);
-            this.itemImage.x = this.x + this.width * (0.5 - this.OriginX);
-            this.itemImage.y = this.y + this.height * (0.5 - this.OriginY);
+            this.itemImage.x = this.x + (this.width + this.border * 2) * (0.5 - this.OriginX);
+            this.itemImage.y = this.y + (this.height + this.border * 2) * (0.5 - this.OriginY);
 
         }
 
         // item count
         if (this.itemCount > 0) {
             this.itemCountText.setOrigin(0.5);
-            this.itemCountText.x = this.x + this.width * (0.85 - this.OriginX);
-            this.itemCountText.y = this.y + this.height * (0.15 - this.OriginY);
+            this.itemCountText.x = this.x + (this.width + this.border * 2) * (0.8 - this.OriginX);
+            this.itemCountText.y = this.y + (this.height + this.border * 2) * (0.2 - this.OriginY);
         } else {
             this.itemCountText.visible = false;
         }
