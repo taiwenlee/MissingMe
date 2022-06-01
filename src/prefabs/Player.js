@@ -50,7 +50,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       this.tween = this.scene.tweens.add({
          targets: this,
          scaleY: 1.01,
-         duration: 500,
+         duration: 400,
          ease: 'Sine.easeInOut',
          yoyo: true,
          repeat: -1,

@@ -12,7 +12,7 @@ class Settings extends Phaser.Scene {
         this.clouds2 = this.add.tileSprite(0, 0, 912, 608, 'clouds2').setOrigin(0, 0);
 
         // temp scene indicator text
-        const tempText = this.add.text(10, 10, "ui_atlas", "settingsScene");
+        //const tempText = this.add.text(10, 10, "ui_atlas", "settingsScene");
 
         // select sound
         this.selectSound = this.sound.add('confirm', { volume: sfxVol });

@@ -1,28 +1,28 @@
 {
    "intro": [
-      "Huh? It’s Spring and… almost noon! Where the heck is the sun? ",
-      "Eh, what does this change? The sun can fall out of the sky for all I care. ",
-      "Nothing matters without “them”. ",
-      "I guess I should check on the plants. Don’t want them to die, too. ",
-      "Plus, they’re my livelihood. "
+      "Huh? It’s Spring and… almost noon! Where the heck is the sun?",
+      "Eh, what does this change? The sun can fall out of the sky for all I care.",
+      "Nothing matters without “them”.",
+      "I guess I should check on the plants. Don’t want them to die, too.",
+      "Plus, they’re my livelihood."
    ],
    "grave": {
       "start": [
-         "It feels like 10 years ago, but it was only 10 months. ",
-         "I miss you a lot. ",
-         "I know, I should get out 'n' water the crops. ",
-         "I just... can't right now. ",
-         "I'll see you again soon. I promise. "
+         "It feels like 10 years ago, but it was only 10 months.",
+         "I miss you a lot.",
+         "I know, I should get out 'n' water the crops.",
+         "I just... can't right now.",
+         "I'll see you again soon. I promise."
       ],
       "repeat": [
-         "I can't be here right now. It's too much. ",
-         "I'll come back once I actually have something to show for getting up today. "
+         "I can't be here right now. It's too much.",
+         "I'll come back once I actually have something to show for getting up today."
       ],
       "end": [
-         "I talked to everybody in town today, just like you used to. ",
-         "Some were nice and told me what I really needed to hear. Others... not so much. ",
-         "But I swear that when I finally got out there, the sun shone a little brighter. ",
-         "Y'know, I think I'm finally ready to water the crops. ",
+         "I talked to everybody in town today, just like you used to.",
+         "Some were nice and told me what I really needed to hear. Others... not so much.",
+         "But I swear that when I finally got out there, the sun shone a little brighter.",
+         "Y'know, I think I'm finally ready to water the crops.",
          "THE END. (WIP ENDING)"
       ]
    },

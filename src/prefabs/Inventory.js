@@ -133,8 +133,8 @@ class Inventory {
         this.tweenImage.setOrigin(0.5);
         this.tweenImage.x = game.config.width / 2;
         this.tweenImage.y = game.config.height / 2;
-        this.tweenImage.scaleX = 1.3;
-        this.tweenImage.scaleY = 1.3;
+        this.tweenImage.scaleX = 1.5;
+        this.tweenImage.scaleY = 1.5;
         this.tweenImage.visible = true;
         this.scene.time.delayedCall(1000, function () {
             this.tweenImage.visible = false;
@@ -177,8 +177,8 @@ class Inventory {
             x: this.x + (this.width + this.border * 2) * (0.5 - this.OriginX),
             y: this.y + (this.height + this.border * 2) * (0.5 - this.OriginY),
             duration: 1000,
-            ease: 'Back.easeInOut',
-            angle: 720,
+            ease: 'Back.easeIn',
+            angle: 360,
         });
     }
 }

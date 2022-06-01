@@ -66,12 +66,12 @@ class Play extends Phaser.Scene {
       this.cameras.main.startFollow(this.player);
 
       // add settings text
-      const settingsText = this.add.text(40, 42 + 12, 'ESC', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5);
+      const settingsText = this.add.text(27, 31, 'ESC', { fill: '#79bdfc', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0);
       settingsText.depth = 2;
       settingsText.setScrollFactor(0);
 
       // add settings button
-      const settingsButton = this.add.image(40, 42, "ui_atlas", 'vol1Hover').setOrigin(0.5);
+      const settingsButton = this.add.image(12, 10, "ui_atlas", 'cloud').setOrigin(0);
       settingsButton.alpha = 1;
       settingsButton.depth = 1.9;
       settingsButton.setScrollFactor(0);

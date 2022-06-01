@@ -41,7 +41,7 @@ class Menu extends Phaser.Scene {
       this.selectSound = this.sound.add('confirm', { volume: sfxVol });
 
       // temp scene indicator text
-      const tempText = this.add.text(10, 10, "menuScene");
+      //const tempText = this.add.text(10, 10, "menuScene");
 
       // add play text
       const playText = this.add.text(game.config.width / 2, 500 + 12, 'PLAY', { fill: '#f76a8a', fontFamily: 'VT323', fontSize: 40, align: 'center' }).setOrigin(0.5);
