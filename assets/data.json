@@ -3,9 +3,8 @@
       "Huh? It’s Spring and… almost noon! Where the heck is the sun?",
       "Eh, what does this change? The sun can fall out of the sky for all I care.",
       "Nothing matters without “them”.",
-      "I guess I should check on the plants. Don’t want them to die, too. Plus, they’re my livelihood.",
-      "Moving sucks, though.",
-      "I wish using A/D to move and “shift” to run weren’t the only ways to get out of here."
+      "I guess I should check on the plants. Don’t want them to die, too.", 
+      "Plus, they’re my livelihood."
    ],
    "grave": {
       "start": [
@@ -34,7 +33,7 @@
             "name": "teddy",
             "crop": "tomato",
             "location": {
-               "x": 4100,
+               "x": 4300,
                "y": 479
             },
             "item": "item0",
@@ -161,7 +160,7 @@
             "name": "walter",
             "crop": "watermelon",
             "location": {
-               "x": 1850,
+               "x": 2550,
                "y": 479
             },
             "item": "item1",
@@ -352,7 +351,7 @@
             "name": "corrine",
             "crop": "carrot",
             "location": {
-               "x": 2697,
+               "x": 3197,
                "y": 479
             },
             "item": "item0",
@@ -616,7 +615,7 @@
             "name": "tomato",
             "villager": "teddy",
             "location": {
-               "x": 1120,
+               "x": 800,
                "y": 479
             },
             "alt_texture": "tomato",
@@ -754,7 +753,7 @@
             "name": "watermelon",
             "villager": "walter",
             "location": {
-               "x": 620,
+               "x": 500,
                "y": 479
             },
             "alt_texture": "watermelon",
@@ -855,7 +854,7 @@
             "name": "carrot",
             "villager": "corrine",
             "location": {
-               "x": 1370,
+               "x": 1270,
                "y": 479
             },
             "alt_texture": "baby_carrots",

@@ -103,28 +103,34 @@ class Play extends Phaser.Scene {
       });
 
       // tutorial text
-      this.controls = this.add.image(1230, 479, "object_atlas", 'control_sign').setOrigin(0.5, 1);
+      this.controls = this.add.image(1240, 479, "object_atlas", 'control_sign').setOrigin(0.5, 1);
       this.controls.depth = -0.01;
       this.tutText = this.add.text(1220, 270, 'CONTROLS', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5, 0);
       this.tutText2 = this.add.text(1250, 310, 'A/D   ... WALK\nSHIFT ... SPRINT\nSPACE ... INTERACT', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'left' }).setOrigin(0.5, 0);
 
       // trees
       this.tree0 = this.add.image(0, 479, "object_atlas", 'tree').setOrigin(0, 1);
+      this.tree0.scaleX = 1.5;
+      this.tree0.scaleY = 1.5;
+      this.tree1 = this.add.image(4300, 479, "object_atlas", 'tree').setOrigin(0, 1);
+      this.tree1.flipX = true;
+      this.tree1.scaleX = 1.5;
+      this.tree1.scaleY = 1.5;
 
       // add house
       this.house = this.add.image(800, 477, 'house').setOrigin(0.5, 1);
       this.house.depth = -0.01;
 
       // add shops
-      this.tailorShop = this.add.image(3800, 477, 'tailorShop').setOrigin(0.5, 1);
+      this.tailorShop = this.add.image(4000, 477, 'tailorShop').setOrigin(0.5, 1);
       this.tailorShop.depth = -0.01;
-      this.generalStore = this.add.image(1800, 477, 'generalStore').setOrigin(0.5, 1);
+      this.generalStore = this.add.image(2500, 477, 'generalStore').setOrigin(0.5, 1);
       this.generalStore.depth = -0.01;
-      this.doctorsOffice = this.add.image(2800, 477, 'doctorsOffice').setOrigin(0.5, 1);
+      this.doctorsOffice = this.add.image(3300, 477, 'doctorsOffice').setOrigin(0.5, 1);
       this.doctorsOffice.depth = -0.01;
 
       // add grave
-      this.grave = new Grave(this, 150, 477, 'object_atlas', 'grave', this.data["grave"]).setOrigin(0.5, 1);
+      this.grave = new Grave(this, 200, 477, 'object_atlas', 'grave', this.data["grave"]).setOrigin(0.5, 1);
 
       // add sun      
       this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'object_atlas', "sun").setOrigin(0.5, 0.5);
