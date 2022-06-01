@@ -20,10 +20,12 @@ class Inventory {
 
         // item properties
         this.itemName = "";
-        this.itemCount = 0;
+        this._itemCount = 0;
         this.itemImage = this.scene.add.image(this.x, this.y, "object_atlas", "");
         this.itemImage.visible = false;
+        this.itemImage.setScrollFactor(0);
         this.itemImage.depth = this.depth + 1;
+        // count text
         this.itemCountText = this.scene.add.text(this.x, this.y, this.itemCount, this.style);
         this.itemCountText.setScrollFactor(0);
         this.itemCountText.depth = this.depth + 2;
@@ -38,6 +40,10 @@ class Inventory {
         // tween
         // item tween
         this.tween = null;
+        this.tweenImage = this.scene.add.image(this.x, this.y, "object_atlas", "");
+        this.tweenImage.visible = false;
+        this.tweenImage.depth = this.depth + 1;
+        this.tweenImage.setScrollFactor(0);
 
         this.drawInventory();
 
@@ -51,6 +57,15 @@ class Inventory {
 
     get visible() {
         return this._visible;
+    }
+
+    set itemCount(value) {
+        this._itemCount = value;
+        this.drawInventory();
+    }
+
+    get itemCount() {
+        return this._itemCount;
     }
 
     drawInventory() {
@@ -109,18 +124,25 @@ class Inventory {
         if (this.itemName == "" && this.itemCount == 0) {
             this.itemName = name;
             this.itemImage.setTexture("object_atlas", name);
-            this.itemImage.visible = true;
-            this.itemImage.setScrollFactor(0);
-            this.itemImage.depth = this.depth + 1;
-            this.itemCountText.visible = true;
+            this.tweenImage.setTexture("object_atlas", name);
             this.addTween();
         } else if (this.itemName != name) {
             console.log("Error: item already exists");
             return;
         }
-        this.itemCount += count;
-        this.itemCountText.setText(this.itemCount);
-        this.drawInventory();
+        this.tweenImage.setOrigin(0.5);
+        this.tweenImage.x = game.config.width / 2;
+        this.tweenImage.y = game.config.height / 2;
+        this.tweenImage.scaleX = 1.3;
+        this.tweenImage.scaleY = 1.3;
+        this.tweenImage.visible = true;
+        this.scene.time.delayedCall(1000, function () {
+            this.tweenImage.visible = false;
+            this.itemImage.visible = true;
+            this.itemCountText.visible = true;
+            this.itemCount += count;
+            this.itemCountText.setText(this.itemCount);
+        }, [], this);
         this.tween.restart();
     }
 
@@ -149,15 +171,14 @@ class Inventory {
 
     addTween() {
         this.tween = this.scene.tweens.add({
-            targets: this.itemImage,
-            scaleY: 1.3,
-            scaleX: 1.3,
-            x: game.config.width / 2 + 30,
-            y: game.config.height / 2,
+            targets: this.tweenImage,
+            scaleY: 1,
+            scaleX: 1,
+            x: this.x + (this.width + this.border * 2) * (0.5 - this.OriginX),
+            y: this.y + (this.height + this.border * 2) * (0.5 - this.OriginY),
             duration: 1000,
             ease: 'Back.easeInOut',
             angle: 720,
-            yoyo: true,
         });
     }
 }

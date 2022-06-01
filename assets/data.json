@@ -3,7 +3,7 @@
       "Huh? It’s Spring and… almost noon! Where the heck is the sun?",
       "Eh, what does this change? The sun can fall out of the sky for all I care.",
       "Nothing matters without “them”.",
-      "I guess I should check on the plants. Don’t want them to die, too.", 
+      "I guess I should check on the plants. Don’t want them to die, too.",
       "Plus, they’re my livelihood."
    ],
    "grave": {
@@ -362,7 +362,7 @@
                "item_count": 3,
                "locations": [
                   {
-                     "x": 1370,
+                     "x": 1270,
                      "y": 479
                   },
                   {
