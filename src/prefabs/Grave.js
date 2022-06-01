@@ -1,0 +1,80 @@
+class Grave extends Phaser.GameObjects.Sprite {
+   constructor(scene, x, y, texture, frame, json) {
+      super(scene, x, y, texture, frame);
+
+      scene.add.existing(this);
+
+      // set crop properties
+      this.interactDistance = 100;  // distance for interaction
+      this.ending = false;
+      this.json = json;
+
+      // state variables
+      this.Interacting = false;
+      this.state = "start";
+      this.index = 0;            // index for text
+
+      // text object
+      this.textbox = new Textbox(scene, game.config.width / 2, game.config.height / 2, this.json[this.state][0], {
+         fontFamily: 'VT323',
+         fontSize: '40px',
+         color: '#ffffff',
+         align: 'center',
+      });
+      this.textbox.setOrigin(0.5, 0.5);
+      this.textbox.scroll = false;
+      this.textbox.visible = false;
+
+      // interact indicator
+      this.indicator = new Textbox(scene, x, y - this.height * this.scale - 25, "SPACE", {
+         fontFamily: 'VT323',
+         fontSize: '32px',
+         color: '#ffffff',
+         align: 'center',
+      });
+      this.indicator.setOrigin(0.5, 1);
+      this.indicator.backgroundColor = '#000000';
+      this.indicator.borderColor = '#ffffff';
+      this.indicator.visible = false;
+      this.indicator.animation = false;
+      this.indicator.update();
+   }
+
+   update() {
+      if (Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
+         // show indicator if nearby
+         if (!this.Interacting) this.indicator.visible = true;
+         let intKey = keyTap(keySpace);
+         if (intKey && !this.Interacting) {
+            // initiate interaction
+            this.indicator.visible = false;
+            this.Interacting = true;
+            this.scene.player.Interacting = true;
+            this.textbox.visible = true;
+            this.textbox.setText(this.json[this.state][this.index++]);
+         } else if (this.Interacting && intKey) {
+            if (this.index >= this.json[this.state].length && this.textbox.isComplete()) {
+               this.scene.player.Interacting = false;
+               this.Interacting = false;
+               this.textbox.visible = false;
+               this.index = 0;
+               if (this.state == "start") this.state = "repeat";
+               if (this.state == "end") this.scene.inEnding = true;
+            } else {
+               // cycles down to next dialogue
+               if (this.textbox.isComplete()) {
+                  this.textbox.setText(this.json[this.state][this.index++]);
+               } else {
+                  // skip animations
+                  this.textbox.skip();
+               }
+            }
+         }
+      } else if (this.indicator.visible) {
+         this.indicator.visible = false;
+      }
+
+      // update textbox
+      this.textbox.update();
+   }
+}

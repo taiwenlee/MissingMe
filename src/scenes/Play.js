@@ -11,6 +11,7 @@ class Play extends Phaser.Scene {
       this.introComplete = false;
       this.tomatoUpdated = false;
       this.watermelonUpdated = false;
+      this.inEnding = false;
 
       // set world size
       this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
@@ -122,6 +123,9 @@ class Play extends Phaser.Scene {
       this.doctorsOffice = this.add.image(2800, 477, 'doctorsOffice').setOrigin(0.5, 1);
       this.doctorsOffice.depth = -0.01;
 
+      // add grave
+      this.grave = new Grave(this, game.config.width + 200, game.config.height - 200, 'object_atlas', 'grave', this.data["grave"]);
+
       // add sun      
       this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'object_atlas', "sun").setOrigin(0.5, 0.5);
       this.sun.depth = -0.6;
@@ -146,12 +150,12 @@ class Play extends Phaser.Scene {
 
       if (this.introComplete) {
          // update player
-         this.player.update(this.time, this.delta);
+         this.player.update();
+         this.grave.update();
       } else {
          if (keyTap(keySpace)) {
             if (this.introindex < this.data["intro"].length) {
                this.introText.setText(this.data["intro"][this.introindex++]);
-               console.log("increment intro");
             } else {
                console.log("intro complete");
                this.introText.visible = false;
@@ -159,6 +163,14 @@ class Play extends Phaser.Scene {
                this.npcs.runChildUpdate = true;
             }
          }
+      }
+      if (this.inEnding) {
+         // if player is in the area of the farm engage in animation here...
+      }
+
+      // sets grave the end state if quests are complete
+      if (this.questCount == 3 && this.grave.state != "end") {
+         this.grave.state = "end";
       }
 
       // update fps counter
@@ -168,7 +180,7 @@ class Play extends Phaser.Scene {
       this.clouds1.tilePositionX -= 1;
       this.clouds2.tilePositionX -= 0.5;
 
-      // 
+      // go to setting if ESC is pressed
       if (keyESC.isDown) {
          this.scene.pause().launch("settingsScene", { scene: "playScene" });
       }
