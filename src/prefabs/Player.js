@@ -9,10 +9,11 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
       // set player properties
       this.depth = 8;
-      this.speed = 500;
+      this.speed = 200;
       this.runMultiplier = 1.5;
       this.overalls = false;
       this.frameRateDivider = 50;
+      this.controllable = true;
 
       // state variables
       this.Jumping = true;
@@ -50,10 +51,10 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
    update() {
       // basic move player
-      if (keyA.isDown && !this.Interacting) {
+      if (keyA.isDown && !this.Interacting && this.controllable) {
          // move left
          this.body.setVelocityX(keyShift.isDown ? -this.runMultiplier * this.speed : -this.speed);
-      } else if (keyD.isDown && !this.Interacting) {
+      } else if (keyD.isDown && !this.Interacting && this.controllable) {
          // move right
          this.body.setVelocityX(keyShift.isDown ? this.runMultiplier * this.speed : this.speed);
       } else {

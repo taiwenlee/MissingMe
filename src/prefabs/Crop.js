@@ -8,7 +8,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
 
       // set crop properties
       this.name = json["name"];  // name of crop
-      this.interactDistance = 150;  // distance for interaction
+      this.interactDistance = 100;  // distance for interaction
       this.narratives = json["narratives"];  // text for interaction
       this.interactable = true;
       this.villager = json["villager"];
@@ -155,7 +155,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
          this.textbox.backgroundColor = 0x000000;
          this.textbox.borderColor = 0xffffff;
          this.textbox.x = game.config.width / 2;
-         this.textbox.y = this.scene.player.y + this.scene.player.height * this.scene.player.scale / 2 + 10;
+         this.textbox.y = this.scene.player.y + 10;
          this.textbox.wrapWidth = 800;
          this.textbox.setOrigin(0.5, 0);
          this.textbox.scroll = false;

@@ -11,15 +11,12 @@ class Load extends Phaser.Scene {
 
       // object assets
       this.load.atlas("object_atlas", "./assets/images/object_atlas.png", "./assets/images/object_atlas.json");
-      this.load.image("floor", "./assets/images/floor.png");
       this.load.image("tailorShop", "./assets/images/tailor.png");
       this.load.image("generalStore", "./assets/images/generalStore.png");
       this.load.image("doctorsOffice", "./assets/images/doctor.png");
       this.load.image("house", "./assets/images/house.png");
-      this.load.image("controlSign", "./assets/images/control_sign.png");
 
-
-      // text assets
+      // data(text, etc) assets
       this.load.json("data", "./assets/data.json");
 
       // audio assets

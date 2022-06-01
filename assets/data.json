@@ -363,15 +363,15 @@
                "item_count": 3,
                "locations": [
                   {
-                     "x": 900,
+                     "x": 1370,
                      "y": 479
                   },
                   {
-                     "x": 1150,
+                     "x": 300,
                      "y": 479
                   },
                   {
-                     "x": 1200,
+                     "x": 2100,
                      "y": 479
                   }
                ]
@@ -616,7 +616,7 @@
             "name": "tomato",
             "villager": "teddy",
             "location": {
-               "x": 650,
+               "x": 1120,
                "y": 479
             },
             "alt_texture": "tomato",
@@ -754,7 +754,7 @@
             "name": "watermelon",
             "villager": "walter",
             "location": {
-               "x": 300,
+               "x": 620,
                "y": 479
             },
             "alt_texture": "watermelon",
@@ -855,10 +855,10 @@
             "name": "carrot",
             "villager": "corrine",
             "location": {
-               "x": 900,
+               "x": 1370,
                "y": 479
             },
-            "alt_texture": "baby_carrot",
+            "alt_texture": "baby_carrots",
             "quest_type": "get",
             "quest_done": false,
             "textbox": {

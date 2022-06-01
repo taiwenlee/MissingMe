@@ -12,6 +12,7 @@ class Play extends Phaser.Scene {
       this.tomatoUpdated = false;
       this.watermelonUpdated = false;
       this.inEnding = false;
+      this.endingAnimation = false;
 
       // set world size
       this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
@@ -42,12 +43,8 @@ class Play extends Phaser.Scene {
       this.saturation.depth = 1.5;
       this.saturation.setScrollFactor(0);
 
-      // temp scene indicator text
-      const tempText = this.add.text(10, 10, "playScene");
-      tempText.setScrollFactor(0);
-
       // temp fps counter
-      this.tempFPS = this.add.text(10, 30, "FPS: " + this.game.loop.actualFps);
+      this.tempFPS = this.add.text(10, 90, "FPS: " + this.game.loop.actualFps);
       this.tempFPS.setScrollFactor(0);
 
       // controls 
@@ -62,7 +59,7 @@ class Play extends Phaser.Scene {
       this.data = cache.get("data");
 
       // add player
-      this.player = new Player(this, 1175, game.config.height - 205, 'object_atlas', 'player/dirtywalk/walk0');
+      this.player = new Player(this, 940, 490, 'object_atlas', 'player/dirtywalk/walk0').setOrigin(0.5, 1);
 
       // add camera
       this.cameras.main.setBounds(0, 0, game.config.width * 5, game.config.height);
@@ -80,8 +77,8 @@ class Play extends Phaser.Scene {
       settingsButton.setScrollFactor(0);
 
       // add inventory
-      this.inventory = new Inventory(this, 800, 10);
-      this.inventory.setOrigin(0);
+      this.inventory = new Inventory(this, 852, 20);
+      this.inventory.setOrigin(1, 0);
 
       // add floor
       this.createFloor();
@@ -106,13 +103,16 @@ class Play extends Phaser.Scene {
       });
 
       // tutorial text
-      this.controls = this.add.image(700, 479, 'controlSign').setOrigin(0.5, 1);
+      this.controls = this.add.image(1230, 479, "object_atlas", 'control_sign').setOrigin(0.5, 1);
       this.controls.depth = -0.01;
-      this.tutText = this.add.text(680, 270, 'CONTROLS', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5, 0);
-      this.tutText2 = this.add.text(710, 310, 'A/D   ... WALK\nSHIFT ... SPRINT\nSPACE ... INTERACT', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'left' }).setOrigin(0.5, 0);
+      this.tutText = this.add.text(1220, 270, 'CONTROLS', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5, 0);
+      this.tutText2 = this.add.text(1250, 310, 'A/D   ... WALK\nSHIFT ... SPRINT\nSPACE ... INTERACT', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'left' }).setOrigin(0.5, 0);
+
+      // trees
+      this.tree0 = this.add.image(0, 479, "object_atlas", 'tree').setOrigin(0, 1);
 
       // add house
-      this.house = this.add.image(200, 477, 'house').setOrigin(0.5, 1);
+      this.house = this.add.image(800, 477, 'house').setOrigin(0.5, 1);
       this.house.depth = -0.01;
 
       // add shops
@@ -124,7 +124,7 @@ class Play extends Phaser.Scene {
       this.doctorsOffice.depth = -0.01;
 
       // add grave
-      this.grave = new Grave(this, game.config.width + 200, game.config.height - 200, 'object_atlas', 'grave', this.data["grave"]);
+      this.grave = new Grave(this, 150, 477, 'object_atlas', 'grave', this.data["grave"]).setOrigin(0.5, 1);
 
       // add sun      
       this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'object_atlas', "sun").setOrigin(0.5, 0.5);
@@ -136,14 +136,16 @@ class Play extends Phaser.Scene {
 
       // intro text
       this.introindex = 0;
-      this.introText = new Textbox(this, 1175, game.config.height / 2 - 20, this.data["intro"][this.introindex++], {
+      this.introText = new Textbox(this, game.config.width / 2, game.config.height / 2 - 20, this.data["intro"][this.introindex++], {
          fontFamily: 'VT323',
          fontSize: '32px',
          color: '#ffffff',
          align: 'left'
       }).setOrigin(0.5);
+      this.introText.scroll = false;
       this.introText.wrapWidth = 600;
       this.introText.animation = false;
+
    }
 
    update() {
@@ -164,8 +166,10 @@ class Play extends Phaser.Scene {
             }
          }
       }
-      if (this.inEnding) {
+      if (this.inEnding && !this.endingAnimation) {
          // if player is in the area of the farm engage in animation here...
+         this.endingAnimation = true;
+         console.log("ending");
       }
 
       // sets grave the end state if quests are complete
@@ -174,7 +178,7 @@ class Play extends Phaser.Scene {
       }
 
       // update fps counter
-      this.tempFPS.setText("FPS: " + this.game.loop.actualFps);
+      this.tempFPS.setText("FPS: " + this.game.loop.actualFps.toFixed(2));
 
       // move clouds
       this.clouds1.tilePositionX -= 1;
@@ -194,7 +198,7 @@ class Play extends Phaser.Scene {
 
    createFloor() {
       // add floor
-      this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 10, 132, 'floor').setOrigin(0, 0);
+      this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 10, 132, "object_atlas", 'floor').setOrigin(0, 0);
 
       // add to physics
       this.physics.add.existing(this.floor, true);
