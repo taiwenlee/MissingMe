@@ -89,7 +89,7 @@ class Villager extends Phaser.GameObjects.Sprite {
 
          } else if (this.Interacting && intKey) {
 
-            if (this.index >= this.narratives[this.queststate].length && this.textbox.index == this.textbox.textLength) {
+            if (this.index >= this.narratives[this.queststate].length && this.textbox.isComplete()) {
                // if at end of text, end interaction
                this.scene.player.Interacting = false;
                this.Interacting = false;
@@ -108,24 +108,28 @@ class Villager extends Phaser.GameObjects.Sprite {
                } else if (this.queststate == "quest" && this.questType == "fetch") {
                   // tells player to go fetch items
                   this.queststate = "repeatquest";
-                  this.scene.children.getByName(this.crop).visible = false;
+                  this.scene.children.getByName(this.crop).interactable = false;
+                  this.scene.children.getByName(this.crop).setTexture("object_atlas", "baby_carrot");
                   for (let i = 0; i < this.json["quest_data"]["locations"].length; i++) {
                      let location = this.json["quest_data"]["locations"][i];
                      let item = new Item(this.scene, location["x"], location["y"],
-                        "object_atlas", this.json["quest_data"]["item_type"], this.json["quest_data"]["item_type"]);
+                        "object_atlas", this.json["quest_data"]["item_type"], this.json["quest_data"]["item_type"]).setOrigin(0.5, 1);
                      this.scene.items.add(item);
                   }
                } else if (this.queststate == "completequest") {
                   // if complete state, end quest
                   this.queststate = "postquest";
-                  this.scene.inventory.clear();
                   this.scene.inQuest = false;
                   this.scene.questCount++;
                   this.sound4.play();
                }
             } else {
-               if (this.textbox.index == this.textbox.textLength) {
-                  // cycles down to next dialog
+               if (this.textbox.isComplete()) {
+                  // use item if quest is a fetch type (rather hard coded)
+                  if (this.questType == "fetch" && ("use" in this.narratives[this.queststate][this.index])) {
+                     this.scene.inventory.removeItem(1);
+                  }
+                  // cycles down to next dialogue
                   if (this.narratives[this.queststate][this.index]["type"] == "self") this.sound2.play();
                   this.updateText(this.narratives[this.queststate][this.index++]);
                } else {

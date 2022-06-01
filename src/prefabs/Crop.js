@@ -75,7 +75,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
 
          } else if (this.Interacting && intKey) {
 
-            if (this.index >= this.narratives[this.queststate].length && this.textbox.index == this.textbox.textLength) {
+            if (this.index >= this.narratives[this.queststate].length && this.textbox.isComplete()) {
                // if at end of text, end interaction
                this.scene.player.Interacting = false;
                this.Interacting = false;
@@ -101,11 +101,12 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
                }
 
             } else {
-               if (this.textbox.index == this.textbox.textLength) {
-                  // equip item if quest is a get type (rather hard coded to work for overalls)
-                  if (this.questType == "get" && ("equip" in this.narratives[this.queststate][this.index])) {
-                     this.scene.player.changeAnim("cleanwalk");
-                     this.scene.inventory.clear();
+               if (this.textbox.isComplete()) {
+                  // use item if quest is a get type (rather hard coded to work for overalls)
+                  if (this.questType == "get" && ("use" in this.narratives[this.queststate][this.index])) {
+                     if (this.narratives[this.queststate][this.index]["use"] == "overalls") this.scene.player.changeAnim("cleanwalk");
+
+                     this.scene.inventory.removeItem(1);
                   }
 
                   // cycles down to next dialog

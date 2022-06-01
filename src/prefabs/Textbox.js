@@ -252,6 +252,11 @@ class Textbox {
         this.text.setText(this.fullText);
     }
 
+    // if animation is complete
+    isComplete() {
+        return this.index >= this.textLength;
+    }
+
     drawBox() {
         // clear box
         this.box.clear();

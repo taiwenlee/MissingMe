@@ -123,6 +123,20 @@ class Inventory {
         this.tween.restart();
     }
 
+    removeItem(count) {
+        if (this.itemCount == 0) {
+            console.log("Error: item does not exist");
+            return;
+        }
+        this.itemCount -= count;
+        if (this.itemCount == 0) {
+            this.clear();
+            return;
+        }
+        this.itemCountText.setText(this.itemCount);
+        this.drawInventory();
+    }
+
     clear() {
         this.itemName = "";
         this.itemCount = 0;

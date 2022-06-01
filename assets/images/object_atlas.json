@@ -344,6 +344,27 @@
 						"w": 56,
 						"h": 68
 					}
+				},
+				{
+					"filename": "baby_carrot",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 86,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 86,
+						"h": 16
+					},
+					"frame": {
+						"x": 149,
+						"y": 454,
+						"w": 86,
+						"h": 16
+					}
 				}
 			]
 		}
@@ -351,6 +372,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:72239fc1837ff30d1e453ce1eb2b2ed4:7abff76214a1cd72385e0e69ac7d800e:358f055dcd7752a1b7d514c352666090$"
+		"smartupdate": "$TexturePacker:SmartUpdate:df2959e77a371b921c478de031d8ac67:a28d1cd3fd05fd13df1504f004f3a797:358f055dcd7752a1b7d514c352666090$"
 	}
 }

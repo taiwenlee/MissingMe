@@ -62,8 +62,5 @@ class Item extends Phaser.GameObjects.Sprite {
       } else if (this.indicator.visible) {
          this.indicator.visible = false;
       }
-
-      // update textbox
-      this.textbox.update();
    }
 }

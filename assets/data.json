@@ -7,6 +7,27 @@
       "Moving sucks, though.",
       "I wish using A/D to move and “shift” to run weren’t the only ways to get out of here."
    ],
+   "grave": {
+      "start": [
+         "grave text here",
+         "just a temp text box",
+         "1",
+         "2",
+         "3",
+         "stop"
+      ],
+      "repeat": [
+         "repeat1",
+         "repeat2",
+         "repeat3"
+      ],
+      "ending": [
+         "ending starts here",
+         "there should be a conclusion stuff here",
+         "test",
+         "stop"
+      ]
+   },
    "npcs": {
       "villagers": {
          "teddy": {
@@ -342,16 +363,16 @@
                "item_count": 3,
                "locations": [
                   {
-                     "x": 1100,
-                     "y": 450
+                     "x": 900,
+                     "y": 479
                   },
                   {
                      "x": 1150,
-                     "y": 450
+                     "y": 479
                   },
                   {
                      "x": 1200,
-                     "y": 450
+                     "y": 479
                   }
                ]
             },
@@ -503,15 +524,18 @@
                   },
                   {
                      "text": "And here’s some ranch and hummus. Try one!",
-                     "type": "self"
+                     "type": "self",
+                     "use": "carrot"
                   },
                   {
                      "text": "Now, another!",
-                     "type": "self"
+                     "type": "self",
+                     "use": "carrot"
                   },
                   {
                      "text": "Last one?",
-                     "type": "self"
+                     "type": "self",
+                     "use": "carrot"
                   },
                   {
                      "text": "Awesome, thanks.",
@@ -696,7 +720,7 @@
                   {
                      "text": "Alright, alright.",
                      "type": "player",
-                     "equip": "overalls"
+                     "use": "overalls"
                   },
                   {
                      "text": "There! Doesn’t that feel a lot better?",
