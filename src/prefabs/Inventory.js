@@ -140,8 +140,7 @@ class Inventory {
     clear() {
         this.itemName = "";
         this.itemCount = 0;
-        if (this.itemImage) this.itemImage.destroy();
-        this.itemImage = null;
+        this.itemImage.visible = false;
         this.itemCountText.setText(this.itemCount);
         this.itemCountText.visible = false;
         this.drawInventory();
