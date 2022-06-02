@@ -13,7 +13,7 @@ class End extends Phaser.Scene {
       this.clouds2 = this.add.tileSprite(0, 0, 912, 608, 'clouds2').setOrigin(0, 0);
 
       // temp scene indicator text
-      const tempText = this.add.text(10, 10, "endScene");
+      //const tempText = this.add.text(10, 10, "endScene");
 
       // play sound
       this.playSound = this.sound.add('play', { volume: sfxVol });
@@ -22,8 +22,8 @@ class End extends Phaser.Scene {
       this.hoverSound = this.sound.add('hover', { volume: sfxVol });
 
       // fade out of black
-      //this.blackFade = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x000000).setOrigin(0, 0);
-      //this.blackFade = 5;
+      this.blackFade = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x000000).setOrigin(0, 0);
+      this.blackFade.depth = 5;
 
       // add floor
       this.createFloor();
@@ -102,6 +102,14 @@ class End extends Phaser.Scene {
    }
 
    addTweens() {
+      // fade tween
+      this.tweens.add({
+         targets: [this.blackFade],
+         alpha: 0,
+         duration: 2000,
+         delay: 2000,
+      });
+
       // teddy tomato tween
       this.tweens.add({
          targets: [this.teddy, this.tomato],

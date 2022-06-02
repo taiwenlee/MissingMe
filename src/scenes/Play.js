@@ -215,9 +215,9 @@ class Play extends Phaser.Scene {
    }
 
    addTweens() {
-      // teddy tween
+      // teddy tomato tween
       this.tweens.add({
-         targets: [this.children.getByName("teddy")],
+         targets: [this.children.getByName("teddy"), this.children.getByName("tomato")],
          scaleY: 1.05,
          duration: 1000,
          ease: 'Sine.easeInOut',
@@ -225,19 +225,9 @@ class Play extends Phaser.Scene {
          repeat: -1,
       });
 
-      // tomato tween
-      this.tomatoTween = this.tweens.add({
-         targets: [this.children.getByName("tomato")],
-         scaleX: 1.07,
-         duration: 1000,
-         ease: 'Sine.easeInOut',
-         yoyo: true,
-         repeat: -1,
-      });
-
-      // walter tween
+      // walter watermelon tween
       this.tweens.add({
-         targets: this.children.getByName("walter"),
+         targets: [this.children.getByName("walter"), this.children.getByName("watermelon")],
          scaleY: 1.03,
          duration: 400,
          ease: 'Sine.easeInOut',
@@ -245,31 +235,11 @@ class Play extends Phaser.Scene {
          repeat: -1,
       });
 
-      // watermelon tween
-      this.watermelonTween = this.tweens.add({
-         targets: [this.children.getByName("watermelon")],
-         scaleX: 1.07,
-         duration: 1000,
-         ease: 'Sine.easeInOut',
-         yoyo: true,
-         repeat: -1,
-      });
-
-      // corrine tween
+      // corrine carrot tween
       this.tweens.add({
-         targets: this.children.getByName("corrine"),
+         targets: [this.children.getByName("corrine"), this.children.getByName("carrot")],
          scaleY: 1.02,
          duration: 300,
-         ease: 'Sine.easeInOut',
-         yoyo: true,
-         repeat: -1,
-      });
-
-      // carrot tween
-      this.tweens.add({
-         targets: this.children.getByName("carrot"),
-         scaleX: 1.07,
-         duration: 1000,
          ease: 'Sine.easeInOut',
          yoyo: true,
          repeat: -1,
