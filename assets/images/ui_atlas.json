@@ -4,8 +4,8 @@
 			"image": "ui_atlas.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 1474,
-				"h": 256
+				"w": 639,
+				"h": 466
 			},
 			"scale": 1,
 			"frames": [
@@ -31,27 +31,6 @@
 					}
 				},
 				{
-					"filename": "title",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 590,
-						"h": 212
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 590,
-						"h": 212
-					},
-					"frame": {
-						"x": 240,
-						"y": 1,
-						"w": 590,
-						"h": 212
-					}
-				},
-				{
 					"filename": "ending",
 					"rotated": false,
 					"trimmed": false,
@@ -66,10 +45,31 @@
 						"h": 108
 					},
 					"frame": {
-						"x": 832,
-						"y": 1,
+						"x": 1,
+						"y": 249,
 						"w": 440,
 						"h": 108
+					}
+				},
+				{
+					"filename": "title",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 590,
+						"h": 106
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 590,
+						"h": 106
+					},
+					"frame": {
+						"x": 1,
+						"y": 359,
+						"w": 590,
+						"h": 106
 					}
 				},
 				{
@@ -87,31 +87,10 @@
 						"h": 75
 					},
 					"frame": {
-						"x": 832,
-						"y": 111,
+						"x": 240,
+						"y": 1,
 						"w": 72,
 						"h": 75
-					}
-				},
-				{
-					"filename": "select",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 60,
-						"h": 62
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 60,
-						"h": 62
-					},
-					"frame": {
-						"x": 832,
-						"y": 188,
-						"w": 60,
-						"h": 62
 					}
 				},
 				{
@@ -129,8 +108,8 @@
 						"h": 71
 					},
 					"frame": {
-						"x": 906,
-						"y": 111,
+						"x": 240,
+						"y": 78,
 						"w": 161,
 						"h": 71
 					}
@@ -150,8 +129,8 @@
 						"h": 71
 					},
 					"frame": {
-						"x": 906,
-						"y": 184,
+						"x": 314,
+						"y": 1,
 						"w": 161,
 						"h": 71
 					}
@@ -171,8 +150,8 @@
 						"h": 71
 					},
 					"frame": {
-						"x": 1069,
-						"y": 111,
+						"x": 240,
+						"y": 151,
 						"w": 161,
 						"h": 71
 					}
@@ -192,8 +171,8 @@
 						"h": 71
 					},
 					"frame": {
-						"x": 1069,
-						"y": 184,
+						"x": 403,
+						"y": 74,
 						"w": 161,
 						"h": 71
 					}
@@ -213,8 +192,8 @@
 						"h": 71
 					},
 					"frame": {
-						"x": 1232,
-						"y": 111,
+						"x": 477,
+						"y": 1,
 						"w": 161,
 						"h": 71
 					}
@@ -234,8 +213,8 @@
 						"h": 71
 					},
 					"frame": {
-						"x": 1232,
-						"y": 184,
+						"x": 403,
+						"y": 147,
 						"w": 161,
 						"h": 71
 					}
@@ -255,10 +234,31 @@
 						"h": 71
 					},
 					"frame": {
-						"x": 1274,
-						"y": 1,
+						"x": 443,
+						"y": 220,
 						"w": 65,
 						"h": 71
+					}
+				},
+				{
+					"filename": "select",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 60,
+						"h": 62
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 60,
+						"h": 62
+					},
+					"frame": {
+						"x": 443,
+						"y": 293,
+						"w": 60,
+						"h": 62
 					}
 				},
 				{
@@ -276,8 +276,8 @@
 						"h": 71
 					},
 					"frame": {
-						"x": 1341,
-						"y": 1,
+						"x": 510,
+						"y": 220,
 						"w": 65,
 						"h": 71
 					}
@@ -297,7 +297,7 @@
 						"h": 71
 					},
 					"frame": {
-						"x": 1395,
+						"x": 566,
 						"y": 74,
 						"w": 65,
 						"h": 71
@@ -318,8 +318,8 @@
 						"h": 71
 					},
 					"frame": {
-						"x": 1408,
-						"y": 1,
+						"x": 566,
+						"y": 147,
 						"w": 65,
 						"h": 71
 					}
@@ -330,6 +330,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:dac376b62f3b7d0ea23661c1bce4d659:6b071b7b1aa33f159fcb0bd488f06b19:b5d3be34114d9e44e607c8ae1c6193a6$"
+		"smartupdate": "$TexturePacker:SmartUpdate:675e1e5335f0333d94cd8181fa06dee1:7a9ac38d3cb5de0b08baf1f603f04a39:b5d3be34114d9e44e607c8ae1c6193a6$"
 	}
 }
