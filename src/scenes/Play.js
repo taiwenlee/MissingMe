@@ -105,8 +105,8 @@ class Play extends Phaser.Scene {
       // tutorial text
       this.controls = this.add.image(1240, 479, "object_atlas", 'control_sign').setOrigin(0.5, 1);
       this.controls.depth = -0.01;
-      this.tutText = this.add.text(1220, 270, 'CONTROLS', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5, 0);
-      this.tutText2 = this.add.text(1250, 310, 'A/D   ... WALK\nSHIFT ... SPRINT\nSPACE ... INTERACT', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'left' }).setOrigin(0.5, 0);
+      this.tutText = this.add.text(1240, 270, 'WELCOME TO THE FARM!', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5, 0);
+      this.tutText2 = this.add.text(1245, 310, 'A/D   ... WALK\nSHIFT ... SPRINT\nSPACE ... INTERACT', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'left' }).setOrigin(0.5, 0);
 
       // trees
       this.tree0 = this.add.image(0, 479, "object_atlas", 'tree').setOrigin(0, 1);

@@ -13,17 +13,28 @@ class Menu extends Phaser.Scene {
 
       // add background
       this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3a4d99).setOrigin(0, 0);
+      this.blueBackground.depth = -2;
 
       // parallax clouds
       this.clouds1 = this.add.tileSprite(0, 0, 912, 608, 'clouds1').setOrigin(0, 0);
       this.clouds2 = this.add.tileSprite(0, 0, 912, 608, 'clouds2').setOrigin(0, 0);
 
+      // rising and setting sun
+      this.sun = this.add.tileSprite(game.config.width / 2, 630, 128, 128, 'object_atlas', "sun").setOrigin(-2.5, -2.5);
+      this.sun.depth = -1;
+      this.tweens.add({
+         targets: this.sun,
+         angle: -360,
+         duration: 15000,
+         repeat: -1,
+      });
+
       // add title
-      this.title = this.add.image(game.config.width / 2, 260, 'ui_atlas', "title").setOrigin(0.5, 0.5);
+      this.title = this.add.image(game.config.width / 2, 325, 'ui_atlas', "title").setOrigin(0.5, 0.5);
 
       this.tweens.add({
          targets: this.title,
-         y: 160,
+         y: 290,
          //scaleX: 1.1,
          duration: 4000,
          ease: 'Sine.easeInOut',
@@ -144,10 +155,24 @@ class Menu extends Phaser.Scene {
       });
       creditsButton.input.alwaysEnabled = true; // prevents flickering between two images
 
+      // add end text
+      const endText = this.add.text(37, 25 + 12, 'END', { fill: '#79bdfc', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5);
+      endText.depth = 1;
+
+      // end button
+      const endButton = this.add.image(0, 0, "ui_atlas", 'cloud').setOrigin(0);
+      endButton.setInteractive();
+      endButton.on('pointerdown', () => {
+         this.hoverSound.stop();
+         this.playSound.play({ volume: sfxVol });
+         this.time.delayedCall(100, () => {
+            this.scene.start("endScene");
+         });
+      });
    }
 
    update() {
-      // move clouds
+      // move clouds and sun
       this.clouds1.tilePositionX -= 1;
       this.clouds2.tilePositionX -= 0.5;
    }
