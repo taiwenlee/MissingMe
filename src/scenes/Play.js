@@ -32,9 +32,9 @@ class Play extends Phaser.Scene {
       this.blueBackground.depth = -1;
 
       // parallax clouds
-      this.clouds1 = this.add.tileSprite(0, 0, game.config.width * 10, 608, 'clouds1').setOrigin(0, 0);
+      this.clouds1 = this.add.tileSprite(0, 0, game.config.width * 5, 608, 'clouds1').setOrigin(0, 0);
       this.clouds1.depth = -0.5;
-      this.clouds2 = this.add.tileSprite(0, 0, game.config.width * 10, 608, 'clouds2').setOrigin(0, 0);
+      this.clouds2 = this.add.tileSprite(0, 0, game.config.width * 5, 608, 'clouds2').setOrigin(0, 0);
       this.clouds2.depth = -0.5;
 
       // game tint
@@ -267,7 +267,7 @@ class Play extends Phaser.Scene {
 
    createFloor() {
       // add floor
-      this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 10, 132, "object_atlas", 'floor').setOrigin(0, 0);
+      this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 5, 132, "object_atlas", 'floor').setOrigin(0, 0);
 
       // add to physics
       this.physics.add.existing(this.floor, true);

@@ -114,7 +114,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
          if (this.anims.isPaused) {
             this.anims.play(this.currentAnim, true);
             this.footstep.paused = false;
-            console.log(this.anims);
          }
       }
    }
