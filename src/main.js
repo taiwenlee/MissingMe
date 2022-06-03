@@ -5,6 +5,7 @@ let config = {
    pixelArt: true,
    fps: {
       target: 60,
+      forceSetTimeOut: true
    },
    physics: {
       default: 'arcade',
