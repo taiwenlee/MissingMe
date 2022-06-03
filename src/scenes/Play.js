@@ -31,6 +31,9 @@ class Play extends Phaser.Scene {
       this.purpleBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x654991).setOrigin(0, 0).setScrollFactor(0).setDepth(-2);
       this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3a4d99).setOrigin(0, 0).setScrollFactor(0).setDepth(-1);
 
+      // add sun      
+      this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'object_atlas', "sun").setOrigin(0.5, 0.5).setScrollFactor(0).setDepth(-0.6);
+
       // parallax clouds
       this.clouds1 = this.add.tileSprite(0, 0, game.config.width * 5, 608, 'clouds1').setOrigin(0, 0).setDepth(-0.5);
       this.clouds2 = this.add.tileSprite(0, 0, game.config.width * 5, 608, 'clouds2').setOrigin(0, 0).setDepth(-0.5);
@@ -57,21 +60,6 @@ class Play extends Phaser.Scene {
       // temp fps counter
       this.tempFPS = this.add.text(10, 90, "FPS: " + this.game.loop.actualFps).setScrollFactor(0);
 
-      // add player
-      this.player = new Player(this, 940, 490, 'object_atlas', 'player/dirtywalk/walk0').setOrigin(0.5, 1);
-
-      // add camera
-      this.cameras.main.setBounds(0, 0, game.config.width * 5, game.config.height).startFollow(this.player);
-
-      // add settings text
-      const settingsText = this.add.text(27, 31, 'ESC', { fill: '#79bdfc', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0).setScrollFactor(0).setDepth(2);
-
-      // add settings button
-      const settingsButton = this.add.image(12, 10, "ui_atlas", 'cloud').setOrigin(0).setScrollFactor(0).setDepth(1.9).setAlpha(1);
-
-      // add inventory
-      this.inventory = new Inventory(this, 897, 15).setOrigin(1, 0);
-
       // get json data
       this.data = this.cache.json.get("data");
 
@@ -88,6 +76,32 @@ class Play extends Phaser.Scene {
          this.npcs.add(new Crop(this, data["location"]["x"], data["location"]["y"], "object_atlas", key, data).setOrigin(0.5, 1));
       }
 
+      // add player
+      this.player = new Player(this, 940, 490, 'object_atlas', 'player/dirtywalk/walk0').setOrigin(0.5, 1).setDepth(7);
+
+      // add camera
+      this.cameras.main.setBounds(0, 0, game.config.width * 5, game.config.height).startFollow(this.player);
+
+      //add worm (temp)
+      this.worms = this.add.group({
+         classType: Worm,
+         runChildUpdate: true,
+      });
+      this.addWorm();
+      this.addWorm();
+      this.addWorm();
+      this.addWorm();
+      this.addWorm();
+
+      // add settings text
+      const settingsText = this.add.text(27, 31, 'ESC', { fill: '#79bdfc', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0).setScrollFactor(0).setDepth(2);
+
+      // add settings button
+      const settingsButton = this.add.image(12, 10, "ui_atlas", 'cloud').setOrigin(0).setScrollFactor(0).setDepth(1.9).setAlpha(1);
+
+      // add inventory
+      this.inventory = new Inventory(this, 897, 15).setOrigin(1, 0);
+
       // tutorial text
       this.controls = this.add.image(1240, 479, "object_atlas", 'control_sign').setOrigin(0.5, 1).setDepth(-0.01);
       this.tutText = this.add.text(1240, 270, 'WELCOME TO THE FARM!', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5, 0);
@@ -95,9 +109,6 @@ class Play extends Phaser.Scene {
 
       // add grave
       this.grave = new Grave(this, 200, 477, 'object_atlas', 'grave', this.data["grave"]).setOrigin(0.5, 1);
-
-      // add sun      
-      this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'object_atlas', "sun").setOrigin(0.5, 0.5).setScrollFactor(0).setDepth(-0.6);
 
       // tween
       this.addTweens();
@@ -144,7 +155,6 @@ class Play extends Phaser.Scene {
       // super secret speed hax code
       if (keyTap(keyH)) {
          this.player.runMultiplier = (this.player.runMultiplier == 1.5) ? 8 : 1.5;
-         console.log(this.player.runMultiplier);
       }
 
       // sets grave the end state if quests are complete
@@ -214,6 +224,11 @@ class Play extends Phaser.Scene {
 
       // update crop tweens
       this.updateCropTween();
+   }
+
+   addWorm() {
+      // add worm
+      this.worms.add(new Worm(this, Phaser.Math.Between(0, game.config.width * 5), Phaser.Math.Between(480, 490), 'object_atlas', 'worm/worm0', this.data["worm"]));
    }
 
    endingAnimation(target) {
