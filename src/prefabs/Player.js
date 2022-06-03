@@ -12,7 +12,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       this.speed = 200;
       this.runMultiplier = 1.5;
       this.overalls = false;
-      this.frameRateDivider = 50;
+      this.frameRateDivider = 40;
       this.controllable = true;
 
       // state variables
@@ -35,14 +35,14 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       this.dirtyWalk = this.anims.create({
          key: "dirtywalk",
          frames: this.anims.generateFrameNames("object_atlas", { prefix: 'player/dirtywalk/walk', end: 3 }),
-         frameRate: 0,
+         frameRate: 4,
          repeat: -1
       });
 
       this.cleanWalk = this.anims.create({
          key: "cleanwalk",
          frames: this.anims.generateFrameNames("object_atlas", { prefix: 'player/cleanwalk/walk', end: 3 }),
-         frameRate: 0,
+         frameRate: 4,
          repeat: -1
       });
 
@@ -57,6 +57,8 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       });
 
       this.anims.play("dirtywalk", true);
+      this.anims.pause(this.anims.currentAnim.frames[0]);
+      this.footstep.paused = true;
    }
 
    update() {
@@ -69,10 +71,16 @@ class Player extends Phaser.Physics.Arcade.Sprite {
          // move right
          this.tween.pause();
          this.body.setVelocityX(keyShift.isDown ? this.runMultiplier * this.speed : this.speed);
-      } else {
+      } else if (this.controllable) {
          // stop
          this.tween.resume();
-         this.body.setVelocityX(0);
+         // slow player down when no keys are pressed
+         if (Math.abs(this.body.velocity.x) > 0.1) {
+            this.body.setVelocityX((this.body.velocity.x) * 0.8);
+         } else {
+            this.body.setVelocityX(0);
+         }
+
       }
 
       // plays animation and sound at the right rate
@@ -87,13 +95,27 @@ class Player extends Phaser.Physics.Arcade.Sprite {
    }
 
    // plays animation and sound at the right rate
+   // probably a lot of things wrong with it
    playAnimsNSound() {
-      if (Math.abs(this.body.velocity.x) / this.frameRateDivider != this.dirtyWalk.frameRate) {
-         this.dirtyWalk.frameRate = Math.abs(this.body.velocity.x) / this.frameRateDivider;
-         this.cleanWalk.frameRate = Math.abs(this.body.velocity.x) / this.frameRateDivider;
-         this.footstep.delay = 1000 * 2 / (Math.abs(this.body.velocity.x) / this.frameRateDivider);
+      if (this.body.velocity.x == 0) {
          this.anims.pause();
-         this.anims.play(this.currentAnim, true);
+         this.anims.setCurrentFrame(this.anims.currentAnim.frames[0]);
+         this.footstep.paused = true;
+      } else if (this.anims.frameRate != (Math.abs(this.body.velocity.x) / this.frameRateDivider)) {
+         this.anims.frameRate = Math.abs(this.body.velocity.x) / this.frameRateDivider; // tracks fps
+         // update animation and sound delays (not sure if this is the best way to do it)
+         this.anims.msPerFrame = 1000 / (Math.abs(this.body.velocity.x) / this.frameRateDivider);
+         this.footstep.delay = 1000 * 2 / (Math.abs(this.body.velocity.x) / this.frameRateDivider);
+         // limits framerate to 2 fps to prevent infinity problem
+         if (this.anims.msPerFrame > 500) this.anims.msPerFrame = 1000;
+         if (this.footstep.delay > 500) this.footstep.delay = 1000;
+
+         // if previously paused, restart the animation and sound
+         if (this.anims.isPaused) {
+            this.anims.restart();
+            this.footstep.paused = false;
+            console.log(this.anims);
+         }
       }
    }
 
@@ -105,7 +127,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
    }
 
    playFootstep() {
-      //let sound = Math.random() < 0.5 ? this.sound1 : this.sound2;
+      //this.sound = Math.random() < 0.5 ? this.sound1 : this.sound2;
       this.sound = (this.sound == this.sound1) ? this.sound2 : this.sound1;
       this.sound.play({ volume: sfxVol });
    }
