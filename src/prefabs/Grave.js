@@ -63,7 +63,7 @@ class Grave extends Phaser.GameObjects.Sprite {
                this.textbox.visible = false;
                this.index = 0;
                if (this.state == "start") this.state = "repeat";
-               if (this.state == "end") this.scene.inEnding = true;
+               if (this.state == "end") this.scene.end1 = true;
                if (this.interactable == true) {
                   this.interactable = false;
                   this.scene.time.delayedCall(1000, () => {

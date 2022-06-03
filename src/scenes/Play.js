@@ -11,8 +11,8 @@ class Play extends Phaser.Scene {
       this.introComplete = false;
       this.tomatoUpdated = false;
       this.watermelonUpdated = false;
-      this.inEnding = false;
-      this.endingAnimation = false;
+      this.end1 = false;  // true if player talks to grave after all quests are done
+      this.end2 = false;  // true if player interacts with crop after grave
 
       // set world size
       this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
@@ -152,10 +152,21 @@ class Play extends Phaser.Scene {
       this.introText.wrapWidth = 600;
       this.introText.animation = false;
 
+      // interact text
+      this.indicator = new Textbox(this, game.config.width / 2, game.config.height / 2 - 20, 'SPACE', {
+         fontFamily: 'VT323',
+         fontSize: '32px',
+         color: '#ffffff',
+         align: 'left'
+      }).setOrigin(0.5);
+      this.indicator.wrapWidth = 600;
+      this.indicator.animation = false;
+      this.indicator.visible = false;
+
    }
 
    update() {
-
+      this.end1 = true;
       if (this.introComplete) {
          // update player
          this.player.update();
@@ -172,10 +183,30 @@ class Play extends Phaser.Scene {
             }
          }
       }
-      if (this.inEnding && !this.endingAnimation) {
+      if (this.end1 && !this.end2) {
          // if player is in the area of the farm engage in animation here...
-         this.endingAnimation = true;
-         console.log("ending");
+         let tomato = this.children.getByName("tomato");
+         let carrot = this.children.getByName("carrot");
+         let watermelon = this.children.getByName("watermelon");
+         this.npcs.runChildUpdate = false;
+         if (Phaser.Math.Distance.Between(this.player.x, this.player.y, tomato.x, tomato.y) < 100) {
+            this.indicator.x = tomato.x;
+            this.indicator.y = tomato.y - tomato.height - 25;
+            this.indicator.visible = true;
+            if (keyTap(keySpace)) this.endingAnimation(tomato);
+         } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, carrot.x, carrot.y) < 100) {
+            this.indicator.x = carrot.x;
+            this.indicator.y = carrot.y - carrot.height - 25;
+            this.indicator.visible = true;
+            if (keyTap(keySpace)) this.endingAnimation(carrot);
+         } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, watermelon.x, watermelon.y) < 100) {
+            this.indicator.x = watermelon.x;
+            this.indicator.y = watermelon.y - watermelon.height - 25;
+            this.indicator.visible = true;
+            if (keyTap(keySpace)) this.endingAnimation(watermelon);
+         } else {
+            this.indicator.visible = false;
+         }
       }
 
       // sets grave the end state if quests are complete
@@ -200,6 +231,27 @@ class Play extends Phaser.Scene {
 
       // update crop tweens
       this.updateCropTween();
+   }
+
+   endingAnimation(target) {
+      this.end2 = true;
+      console.log("ending");
+      //this.player.controllable = false;
+      this.player.setVelocityX(0);
+      let distance = target.x - this.player.x;
+      let duration = distance / this.player.speed;
+      this.tweens.add({
+         targets: this.player.body.velocity,
+         x: distance / duration,
+         duration: duration,
+         ease: '',
+      });
+      // water animation
+
+      this.cameras.main.fadeOut(500);
+      this.cameras.main.once('camerafadeoutcomplete', () => {
+         this.scene.start("endingScene");
+      });
    }
 
    createFloor() {
