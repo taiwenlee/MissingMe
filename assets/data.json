@@ -212,12 +212,16 @@
                      "type": "self"
                   },
                   {
-                     "text": "The last time we spoke, you wouldn’t listen to anything I had to say and stormed off with that frame for your watermelons, screaming slander at the top of your lungs.",
+                     "text": "The last time we spoke, you wouldn’t listen to anything I had to say; just stormed off with that frame for your watermelons, screaming slander at the top of your lungs.",
                      "type": "self"
                   },
                   {
                      "text": "*I* need something. I need compensation. I need respect.",
                      "type": "self"
+                  },
+                  {
+                     "text": "You'll get what you're owed when-",
+                     "type": "player"
                   },
                   {
                      "text": "We’re a small community. You of all people know that, but you pretend like you’re above us all.",
@@ -228,7 +232,7 @@
                      "type": "self"
                   },
                   {
-                     "text": "I… really don’t mean to. Will you just hear me out?",
+                     "text": "I… really don’t mean to. Will you just hear me out?!",
                      "type": "player"
                   },
                   {
@@ -272,27 +276,27 @@
                      "type": "self"
                   },
                   {
-                     "text": "I realize that now.",
+                     "text": "I realize how I was treating you, now.",
                      "type": "player"
                   },
                   {
-                     "text": "It was hard for me to come to terms with what I’d done, but that will never happen again as long as I live.",
+                     "text": "It was hard for me to come to terms with what I’d done to you, but that will never happen again as long as I live.",
                      "type": "player"
                   },
                   {
-                     "text": "I swear. I was a manipulator. I was cruel. I’m sorry for doing that to you.",
+                     "text": "I swear. I was a manipulator. I was cruel. I’m sorry for everything.",
                      "type": "player"
                   },
                   {
-                     "text": "That’s really all I ever wanted to hear.",
+                     "text": "Hmph. You're getting better.",
                      "type": "self"
                   },
                   {
-                     "text": "Huh?",
+                     "text": "Better at what?",
                      "type": "player"
                   },
                   {
-                     "text": "Ever since they died, you've been apologizing for yourself, but never in the right way.",
+                     "text": "Ever since they died, you've been apologizing.",
                      "type": "self"
                   },
                   {
@@ -300,7 +304,11 @@
                      "type": "self"
                   },
                   {
-                     "text": "You never apologized to the people you hurt in those moments, but now I can see a little bit of your old self shining through that pitiful shell.",
+                     "text": "It was pretty pathetic, then, but your apologies are starting to sound like they come from the heart.",
+                     "type": "self"
+                  },
+                  {
+                     "text": "To be honest... I miss you. Now, I can see a little bit of your old self shining through that pitiful shell.",
                      "type": "self"
                   },
                   {
@@ -308,7 +316,7 @@
                      "type": "self"
                   },
                   {
-                     "text": "Inside, you still have a passion for gardening—for helping people—but there’s something keeping you from being yourself.",
+                     "text": "Inside, you still have a passion for gardening—for helping people—but there’s something keeping you from being you.",
                      "type": "self"
                   },
                   {
@@ -391,7 +399,7 @@
             "narratives": {
                "prequest": [
                   {
-                     "text": "Hi there. I’m sorry, I can’t talk right now. I’m getting my kids ready for school.",
+                     "text": "Hi there! Good to see you out ‘n’ about. I’m sorry, but I can’t talk much right now. I’m getting my kids ready for school.",
                      "type": "self"
                   },
                   {
@@ -403,28 +411,24 @@
                      "type": "self"
                   },
                   {
-                     "text": "Really, I’m studying this strange phenomenon for a couple of minutes.",
+                     "text": "Really, I’m taking in some fresh air before starting my day.",
                      "type": "self"
                   },
                   {
-                     "text": "Something’s wrong with the sun.",
+                     "text": "Being cooped up inside is fine until you realize just how long you’ve been filing records or unblocking the valve in a heart.",
                      "type": "self"
                   },
                   {
-                     "text": "Well, yeah. It’s noon and the sun’s GONE.",
+                     "text": "You’ve done open-heart surgery?",
                      "type": "player"
                   },
                   {
-                     "text": "Hm, what? No, it’s right up there. Just a weird color.",
+                     "text": "Once. It went pretty well! Unfortunately, a “broken” heart is something only you can fix.",
                      "type": "self"
                   },
                   {
-                     "text": "Maybe something to do with the way light bends in the atmosphere?",
-                     "type": "self"
-                  },
-                  {
-                     "text": "Oh, well. This is why I’m a people doctor and not an Earth doctor.",
-                     "type": "self"
+                     "text": "Right... I'm workin' on it.",
+                     "type": "player"
                   }
                ],
                "quest": [
@@ -453,7 +457,7 @@
                      "type": "self"
                   },
                   {
-                     "text": "You should be taking better care of yourself.",
+                     "text": "I just noticed that you should be taking better care of yourself.",
                      "type": "self"
                   },
                   {
@@ -548,7 +552,7 @@
                      "type": "player"
                   },
                   {
-                     "text": "I’m a mom. It’s my job to know about healthy snacks for when the kids come back after school hungry, and you’re just about the hungriest looking kid I’ve ever seen.",
+                     "text": "I’m a mom. It’s my job to know about healthy snacks for when the kids come back after school hungry.",
                      "type": "self"
                   },
                   {
@@ -568,7 +572,7 @@
                      "type": "player"
                   },
                   {
-                     "text": "Your body does. Sometimes, you may get these intrusive feelings that make you feel like a bad person. You may feel like you don’t deserve fuel.",
+                     "text": "Your body does. Sometimes, you may get these intrusive feelings, like you're a bad person. You may feel like you don’t deserve fuel.",
                      "type": "self"
                   },
                   {
@@ -576,8 +580,12 @@
                      "type": "self"
                   },
                   {
-                     "text": "If you were ever a bad person, now is the time for your redemption arc.",
+                     "text": "If you were ever a bad person, forget that. Now is the time for your redemption arc.",
                      "type": "self"
+                  },
+                  {
+                     "text": "The people I've hurt... They don't forget easily.",
+                     "type": "player"
                   },
                   {
                      "text": "Life is a series of Yins and Yangs, positives and negatives. It can snowball both ways.",
@@ -588,7 +596,15 @@
                      "type": "self"
                   },
                   {
-                     "text": "You’re right, but can I please have those glasses, now?",
+                     "text": "Do you think the people you've hurt get out of bed every morning thinking about you?",
+                     "type": "self"
+                  },
+                  {
+                     "text": "No. They're probably just concerned with their own business, like I was when I got up today.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "Ok, you’re right, but can I please have those glasses, now?",
                      "type": "player"
                   },
                   {
@@ -734,7 +750,7 @@
                      "type": "player"
                   },
                   {
-                     "text": "Keep good care of ‘em and they’ll do you good, too.",
+                     "text": "Take good care of ‘em and they’ll do the same for you.",
                      "type": "self"
                   },
                   {
@@ -783,7 +799,7 @@
                      "type": "player"
                   },
                   {
-                     "text": "Me too, honestly. Will you please do me a small favor?",
+                     "text": "Me too, honestly. I'm in a lot of pain. Will you please do me a small favor?",
                      "type": "self"
                   },
                   {
@@ -795,7 +811,7 @@
                      "type": "self"
                   },
                   {
-                     "text": "Wow, I must be doing a good job, then.",
+                     "text": "Wow, I'm sorry to hear that. I must be doing a good job growing you, then.",
                      "type": "player"
                   },
                   {
@@ -809,12 +825,28 @@
                   {
                      "text": "Well, I don’t want you to be in any pain. I’ll get you a new frame as soon as I can.",
                      "type": "player"
+                  },
+                  {
+                     "text": "It's just... Walter. The last time we spoke, I was awful to him.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "In a moment of fear, I blamed him for a fire I acidentally started outside Corrine's office.",
+                     "type": "player"
+                  },
+                  {
+                     "text": "No, I need to help you... I can do this.",
+                     "type": "player"
                   }
                ],
                "repeatquest": [
                   {
                      "text": "Please, can you get me a new shaping frame?",
                      "type": "self"
+                  },
+                  {
+                     "text": "I'm working up the courage for it.",
+                     "type": "player"
                   }
                ],
                "completequest": [
@@ -823,7 +855,7 @@
                      "type": "player"
                   },
                   {
-                     "text": "Walter and I had a falling-out.",
+                     "text": "Walter and I talked, but it ended in a falling-out.",
                      "type": "player"
                   },
                   {
@@ -888,7 +920,7 @@
                      "type": "player"
                   },
                   {
-                     "text": "Will you please do me a small favor?",
+                     "text": "Will you please do me a small favor? I'm not feeling too well.",
                      "type": "self"
                   },
                   {
