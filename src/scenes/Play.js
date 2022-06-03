@@ -105,8 +105,8 @@ class Play extends Phaser.Scene {
       // tutorial text
       this.controls = this.add.image(1240, 479, "object_atlas", 'control_sign').setOrigin(0.5, 1);
       this.controls.depth = -0.01;
-      this.tutText = this.add.text(1220, 270, 'CONTROLS', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5, 0);
-      this.tutText2 = this.add.text(1250, 310, 'A/D   ... WALK\nSHIFT ... SPRINT\nSPACE ... INTERACT', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'left' }).setOrigin(0.5, 0);
+      this.tutText = this.add.text(1240, 270, 'WELCOME TO THE FARM!', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5, 0);
+      this.tutText2 = this.add.text(1245, 310, 'A/D   ... WALK\nSHIFT ... SPRINT\nSPACE ... INTERACT', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'left' }).setOrigin(0.5, 0);
 
       // trees
       this.tree0 = this.add.image(0, 479, "object_atlas", 'tree').setOrigin(0, 1);
@@ -267,9 +267,9 @@ class Play extends Phaser.Scene {
    }
 
    addTweens() {
-      // teddy tween
+      // teddy tomato tween
       this.tweens.add({
-         targets: [this.children.getByName("teddy")],
+         targets: [this.children.getByName("teddy"), this.children.getByName("tomato")],
          scaleY: 1.05,
          duration: 1000,
          ease: 'Sine.easeInOut',
@@ -277,19 +277,9 @@ class Play extends Phaser.Scene {
          repeat: -1,
       });
 
-      // tomato tween
-      this.tomatoTween = this.tweens.add({
-         targets: [this.children.getByName("tomato")],
-         scaleX: 1.07,
-         duration: 1000,
-         ease: 'Sine.easeInOut',
-         yoyo: true,
-         repeat: -1,
-      });
-
-      // walter tween
+      // walter watermelon tween
       this.tweens.add({
-         targets: this.children.getByName("walter"),
+         targets: [this.children.getByName("walter"), this.children.getByName("watermelon")],
          scaleY: 1.03,
          duration: 400,
          ease: 'Sine.easeInOut',
@@ -297,31 +287,11 @@ class Play extends Phaser.Scene {
          repeat: -1,
       });
 
-      // watermelon tween
-      this.watermelonTween = this.tweens.add({
-         targets: [this.children.getByName("watermelon")],
-         scaleX: 1.07,
-         duration: 1000,
-         ease: 'Sine.easeInOut',
-         yoyo: true,
-         repeat: -1,
-      });
-
-      // corrine tween
+      // corrine carrot tween
       this.tweens.add({
-         targets: this.children.getByName("corrine"),
+         targets: [this.children.getByName("corrine"), this.children.getByName("carrot")],
          scaleY: 1.02,
          duration: 300,
-         ease: 'Sine.easeInOut',
-         yoyo: true,
-         repeat: -1,
-      });
-
-      // carrot tween
-      this.tweens.add({
-         targets: this.children.getByName("carrot"),
-         scaleX: 1.07,
-         duration: 1000,
          ease: 'Sine.easeInOut',
          yoyo: true,
          repeat: -1,
