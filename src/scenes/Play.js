@@ -162,11 +162,11 @@ class Play extends Phaser.Scene {
       this.indicator.wrapWidth = 600;
       this.indicator.animation = false;
       this.indicator.visible = false;
+      this.indicator.depth = 7;
 
    }
 
    update() {
-      this.end1 = true;
       if (this.introComplete) {
          // update player
          this.player.update();
@@ -189,17 +189,17 @@ class Play extends Phaser.Scene {
          let carrot = this.children.getByName("carrot");
          let watermelon = this.children.getByName("watermelon");
          this.npcs.runChildUpdate = false;
-         if (Phaser.Math.Distance.Between(this.player.x, this.player.y, tomato.x, tomato.y) < 100) {
+         if (Phaser.Math.Distance.Between(this.player.x, this.player.y, tomato.x, tomato.y) < 200) {
             this.indicator.x = tomato.x;
             this.indicator.y = tomato.y - tomato.height - 25;
             this.indicator.visible = true;
             if (keyTap(keySpace)) this.endingAnimation(tomato);
-         } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, carrot.x, carrot.y) < 100) {
+         } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, carrot.x, carrot.y) < 200) {
             this.indicator.x = carrot.x;
             this.indicator.y = carrot.y - carrot.height - 25;
             this.indicator.visible = true;
             if (keyTap(keySpace)) this.endingAnimation(carrot);
-         } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, watermelon.x, watermelon.y) < 100) {
+         } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, watermelon.x, watermelon.y) < 200) {
             this.indicator.x = watermelon.x;
             this.indicator.y = watermelon.y - watermelon.height - 25;
             this.indicator.visible = true;
@@ -236,22 +236,39 @@ class Play extends Phaser.Scene {
    endingAnimation(target) {
       this.end2 = true;
       console.log("ending");
-      //this.player.controllable = false;
+      this.player.controllable = false;
       this.player.setVelocityX(0);
-      let distance = target.x - this.player.x;
-      let duration = distance / this.player.speed;
+      this.indicator.visible = false;
+      // this code is probably kind of screwy because im not sure what the intergral of the tween is
+      let distance = target.x - this.player.x; // distance between center of player and target
+      let w = 60; // desired distance away from target
+      let duration = 2000; // in ms
+      let move = (distance < 0) ? distance + w : distance - w; // actual location to move to
+
+      // tween player to the correct location by the plant
       this.tweens.add({
          targets: this.player.body.velocity,
-         x: distance / duration,
+         x: move / (duration / 1000),
          duration: duration,
-         ease: '',
-      });
-      // water animation
+         yoyo: true,
+         ease: "sinInOut",
+         onComplete: () => {
+            this.player.setVelocityX(0);
+            this.player.flipX = (target.x - this.player.x > 0) ? true : false;
+            console.log(target.x - this.player.x);
+         }
+      })
 
-      this.cameras.main.fadeOut(500);
-      this.cameras.main.once('camerafadeoutcomplete', () => {
-         this.scene.start("endingScene");
-      });
+      // water animation (missing)
+
+      // change screen after delay
+      this.time.delayedCall(duration * 2, () => {
+         this.cameras.main.fadeOut(500);
+         this.cameras.main.once('camerafadeoutcomplete', () => {
+            this.scene.start("endScene");
+            console.log("ending scene");
+         });
+      }, [], this);
    }
 
    createFloor() {

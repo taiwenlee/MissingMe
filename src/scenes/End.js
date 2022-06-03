@@ -81,13 +81,13 @@ class End extends Phaser.Scene {
       });
       menuButton.input.alwaysEnabled = true; // prevents flickering between two images
       menuButton.depth = 1;
-  }
+   }
 
    update() {
       // move clouds
       this.clouds1.tilePositionX -= 1;
       this.clouds2.tilePositionX -= 0.5;
-  }
+   }
 
    createFloor() {
       // add floor
@@ -106,8 +106,8 @@ class End extends Phaser.Scene {
       this.tweens.add({
          targets: [this.blackFade],
          alpha: 0,
-         duration: 2000,
-         delay: 2000,
+         duration: 1000,
+         delay: 1000,
       });
 
       // teddy tomato tween
