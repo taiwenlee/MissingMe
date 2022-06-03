@@ -34,19 +34,38 @@ class Worm extends Phaser.Physics.Arcade.Sprite {
 
    kick(direction) {
       this.scene.addWorm();
+      let height = 50;
+      let duration = 500;
+      // change worm y position
+      this.scene.tweens.add({
+         targets: this,
+         y: this.y - height,
+         duration: duration * 2 / 3,
+         ease: 'sine.easeOut',
+         onComplete: () => {
+            this.scene.tweens.add({
+               targets: this,
+               y: this.y + height,
+               duration: duration / 3,
+               ease: 'sine.easeIn',
+            });
+         }
+      })
+      // change worm x position, scale, and alpha
       this.scene.tweens.add({
          targets: this,
          x: this.x + direction * 400,
-         y: this.y - 100,
          scale: 0.5,
+         alpha: 0,
          rotation: direction * Math.PI / 2,
-         duration: 500,
-         ease: 'Sine.easeOut',
+         duration: duration,
+         ease: 'Linear',
          onComplete: () => {
             this.timer.destroy();
             this.destroy();
          }
       });
+
    }
 
 }
