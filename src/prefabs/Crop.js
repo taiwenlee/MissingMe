@@ -129,11 +129,15 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       } else if (this.indicator.visible) {
          this.indicator.visible = false;
       }
+
+      // quick bug fix for player being out of interact distance
+      if (this.Interacting && Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) > this.interactDistance) {
+         (this.scene.player.x > this.x) ? this.scene.player.x-- : this.scene.player.x++;
+      }
+
       // update textbox
       this.textbox.update();
 
-      // update indicator
-      this.indicator.update();
    }
 
    // changes to alternate texture
