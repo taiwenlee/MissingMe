@@ -58,6 +58,23 @@ class Villager extends Phaser.GameObjects.Sprite {
       this.sound3 = scene.sound.add(json["sound"]["beginQuest"]);
       this.sound4 = scene.sound.add(json["sound"]["doneQuest"]);
       this.itemSound = scene.sound.add('obtainItem', { volume: sfxVol });
+
+
+      this.fetchItems = this.scene.add.group({
+         classType: Item,
+         runChildUpdate: true
+      });
+      // add fetch items if necessary
+      if (this.questType && "quest_data" in json) {
+         for (let i = 0; i < this.json["quest_data"]["locations"].length; i++) {
+            let location = this.json["quest_data"]["locations"][i];
+            let item = new Item(this.scene, location["x"], location["y"],
+               "object_atlas", this.json["quest_data"]["item_type"], this.json["quest_data"]["item_type"]).setOrigin(0.5, 1);
+            item.interactable = false;
+            this.fetchItems.add(item);
+
+         }
+      }
    }
 
    update() {
@@ -115,12 +132,9 @@ class Villager extends Phaser.GameObjects.Sprite {
                   this.queststate = "repeatquest";
                   this.scene.children.getByName(this.crop).interactable = false;
                   this.scene.children.getByName(this.crop).changeTexture();
-                  for (let i = 0; i < this.json["quest_data"]["locations"].length; i++) {
-                     let location = this.json["quest_data"]["locations"][i];
-                     let item = new Item(this.scene, location["x"], location["y"],
-                        "object_atlas", this.json["quest_data"]["item_type"], this.json["quest_data"]["item_type"]).setOrigin(0.5, 1);
-                     this.scene.items.add(item);
-                  }
+                  this.fetchItems.getChildren().forEach(item => {
+                     item.interactable = true;
+                  });
                } else if (this.queststate == "completequest") {
                   // if complete state, end quest
                   this.queststate = "postquest";

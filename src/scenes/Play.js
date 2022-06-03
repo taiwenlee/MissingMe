@@ -96,12 +96,6 @@ class Play extends Phaser.Scene {
          this.npcs.add(new Crop(this, data["location"]["x"], data["location"]["y"], "object_atlas", key, data).setOrigin(0.5, 1));
       }
 
-      // create items group for fetch items
-      this.items = this.add.group({
-         classType: Item,
-         runChildUpdate: true
-      });
-
       // tutorial text
       this.controls = this.add.image(1240, 479, "object_atlas", 'control_sign').setOrigin(0.5, 1);
       this.controls.depth = -0.01;
@@ -389,8 +383,6 @@ class Play extends Phaser.Scene {
 
    updateCropTween() {
       if (this.data["npcs"]["crops"]["tomato"]["quest_done"] == true && this.tomatoUpdated == false) {
-         this.tomatoTween.stop();
-         console.log("tom tween stopped");
          this.tweens.add({
             targets: this.children.getByName("tomato"),
             scaleX: 1,
@@ -409,7 +401,6 @@ class Play extends Phaser.Scene {
       }
 
       if (this.data["npcs"]["crops"]["watermelon"]["quest_done"] == true && this.watermelonUpdated == false) {
-         this.watermelonTween.stop();
          console.log("water tween stopped");
          this.tweens.add({
             targets: this.children.getByName("watermelon"),

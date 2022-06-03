@@ -7,6 +7,7 @@ class Item extends Phaser.GameObjects.Sprite {
       // set crop properties
       this.interactDistance = 100;  // distance for interaction
       this.type = type;  // name of crop
+      this.interactable = true;
 
       // state variables
       this.Interacting = false;
@@ -41,7 +42,8 @@ class Item extends Phaser.GameObjects.Sprite {
    }
 
    update() {
-      if (Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
+      if (this.interactable &&
+         Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
          // show indicator if nearby
          if (!this.Interacting) this.indicator.visible = true;
          let intKey = keyTap(keySpace);

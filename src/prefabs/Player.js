@@ -75,8 +75,8 @@ class Player extends Phaser.Physics.Arcade.Sprite {
          // stop
          this.tween.resume();
          // slow player down when no keys are pressed
-         if (Math.abs(this.body.velocity.x) > 0.1) {
-            this.body.setVelocityX((this.body.velocity.x) * 0.8);
+         if (Math.abs(this.body.velocity.x) > 1) {
+            this.body.setVelocityX((this.body.velocity.x) * 0.7);
          } else {
             this.body.setVelocityX(0);
          }
@@ -107,12 +107,12 @@ class Player extends Phaser.Physics.Arcade.Sprite {
          this.anims.msPerFrame = 1000 / (Math.abs(this.body.velocity.x) / this.frameRateDivider);
          this.footstep.delay = 1000 * 2 / (Math.abs(this.body.velocity.x) / this.frameRateDivider);
          // limits framerate to 2 fps to prevent infinity problem
-         if (this.anims.msPerFrame > 500) this.anims.msPerFrame = 1000;
-         if (this.footstep.delay > 500) this.footstep.delay = 1000;
+         if (this.anims.msPerFrame > 500) this.anims.msPerFrame = 500;
+         if (this.footstep.delay > 500) this.footstep.delay = 500;
 
          // if previously paused, restart the animation and sound
          if (this.anims.isPaused) {
-            this.anims.restart();
+            this.anims.play(this.currentAnim, true);
             this.footstep.paused = false;
             console.log(this.anims);
          }
