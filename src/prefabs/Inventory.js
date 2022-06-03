@@ -24,11 +24,11 @@ class Inventory {
         this.itemImage = this.scene.add.image(this.x, this.y, "object_atlas", "");
         this.itemImage.visible = false;
         this.itemImage.setScrollFactor(0);
-        this.itemImage.depth = this.depth + 1;
+        this.itemImage.depth = this.depth + .1;
         // count text
         this.itemCountText = this.scene.add.text(this.x, this.y, this.itemCount, this.style);
         this.itemCountText.setScrollFactor(0);
-        this.itemCountText.depth = this.depth + 2;
+        this.itemCountText.depth = this.depth + .2;
         this.itemCountText.visible = false;
 
         // inventory box
@@ -42,7 +42,7 @@ class Inventory {
         this.tween = null;
         this.tweenImage = this.scene.add.image(this.x, this.y, "object_atlas", "");
         this.tweenImage.visible = false;
-        this.tweenImage.depth = this.depth + 2;
+        this.tweenImage.depth = this.depth + .2;
         this.tweenImage.setScrollFactor(0);
 
         this.drawInventory();

@@ -22,7 +22,7 @@ class Textbox {
         this.text = scene.add.text(this.x, this.y, text, style);
         this.text.style.wordWrapWidth = this.wrapWidth;
         this.text.setScrollFactor(this.scroll);
-        this.text.depth = this.depth + 1;
+        this.text.depth = this.depth + .1;
 
         // add text box
         this.box = new Phaser.GameObjects.Graphics(scene);
@@ -79,7 +79,7 @@ class Textbox {
     set depth(value) {
         this._depth = value;
         this.box.depth = value;
-        this.text.depth = value + 1;
+        this.text.depth = value + .1;
     }
 
     get depth() {
