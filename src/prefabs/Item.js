@@ -61,6 +61,7 @@ class Item extends Phaser.GameObjects.Sprite {
             this.scene.player.Interacting = false;
             this.textbox.destroy();
             this.destroy();
+            return;
          }
       } else if (this.indicator.visible) {
          this.indicator.visible = false;

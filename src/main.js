@@ -1,11 +1,10 @@
 let config = {
-   type: Phaser.AUTO,
+   type: Phaser.CANVAS,
    width: 912,
    height: 608,
    pixelArt: true,
    fps: {
       target: 60,
-      forceSetTimeOut: true
    },
    physics: {
       default: 'arcade',
