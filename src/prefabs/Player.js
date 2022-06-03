@@ -32,19 +32,6 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
       // animations
       this.currentAnim = 'dirtywalk';
-      this.dirtyWalk = this.anims.create({
-         key: "dirtywalk",
-         frames: this.anims.generateFrameNames("object_atlas", { prefix: 'player/dirtywalk/walk', end: 3 }),
-         frameRate: 4,
-         repeat: -1
-      });
-
-      this.cleanWalk = this.anims.create({
-         key: "cleanwalk",
-         frames: this.anims.generateFrameNames("object_atlas", { prefix: 'player/cleanwalk/walk', end: 3 }),
-         frameRate: 4,
-         repeat: -1
-      });
 
       // tween
       this.tween = this.scene.tweens.add({
@@ -63,23 +50,29 @@ class Player extends Phaser.Physics.Arcade.Sprite {
 
    update() {
       // basic move player
-      if (keyA.isDown && !this.Interacting && this.controllable) {
+      if (keyA.isDown && !this.Interacting && this.controllable && !(keyD.isDown && this.body.velocity.x > 0)) {
+
          // move left
          this.tween.pause();
          this.body.setVelocityX(keyShift.isDown ? -this.runMultiplier * this.speed : -this.speed);
-      } else if (keyD.isDown && !this.Interacting && this.controllable) {
+
+      } else if (keyD.isDown && !this.Interacting && this.controllable && !(keyA.isDown && this.body.velocity.x < 0)) {
+
          // move right
          this.tween.pause();
          this.body.setVelocityX(keyShift.isDown ? this.runMultiplier * this.speed : this.speed);
+
       } else if (this.controllable) {
-         // stop
-         this.tween.resume();
+
          // slow player down when no keys are pressed
          if (Math.abs(this.body.velocity.x) > 1) {
             this.body.setVelocityX((this.body.velocity.x) * 0.7);
          } else {
             this.body.setVelocityX(0);
          }
+
+         // play idle animation
+         this.tween.resume();
 
       }
 
@@ -98,17 +91,26 @@ class Player extends Phaser.Physics.Arcade.Sprite {
    // probably a lot of things wrong with it
    playAnimsNSound() {
       if (this.body.velocity.x == 0) {
+         // idle
          this.anims.pause();
          this.anims.setCurrentFrame(this.anims.currentAnim.frames[0]);
          this.footstep.paused = true;
+
       } else if (this.anims.frameRate != (Math.abs(this.body.velocity.x) / this.frameRateDivider)) {
+         // player in motion
+
+         // tracker for fps
          this.anims.frameRate = Math.abs(this.body.velocity.x) / this.frameRateDivider; // tracks fps
+
          // update animation and sound delays (not sure if this is the best way to do it)
          this.anims.msPerFrame = 1000 / (Math.abs(this.body.velocity.x) / this.frameRateDivider);
          this.footstep.delay = 1000 * 2 / (Math.abs(this.body.velocity.x) / this.frameRateDivider);
-         // limits framerate to 2 fps to prevent infinity problem
+
+         // limts fps to a range of 2-100
          if (this.anims.msPerFrame > 500) this.anims.msPerFrame = 500;
+         if (this.anims.msPerFrame < 10) this.anims.msPerFrame = 10;
          if (this.footstep.delay > 500) this.footstep.delay = 500;
+         if (this.footstep.delay < 10) this.footstep.delay = 10;
 
          // if previously paused, restart the animation and sound
          if (this.anims.isPaused) {

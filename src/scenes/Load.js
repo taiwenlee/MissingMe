@@ -11,10 +11,6 @@ class Load extends Phaser.Scene {
 
       // object assets
       this.load.atlas("object_atlas", "./assets/images/object_atlas.png", "./assets/images/object_atlas.json");
-      this.load.image("tailorShop", "./assets/images/tailor.png");
-      this.load.image("generalStore", "./assets/images/generalStore.png");
-      this.load.image("doctorsOffice", "./assets/images/doctor.png");
-      this.load.image("house", "./assets/images/house.png");
 
       // data(text, etc) assets
       this.load.json("data", "./assets/data.json");
@@ -40,6 +36,23 @@ class Load extends Phaser.Scene {
 
    create() {
       console.log("Load scene loaded");
+
+      // player animations
+      this.anims.create({
+         key: "dirtywalk",
+         frames: this.anims.generateFrameNames("object_atlas", { prefix: 'player/dirtywalk/walk', end: 3 }),
+         frameRate: 4,
+         repeat: -1
+      });
+
+      this.anims.create({
+         key: "cleanwalk",
+         frames: this.anims.generateFrameNames("object_atlas", { prefix: 'player/cleanwalk/walk', end: 3 }),
+         frameRate: 4,
+         repeat: -1
+      });
+
+      // start the next scene
       this.scene.start("menuScene");
    }
 }

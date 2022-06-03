@@ -35,7 +35,6 @@ class Villager extends Phaser.GameObjects.Sprite {
       this.textbox.backgroundColor = this.json["textbox"]["background_color"];
       this.textbox.borderColor = this.json["textbox"]["border_color"];
       this.textbox.scroll = false;
-      this.textbox.update();
 
       // interact indicator
       this.indicator = new Textbox(scene, x, y - this.height * this.scale - 25, "SPACE", {
@@ -50,7 +49,6 @@ class Villager extends Phaser.GameObjects.Sprite {
       this.indicator.visible = false;
       this.indicator.animation = false;
       this.indicator.depth = 6;
-      this.indicator.update();
 
       // sounds
       this.sound1 = scene.sound.add(json["sound"]["start"]);
@@ -59,7 +57,7 @@ class Villager extends Phaser.GameObjects.Sprite {
       this.sound4 = scene.sound.add(json["sound"]["doneQuest"]);
       this.itemSound = scene.sound.add('obtainItem', { volume: sfxVol });
 
-
+      // fetch item class group
       this.fetchItems = this.scene.add.group({
          classType: Item,
          runChildUpdate: true
@@ -77,8 +75,8 @@ class Villager extends Phaser.GameObjects.Sprite {
       }
    }
 
-   update() {
-      // basic interact with player (very likely to have major changes)
+   update(time, delta) {
+      // interaction with player
       if (Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance
          && this.interactable && this.visible) {
          // show indicator if nearby
@@ -107,71 +105,85 @@ class Villager extends Phaser.GameObjects.Sprite {
 
          } else if (this.Interacting && intKey) {
 
-            if (this.index >= this.narratives[this.queststate].length && this.textbox.isComplete()) {
-               // if at end of text, end interaction
-               this.scene.player.Interacting = false;
-               this.Interacting = false;
-               this.textbox.visible = false;
-               this.index = 0;
-               this.interactable = false;
-               this.scene.time.delayedCall(1000, () => {
-                  this.interactable = true;
-               }, [], this);
-
-               // quest state transition (if there was more time, I wouldve detached this from the object)
-               if (this.queststate == "quest" && this.questType == "get") {
-
-                  // give player item
-                  if (this.itemCount > 0) this.scene.inventory.addItem(this.item, this.itemCount);
-                  this.queststate = "repeatquest";
-                  this.itemSound.play({ volume: sfxVol });
-                  this.scene.children.getByName(this.crop).queststate = "completequest";
-
-               } else if (this.queststate == "quest" && this.questType == "fetch") {
-                  // tells player to go fetch items
-                  this.queststate = "repeatquest";
-                  this.scene.children.getByName(this.crop).interactable = false;
-                  this.scene.children.getByName(this.crop).changeTexture();
-                  this.fetchItems.getChildren().forEach(item => {
-                     item.interactable = true;
-                  });
-               } else if (this.queststate == "completequest") {
-                  // if complete state, end quest
-                  this.queststate = "postquest";
-                  this.scene.inQuest = false;
-                  this.scene.questCount++;
-                  this.sound4.play({ volume: sfxVol });
-               }
-            } else {
+            if (this.index < this.narratives[this.queststate].length || !this.textbox.isComplete()) {
                if (this.textbox.isComplete()) {
                   // use item if quest is a fetch type (rather hard coded)
                   if (this.questType == "fetch" && ("use" in this.narratives[this.queststate][this.index])) {
                      this.scene.inventory.removeItem(1);
                   }
+
                   // cycles down to next dialogue
                   if (this.narratives[this.queststate][this.index]["type"] == "self") this.sound2.play({ volume: sfxVol });
                   this.updateText(this.narratives[this.queststate][this.index++]);
+
                } else {
                   // skip animations
                   this.textbox.skip();
                }
+
+            } else {
+               // if at end of text, end interaction
+               this.scene.player.Interacting = false;
+               this.Interacting = false;
+               this.textbox.visible = false;
+               this.index = 0;
+
+               // transitions quest state
+               this.questTransition();
+
+               // disables interaction for a bit
+               if (this.interactable == true) {
+                  this.interactable = false;
+                  this.scene.time.delayedCall(1000, () => {
+                     this.interactable = true;
+                  }, [], this);
+               }
             }
          }
       } else if (this.indicator.visible) {
+         // hide indicator if not nearby
          this.indicator.visible = false;
       }
 
       // quick bug fix for player being out of interact distance
       if (this.Interacting && Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) > this.interactDistance) {
-         (this.scene.player.x > this.x) ? this.scene.player.x-- : this.scene.player.x++;
+         (this.scene.player.x > this.x) ? this.scene.player.body.setVelocityX(-10) : this.scene.player.body.setVelocityX(10);
       }
 
       // update textbox
-      this.textbox.update();
+      if (this.textbox.visible) this.textbox.update(time, delta);
 
    }
 
-   // updates textbox
+   // quest transition
+   questTransition() {
+      // quest state transition (if there was more time, I wouldve detached this from the object)
+      if (this.queststate == "quest" && this.questType == "get") {
+
+         // give player item
+         if (this.itemCount > 0) this.scene.inventory.addItem(this.item, this.itemCount);
+         this.queststate = "repeatquest";
+         this.itemSound.play({ volume: sfxVol });
+         this.scene.children.getByName(this.crop).queststate = "completequest";
+
+      } else if (this.queststate == "quest" && this.questType == "fetch") {
+         // tells player to go fetch items
+         this.queststate = "repeatquest";
+         this.scene.children.getByName(this.crop).interactable = false;
+         this.scene.children.getByName(this.crop).changeTexture();
+         this.fetchItems.getChildren().forEach(item => {
+            item.interactable = true;
+         });
+      } else if (this.queststate == "completequest") {
+         // if complete state, end quest
+         this.queststate = "postquest";
+         this.scene.inQuest = false;
+         this.scene.questCount++;
+         this.sound4.play({ volume: sfxVol });
+      }
+   }
+
+   // updates textbox with text based on current speaker
    updateText(json) {
       this.textbox.setText(json["text"]);
       if (json["type"] == "self") {

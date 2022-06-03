@@ -14,74 +14,66 @@ class Play extends Phaser.Scene {
       this.end1 = false;  // true if player talks to grave after all quests are done
       this.end2 = false;  // true if player interacts with crop after grave
 
-      // set world size
-      this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
-
-      // add skies
-      this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xe3d8a3).setOrigin(0, 0);
-      this.yellowBackground.setScrollFactor(0);
-      this.yellowBackground.depth = -4;
-      this.pinkBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xaa6bb0).setOrigin(0, 0);
-      this.pinkBackground.setScrollFactor(0);
-      this.pinkBackground.depth = -3;
-      this.purpleBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x654991).setOrigin(0, 0);
-      this.purpleBackground.setScrollFactor(0);
-      this.purpleBackground.depth = -2;
-      this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3a4d99).setOrigin(0, 0);
-      this.blueBackground.setScrollFactor(0);
-      this.blueBackground.depth = -1;
-
-      // parallax clouds
-      this.clouds1 = this.add.tileSprite(0, 0, game.config.width * 5, 608, 'clouds1').setOrigin(0, 0);
-      this.clouds1.depth = -0.5;
-      this.clouds2 = this.add.tileSprite(0, 0, game.config.width * 5, 608, 'clouds2').setOrigin(0, 0);
-      this.clouds2.depth = -0.5;
-
-      // game tint
-      this.saturation = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x000000).setOrigin(0, 0);
-      this.saturation.alpha = 0.39;
-      this.saturation.depth = 1.5;
-      this.saturation.setScrollFactor(0);
-
-      // temp fps counter
-      this.tempFPS = this.add.text(10, 90, "FPS: " + this.game.loop.actualFps);
-      this.tempFPS.setScrollFactor(0);
-
       // controls 
       keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
       keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
       keyShift = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SHIFT);
       keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
       keyESC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ESC);
+      keyH = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.H);
 
-      // add npc data
-      var cache = this.cache.json;
-      this.data = cache.get("data");
+      // set world size
+      this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
+
+      // add skies
+      this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xe3d8a3).setOrigin(0, 0).setScrollFactor(0).setDepth(-4);
+      this.pinkBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xaa6bb0).setOrigin(0, 0).setScrollFactor(0).setDepth(-3);
+      this.purpleBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x654991).setOrigin(0, 0).setScrollFactor(0).setDepth(-2);
+      this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3a4d99).setOrigin(0, 0).setScrollFactor(0).setDepth(-1);
+
+      // parallax clouds
+      this.clouds1 = this.add.tileSprite(0, 0, game.config.width * 5, 608, 'clouds1').setOrigin(0, 0).setDepth(-0.5);
+      this.clouds2 = this.add.tileSprite(0, 0, game.config.width * 5, 608, 'clouds2').setOrigin(0, 0).setDepth(-0.5);
+
+      // add floor
+      this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 5, 132, "object_atlas", 'floor').setOrigin(0, 0);
+
+      // trees
+      this.tree0 = this.add.image(0, 479, "object_atlas", 'tree').setOrigin(0, 1).setScale(1.5);
+      this.tree1 = this.add.image(4300, 479, "object_atlas", 'tree').setOrigin(0, 1).setScale(1.5);
+      this.tree1.flipX = true;
+
+      // add house
+      this.house = this.add.image(800, 477, "object_atlas", 'house').setOrigin(0.5, 1).setDepth(-0.01);
+
+      // add shops
+      this.tailorShop = this.add.image(4000, 477, "object_atlas", 'tailor').setOrigin(0.5, 1).setDepth(-0.01);
+      this.generalStore = this.add.image(2500, 477, "object_atlas", 'generalStore').setOrigin(0.5, 1).setDepth(-0.01);
+      this.doctorsOffice = this.add.image(3300, 477, "object_atlas", 'doctors').setOrigin(0.5, 1).setDepth(-0.01);
+
+      // game tint
+      this.saturation = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x000000).setOrigin(0, 0).setScrollFactor(0).setDepth(1.5).setAlpha(0.39);
+
+      // temp fps counter
+      this.tempFPS = this.add.text(10, 90, "FPS: " + this.game.loop.actualFps).setScrollFactor(0);
 
       // add player
       this.player = new Player(this, 940, 490, 'object_atlas', 'player/dirtywalk/walk0').setOrigin(0.5, 1);
 
       // add camera
-      this.cameras.main.setBounds(0, 0, game.config.width * 5, game.config.height);
-      this.cameras.main.startFollow(this.player);
+      this.cameras.main.setBounds(0, 0, game.config.width * 5, game.config.height).startFollow(this.player);
 
       // add settings text
-      const settingsText = this.add.text(27, 31, 'ESC', { fill: '#79bdfc', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0);
-      settingsText.depth = 2;
-      settingsText.setScrollFactor(0);
+      const settingsText = this.add.text(27, 31, 'ESC', { fill: '#79bdfc', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0).setScrollFactor(0).setDepth(2);
 
       // add settings button
-      const settingsButton = this.add.image(12, 10, "ui_atlas", 'cloud').setOrigin(0);
-      settingsButton.alpha = 1;
-      settingsButton.depth = 1.9;
-      settingsButton.setScrollFactor(0);
+      const settingsButton = this.add.image(12, 10, "ui_atlas", 'cloud').setOrigin(0).setScrollFactor(0).setDepth(1.9).setAlpha(1);
 
       // add inventory
-      this.inventory = new Inventory(this, 897, 15);
-      this.inventory.setOrigin(1, 0);
+      this.inventory = new Inventory(this, 897, 15).setOrigin(1, 0);
 
-      // add floor
-      this.createFloor();
+      // get json data
+      this.data = this.cache.json.get("data");
 
       // add NPCs
       this.npcs = this.add.group({
@@ -97,39 +89,15 @@ class Play extends Phaser.Scene {
       }
 
       // tutorial text
-      this.controls = this.add.image(1240, 479, "object_atlas", 'control_sign').setOrigin(0.5, 1);
-      this.controls.depth = -0.01;
+      this.controls = this.add.image(1240, 479, "object_atlas", 'control_sign').setOrigin(0.5, 1).setDepth(-0.01);
       this.tutText = this.add.text(1240, 270, 'WELCOME TO THE FARM!', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5, 0);
       this.tutText2 = this.add.text(1245, 310, 'A/D   ... WALK\nSHIFT ... SPRINT\nSPACE ... INTERACT', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'left' }).setOrigin(0.5, 0);
-
-      // trees
-      this.tree0 = this.add.image(0, 479, "object_atlas", 'tree').setOrigin(0, 1);
-      this.tree0.scaleX = 1.5;
-      this.tree0.scaleY = 1.5;
-      this.tree1 = this.add.image(4300, 479, "object_atlas", 'tree').setOrigin(0, 1);
-      this.tree1.flipX = true;
-      this.tree1.scaleX = 1.5;
-      this.tree1.scaleY = 1.5;
-
-      // add house
-      this.house = this.add.image(800, 477, 'house').setOrigin(0.5, 1);
-      this.house.depth = -0.01;
-
-      // add shops
-      this.tailorShop = this.add.image(4000, 477, 'tailorShop').setOrigin(0.5, 1);
-      this.tailorShop.depth = -0.01;
-      this.generalStore = this.add.image(2500, 477, 'generalStore').setOrigin(0.5, 1);
-      this.generalStore.depth = -0.01;
-      this.doctorsOffice = this.add.image(3300, 477, 'doctorsOffice').setOrigin(0.5, 1);
-      this.doctorsOffice.depth = -0.01;
 
       // add grave
       this.grave = new Grave(this, 200, 477, 'object_atlas', 'grave', this.data["grave"]).setOrigin(0.5, 1);
 
       // add sun      
-      this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'object_atlas', "sun").setOrigin(0.5, 0.5);
-      this.sun.depth = -0.6;
-      this.sun.setScrollFactor(0);
+      this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'object_atlas', "sun").setOrigin(0.5, 0.5).setScrollFactor(0).setDepth(-0.6);
 
       // tween
       this.addTweens();
@@ -161,53 +129,6 @@ class Play extends Phaser.Scene {
    }
 
    update() {
-      if (this.introComplete) {
-         // update player
-         this.player.update();
-         this.grave.update();
-      } else {
-         if (keyTap(keySpace)) {
-            if (this.introindex < this.data["intro"].length) {
-               this.introText.setText(this.data["intro"][this.introindex++]);
-            } else {
-               console.log("intro complete");
-               this.introText.visible = false;
-               this.introComplete = true;
-               this.npcs.runChildUpdate = true;
-            }
-         }
-      }
-      if (this.end1 && !this.end2) {
-         // if player is in the area of the farm engage in animation here...
-         let tomato = this.children.getByName("tomato");
-         let carrot = this.children.getByName("carrot");
-         let watermelon = this.children.getByName("watermelon");
-         this.npcs.runChildUpdate = false;
-         if (Phaser.Math.Distance.Between(this.player.x, this.player.y, tomato.x, tomato.y) < 200) {
-            this.indicator.x = tomato.x;
-            this.indicator.y = tomato.y - tomato.height - 25;
-            this.indicator.visible = true;
-            if (keyTap(keySpace)) this.endingAnimation(tomato);
-         } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, carrot.x, carrot.y) < 200) {
-            this.indicator.x = carrot.x;
-            this.indicator.y = carrot.y - carrot.height - 25;
-            this.indicator.visible = true;
-            if (keyTap(keySpace)) this.endingAnimation(carrot);
-         } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, watermelon.x, watermelon.y) < 200) {
-            this.indicator.x = watermelon.x;
-            this.indicator.y = watermelon.y - watermelon.height - 25;
-            this.indicator.visible = true;
-            if (keyTap(keySpace)) this.endingAnimation(watermelon);
-         } else {
-            this.indicator.visible = false;
-         }
-      }
-
-      // sets grave the end state if quests are complete
-      if (this.questCount == 3 && this.grave.state != "end") {
-         this.grave.state = "end";
-      }
-
       // update fps counter
       this.tempFPS.setText("FPS: " + this.game.loop.actualFps.toFixed(2));
 
@@ -218,6 +139,74 @@ class Play extends Phaser.Scene {
       // go to setting if ESC is pressed
       if (keyESC.isDown) {
          this.scene.pause().launch("settingsScene", { scene: "playScene" });
+      }
+
+      // super secret speed hax code
+      if (keyTap(keyH)) {
+         this.player.runMultiplier = (this.player.runMultiplier == 1.5) ? 8 : 1.5;
+         console.log(this.player.runMultiplier);
+      }
+
+      // sets grave the end state if quests are complete
+      if (this.questCount == 3 && this.grave.state != "end") {
+         this.grave.state = "end";
+      }
+
+      if (this.introComplete) {
+         // update player
+         this.player.update();
+         this.grave.update();
+      } else {
+         // update intro text
+         if (keyTap(keySpace)) {
+
+            if (this.introindex < this.data["intro"].length) {
+               // update text if incomplete
+               this.introText.setText(this.data["intro"][this.introindex++]);
+            } else {
+               // end intro
+               console.log("intro complete");
+               this.introText.visible = false;
+               this.introComplete = true;
+               this.npcs.runChildUpdate = true;
+            }
+         }
+      }
+
+      // checks for end states
+      if (this.end1 && !this.end2) {
+
+         // if player is in the area of the farm engage in animation here...
+         let tomato = this.children.getByName("tomato");
+         let carrot = this.children.getByName("carrot");
+         let watermelon = this.children.getByName("watermelon");
+         this.npcs.runChildUpdate = false;
+
+         if (Phaser.Math.Distance.Between(this.player.x, this.player.y, tomato.x, tomato.y) < 200) {
+            // if near tomato show indicator, if space is pressed, start animation
+            this.indicator.x = tomato.x;
+            this.indicator.y = tomato.y - tomato.height - 25;
+            this.indicator.visible = true;
+            if (keyTap(keySpace)) this.endingAnimation(tomato);
+
+         } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, carrot.x, carrot.y) < 200) {
+            // if near carrot show indicator, if space is pressed, start animation
+            this.indicator.x = carrot.x;
+            this.indicator.y = carrot.y - carrot.height - 25;
+            this.indicator.visible = true;
+            if (keyTap(keySpace)) this.endingAnimation(carrot);
+
+         } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, watermelon.x, watermelon.y) < 200) {
+            // if near watermelon show indicator, if space is pressed, start animation
+            this.indicator.x = watermelon.x;
+            this.indicator.y = watermelon.y - watermelon.height - 25;
+            this.indicator.visible = true;
+            if (keyTap(keySpace)) this.endingAnimation(watermelon);
+
+         } else {
+            // hid indicator if player not near crops
+            this.indicator.visible = false;
+         }
       }
 
       // update sun and background tween
@@ -263,18 +252,6 @@ class Play extends Phaser.Scene {
             console.log("ending scene");
          });
       }, [], this);
-   }
-
-   createFloor() {
-      // add floor
-      this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 5, 132, "object_atlas", 'floor').setOrigin(0, 0);
-
-      // add to physics
-      this.physics.add.existing(this.floor, true);
-      this.floor.body.immovable = true;
-
-      // add collision between player and floor
-      this.physics.add.collider(this.player, this.floor);
    }
 
    addTweens() {

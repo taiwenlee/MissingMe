@@ -118,6 +118,7 @@ class Inventory {
         } else {
             console.log("Error: setOrigin requires 1 or 2 arguments");
         }
+        return this;
     }
 
     addItem(name, count) {

@@ -21,7 +21,7 @@ let config = {
 let game = new Phaser.Game(config);
 
 // controls
-let keyA, keyD, keyShift, keySpace, keyESC;
+let keyA, keyD, keyShift, keySpace, keyESC, keyH;
 
 // background music var
 let music;
@@ -32,7 +32,7 @@ let sfxVol = 0.5;
 
 // returns true once per key press
 function keyTap(key) {
-   // added a holding var to key for tap logic
+   // added a holding var to key for tap logic   
    if (key.holding == null) {
       key.holding = false;
    }

@@ -8,6 +8,7 @@ class Grave extends Phaser.GameObjects.Sprite {
       this.interactDistance = 100;  // distance for interaction
       this.ending = false;
       this.json = json;
+      this.interactable = true;
 
       // state variables
       this.Interacting = false;
@@ -41,36 +42,28 @@ class Grave extends Phaser.GameObjects.Sprite {
       this.indicator.visible = false;
       this.indicator.animation = false;
       this.indicator.depth = 6;
-      this.indicator.update();
    }
 
-   update() {
-      if (Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
+   update(time, delta) {
+      if (this.interactable &&
+         Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
          // show indicator if nearby
          if (!this.Interacting) this.indicator.visible = true;
+
+         // check for a key press
          let intKey = keyTap(keySpace);
+
          if (intKey && !this.Interacting) {
+
             // initiate interaction
             this.indicator.visible = false;
             this.Interacting = true;
             this.scene.player.Interacting = true;
             this.textbox.visible = true;
             this.textbox.setText(this.json[this.state][this.index++]);
+
          } else if (this.Interacting && intKey) {
-            if (this.index >= this.json[this.state].length && this.textbox.isComplete()) {
-               this.scene.player.Interacting = false;
-               this.Interacting = false;
-               this.textbox.visible = false;
-               this.index = 0;
-               if (this.state == "start") this.state = "repeat";
-               if (this.state == "end") this.scene.end1 = true;
-               if (this.interactable == true) {
-                  this.interactable = false;
-                  this.scene.time.delayedCall(1000, () => {
-                     this.interactable = true;
-                  }, [], this);
-               }
-            } else {
+            if (this.index < this.json[this.state].length || !this.textbox.isComplete()) {
                // cycles down to next dialogue
                if (this.textbox.isComplete()) {
                   this.textbox.setText(this.json[this.state][this.index++]);
@@ -78,18 +71,38 @@ class Grave extends Phaser.GameObjects.Sprite {
                   // skip animations
                   this.textbox.skip();
                }
+
+            } else {
+               // end dialogue
+               this.scene.player.Interacting = false;
+               this.Interacting = false;
+               this.textbox.visible = false;
+               this.index = 0;
+
+               // transitions dialogue
+               if (this.state == "start") this.state = "repeat";
+               if (this.state == "end") this.scene.end1 = true;
+
+               // disableds interaction for a bit
+               if (this.interactable == true) {
+                  this.interactable = false;
+                  this.scene.time.delayedCall(1000, () => {
+                     this.interactable = true;
+                  }, [], this);
+               }
             }
          }
       } else if (this.indicator.visible) {
+         // hide indicator if not nearby
          this.indicator.visible = false;
       }
 
       // quick bug fix for player being out of interact distance
       if (this.Interacting && Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) > this.interactDistance) {
-         (this.scene.player.x > this.x) ? this.scene.player.x-- : this.scene.player.x++;
+         (this.scene.player.x > this.x) ? this.scene.player.body.setVelocityX(-10) : this.scene.player.body.setVelocityX(10);
       }
 
       // update textbox
-      this.textbox.update();
+      if (this.textbox.visible) this.textbox.update(time, delta);
    }
 }

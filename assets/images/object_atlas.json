@@ -4,30 +4,93 @@
 			"image": "object_atlas.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 552,
-				"h": 494
+				"w": 1298,
+				"h": 952
 			},
 			"scale": 1,
 			"frames": [
 				{
-					"filename": "control_sign",
+					"filename": "doctors",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 314,
-						"h": 224
+						"w": 498,
+						"h": 474
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 314,
-						"h": 224
+						"w": 498,
+						"h": 474
 					},
 					"frame": {
 						"x": 1,
 						"y": 1,
-						"w": 314,
-						"h": 224
+						"w": 498,
+						"h": 474
+					}
+				},
+				{
+					"filename": "house",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 498,
+						"h": 474
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 498,
+						"h": 474
+					},
+					"frame": {
+						"x": 1,
+						"y": 477,
+						"w": 498,
+						"h": 474
+					}
+				},
+				{
+					"filename": "generalStore",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 485,
+						"h": 434
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 485,
+						"h": 434
+					},
+					"frame": {
+						"x": 501,
+						"y": 1,
+						"w": 485,
+						"h": 434
+					}
+				},
+				{
+					"filename": "tailor",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 454,
+						"h": 434
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 454,
+						"h": 434
+					},
+					"frame": {
+						"x": 501,
+						"y": 437,
+						"w": 454,
+						"h": 434
 					}
 				},
 				{
@@ -45,10 +108,73 @@
 						"h": 248
 					},
 					"frame": {
-						"x": 1,
-						"y": 227,
+						"x": 988,
+						"y": 1,
 						"w": 180,
 						"h": 248
+					}
+				},
+				{
+					"filename": "bench",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 190,
+						"h": 109
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 190,
+						"h": 109
+					},
+					"frame": {
+						"x": 988,
+						"y": 251,
+						"w": 190,
+						"h": 109
+					}
+				},
+				{
+					"filename": "streetlamp",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 42,
+						"h": 235
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 42,
+						"h": 235
+					},
+					"frame": {
+						"x": 1170,
+						"y": 1,
+						"w": 42,
+						"h": 235
+					}
+				},
+				{
+					"filename": "control_sign",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 314,
+						"h": 224
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 314,
+						"h": 224
+					},
+					"frame": {
+						"x": 957,
+						"y": 437,
+						"w": 314,
+						"h": 224
 					}
 				},
 				{
@@ -66,8 +192,8 @@
 						"h": 132
 					},
 					"frame": {
-						"x": 317,
-						"y": 1,
+						"x": 957,
+						"y": 663,
 						"w": 132,
 						"h": 132
 					}
@@ -87,52 +213,31 @@
 						"h": 128
 					},
 					"frame": {
-						"x": 183,
-						"y": 227,
+						"x": 1091,
+						"y": 663,
 						"w": 128,
 						"h": 128
 					}
 				},
 				{
-					"filename": "teddy",
+					"filename": "corrine",
 					"rotated": false,
-					"trimmed": true,
+					"trimmed": false,
 					"sourceSize": {
-						"w": 79,
-						"h": 127
-					},
-					"spriteSourceSize": {
-						"x": 1,
-						"y": 0,
-						"w": 76,
-						"h": 127
-					},
-					"frame": {
-						"x": 451,
-						"y": 1,
-						"w": 76,
-						"h": 127
-					}
-				},
-				{
-					"filename": "walter",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 63,
-						"h": 110
+						"w": 53,
+						"h": 167
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 62,
-						"h": 110
+						"w": 53,
+						"h": 167
 					},
 					"frame": {
-						"x": 183,
-						"y": 357,
-						"w": 62,
-						"h": 110
+						"x": 1214,
+						"y": 1,
+						"w": 53,
+						"h": 167
 					}
 				},
 				{
@@ -150,8 +255,8 @@
 						"h": 150
 					},
 					"frame": {
-						"x": 317,
-						"y": 135,
+						"x": 1221,
+						"y": 663,
 						"w": 60,
 						"h": 150
 					}
@@ -171,9 +276,51 @@
 						"h": 150
 					},
 					"frame": {
-						"x": 317,
-						"y": 135,
+						"x": 1221,
+						"y": 663,
 						"w": 60,
+						"h": 150
+					}
+				},
+				{
+					"filename": "teddy",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 79,
+						"h": 127
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 76,
+						"h": 127
+					},
+					"frame": {
+						"x": 957,
+						"y": 797,
+						"w": 76,
+						"h": 127
+					}
+				},
+				{
+					"filename": "player/cleanwalk/walk1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 104,
+						"h": 156
+					},
+					"spriteSourceSize": {
+						"x": 23,
+						"y": 6,
+						"w": 55,
+						"h": 150
+					},
+					"frame": {
+						"x": 1035,
+						"y": 797,
+						"w": 55,
 						"h": 150
 					}
 				},
@@ -192,178 +339,10 @@
 						"h": 150
 					},
 					"frame": {
-						"x": 379,
-						"y": 135,
+						"x": 1092,
+						"y": 793,
 						"w": 60,
 						"h": 150
-					}
-				},
-				{
-					"filename": "corrine",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 53,
-						"h": 167
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 53,
-						"h": 167
-					},
-					"frame": {
-						"x": 441,
-						"y": 135,
-						"w": 53,
-						"h": 167
-					}
-				},
-				{
-					"filename": "player/cleanwalk/walk1",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 104,
-						"h": 156
-					},
-					"spriteSourceSize": {
-						"x": 23,
-						"y": 6,
-						"w": 55,
-						"h": 150
-					},
-					"frame": {
-						"x": 496,
-						"y": 130,
-						"w": 55,
-						"h": 150
-					}
-				},
-				{
-					"filename": "player/dirtywalk/walk1",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 104,
-						"h": 156
-					},
-					"spriteSourceSize": {
-						"x": 23,
-						"y": 6,
-						"w": 55,
-						"h": 150
-					},
-					"frame": {
-						"x": 496,
-						"y": 282,
-						"w": 55,
-						"h": 150
-					}
-				},
-				{
-					"filename": "carrot",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 91,
-						"h": 50
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 2,
-						"w": 88,
-						"h": 48
-					},
-					"frame": {
-						"x": 313,
-						"y": 287,
-						"w": 88,
-						"h": 48
-					}
-				},
-				{
-					"filename": "grave",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 57,
-						"h": 74
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 57,
-						"h": 74
-					},
-					"frame": {
-						"x": 247,
-						"y": 357,
-						"w": 57,
-						"h": 74
-					}
-				},
-				{
-					"filename": "baby_carrots",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 86,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 86,
-						"h": 16
-					},
-					"frame": {
-						"x": 1,
-						"y": 477,
-						"w": 86,
-						"h": 16
-					}
-				},
-				{
-					"filename": "carrot_item",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 36,
-						"h": 48
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 36,
-						"h": 48
-					},
-					"frame": {
-						"x": 403,
-						"y": 287,
-						"w": 36,
-						"h": 48
-					}
-				},
-				{
-					"filename": "tomato",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 70,
-						"h": 59
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 2,
-						"w": 65,
-						"h": 57
-					},
-					"frame": {
-						"x": 247,
-						"y": 433,
-						"w": 65,
-						"h": 57
 					}
 				},
 				{
@@ -381,8 +360,8 @@
 						"h": 150
 					},
 					"frame": {
-						"x": 314,
-						"y": 337,
+						"x": 1154,
+						"y": 793,
 						"w": 60,
 						"h": 150
 					}
@@ -402,14 +381,35 @@
 						"h": 150
 					},
 					"frame": {
-						"x": 314,
-						"y": 337,
+						"x": 1154,
+						"y": 793,
 						"w": 60,
 						"h": 150
 					}
 				},
 				{
-					"filename": "player/dirtywalk/walk3",
+					"filename": "walter",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 63,
+						"h": 110
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 62,
+						"h": 110
+					},
+					"frame": {
+						"x": 1216,
+						"y": 815,
+						"w": 62,
+						"h": 110
+					}
+				},
+				{
+					"filename": "player/dirtywalk/walk1",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -417,16 +417,58 @@
 						"h": 156
 					},
 					"spriteSourceSize": {
-						"x": 20,
+						"x": 23,
 						"y": 6,
-						"w": 60,
+						"w": 55,
 						"h": 150
 					},
 					"frame": {
-						"x": 376,
-						"y": 337,
-						"w": 60,
+						"x": 1180,
+						"y": 238,
+						"w": 55,
 						"h": 150
+					}
+				},
+				{
+					"filename": "grave",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 61,
+						"h": 77
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 61,
+						"h": 77
+					},
+					"frame": {
+						"x": 501,
+						"y": 873,
+						"w": 61,
+						"h": 77
+					}
+				},
+				{
+					"filename": "carrot",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 91,
+						"h": 50
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 2,
+						"w": 88,
+						"h": 48
+					},
+					"frame": {
+						"x": 988,
+						"y": 362,
+						"w": 88,
+						"h": 48
 					}
 				},
 				{
@@ -444,10 +486,94 @@
 						"h": 68
 					},
 					"frame": {
-						"x": 438,
-						"y": 337,
+						"x": 564,
+						"y": 873,
 						"w": 56,
 						"h": 68
+					}
+				},
+				{
+					"filename": "tomato",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 70,
+						"h": 59
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 2,
+						"w": 65,
+						"h": 57
+					},
+					"frame": {
+						"x": 622,
+						"y": 873,
+						"w": 65,
+						"h": 57
+					}
+				},
+				{
+					"filename": "player/dirtywalk/walk3",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 104,
+						"h": 156
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 6,
+						"w": 60,
+						"h": 150
+					},
+					"frame": {
+						"x": 1237,
+						"y": 170,
+						"w": 60,
+						"h": 150
+					}
+				},
+				{
+					"filename": "baby_carrots",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 86,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 86,
+						"h": 16
+					},
+					"frame": {
+						"x": 988,
+						"y": 412,
+						"w": 86,
+						"h": 16
+					}
+				},
+				{
+					"filename": "carrot_item",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 36,
+						"h": 48
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 36,
+						"h": 48
+					},
+					"frame": {
+						"x": 1078,
+						"y": 362,
+						"w": 36,
+						"h": 48
 					}
 				},
 				{
@@ -465,10 +591,94 @@
 						"h": 41
 					},
 					"frame": {
-						"x": 438,
-						"y": 407,
+						"x": 689,
+						"y": 873,
 						"w": 41,
 						"h": 41
+					}
+				},
+				{
+					"filename": "worm/worm0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 5
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 5
+					},
+					"frame": {
+						"x": 988,
+						"y": 430,
+						"w": 20,
+						"h": 5
+					}
+				},
+				{
+					"filename": "worm/worm1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 20,
+						"h": 5
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 0,
+						"w": 16,
+						"h": 5
+					},
+					"frame": {
+						"x": 1010,
+						"y": 430,
+						"w": 16,
+						"h": 5
+					}
+				},
+				{
+					"filename": "bird/bird0",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 10
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 10
+					},
+					"frame": {
+						"x": 1216,
+						"y": 927,
+						"w": 16,
+						"h": 10
+					}
+				},
+				{
+					"filename": "bird/bird1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 16,
+						"h": 10
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 10
+					},
+					"frame": {
+						"x": 1269,
+						"y": 1,
+						"w": 16,
+						"h": 10
 					}
 				}
 			]
@@ -477,6 +687,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:620c3244a422aac348e3f99595460773:b9f58f35b594a0df4597a55c8e06a5eb:358f055dcd7752a1b7d514c352666090$"
+		"smartupdate": "$TexturePacker:SmartUpdate:04f029fe72464f9f7a65f5c71679e9a0:45e969c5dd3bbd875d9a2f38017ae89c:358f055dcd7752a1b7d514c352666090$"
 	}
 }

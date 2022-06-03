@@ -14,7 +14,7 @@ class Textbox {
         this._OriginX = 0;
         this._OriginY = 0;
         this._wrapWidth = 400;
-        this._speed = 0.5; // letter per update
+        this._speed = 24; // letter per second
         this._animation = true; // if true, letter and letter will play
         this._scroll = true; // if true, text will scroll
 
@@ -198,10 +198,10 @@ class Textbox {
         return this._scroll;
     }
 
-    update() {
+    update(time, delta) {
         // update text animation
         if (this.animation && this.index < this.textLength) {
-            this.index += this.speed;
+            this.index += this.speed * delta / 1000;
             this.text.setText(this.fullText.substring(0, this.index));
             // basic prevent of overflow on textbox
             if (this.text.width > this.width) {
