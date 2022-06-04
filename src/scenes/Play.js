@@ -192,21 +192,21 @@ class Play extends Phaser.Scene {
          let watermelon = this.children.getByName("watermelon");
          this.npcs.runChildUpdate = false;
 
-         if (Phaser.Math.Distance.Between(this.player.x, this.player.y, tomato.x, tomato.y) < 200) {
+         if (Phaser.Math.Distance.Between(this.player.x, this.player.y, tomato.x, tomato.y) < 150) {
             // if near tomato show indicator, if space is pressed, start animation
             this.indicator.x = tomato.x;
             this.indicator.y = tomato.y - tomato.height - 25;
             this.indicator.visible = true;
             if (keyTap(keySpace)) this.endingAnimation(tomato);
 
-         } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, carrot.x, carrot.y) < 200) {
+         } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, carrot.x, carrot.y) < 150) {
             // if near carrot show indicator, if space is pressed, start animation
             this.indicator.x = carrot.x;
             this.indicator.y = carrot.y - carrot.height - 25;
             this.indicator.visible = true;
             if (keyTap(keySpace)) this.endingAnimation(carrot);
 
-         } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, watermelon.x, watermelon.y) < 200) {
+         } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, watermelon.x, watermelon.y) < 150) {
             // if near watermelon show indicator, if space is pressed, start animation
             this.indicator.x = watermelon.x;
             this.indicator.y = watermelon.y - watermelon.height - 25;
