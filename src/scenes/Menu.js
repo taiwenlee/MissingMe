@@ -10,7 +10,7 @@ class Menu extends Phaser.Scene {
          music.setLoop(true);
          music.play();
       }
-      
+
       // fade out of black
       this.blackFade = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x000000).setOrigin(0, 0);
       this.blackFade.depth = 10;
@@ -75,7 +75,7 @@ class Menu extends Phaser.Scene {
       playButton.on('pointerdown', () => {
          this.hoverSound.stop();
          this.playSound.play({ volume: sfxVol });
-         
+
          // change screen after delay
          this.time.delayedCall(100, () => {
             this.cameras.main.fadeOut(1000);
@@ -83,10 +83,10 @@ class Menu extends Phaser.Scene {
                this.scene.start("playScene");
                console.log("play scene");
             });
-         }, [], this);      
+         }, [], this);
 
          //this.time.delayedCall(100, () => {
-            //this.scene.start("playScene");
+         //this.scene.start("playScene");
          //});
       });
       playButton.on('pointerover', () => { // reveal hover image
@@ -169,21 +169,6 @@ class Menu extends Phaser.Scene {
          creditsText.setFill('#6187ff');
       });
       creditsButton.input.alwaysEnabled = true; // prevents flickering between two images
-
-      // add end text
-      const endText = this.add.text(37, 25 + 12, 'END', { fill: '#79bdfc', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5);
-      endText.depth = 1;
-
-      // end button
-      const endButton = this.add.image(0, 0, "ui_atlas", 'cloud').setOrigin(0);
-      endButton.setInteractive();
-      endButton.on('pointerdown', () => {
-         this.hoverSound.stop();
-         this.playSound.play({ volume: sfxVol });
-         this.time.delayedCall(100, () => {
-            this.scene.start("endScene");
-         });
-      });
    }
 
    update() {
