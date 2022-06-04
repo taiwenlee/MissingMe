@@ -139,7 +139,7 @@ class Play extends Phaser.Scene {
 
    }
 
-   update() {
+   update(time, delta) {
       // update fps counter
       this.tempFPS.setText("FPS: " + this.game.loop.actualFps.toFixed(2));
 
@@ -165,7 +165,7 @@ class Play extends Phaser.Scene {
       if (this.introComplete) {
          // update player
          this.player.update();
-         this.grave.update();
+         this.grave.update(time, delta);
       } else {
          // update intro text
          if (keyTap(keySpace)) {
