@@ -73,14 +73,16 @@ class Villager extends Phaser.GameObjects.Sprite {
 
          }
       }
-      this.scene.tweens.add({
+
+      // item tween
+      /*this.scene.tweens.add({
          targets: this.fetchItems.getChildren(),
          scaleY: 1.02,
          duration: 300,
          ease: 'Sine.easeInOut',
          yoyo: true,
          repeat: -1,
-      });
+      });*/
    }
 
    update(time, delta) {
