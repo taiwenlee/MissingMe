@@ -369,7 +369,7 @@
             "item_count": 1,
             "quest_type": "fetch",
             "quest_data": {
-               "item_type": "carrot_item",
+               "item_type": "carrot_no_face",
                "item_count": 3,
                "locations": [
                   {
