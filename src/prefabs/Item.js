@@ -12,17 +12,6 @@ class Item extends Phaser.GameObjects.Sprite {
       // state variables
       this.Interacting = false;
 
-      // text object
-      this.textbox = new Textbox(scene, x, y - this.height * this.scale * 3, "You obtained item!", {
-         fontFamily: 'VT323',
-         fontSize: '40px',
-         color: '#ffffff',
-         align: 'center',
-      });
-      this.textbox.setOrigin(0.5, 1);
-      this.textbox.visible = false;
-      this.textbox.animation = false;
-
       // interact indicator
       this.indicator = new Textbox(scene, x, y - this.height * this.scale - 25, "SPACE", {
          fontFamily: 'VT323',
@@ -56,8 +45,6 @@ class Item extends Phaser.GameObjects.Sprite {
             this.indicator.visible = false;
             this.Interacting = true;
             this.scene.player.Interacting = true;
-            this.textbox.visible = true;
-            this.textbox.setText("You obtained item!");
             this.scene.inventory.addItem(this.type, 1);
             this.itemSound.play({ volume: sfxVol });
             this.visible = false;
@@ -65,7 +52,6 @@ class Item extends Phaser.GameObjects.Sprite {
          } else if (this.Interacting && intKey) {
             // end interaction
             this.scene.player.Interacting = false;
-            this.textbox.destroy();
             this.destroy();
             return;
          }
