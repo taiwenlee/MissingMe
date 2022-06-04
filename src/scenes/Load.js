@@ -32,6 +32,7 @@ class Load extends Phaser.Scene {
       this.load.audio('corrine2', 'assets/sounds/corrine2.mp3');
       this.load.audio('step1', 'assets/sounds/step1.mp3');
       this.load.audio('step2', 'assets/sounds/step2.mp3');
+      this.load.audio('water', 'assets/sounds/watering.mp3');
    }
 
    create() {

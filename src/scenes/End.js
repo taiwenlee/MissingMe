@@ -80,7 +80,7 @@ class End extends Phaser.Scene {
 
       // change screen after delay
       this.time.delayedCall(0, () => {
-         this.cameras.main.fadeIn(2000);
+         this.cameras.main.fadeIn(4000);
       }, [], this);    
    }
 

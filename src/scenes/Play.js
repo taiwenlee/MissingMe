@@ -63,6 +63,9 @@ class Play extends Phaser.Scene {
       // get json data
       this.data = this.cache.json.get("data");
 
+      // add watering can sound
+      this.water = this.sound.add('water', { volume: sfxVol });
+
       // add NPCs
       this.npcs = this.add.group({
          runChildUpdate: false
@@ -264,14 +267,20 @@ class Play extends Phaser.Scene {
             let wateringcan = this.add.sprite(waterXPos, this.player.y - 58, 'object_atlas', 'wateringcan/wateringcan0').setOrigin(0.5, 0).setDepth(6);
             wateringcan.flipX = (distance < 0) ? true : false;
             wateringcan.anims.play('wateringcan', true);
+            this.water.play({ volume: sfxVol });
          }
       })
 
-
+      // tween water volume down
+      this.tweens.add({
+         targets: this.water,
+         volume: 0,
+         duration: 7375,
+         })
 
       // change screen after delay
-      this.time.delayedCall(duration * 4, () => {
-         this.cameras.main.fadeOut(500);
+      this.time.delayedCall(duration * 4.5, () => {
+         this.cameras.main.fadeOut(4000);
          this.cameras.main.once('camerafadeoutcomplete', () => {
             this.scene.start("endScene");
             console.log("ending scene");
