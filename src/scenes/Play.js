@@ -275,9 +275,9 @@ class Play extends Phaser.Scene {
    }
 
    addTweens() {
-      // teddy tomato tween
+      // teddy tween
       this.tweens.add({
-         targets: [this.children.getByName("teddy"), this.children.getByName("tomato")],
+         targets: [this.children.getByName("teddy")],
          scaleY: 1.05,
          duration: 1000,
          ease: 'Sine.easeInOut',
@@ -285,9 +285,29 @@ class Play extends Phaser.Scene {
          repeat: -1,
       });
 
-      // walter watermelon tween
+      // tomato tween
+      this.tomatoTween = this.tweens.add({
+         targets: [this.children.getByName("tomato")],
+         scaleY: 1.05,
+         duration: 1000,
+         ease: 'Sine.easeInOut',
+         yoyo: true,
+         repeat: -1,
+      });
+
+      // walter tween
       this.tweens.add({
-         targets: [this.children.getByName("walter"), this.children.getByName("watermelon")],
+         targets: [this.children.getByName("walter")],
+         scaleY: 1.03,
+         duration: 400,
+         ease: 'Sine.easeInOut',
+         yoyo: true,
+         repeat: -1,
+      });
+
+      // watermelon tween
+      this.watermelonTween = this.tweens.add({
+         targets: [this.children.getByName("watermelon")],
          scaleY: 1.03,
          duration: 400,
          ease: 'Sine.easeInOut',
@@ -380,38 +400,24 @@ class Play extends Phaser.Scene {
 
    updateCropTween() {
       if (this.data["npcs"]["crops"]["tomato"]["quest_done"] == true && this.tomatoUpdated == false) {
+         this.tomatoTween.remove();
          this.tweens.add({
-            targets: this.children.getByName("tomato"),
+            targets: [this.children.getByName("tomato")],
             scaleX: 1,
             scaleY: 1,
             duration: 100,
-         });
-         this.tweens.add({
-            targets: this.children.getByName("tomato"),
-            scaleY: 1.05,
-            duration: 1000,
-            ease: 'Sine.easeInOut',
-            yoyo: true,
-            repeat: -1,
          });
          this.tomatoUpdated = true;
       }
 
       if (this.data["npcs"]["crops"]["watermelon"]["quest_done"] == true && this.watermelonUpdated == false) {
          console.log("water tween stopped");
+         this.watermelonTween.remove();
          this.tweens.add({
             targets: this.children.getByName("watermelon"),
             scaleX: 1,
             scaleY: 1,
             duration: 100,
-         });
-         this.tweens.add({
-            targets: this.children.getByName("watermelon"),
-            scaleY: 1.03,
-            duration: 400,
-            ease: 'Sine.easeInOut',
-            yoyo: true,
-            repeat: -1,
          });
          this.watermelonUpdated = true;
       }
