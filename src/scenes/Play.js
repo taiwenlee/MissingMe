@@ -121,6 +121,7 @@ class Play extends Phaser.Scene {
       this.introText = new Textbox(this, game.config.width / 2, game.config.height / 2 - 20, this.data["intro"][this.introindex++], {
          fontFamily: 'VT323',
          fontSize: '32px',
+         fontStyle: 'italic',
          color: '#ffffff',
          align: 'left'
       }).setOrigin(0.5);
@@ -143,11 +144,12 @@ class Play extends Phaser.Scene {
       // change screen after delay
       this.time.delayedCall(0, () => {
          this.cameras.main.fadeIn(2000);
-      }, [], this);     
+      }, [], this);
 
    }
 
    update(time, delta) {
+      this.end1 = true;
       // update fps counter
       this.tempFPS.setText("FPS: " + this.game.loop.actualFps.toFixed(2));
 
@@ -276,7 +278,7 @@ class Play extends Phaser.Scene {
          targets: this.water,
          volume: 0,
          duration: 7375,
-         })
+      })
 
       // change screen after delay
       this.time.delayedCall(duration * 4.5, () => {

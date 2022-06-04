@@ -21,7 +21,7 @@ class Grave extends Phaser.GameObjects.Sprite {
          fontStyle: 'italic',
          fontSize: '35px',
          color: '#ffffff',
-         align: 'center',
+         align: 'left',
       });
       this.textbox.setOrigin(0.5, 0);
       this.textbox.scroll = false;
