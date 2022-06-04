@@ -137,6 +137,11 @@ class Play extends Phaser.Scene {
       this.indicator.visible = false;
       this.indicator.depth = 7;
 
+      // change screen after delay
+      this.time.delayedCall(0, () => {
+         this.cameras.main.fadeIn(2000);
+      }, [], this);     
+
    }
 
    update(time, delta) {

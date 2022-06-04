@@ -10,6 +10,11 @@ class Menu extends Phaser.Scene {
          music.setLoop(true);
          music.play();
       }
+      
+      // fade out of black
+      this.blackFade = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x000000).setOrigin(0, 0);
+      this.blackFade.depth = 10;
+      this.blackFade.alpha = 0;
 
       // add background
       this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3a4d99).setOrigin(0, 0);
@@ -70,9 +75,19 @@ class Menu extends Phaser.Scene {
       playButton.on('pointerdown', () => {
          this.hoverSound.stop();
          this.playSound.play({ volume: sfxVol });
+         
+         // change screen after delay
          this.time.delayedCall(100, () => {
-            this.scene.start("playScene");
-         });
+            this.cameras.main.fadeOut(1000);
+            this.cameras.main.once('camerafadeoutcomplete', () => {
+               this.scene.start("playScene");
+               console.log("play scene");
+            });
+         }, [], this);      
+
+         //this.time.delayedCall(100, () => {
+            //this.scene.start("playScene");
+         //});
       });
       playButton.on('pointerover', () => { // reveal hover image
          this.hoverSound.play({ volume: sfxVol });

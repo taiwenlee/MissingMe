@@ -21,10 +21,6 @@ class End extends Phaser.Scene {
       // hover sound
       this.hoverSound = this.sound.add('hover', { volume: sfxVol });
 
-      // fade out of black
-      this.blackFade = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x000000).setOrigin(0, 0);
-      this.blackFade.depth = 5;
-
       // add floor
       this.createFloor();
 
@@ -81,6 +77,11 @@ class End extends Phaser.Scene {
       });
       menuButton.input.alwaysEnabled = true; // prevents flickering between two images
       menuButton.depth = 1;
+
+      // change screen after delay
+      this.time.delayedCall(0, () => {
+         this.cameras.main.fadeIn(2000);
+      }, [], this);    
    }
 
    update() {
@@ -102,14 +103,6 @@ class End extends Phaser.Scene {
    }
 
    addTweens() {
-      // fade tween
-      this.tweens.add({
-         targets: [this.blackFade],
-         alpha: 0,
-         duration: 1000,
-         delay: 1000,
-      });
-
       // teddy tomato tween
       this.tweens.add({
          targets: [this.teddy, this.tomato],
