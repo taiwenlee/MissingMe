@@ -149,7 +149,6 @@ class Play extends Phaser.Scene {
    }
 
    update(time, delta) {
-      this.end1 = true;
       // update fps counter
       this.tempFPS.setText("FPS: " + this.game.loop.actualFps.toFixed(2));
 
