@@ -52,6 +52,7 @@ class Load extends Phaser.Scene {
          repeat: -1
       });
 
+      // critter animations
       this.anims.create({
          key: "worm",
          frames: this.anims.generateFrameNames("object_atlas", { prefix: 'worm/worm', end: 1 }),
@@ -63,6 +64,13 @@ class Load extends Phaser.Scene {
          key: "bird",
          frames: this.anims.generateFrameNames("object_atlas", { prefix: 'bird/bird', end: 1 }),
          frameRate: 2,
+         repeat: -1
+      });
+
+      this.anims.create({
+         key: "wateringcan",
+         frames: this.anims.generateFrameNames("object_atlas", { prefix: 'wateringcan/wateringcan', end: 1 }),
+         frameRate: 4,
          repeat: -1
       });
 

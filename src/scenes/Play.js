@@ -77,7 +77,7 @@ class Play extends Phaser.Scene {
       }
 
       // add player
-      this.player = new Player(this, 940, 490, 'object_atlas', 'player/dirtywalk/walk0').setOrigin(0.5, 1).setDepth(7);
+      this.player = new Player(this, 940, 481, 'object_atlas', 'player/dirtywalk/walk0').setOrigin(0.5, 1).setDepth(7);
 
       // add camera
       this.cameras.main.setBounds(0, 0, game.config.width * 5, game.config.height).startFollow(this.player);
@@ -239,8 +239,8 @@ class Play extends Phaser.Scene {
       this.indicator.visible = false;
       // this code is probably kind of screwy because im not sure what the intergral of the tween is
       let distance = target.x - this.player.x; // distance between center of player and target
-      let w = 60; // desired distance away from target
-      let duration = 2000; // in ms
+      let w = 80; // desired distance away from target
+      let duration = 750; // in ms
       let move = (distance < 0) ? distance + w : distance - w; // actual location to move to
 
       // tween player to the correct location by the plant
@@ -254,13 +254,18 @@ class Play extends Phaser.Scene {
             this.player.setVelocityX(0);
             this.player.flipX = (target.x - this.player.x > 0) ? true : false;
             console.log(target.x - this.player.x);
+            // water animation
+            let waterXPos = (distance < 0) ? this.player.x - 48 : this.player.x + 48;
+            let wateringcan = this.add.sprite(waterXPos, this.player.y - 58, 'object_atlas', 'wateringcan/wateringcan0').setOrigin(0.5, 0).setDepth(6);
+            wateringcan.flipX = (distance < 0) ? true : false;
+            wateringcan.anims.play('wateringcan', true);
          }
       })
 
-      // water animation (missing)
+
 
       // change screen after delay
-      this.time.delayedCall(duration * 2, () => {
+      this.time.delayedCall(duration * 4, () => {
          this.cameras.main.fadeOut(500);
          this.cameras.main.once('camerafadeoutcomplete', () => {
             this.scene.start("endScene");
