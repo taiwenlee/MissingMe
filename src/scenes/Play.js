@@ -33,18 +33,18 @@ class Play extends Phaser.Scene {
       this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3a4d99).setOrigin(0, 0).setScrollFactor(0).setDepth(-1);
 
       // add sun      
-      this.sun = this.add.image(game.config.width/2, game.config.height, 'object_atlas', "sun").setOrigin(0.5, 0.5).setScrollFactor(0).setDepth(-0.6);
+      this.sun = this.add.image(game.config.width / 2, game.config.height, 'object_atlas', "sun").setOrigin(0.5, 0.5).setScrollFactor(0).setDepth(-0.6);
 
       // parallax clouds
-      this.clouds1 = this.add.tileSprite(10, 0, game.config.width * 5, 200, 'clouds1').setOrigin(0, 0).setDepth(-0.5);
-      this.clouds2 = this.add.tileSprite(10, 0, game.config.width * 5, 200, 'clouds2').setOrigin(0, 0).setDepth(-0.5);
-      
+      this.clouds1 = this.add.tileSprite(10, 0, game.config.width, 200, 'clouds1').setOrigin(0, 0).setScrollFactor(0).setDepth(-0.5);
+      this.clouds2 = this.add.tileSprite(10, 0, game.config.width, 200, 'clouds2').setOrigin(0, 0).setScrollFactor(0).setDepth(-0.5);
+
       // add forest mountain
-      this.forest = this.add.tileSprite(0, 55, game.config.width * 5, 608, 'forest').setOrigin(0, 0).setDepth(-0.49);
+      this.forest = this.add.tileSprite(0, 55, 1368, 608, 'forest').setOrigin(0, 0).setScrollFactor(0).setDepth(-0.49);
 
       // add floor
       this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 5, 132, "object_atlas", 'floor').setOrigin(0, 0).setDepth(-0.01);
-      
+
       // fence
       this.fence = this.add.tileSprite(0, game.config.height - 132, 1584, 93, "object_atlas", 'full_fence').setOrigin(0, 1).setDepth(-0.01).setTint(0x301934);
 
@@ -167,9 +167,10 @@ class Play extends Phaser.Scene {
       // update fps counter
       this.tempFPS.setText("FPS: " + this.game.loop.actualFps.toFixed(2));
 
-      // move clouds
-      this.clouds1.tilePositionX -= 1;
-      this.clouds2.tilePositionX -= 0.5;
+      // update backgrounds
+      this.forest.tilePositionX = this.cameras.main.scrollX * 0.5;
+      this.clouds1.tilePositionX = this.cameras.main.scrollX * 0.5 - time * 0.025;
+      this.clouds2.tilePositionX = this.cameras.main.scrollX * 0.7 - time * 0.035;
 
       // go to setting if ESC is pressed
       if (keyESC.isDown) {
