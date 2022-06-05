@@ -96,6 +96,9 @@ class Play extends Phaser.Scene {
          this.npcs.add(new Crop(this, data["location"]["x"], data["location"]["y"], "object_atlas", key, data).setOrigin(0.5, 1));
       }
 
+      // add grave
+      this.grave = new Grave(this, 200, 477, 'object_atlas', 'grave', this.data["grave"]).setOrigin(0.5, 1);
+
       // add player
       this.player = new Player(this, 940, 481, 'object_atlas', 'player/dirtywalk/walk0').setOrigin(0.5, 1).setDepth(7);
 
@@ -124,9 +127,6 @@ class Play extends Phaser.Scene {
       this.controls = this.add.image(1240, 479, "object_atlas", 'control_sign').setOrigin(0.5, 1).setDepth(-0.01);
       this.tutText = this.add.text(1240, 270, 'WELCOME TO THE FARM!', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5, 0);
       this.tutText2 = this.add.text(1245, 310, 'A/D   ... WALK\nSHIFT ... SPRINT\nSPACE ... INTERACT', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'left' }).setOrigin(0.5, 0);
-
-      // add grave
-      this.grave = new Grave(this, 200, 477, 'object_atlas', 'grave', this.data["grave"]).setOrigin(0.5, 1);
 
       // tween
       this.addTweens();
