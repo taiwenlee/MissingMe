@@ -724,7 +724,7 @@
 					}
 				},
 				{
-					"filename": "smoke",
+					"filename": "leaf0",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -739,6 +739,27 @@
 					},
 					"frame": {
 						"x": 1,
+						"y": 1003,
+						"w": 20,
+						"h": 20
+					}
+				},
+				{
+					"filename": "leaf1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 20
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 20
+					},
+					"frame": {
+						"x": 23,
 						"y": 1003,
 						"w": 20,
 						"h": 20
@@ -834,6 +855,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:3ceb5d39cefb8f67a38ae27a029a1dbc:7be1e28a6c48fa2159dceb0b5600f15a:358f055dcd7752a1b7d514c352666090$"
+		"smartupdate": "$TexturePacker:SmartUpdate:a0973be50b8808074a2b6578f7308a32:c7773f1d95381715f1f4e0b8f0385a11:358f055dcd7752a1b7d514c352666090$"
 	}
 }

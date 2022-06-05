@@ -54,17 +54,19 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       this.sound4 = scene.sound.add(json["sound"]["doneQuest"]);
 
       // texture transition smoke particles
-      this.smoke = scene.add.particles('object_atlas', 'smoke').createEmitter({
-         x: Array(40 + 1).fill().map((_, idx) => x - 20 + idx),
+      this.smoke = scene.add.particles('object_atlas', 'leaf0').createEmitter({
+         x: { min: this.x - 30, max: this.x + 30 },
          y: y,
-         speed: { min: 70, max: 80 },
+         speed: { min: 60, max: 80 },
          angle: { min: 240, max: 300 },
-         scale: { start: 1, end: 0.5 },
-         blendMode: 'ADD',
+         scale: { start: 1, end: 0.6 },
+         rotation: { min: 0, max: 360 },
+         blendMode: 'Subtract',
          lifespan: 1000,
-         alpha: { start: 1, end: 0.5 },
+         alpha: { start: 1, end: 0.25 },
 
       });
+      this.smoke.depth = this.depth + 0.1;
       this.smoke.pause();
 
 
