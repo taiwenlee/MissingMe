@@ -5,7 +5,7 @@ class End extends Phaser.Scene {
 
    create() {
       // bg
-      this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xe3d8a3).setOrigin(0, 0);
+      this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xede09f).setOrigin(0, 0);
       this.yellowBackground.depth = -1;
 
       // parallax clouds
@@ -22,7 +22,7 @@ class End extends Phaser.Scene {
       this.hoverSound = this.sound.add('hover', { volume: sfxVol });
 
       // add floor
-      this.createFloor();
+      this.floor = this.add.tileSprite(0, game.config.height - 132, 912, 132, "object_atlas", 'floor').setOrigin(0, 0);
 
       // sun
       this.sun = this.add.image(-128, 100, 'object_atlas', "sun").setOrigin(0.5, 0.5);
@@ -83,31 +83,19 @@ class End extends Phaser.Scene {
          runChildUpdate: true,
       });
       for (let i = 0; i < 3; i++) {
-         this.creatures.add(new Bird(this, Phaser.Math.Between(0, game.config.width), Phaser.Math.Between(30, 300), 'object_atlas', 'bird/bird0', this.data["bird"]).setDepth(-1));
+         this.creatures.add(new Bird(this, Phaser.Math.Between(0, game.config.width), Phaser.Math.Between(30, 300), 'object_atlas', 'bird/bird0').setDepth(-1));
       }
 
       // change screen after delay
       this.time.delayedCall(0, () => {
          this.cameras.main.fadeIn(4000);
-      }, [], this);    
+      }, [], this);
    }
 
    update() {
       // move clouds
       this.clouds1.tilePositionX -= 1;
       this.clouds2.tilePositionX -= 0.5;
-   }
-
-   createFloor() {
-      // add floor
-      this.floor = this.add.tileSprite(0, game.config.height - 132, 912, 132, "object_atlas", 'floor').setOrigin(0, 0);
-
-      // add to physics
-      this.physics.add.existing(this.floor, true);
-      this.floor.body.immovable = true;
-
-      // add collision between player and floor
-      this.physics.add.collider(this.player, this.floor);
    }
 
    addTweens() {

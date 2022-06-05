@@ -27,24 +27,24 @@ class Play extends Phaser.Scene {
       this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
 
       // add skies
-      this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xe3d8a3).setOrigin(0, 0).setScrollFactor(0).setDepth(-4);
+      this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xede09f).setOrigin(0, 0).setScrollFactor(0).setDepth(-4);
       this.pinkBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xaa6bb0).setOrigin(0, 0).setScrollFactor(0).setDepth(-3);
       this.purpleBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x654991).setOrigin(0, 0).setScrollFactor(0).setDepth(-2);
       this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3a4d99).setOrigin(0, 0).setScrollFactor(0).setDepth(-1);
 
       // add sun      
-      this.sun = this.add.image(game.config.width/2, game.config.height, 'object_atlas', "sun").setOrigin(0.5, 0.5).setScrollFactor(0).setDepth(-0.6);
+      this.sun = this.add.image(game.config.width / 2, game.config.height, 'object_atlas', "sun").setOrigin(0.5, 0.5).setScrollFactor(0).setDepth(-0.6);
 
       // parallax clouds
-      this.clouds1 = this.add.tileSprite(10, 0, game.config.width * 5, 200, 'clouds1').setOrigin(0, 0).setDepth(-0.5);
-      this.clouds2 = this.add.tileSprite(10, 0, game.config.width * 5, 200, 'clouds2').setOrigin(0, 0).setDepth(-0.5);
-      
+      this.clouds1 = this.add.tileSprite(10, 0, game.config.width, 200, 'clouds1').setOrigin(0, 0).setScrollFactor(0).setDepth(-0.5);
+      this.clouds2 = this.add.tileSprite(10, 0, game.config.width, 200, 'clouds2').setOrigin(0, 0).setScrollFactor(0).setDepth(-0.5);
+
       // add forest mountain
-      this.forest = this.add.tileSprite(0, 55, game.config.width * 5, 608, 'forest').setOrigin(0, 0).setDepth(-0.49);
+      this.forest = this.add.tileSprite(0, 55, 1368, 608, 'forest').setOrigin(0, 0).setScrollFactor(0).setDepth(-0.49);
 
       // add floor
       this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 5, 132, "object_atlas", 'floor').setOrigin(0, 0).setDepth(-0.01);
-      
+
       // fence
       this.fence = this.add.tileSprite(0, game.config.height - 132, 1584, 93, "object_atlas", 'full_fence').setOrigin(0, 1).setDepth(-0.01).setTint(0x301934);
 
@@ -96,6 +96,9 @@ class Play extends Phaser.Scene {
          this.npcs.add(new Crop(this, data["location"]["x"], data["location"]["y"], "object_atlas", key, data).setOrigin(0.5, 1));
       }
 
+      // add grave
+      this.grave = new Grave(this, 200, 477, 'object_atlas', 'grave', this.data["grave"]).setOrigin(0.5, 1);
+
       // add player
       this.player = new Player(this, 940, 481, 'object_atlas', 'player/dirtywalk/walk0').setOrigin(0.5, 1).setDepth(7);
 
@@ -124,9 +127,6 @@ class Play extends Phaser.Scene {
       this.controls = this.add.image(1240, 479, "object_atlas", 'control_sign').setOrigin(0.5, 1).setDepth(-0.01);
       this.tutText = this.add.text(1240, 270, 'WELCOME TO THE FARM!', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0.5, 0);
       this.tutText2 = this.add.text(1245, 310, 'A/D   ... WALK\nSHIFT ... SPRINT\nSPACE ... INTERACT', { fill: '#ffffff', fontFamily: 'VT323', fontSize: 35, align: 'left' }).setOrigin(0.5, 0);
-
-      // add grave
-      this.grave = new Grave(this, 200, 477, 'object_atlas', 'grave', this.data["grave"]).setOrigin(0.5, 1);
 
       // tween
       this.addTweens();
@@ -167,9 +167,10 @@ class Play extends Phaser.Scene {
       // update fps counter
       this.tempFPS.setText("FPS: " + this.game.loop.actualFps.toFixed(2));
 
-      // move clouds
-      this.clouds1.tilePositionX -= 1;
-      this.clouds2.tilePositionX -= 0.5;
+      // update backgrounds
+      this.forest.tilePositionX = this.cameras.main.scrollX * 0.5 - 700;
+      this.clouds1.tilePositionX = this.cameras.main.scrollX * 0.5 - time * 0.025;
+      this.clouds2.tilePositionX = this.cameras.main.scrollX * 0.7 - time * 0.035;
 
       // go to setting if ESC is pressed
       if (keyESC.isDown) {
@@ -178,7 +179,7 @@ class Play extends Phaser.Scene {
 
       // super secret speed hax code
       if (keyTap(keyH)) {
-         this.player.runMultiplier = (this.player.runMultiplier == 1.5) ? 8 : 1.5;
+         this.player.runMultiplier = (this.player.runMultiplier == 1.8) ? 8 : 1.8;
       }
 
       // sets grave the end state if quests are complete
