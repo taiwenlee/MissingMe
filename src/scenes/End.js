@@ -5,7 +5,7 @@ class End extends Phaser.Scene {
 
    create() {
       // bg
-      this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xe3d8a3).setOrigin(0, 0);
+      this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xede09f).setOrigin(0, 0);
       this.yellowBackground.depth = -1;
 
       // parallax clouds

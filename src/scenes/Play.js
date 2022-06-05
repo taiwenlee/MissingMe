@@ -27,7 +27,7 @@ class Play extends Phaser.Scene {
       this.physics.world.setBounds(0, 0, game.config.width * 5, game.config.height);
 
       // add skies
-      this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xe3d8a3).setOrigin(0, 0).setScrollFactor(0).setDepth(-4);
+      this.yellowBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xede09f).setOrigin(0, 0).setScrollFactor(0).setDepth(-4);
       this.pinkBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0xaa6bb0).setOrigin(0, 0).setScrollFactor(0).setDepth(-3);
       this.purpleBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x654991).setOrigin(0, 0).setScrollFactor(0).setDepth(-2);
       this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3a4d99).setOrigin(0, 0).setScrollFactor(0).setDepth(-1);
@@ -168,7 +168,7 @@ class Play extends Phaser.Scene {
       this.tempFPS.setText("FPS: " + this.game.loop.actualFps.toFixed(2));
 
       // update backgrounds
-      this.forest.tilePositionX = this.cameras.main.scrollX * 0.5;
+      this.forest.tilePositionX = this.cameras.main.scrollX * 0.5 - 700;
       this.clouds1.tilePositionX = this.cameras.main.scrollX * 0.5 - time * 0.025;
       this.clouds2.tilePositionX = this.cameras.main.scrollX * 0.7 - time * 0.035;
 
