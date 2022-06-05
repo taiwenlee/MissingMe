@@ -8,7 +8,8 @@ class Play extends Phaser.Scene {
       // game state
       this.inQuest = false;
       this.questCount = 0;
-      this.introComplete = false;
+      this.intro = true;
+      this.outro = false;
       this.tomatoUpdated = false;
       this.watermelonUpdated = false;
       this.end1 = false;  // true if player talks to grave after all quests are done
@@ -125,18 +126,18 @@ class Play extends Phaser.Scene {
       // tween
       this.addTweens();
 
-      // intro text
-      this.introindex = 0;
-      this.introText = new Textbox(this, game.config.width / 2, game.config.height / 2 - 20, this.data["intro"][this.introindex++], {
+      // text
+      this.index = 0;
+      this.textbox = new Textbox(this, game.config.width / 2, game.config.height / 2 - 20, this.data["intro"][this.index++], {
          fontFamily: 'VT323',
          fontSize: '32px',
          fontStyle: 'italic',
          color: '#ffffff',
          align: 'left'
       }).setOrigin(0.5);
-      this.introText.scroll = false;
-      this.introText.wrapWidth = 600;
-      this.introText.animation = false;
+      this.textbox.scroll = false;
+      this.textbox.wrapWidth = 600;
+      this.textbox.animation = false;
 
       // interact text
       this.indicator = new Textbox(this, game.config.width / 2, game.config.height / 2 - 20, 'SPACE', {
@@ -178,27 +179,53 @@ class Play extends Phaser.Scene {
       // sets grave the end state if quests are complete
       if (this.questCount == 3 && this.grave.state != "end") {
          this.grave.state = "end";
+         this.time.delayedCall(5000, () => {
+            this.player.setVelocityX(0);
+            this.player.Interacting = true;
+            this.player.update();
+            this.outro = true;
+            this.textbox.setText(this.data["outro"][this.index++]);
+            this.textbox.visible = true;
+         }, [], this);
       }
 
-      if (this.introComplete) {
-         // update player
-         this.player.update();
-         this.grave.update(time, delta);
-      } else {
+      if (this.intro) {
          // update intro text
          if (keyTap(keySpace)) {
 
-            if (this.introindex < this.data["intro"].length) {
+            if (this.index < this.data["intro"].length) {
                // update text if incomplete
-               this.introText.setText(this.data["intro"][this.introindex++]);
+               this.textbox.setText(this.data["intro"][this.index++]);
             } else {
                // end intro
                console.log("intro complete");
-               this.introText.visible = false;
-               this.introComplete = true;
+               this.textbox.visible = false;
+               this.intro = false;
+               this.index = 0;
                this.npcs.runChildUpdate = true;
             }
          }
+
+      } else if (this.outro) {
+         // update outro text
+         if (keyTap(keySpace)) {
+            if (this.index < this.data["outro"].length) {
+               // update text if incomplete
+               this.textbox.setText(this.data["outro"][this.index++]);
+            } else {
+               // end intro
+               console.log("outro complete");
+               this.textbox.visible = false;
+               this.outro = false;
+               this.npcs.runChildUpdate = true;
+               this.player.Interacting = false;
+            }
+         }
+
+      } else {
+         // update player
+         this.player.update();
+         this.grave.update(time, delta);
       }
 
       // checks for end states
