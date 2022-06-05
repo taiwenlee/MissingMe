@@ -11,18 +11,13 @@ class Menu extends Phaser.Scene {
          music.play();
       }
 
-      // fade out of black
-      this.blackFade = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x000000).setOrigin(0, 0);
-      this.blackFade.depth = 10;
-      this.blackFade.alpha = 0;
-
       // add background
       this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3a4d99).setOrigin(0, 0);
       this.blueBackground.depth = -2;
 
       // parallax clouds
       this.clouds1 = this.add.tileSprite(0, 0, 912, 608, 'clouds1').setOrigin(0, 0).setDepth(-1);
-      this.clouds2 = this.add.tileSprite(0, 0, 912, 608, 'clouds2').setOrigin(0, 0);
+      this.clouds2 = this.add.tileSprite(0, 0, 912, 608, 'clouds2').setOrigin(0, 0).setDepth(-1);
 
       // rising and setting sun
       this.sun = this.add.tileSprite(game.config.width / 2, 630, 128, 128, 'object_atlas', "sun").setOrigin(-2.5, -2.5);

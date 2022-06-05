@@ -54,7 +54,7 @@ class Play extends Phaser.Scene {
       this.tree1.flipX = true;
       this.tree2 = this.add.image(1600, 477, "object_atlas", 'bigtree').setOrigin(0.5, 1).setScale(1.4).setDepth(-0.01);
       this.tree2.flipX = true;
-      this.tree3 = this.add.image(3653, 477, "object_atlas", 'bigtree').setOrigin(0.5, 1).setScale(1.3).setDepth(-0.05);
+      this.tree3 = this.add.image(3653, 477, "object_atlas", 'bigtree').setOrigin(0.5, 1).setScale(1.3).setDepth(-0.01);
 
       this.bench0 = this.add.image(2900, 480, "object_atlas", 'bench').setOrigin(0.5, 1).setScale(1).setDepth(-0.01);
       this.bench1 = this.add.image(4430, 480, "object_atlas", 'bench').setOrigin(0.5, 1).setScale(1);
