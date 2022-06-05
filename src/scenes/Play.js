@@ -45,7 +45,7 @@ class Play extends Phaser.Scene {
       this.tree0 = this.add.image(0, 479, "object_atlas", 'tree').setOrigin(0, 1).setScale(1.4);
       this.tree1 = this.add.image(game.config.width * 5, 479, "object_atlas", 'tree').setOrigin(1, 1).setScale(1.4);
       this.tree1.flipX = true;
-      
+
       this.tree2 = this.add.image(1420, 479, "object_atlas", 'bigtree').setOrigin(0.5, 1).setScale(1.4).setDepth(-0.01);
       this.tree2.flipX = true;
 
@@ -95,16 +95,14 @@ class Play extends Phaser.Scene {
       // add camera
       this.cameras.main.setBounds(0, 0, game.config.width * 5, game.config.height).startFollow(this.player);
 
-      //add worm (temp)
-      this.worms = this.add.group({
-         classType: Worm,
+      //add creatures
+      this.creatures = this.add.group({
          runChildUpdate: true,
       });
-      this.addWorm();
-      this.addWorm();
-      this.addWorm();
-      this.addWorm();
-      this.addWorm();
+      for (let i = 0; i < 5; i++) {
+         this.creatures.add(new Worm(this, Phaser.Math.Between(0, game.config.width * 5), Phaser.Math.Between(480, 490), 'object_atlas', 'worm/worm0', this.data["worm"]));
+         this.creatures.add(new Bird(this, Phaser.Math.Between(0, game.config.width * 5), Phaser.Math.Between(100, 300), 'object_atlas', 'bird/bird0', this.data["bird"]).setDepth(-0.02));
+      }
 
       // add settings text
       const settingsText = this.add.text(27, 31, 'ESC', { fill: '#79bdfc', fontFamily: 'VT323', fontSize: 35, align: 'center' }).setOrigin(0).setScrollFactor(0).setDepth(2);
@@ -243,11 +241,6 @@ class Play extends Phaser.Scene {
 
       // update crop tweens
       this.updateCropTween();
-   }
-
-   addWorm() {
-      // add worm
-      this.worms.add(new Worm(this, Phaser.Math.Between(0, game.config.width * 5), Phaser.Math.Between(480, 490), 'object_atlas', 'worm/worm0', this.data["worm"]));
    }
 
    endingAnimation(target) {

@@ -33,7 +33,6 @@ class Worm extends Phaser.Physics.Arcade.Sprite {
    }
 
    kick(direction) {
-      this.scene.addWorm();
       let height = 50;
       let duration = 500;
       // change worm y position
@@ -61,8 +60,18 @@ class Worm extends Phaser.Physics.Arcade.Sprite {
          duration: duration,
          ease: 'Linear',
          onComplete: () => {
-            this.timer.destroy();
-            this.destroy();
+            // moves the worm to another different location and resets the state
+            this.x = Phaser.Math.Between(0, game.config.width * 5);
+            this.y = Phaser.Math.Between(480, 490);
+            this.kicked = false;
+            this.scene.tweens.add({
+               targets: this,
+               alpha: 1,
+               rotation: 0,
+               scale: 1,
+               duration: duration / 3,
+               ease: 'Linear',
+            })
          }
       });
 
