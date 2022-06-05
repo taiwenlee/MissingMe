@@ -19,7 +19,7 @@ class Grave extends Phaser.GameObjects.Sprite {
       this.textbox = new Textbox(scene, game.config.width / 2, 500, this.json[this.state][0], {
          fontFamily: 'VT323',
          fontStyle: 'italic',
-         fontSize: '35px',
+         fontSize: '32px',
          color: '#ffffff',
          align: 'left',
       });

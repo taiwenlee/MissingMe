@@ -67,7 +67,6 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       });
       this.smoke.pause();
 
-      console.log(this.smoke);
 
    }
 
