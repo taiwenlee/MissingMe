@@ -39,12 +39,22 @@ class Play extends Phaser.Scene {
       this.clouds2 = this.add.tileSprite(0, 0, game.config.width * 5, 608, 'clouds2').setOrigin(0, 0).setDepth(-0.5);
 
       // add floor
-      this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 5, 132, "object_atlas", 'floor').setOrigin(0, 0);
+      this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 5, 132, "object_atlas", 'floor').setOrigin(0, 0).setDepth(-0.01);
 
       // trees
-      this.tree0 = this.add.image(0, 479, "object_atlas", 'tree').setOrigin(0, 1).setScale(1.5);
-      this.tree1 = this.add.image(4300, 479, "object_atlas", 'tree').setOrigin(0, 1).setScale(1.5);
+      this.tree0 = this.add.image(0, 479, "object_atlas", 'tree').setOrigin(0, 1).setScale(1.4);
+      this.tree1 = this.add.image(game.config.width * 5, 479, "object_atlas", 'tree').setOrigin(1, 1).setScale(1.4);
       this.tree1.flipX = true;
+      
+      this.tree2 = this.add.image(1420, 479, "object_atlas", 'bigtree').setOrigin(0.5, 1).setScale(1.4).setDepth(-0.01);
+      this.tree2.flipX = true;
+
+      this.bench0 = this.add.image(2900, 480, "object_atlas", 'bench').setOrigin(0.5, 1).setScale(1).setDepth(-0.01);
+      this.bench1 = this.add.image(4430, 480, "object_atlas", 'bench').setOrigin(0.5, 1).setScale(1);
+
+      this.lamp0 = this.add.image(2225, 480, "object_atlas", 'streetlamp').setOrigin(0.5, 1).setScale(1).setDepth(-0.01);
+      this.lamp1 = this.add.image(3020, 480, "object_atlas", 'streetlamp').setOrigin(0.5, 1).setScale(1).setDepth(-0.01);
+      this.lamp2 = this.add.image(3745, 480, "object_atlas", 'streetlamp').setOrigin(0.5, 1).setScale(1).setDepth(-0.01);
 
       // add house
       this.house = this.add.image(800, 477, "object_atlas", 'house').setOrigin(0.5, 1).setDepth(-0.01);
