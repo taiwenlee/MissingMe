@@ -10,7 +10,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       // set player properties
       this.depth = 8;
       this.speed = 200;
-      this.runMultiplier = 1.5;
+      this.runMultiplier = 1.8;
       this.overalls = false;
       this.frameRateDivider = 40;
       this.controllable = true;
