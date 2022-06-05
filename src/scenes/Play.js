@@ -179,7 +179,7 @@ class Play extends Phaser.Scene {
 
       // super secret speed hax code
       if (keyTap(keyH)) {
-         this.player.runMultiplier = (this.player.runMultiplier == 1.5) ? 8 : 1.5;
+         this.player.runMultiplier = (this.player.runMultiplier == 1.8) ? 8 : 1.8;
       }
 
       // sets grave the end state if quests are complete
