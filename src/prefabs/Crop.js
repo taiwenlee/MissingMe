@@ -175,7 +175,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
          alpha: 0,
          duration: 1000,
          yoyo: true,
-         ease: 'sine.easeInOut',
+         ease: 'Quad.easeInOut',
          onComplete: () => {
             this.smoke.stop();
          }
