@@ -133,9 +133,11 @@ class Inventory {
             this.tweenImage.setTexture("object_atlas", name);
             this.addTween();
         } else if (this.itemName != name) {
-            console.log("Error: item already exists");
+            console.log("Error: another item already exists");
             return;
         }
+
+        // animation for adding item
         this.tweenImage.setOrigin(0.5);
         this.tweenImage.x = game.config.width / 2;
         this.tweenImage.y = game.config.height / 2;
