@@ -47,7 +47,7 @@ class Menu extends Phaser.Scene {
          runChildUpdate: true,
       });
       for (let i = 0; i < 3; i++) {
-         this.creatures.add(new Bird(this, Phaser.Math.Between(0, game.config.width), Phaser.Math.Between(30, 300), 'object_atlas', 'bird/bird0', this.data["bird"]).setDepth(-1));
+         this.creatures.add(new Bird(this, Phaser.Math.Between(0, game.config.width), Phaser.Math.Between(30, 300), 'object_atlas', 'bird/bird0').setDepth(-1));
       }
 
       // hover sound
