@@ -33,23 +33,28 @@ class Play extends Phaser.Scene {
       this.blueBackground = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x3a4d99).setOrigin(0, 0).setScrollFactor(0).setDepth(-1);
 
       // add sun      
-      this.sun = this.add.image(game.config.width + 120, game.config.height - 200, 'object_atlas', "sun").setOrigin(0.5, 0.5).setScrollFactor(0).setDepth(-0.6);
+      this.sun = this.add.image(game.config.width/2, game.config.height, 'object_atlas', "sun").setOrigin(0.5, 0.5).setScrollFactor(0).setDepth(-0.6);
 
       // parallax clouds
-      this.clouds1 = this.add.tileSprite(0, 0, game.config.width * 5, 608, 'clouds1').setOrigin(0, 0).setDepth(-0.5);
-      this.clouds2 = this.add.tileSprite(0, 0, game.config.width * 5, 608, 'clouds2').setOrigin(0, 0).setDepth(-0.5);
+      this.clouds1 = this.add.tileSprite(10, 0, game.config.width * 5, 200, 'clouds1').setOrigin(0, 0).setDepth(-0.5);
+      this.clouds2 = this.add.tileSprite(10, 0, game.config.width * 5, 200, 'clouds2').setOrigin(0, 0).setDepth(-0.5);
+      
+      // add forest mountain
+      this.forest = this.add.tileSprite(0, 55, game.config.width * 5, 608, 'forest').setOrigin(0, 0).setDepth(-0.49);
 
       // add floor
       this.floor = this.add.tileSprite(0, game.config.height - 132, game.config.width * 5, 132, "object_atlas", 'floor').setOrigin(0, 0).setDepth(-0.01);
+      
+      // fence
+      this.fence = this.add.tileSprite(0, game.config.height - 132, 1584, 93, "object_atlas", 'full_fence').setOrigin(0, 1).setDepth(-0.01).setTint(0x301934);
 
       // trees
       this.tree0 = this.add.image(0, 479, "object_atlas", 'tree').setOrigin(0, 1).setScale(1.4);
       this.tree1 = this.add.image(game.config.width * 5, 479, "object_atlas", 'tree').setOrigin(1, 1).setScale(1.4);
       this.tree1.flipX = true;
-      this.tree2 = this.add.image(1600, 478, "object_atlas", 'bigtree').setOrigin(0.5, 1).setScale(1.4).setDepth(-0.01);
+      this.tree2 = this.add.image(1600, 477, "object_atlas", 'bigtree').setOrigin(0.5, 1).setScale(1.4).setDepth(-0.01);
       this.tree2.flipX = true;
-      this.tree3 = this.add.image(3655, 477, "object_atlas", 'bigtree').setOrigin(0.5, 1).setScale(1.2).setDepth(-0.05);
-      this.tree4 = this.add.image(3655, 477, "object_atlas", 'bigtree').setOrigin(0.5, 1).setScale(1.2).setDepth(-0.05);
+      this.tree3 = this.add.image(3653, 477, "object_atlas", 'bigtree').setOrigin(0.5, 1).setScale(1.3).setDepth(-0.05);
 
       this.bench0 = this.add.image(2900, 480, "object_atlas", 'bench').setOrigin(0.5, 1).setScale(1).setDepth(-0.01);
       this.bench1 = this.add.image(4430, 480, "object_atlas", 'bench').setOrigin(0.5, 1).setScale(1);
@@ -397,8 +402,7 @@ class Play extends Phaser.Scene {
          // move sun up
          this.tweens.add({
             targets: this.sun,
-            x: game.config.width - 300,
-            y: game.config.height - 350,
+            y: game.config.height - 300,
             duration: 900,
          });
       } else if (this.questCount == 2) {
@@ -417,7 +421,6 @@ class Play extends Phaser.Scene {
          // move sun up
          this.tweens.add({
             targets: this.sun,
-            x: game.config.width - 500,
             y: game.config.height - 400,
             duration: 900,
          });
@@ -437,7 +440,6 @@ class Play extends Phaser.Scene {
          // move sun up
          this.tweens.add({
             targets: this.sun,
-            x: game.config.width - 750,
             y: game.config.height - 500,
             duration: 900,
          });

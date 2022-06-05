@@ -8,6 +8,7 @@ class Load extends Phaser.Scene {
       this.load.atlas("ui_atlas", "assets/images/ui_atlas.png", "assets/images/ui_atlas.json");
       this.load.image("clouds1", "./assets/images/clouds1.png");
       this.load.image("clouds2", "./assets/images/clouds2.png");
+      this.load.image("forest", "./assets/images/forest.png");
 
       // object assets
       this.load.atlas("object_atlas", "./assets/images/object_atlas.png", "./assets/images/object_atlas.json");

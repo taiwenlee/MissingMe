@@ -21,7 +21,7 @@ class Menu extends Phaser.Scene {
       this.blueBackground.depth = -2;
 
       // parallax clouds
-      this.clouds1 = this.add.tileSprite(0, 0, 912, 608, 'clouds1').setOrigin(0, 0);
+      this.clouds1 = this.add.tileSprite(0, 0, 912, 608, 'clouds1').setOrigin(0, 0).setDepth(-1);
       this.clouds2 = this.add.tileSprite(0, 0, 912, 608, 'clouds2').setOrigin(0, 0);
 
       // rising and setting sun
@@ -46,6 +46,14 @@ class Menu extends Phaser.Scene {
          yoyo: true,
          repeat: -1,
       });
+
+      //add creatures
+      this.creatures = this.add.group({
+         runChildUpdate: true,
+      });
+      for (let i = 0; i < 3; i++) {
+         this.creatures.add(new Bird(this, Phaser.Math.Between(0, game.config.width), Phaser.Math.Between(30, 300), 'object_atlas', 'bird/bird0', this.data["bird"]).setDepth(-1));
+      }
 
       // hover sound
       this.hoverSound = this.sound.add('hover', { volume: sfxVol });

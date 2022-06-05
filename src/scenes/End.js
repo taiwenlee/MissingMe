@@ -78,6 +78,14 @@ class End extends Phaser.Scene {
       menuButton.input.alwaysEnabled = true; // prevents flickering between two images
       menuButton.depth = 1;
 
+      //add creatures
+      this.creatures = this.add.group({
+         runChildUpdate: true,
+      });
+      for (let i = 0; i < 3; i++) {
+         this.creatures.add(new Bird(this, Phaser.Math.Between(0, game.config.width), Phaser.Math.Between(50, 600), 'object_atlas', 'bird/bird0', this.data["bird"]).setDepth(-0.1));
+      }
+
       // change screen after delay
       this.time.delayedCall(0, () => {
          this.cameras.main.fadeIn(4000);
