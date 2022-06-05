@@ -12,13 +12,6 @@ class Bird extends Phaser.Physics.Arcade.Sprite {
 
    }
 
-   randomMoveRecursive() {
-      let random = Phaser.Math.Between(10, 30);
-      this.body.setVelocityX(Math.random() > 0.5 ? random : -random);
-      let delay = Phaser.Math.Between(1000, 5000);
-      this.timer = this.scene.time.addEvent({ delay: delay, callback: this.randomMoveRecursive, callbackScope: this });
-   }
-
    update() {
       // if out of bounds, wrap around
       if (this.x > this.scene.physics.world.bounds.width) {
