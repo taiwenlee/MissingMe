@@ -246,6 +246,11 @@ class Textbox {
         return this;
     }
 
+    setDepth(value) {
+        this.depth = value;
+        return this;
+    }
+
     // skips letter by letter animation
     skip() {
         this.index = this.textLength;

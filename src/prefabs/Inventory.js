@@ -121,6 +121,11 @@ class Inventory {
         return this;
     }
 
+    setDepth(value) {
+        this.depth = value;
+        return this;
+    }
+
     addItem(name, count) {
         if (this.itemName == "" && this.itemCount == 0) {
             this.itemName = name;
