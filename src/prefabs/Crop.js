@@ -52,6 +52,23 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       this.sound2 = scene.sound.add(json["sound"]["rest"]);
       this.sound3 = scene.sound.add(json["sound"]["beginQuest"]);
       this.sound4 = scene.sound.add(json["sound"]["doneQuest"]);
+
+      // texture transition smoke particles
+      this.smoke = scene.add.particles('object_atlas', 'smoke').createEmitter({
+         x: Array(40 + 1).fill().map((_, idx) => x - 20 + idx),
+         y: y,
+         speed: { min: 70, max: 80 },
+         angle: { min: 240, max: 300 },
+         scale: { start: 1, end: 0.5 },
+         blendMode: 'ADD',
+         lifespan: 1000,
+         alpha: { start: 1, end: 0.5 },
+
+      });
+      this.smoke.pause();
+
+      console.log(this.smoke);
+
    }
 
    update(time, delta) {
@@ -149,7 +166,20 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
 
    // changes to alternate texture
    changeTexture() {
-      this.setTexture("object_atlas", this.json["alt_texture"]);
+      this.smoke.resume();
+      this.scene.time.delayedCall(500, () => {
+         this.setTexture("object_atlas", this.json["alt_texture"]);
+      }, [], this);
+      this.tween = this.scene.tweens.add({
+         targets: this,
+         alpha: 0,
+         duration: 1000,
+         yoyo: true,
+         ease: 'sine.easeInOut',
+         onComplete: () => {
+            this.smoke.stop();
+         }
+      });
    }
 
    // updates textbox with text based on current speaker

@@ -10,7 +10,7 @@
 			"scale": 1,
 			"frames": [
 				{
-					"filename": "doctor",
+					"filename": "doctors",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
@@ -724,6 +724,27 @@
 					}
 				},
 				{
+					"filename": "smoke",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 20,
+						"h": 20
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 20,
+						"h": 20
+					},
+					"frame": {
+						"x": 1,
+						"y": 1003,
+						"w": 20,
+						"h": 20
+					}
+				},
+				{
 					"filename": "bird/bird0",
 					"rotated": false,
 					"trimmed": false,
@@ -813,6 +834,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:0bb4f8291761af186627c99059735e6d:702cf80aaa1a8381c259488480317e20:358f055dcd7752a1b7d514c352666090$"
+		"smartupdate": "$TexturePacker:SmartUpdate:3ceb5d39cefb8f67a38ae27a029a1dbc:7be1e28a6c48fa2159dceb0b5600f15a:358f055dcd7752a1b7d514c352666090$"
 	}
 }
