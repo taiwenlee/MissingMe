@@ -156,6 +156,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
          this.sound3.play({ volume: sfxVol });
       } else if (this.queststate == "completequest") {
          // completes quest
+         console.log("quest completed");
          this.scene.inQuest = false;
          this.scene.children.getByName(this.villager).queststate = "postquest";
          this.interactable = false;

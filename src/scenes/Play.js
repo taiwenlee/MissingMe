@@ -301,7 +301,6 @@ class Play extends Phaser.Scene {
          onComplete: () => {
             this.player.setVelocityX(0);
             this.player.flipX = (target.x - this.player.x > 0) ? true : false;
-            console.log(target.x - this.player.x);
             // water animation
             let waterXPos = (distance < 0) ? this.player.x - 48 : this.player.x + 48;
             let wateringcan = this.add.sprite(waterXPos, this.player.y - 58, 'object_atlas', 'wateringcan/wateringcan0').setOrigin(0.5, 0).setDepth(6);

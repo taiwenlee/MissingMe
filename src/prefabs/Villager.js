@@ -101,7 +101,6 @@ class Villager extends Phaser.GameObjects.Sprite {
                && this.scene.inventory.itemName == this.json["quest_data"]["item_type"]
                && this.scene.inventory.itemCount >= this.json["quest_data"]["item_count"]) {
                this.queststate = "completequest";
-               console.log(this.queststate);
             }
 
             // initiate interaction
@@ -187,6 +186,7 @@ class Villager extends Phaser.GameObjects.Sprite {
          });
       } else if (this.queststate == "completequest") {
          // if complete state, end quest
+         console.log("quest completed");
          this.queststate = "postquest";
          this.scene.inQuest = false;
          this.scene.questCount++;
