@@ -185,7 +185,7 @@ class Play extends Phaser.Scene {
       // sets grave the end state if quests are complete
       if (this.questCount == 3 && this.grave.state != "end") {
          this.grave.state = "end";
-         this.grave.interactable = false;
+         this.player.interactable = false;
          this.time.delayedCall(3000, () => {
             this.player.setVelocityX(0);
             this.player.Interacting = true;
@@ -226,7 +226,7 @@ class Play extends Phaser.Scene {
                this.outro = false;
                this.npcs.runChildUpdate = true;
                this.player.Interacting = false;
-               this.grave.interactable = true;
+               this.player.interactable = true;
             }
          }
 

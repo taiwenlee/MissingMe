@@ -89,7 +89,7 @@ class Villager extends Phaser.GameObjects.Sprite {
    update(time, delta) {
       // interaction with player
       if (Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance
-         && this.interactable && this.visible) {
+         && this.interactable && this.visible && this.scene.player.interactable) {
          // show indicator if nearby
          if (!this.Interacting) this.indicator.visible = true;
 

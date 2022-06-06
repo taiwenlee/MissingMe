@@ -45,7 +45,7 @@ class Grave extends Phaser.GameObjects.Sprite {
    }
 
    update(time, delta) {
-      if (this.interactable &&
+      if (this.interactable && this.scene.player.interactable &&
          Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
          // show indicator if nearby
          if (!this.Interacting) this.indicator.visible = true;

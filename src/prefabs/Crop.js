@@ -75,7 +75,7 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
 
    update(time, delta) {
       // interaction with player
-      if (this.interactable && !(this.scene.inQuest && this.queststate == "quest") && this.visible
+      if (this.interactable && !(this.scene.inQuest && this.queststate == "quest") && this.visible && this.scene.player.interactable
          && Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
          // show indicator if nearby
          if (!this.Interacting) this.indicator.visible = true;

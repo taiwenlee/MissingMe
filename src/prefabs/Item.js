@@ -28,7 +28,7 @@ class Item extends Phaser.GameObjects.Sprite {
    }
 
    update() {
-      if (this.interactable &&
+      if (this.interactable && this.scene.player.interactable &&
          Phaser.Math.Distance.Between(this.x, this.y, this.scene.player.x, this.scene.player.y) < this.interactDistance) {
 
          // show indicator if nearby

@@ -14,6 +14,7 @@ class Player extends Phaser.Physics.Arcade.Sprite {
       this.overalls = false;
       this.frameRateDivider = 40;
       this.controllable = true;
+      this.interactable = true;
 
       // state variables
       this.Jumping = true;
