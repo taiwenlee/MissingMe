@@ -139,7 +139,7 @@ class Play extends Phaser.Scene {
       }).setOrigin(0.5);
       this.textbox.scroll = false;
       this.textbox.wrapWidth = 600;
-      this.textbox.animation = false;
+      this.textbox.animation = true;
 
       // interact text
       this.indicator = new Textbox(this, game.config.width / 2, game.config.height / 2 - 20, 'SPACE', {
@@ -195,9 +195,14 @@ class Play extends Phaser.Scene {
          // update intro text
          if (keyTap(keySpace)) {
 
-            if (this.index < this.data["intro"].length) {
-               // update text if incomplete
-               this.textbox.setText(this.data["intro"][this.index++]);
+            if (this.index < this.data["intro"].length || !this.textbox.isComplete()) {
+               if (this.textbox.isComplete()) {
+                  // update text if incomplete
+                  this.textbox.setText(this.data["intro"][this.index++]);
+               } else {
+                  this.textbox.skip();
+               }
+
             } else {
                // end intro
                console.log("intro complete");
@@ -211,9 +216,13 @@ class Play extends Phaser.Scene {
       } else if (this.outro) {
          // update outro text
          if (keyTap(keySpace)) {
-            if (this.index < this.data["outro"].length) {
-               // update text if incomplete
-               this.textbox.setText(this.data["outro"][this.index++]);
+            if (this.index < this.data["outro"].length || !this.textbox.isComplete()) {
+               if (this.textbox.isComplete()) {
+                  // update text if incomplete
+                  this.textbox.setText(this.data["outro"][this.index++]);
+               } else {
+                  this.textbox.skip();
+               }
             } else {
                // end intro
                console.log("outro complete");
@@ -266,6 +275,9 @@ class Play extends Phaser.Scene {
             this.indicator.visible = false;
          }
       }
+
+      // update textbox
+      if (this.textbox.visible) this.textbox.update(time, delta);
 
       // update sun and background tween
       this.updateSunTween();
