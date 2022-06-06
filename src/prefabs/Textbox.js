@@ -14,7 +14,7 @@ class Textbox {
         this._OriginX = 0;
         this._OriginY = 0;
         this._wrapWidth = 400;
-        this._speed = 24; // letter per second
+        this._speed = 32; // letter per second
         this._animation = true; // if true, letter and letter will play
         this._scroll = true; // if true, text will scroll
 
