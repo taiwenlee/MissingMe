@@ -34,14 +34,14 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
       this.textbox.scroll = false;
 
       // interact indicator
-      this.indicator = this.scene.add.image(this.x, this.y - this.height - 10, "object_atlas", "indicator");
+      this.indicator = this.scene.add.image(this.x, this.y - this.height - 5, "object_atlas", "indicator");
       this.indicator.setOrigin(0.5, 1);
       this.indicator.visible = false;
       this.indicator.depth = 6;
 
       this.scene.tweens.add({
          targets: this.indicator,
-         y: this.y - this.height - 20,
+         y: this.y - this.height - 10,
          duration: 500,
          ease: 'Sine.easeInOut',
          yoyo: true,
