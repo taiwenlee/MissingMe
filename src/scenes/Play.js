@@ -36,8 +36,8 @@ class Play extends Phaser.Scene {
       this.sun = this.add.image(game.config.width / 2, game.config.height, 'object_atlas', "sun").setOrigin(0.5, 0.5).setScrollFactor(0).setDepth(-0.6);
 
       // parallax clouds
-      this.clouds1 = this.add.tileSprite(10, 0, game.config.width, 200, 'clouds1').setOrigin(0, 0).setScrollFactor(0).setDepth(-0.5);
-      this.clouds2 = this.add.tileSprite(10, 0, game.config.width, 200, 'clouds2').setOrigin(0, 0).setScrollFactor(0).setDepth(-0.5);
+      this.clouds1 = this.add.tileSprite(0, 0, game.config.width, 200, 'clouds1').setOrigin(0, 0).setScrollFactor(0).setDepth(-0.5);
+      this.clouds2 = this.add.tileSprite(0, 0, game.config.width, 200, 'clouds2').setOrigin(0, 0).setScrollFactor(0).setDepth(-0.5);
 
       // add forest mountain
       this.forest = this.add.tileSprite(0, 55, 1368, 608, 'forest').setOrigin(0, 0).setScrollFactor(0).setDepth(-0.49);
