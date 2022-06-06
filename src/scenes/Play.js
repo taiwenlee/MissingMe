@@ -74,9 +74,6 @@ class Play extends Phaser.Scene {
       // game tint
       this.saturation = this.add.rectangle(0, 0, game.config.width, game.config.height, 0x000000).setOrigin(0, 0).setScrollFactor(0).setDepth(1.5).setAlpha(0.39);
 
-      // temp fps counter
-      this.tempFPS = this.add.text(10, 90, "FPS: " + this.game.loop.actualFps).setScrollFactor(0);
-
       // get json data
       this.data = this.cache.json.get("data");
 
@@ -164,8 +161,6 @@ class Play extends Phaser.Scene {
    }
 
    update(time, delta) {
-      // update fps counter
-      this.tempFPS.setText("FPS: " + this.game.loop.actualFps.toFixed(2));
 
       // update backgrounds
       this.forest.tilePositionX = this.cameras.main.scrollX * 0.5 - 700;

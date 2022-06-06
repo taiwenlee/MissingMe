@@ -21,7 +21,7 @@ class Menu extends Phaser.Scene {
 
       // rising and setting sun
       this.sun = this.add.tileSprite(game.config.width / 2, 630, 128, 128, 'object_atlas', "sun").setOrigin(-2.5, -2.5);
-      this.sun.depth = -1;
+      this.sun.depth = -1.5;
       this.tweens.add({
          targets: this.sun,
          angle: -360,
