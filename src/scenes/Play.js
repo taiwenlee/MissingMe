@@ -161,7 +161,7 @@ class Play extends Phaser.Scene {
    }
 
    update(time, delta) {
-
+      this.end1 = true;
       // update backgrounds
       this.forest.tilePositionX = this.cameras.main.scrollX * 0.5 - 700;
       this.clouds1.tilePositionX = this.cameras.main.scrollX * 0.5 - time * 0.025;
@@ -308,7 +308,7 @@ class Play extends Phaser.Scene {
       // tween water volume down
       this.tweens.add({
          targets: this.water,
-         volume: 0,
+         volume: { from: sfxVol, to: 0 },
          duration: 7375,
       })
 
