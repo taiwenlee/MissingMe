@@ -61,11 +61,10 @@ class Crop extends Phaser.Physics.Arcade.Sprite {
          speed: { min: 60, max: 80 },
          angle: { min: 240, max: 300 },
          scale: { start: 1, end: 0.6 },
-         rotation: { min: 0, max: 360 },
+         rotate: { min: 0, max: 360 },
          blendMode: 'Subtract',
          lifespan: 1000,
          alpha: { start: 1, end: 0.25 },
-
       });
       this.smoke.depth = this.depth + 0.1;
       this.smoke.pause();
