@@ -141,17 +141,18 @@ class Play extends Phaser.Scene {
       this.textbox.wrapWidth = 600;
       this.textbox.animation = true;
 
-      // interact text
-      this.indicator = new Textbox(this, game.config.width / 2, game.config.height / 2 - 20, 'SPACE', {
-         fontFamily: 'VT323',
-         fontSize: '32px',
-         color: '#ffffff',
-         align: 'left'
-      }).setOrigin(0.5);
-      this.indicator.wrapWidth = 600;
-      this.indicator.animation = false;
+      // interact indicator
+      this.indicator = this.add.image(game.config.width / 2, 420, "object_atlas", "indicator").setOrigin(0.5, 1).setDepth(7);
       this.indicator.visible = false;
-      this.indicator.depth = 7;
+
+      this.tweens.add({
+         targets: this.indicator,
+         y: this.indicator.y - 10,
+         duration: 500,
+         ease: 'Sine.easeInOut',
+         yoyo: true,
+         repeat: -1,
+      });
 
       // change screen after delay
       this.time.delayedCall(0, () => {
@@ -250,23 +251,26 @@ class Play extends Phaser.Scene {
 
          if (Phaser.Math.Distance.Between(this.player.x, this.player.y, tomato.x, tomato.y) < 150) {
             // if near tomato show indicator, if space is pressed, start animation
-            this.indicator.x = tomato.x;
-            this.indicator.y = tomato.y - tomato.height - 25;
-            this.indicator.visible = true;
+            if (this.indicator.visible == false || this.indicator.x != tomato.x) {
+               this.indicator.x = tomato.x;
+               this.indicator.visible = true;
+            }
             if (keyTap(keySpace)) this.endingAnimation(tomato);
 
          } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, carrot.x, carrot.y) < 150) {
             // if near carrot show indicator, if space is pressed, start animation
-            this.indicator.x = carrot.x;
-            this.indicator.y = carrot.y - carrot.height - 25;
-            this.indicator.visible = true;
+            if (this.indicator.visible == false || this.indicator.x != carrot.x) {
+               this.indicator.x = carrot.x;
+               this.indicator.visible = true;
+            }
             if (keyTap(keySpace)) this.endingAnimation(carrot);
 
          } else if (Phaser.Math.Distance.Between(this.player.x, this.player.y, watermelon.x, watermelon.y) < 150) {
             // if near watermelon show indicator, if space is pressed, start animation
-            this.indicator.x = watermelon.x;
-            this.indicator.y = watermelon.y - watermelon.height - 25;
-            this.indicator.visible = true;
+            if (this.indicator.visible == false || this.indicator.x != watermelon.x) {
+               this.indicator.x = watermelon.x;
+               this.indicator.visible = true;
+            }
             if (keyTap(keySpace)) this.endingAnimation(watermelon);
 
          } else {
