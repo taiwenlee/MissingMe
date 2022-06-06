@@ -9,8 +9,8 @@ class End extends Phaser.Scene {
       this.yellowBackground.depth = -1;
 
       // parallax clouds
-      this.clouds1 = this.add.tileSprite(0, 0, 912, 608, 'clouds1').setOrigin(0, 0);
-      this.clouds2 = this.add.tileSprite(0, 0, 912, 608, 'clouds2').setOrigin(0, 0);
+      this.clouds1 = this.add.tileSprite(0, 0, 912, 608, 'clouds1').setOrigin(0, 0).setDepth(-0.41);
+      this.clouds2 = this.add.tileSprite(0, 0, 912, 608, 'clouds2').setOrigin(0, 0).setDepth(-0.39);
 
       // temp scene indicator text
       //const tempText = this.add.text(10, 10, "endScene");
@@ -83,7 +83,7 @@ class End extends Phaser.Scene {
          runChildUpdate: true,
       });
       for (let i = 0; i < 3; i++) {
-         this.creatures.add(new Bird(this, Phaser.Math.Between(0, game.config.width), Phaser.Math.Between(30, 300), 'object_atlas', 'bird/bird0').setDepth(-1));
+         this.creatures.add(new Bird(this, Phaser.Math.Between(0, game.config.width), Phaser.Math.Between(30, 300), 'object_atlas', 'bird/bird0').setDepth(-0.4));
       }
 
       // change screen after delay
