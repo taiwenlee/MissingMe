@@ -161,7 +161,6 @@ class Play extends Phaser.Scene {
    }
 
    update(time, delta) {
-      this.end1 = true;
       // update backgrounds
       this.forest.tilePositionX = this.cameras.main.scrollX * 0.5 - 700;
       this.clouds1.tilePositionX = this.cameras.main.scrollX * 0.5 - time * 0.025;
