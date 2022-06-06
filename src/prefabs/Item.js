@@ -10,18 +10,19 @@ class Item extends Phaser.GameObjects.Sprite {
       this.interactable = true;
 
       // interact indicator
-      this.indicator = new Textbox(scene, x, y - this.height * this.scale - 25, "SPACE", {
-         fontFamily: 'VT323',
-         fontSize: '32px',
-         color: '#ffffff',
-         align: 'center',
-      });
+      this.indicator = this.scene.add.image(this.x, this.y - this.height - 10, "object_atlas", "indicator");
       this.indicator.setOrigin(0.5, 1);
-      this.indicator.backgroundColor = '0x000000';
-      this.indicator.borderColor = '0xffffff';
       this.indicator.visible = false;
-      this.indicator.animation = false;
       this.indicator.depth = 6;
+
+      this.scene.tweens.add({
+         targets: this.indicator,
+         y: this.y - this.height - 20,
+         duration: 500,
+         ease: 'Sine.easeInOut',
+         yoyo: true,
+         repeat: -1,
+      });
 
       this.itemSound = scene.sound.add('obtainItem', { volume: sfxVol });
    }

@@ -787,6 +787,27 @@
 					}
 				},
 				{
+					"filename": "indicator",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 36,
+						"h": 38
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 12,
+						"w": 26,
+						"h": 17
+					},
+					"frame": {
+						"x": 957,
+						"y": 437,
+						"w": 26,
+						"h": 17
+					}
+				},
+				{
 					"filename": "bird/bird0",
 					"rotated": false,
 					"trimmed": false,
@@ -802,7 +823,7 @@
 					},
 					"frame": {
 						"x": 957,
-						"y": 437,
+						"y": 836,
 						"w": 16,
 						"h": 10
 					}
@@ -822,31 +843,10 @@
 						"h": 10
 					},
 					"frame": {
-						"x": 957,
-						"y": 836,
-						"w": 16,
-						"h": 10
-					}
-				},
-				{
-					"filename": "worm/worm1",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 20,
-						"h": 5
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 0,
-						"w": 16,
-						"h": 5
-					},
-					"frame": {
 						"x": 975,
 						"y": 836,
 						"w": 16,
-						"h": 5
+						"h": 10
 					}
 				},
 				{
@@ -869,6 +869,27 @@
 						"w": 20,
 						"h": 5
 					}
+				},
+				{
+					"filename": "worm/worm1",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 20,
+						"h": 5
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 0,
+						"w": 16,
+						"h": 5
+					},
+					"frame": {
+						"x": 1236,
+						"y": 962,
+						"w": 16,
+						"h": 5
+					}
 				}
 			]
 		}
@@ -876,6 +897,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:fcede1e31786d64c0c3ed3ecccbfc9d7:527fa470b6cca967f709363043e45f99:358f055dcd7752a1b7d514c352666090$"
+		"smartupdate": "$TexturePacker:SmartUpdate:d2b07a6323839a0578a98a69f0fab973:297214f1d34fa75b98ea69b3129f6e41:358f055dcd7752a1b7d514c352666090$"
 	}
 }
